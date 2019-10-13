@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="i18n\" />
+    <Folder Include="Models\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Translators\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
+    <Folder Include="BuisnessServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\shellXamarin.Module.Common\shellXamarin.Module.Common.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.Forms" Version="7.2.0.1367" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
+    <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />
+  </ItemGroup>
+</Project>

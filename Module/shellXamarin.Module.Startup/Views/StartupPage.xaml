@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="shellXamarin.Module.Startup.Views.StartupPage"
+              xmlns:translate="clr-namespace:shellXamarin.Module.Startup.i18n">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                 <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ActivityIndicator Grid.Row="0" IsRunning="{Binding IsBusy}" BackgroundColor="White" WidthRequest="80" HeightRequest="80" />
+            <Button Grid.Row="1" Text="{translate:Translate BtnNavigateToHome}" Command="{Binding NavigateLoginPage}" Margin="20" BackgroundColor="#da1f26" TextColor="White" VerticalOptions="Center"> </Button>
+        </Grid>
+       </ContentPage.Content>
+</ContentPage>
