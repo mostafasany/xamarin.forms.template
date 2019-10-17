@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Navigation;
+using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.ViewModels;
@@ -98,7 +99,18 @@ namespace shellXamarin.Module.Settings.ViewModels
             {
                 _localService.ChangeLanguage(language);
             }
+        }
 
+        #endregion
+
+
+        #region LogoutCommand
+
+        public DelegateCommand LogoutCommand => new DelegateCommand(Logout);
+
+        private void Logout()
+        {
+            _eventAggregator.GetEvent<UserLogoutEvent>().Publish();
         }
 
         #endregion

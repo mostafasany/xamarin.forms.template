@@ -2,7 +2,7 @@
 
 namespace shellXamarin.Module.Common.Events
 {
-    public class UserLogoutEvent : PubSubEvent<bool>
+    public class UserLogoutEvent : PubSubEvent
     {
     }
 }
