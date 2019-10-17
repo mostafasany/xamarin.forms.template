@@ -6,7 +6,6 @@ namespace shellXamarin.ViewModels
     {
         public AppShellViewModel()
         {
-            Title = "Home";
         }
     }
 }

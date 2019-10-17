@@ -8,8 +8,8 @@ namespace shellXamarin.Module.Account.Views
         public LoginPage()
         {
             InitializeComponent();
-            if (this.BindingContext == null)
-                this.BindingContext = new LoginPageViewModel();
+            //if (this.BindingContext == null)
+            //    this.BindingContext = new LoginPageViewModel();
         }
     }
 }

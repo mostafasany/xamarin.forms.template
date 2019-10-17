@@ -1,15 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-
+﻿using System.Threading.Tasks;
+using Prism.Mvvm;
+using Prism.Navigation;
+using Prism.Services.Dialogs;
+using shellXamarin.Module.Common.Services.ExceptionService;
 
 namespace shellXamarin.Module.Common.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel : BindableBase, INavigationAware, IDestructible
     {
-      
-        bool isBusy = false;
+        public INavigationService NavigationService { get; set; }
+        public IDialogService DialogService { get; set; }
+        public IExceptionService ExceptionService { get; set; }
+
+        bool isBusy;
         public bool IsBusy
         {
             get { return isBusy; }
@@ -23,29 +26,22 @@ namespace shellXamarin.Module.Common.ViewModels
             set { SetProperty(ref title, value); }
         }
 
-        protected bool SetProperty<T>(ref T backingStore, T value,
-            [CallerMemberName]string propertyName = "",
-            Action onChanged = null)
+        public virtual async Task Load()
         {
-            if (EqualityComparer<T>.Default.Equals(backingStore, value))
-                return false;
-
-            backingStore = value;
-            onChanged?.Invoke();
-            OnPropertyChanged(propertyName);
-            return true;
         }
 
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        public virtual void OnNavigatedFrom(INavigationParameters parameters)
         {
-            var changed = PropertyChanged;
-            if (changed == null)
-                return;
 
-            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        #endregion
+
+        public virtual void OnNavigatedTo(INavigationParameters parameters)
+        {
+
+        }
+
+        public virtual void Destroy()
+        {
+        }
     }
 }

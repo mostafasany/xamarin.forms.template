@@ -1,9 +1,12 @@
 ﻿using System;
 using Prism.Ioc;
 using Prism.Modularity;
-using shellXamarin.Account.ViewModels;
+using shellXamarin.Module.Home.ViewModels;
 using shellXamarin.Module.Home.BuinessServices;
 using shellXamarin.Module.Home.Views;
+using System.Globalization;
+using shellXamarin.Module.Common.Services;
+using shellXamarin.Module.Home.Resources;
 
 namespace shellXamarin.Module.Home
 {
@@ -11,8 +14,8 @@ namespace shellXamarin.Module.Home
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            //var localService = containerProvider.Resolve<ILocalService>();
-            //localService.LanguageChanged += LocalService_LanguageChanged;
+            var localService = containerProvider.Resolve<ILocalService>();
+            localService.LanguageChanged += LocalService_LanguageChanged;
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
@@ -21,11 +24,10 @@ namespace shellXamarin.Module.Home
             containerRegistry.RegisterSingleton<IHomeService, HomeService>();
         }
 
-        //private void LocalService_LanguageChanged(object sender, LanguageChangedEventArgs e)
-        //{
-        //    // Handle post initialization tasks like resolving IEventAggregator to subscribe events
-        //    AppResources.Culture = new CultureInfo(e.Langauge);
-        //}
+        private void LocalService_LanguageChanged(object sender, LanguageChangedEventArgs e)
+        {
+            AppResources.Culture = new CultureInfo(e.Langauge);
+        }
 
         public static void LoadModule(IModuleCatalog moduleCatalog, IModuleManager managerManager)
         {

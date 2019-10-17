@@ -7,14 +7,12 @@ namespace shellXamarin.Module.Startup.ViewModels
 {
     public class StartupViewModel : BaseViewModel
     {
-        private readonly INavigationService navigationService;
         private readonly IStartupService startupService;
         public StartupViewModel(INavigationService _navigationService,
             IStartupService _startupService)
         {
-            navigationService = _navigationService;
+            NavigationService = _navigationService;
             startupService = _startupService;
-            Title = "Go To Home Page";
             IsBusy = true;
         }
 
@@ -23,7 +21,7 @@ namespace shellXamarin.Module.Startup.ViewModels
 
         #region RetryCommand
 
-        public DelegateCommand NavigateLoginPage => new DelegateCommand(Navigate);
+        public DelegateCommand NavigateLoginPageCommand => new DelegateCommand(Navigate);
 
         private async void Navigate()
         {

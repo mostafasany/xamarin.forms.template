@@ -6,6 +6,8 @@ using shellXamarin.Module.Account;
 using shellXamarin.Module.Startup;
 using shellXamarin.Module.Startup.BuinessServices;
 using shellXamarin.Module.Home;
+using shellXamarin.Module.Settings;
+using shellXamarin.Module.Common;
 
 namespace shellXamarin
 {
@@ -26,9 +28,10 @@ namespace shellXamarin
             await NavigationService.NavigateAsync("/StartupPage");
         }
 
-        private void StartupService_AppConfigureStarted(object sender, AppConfigureStartedEventArgs e)
+        private async void StartupService_AppConfigureStarted(object sender, AppConfigureStartedEventArgs e)
         {
-             MainPage = new AppShell();
+            await NavigationService.NavigateAsync("/HomePage");
+            //MainPage = new AppShell();
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -38,9 +41,11 @@ namespace shellXamarin
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
             var  moduleManager= Container.Resolve<IModuleManager>();
+            CommonModule.LoadModule(moduleCatalog, moduleManager);
             AccountModule.LoadModule(moduleCatalog, moduleManager);
             StartupModule.LoadModule(moduleCatalog, moduleManager);
             HomeModule.LoadModule(moduleCatalog, moduleManager);
+            SettingsModule.LoadModule(moduleCatalog, moduleManager);
         }
 
         protected override void OnStart()

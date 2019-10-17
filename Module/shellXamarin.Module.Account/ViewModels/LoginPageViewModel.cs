@@ -5,10 +5,9 @@ namespace shellXamarin.Module.Account.ViewModels
 {
     public class LoginPageViewModel : BaseViewModel
     {
-        private readonly INavigationService navigationService;
-        public LoginPageViewModel()
+        public LoginPageViewModel(INavigationService _navigationService)
         {
-            Title = "Login";
+            NavigationService = _navigationService;
         }
     }
 }

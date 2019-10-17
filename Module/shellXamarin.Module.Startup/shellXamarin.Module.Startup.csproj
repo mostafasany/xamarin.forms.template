@@ -7,7 +7,6 @@
   <ItemGroup>
     <Compile Remove="Class1.cs" />
     <Compile Remove="ViewModels\BaseViewModel.cs" />
-    <Compile Remove="Resources\AppResources.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
@@ -33,6 +32,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Resources\AppResources.Designer.cs">
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\AppResources.Designer.cs">
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>

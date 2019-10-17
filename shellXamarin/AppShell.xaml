@@ -6,7 +6,8 @@
        mc:Ignorable="d"
        xmlns:account="clr-namespace:shellXamarin.Module.Account.Views;assembly=shellXamarin.Module.Account"
        xmlns:home="clr-namespace:shellXamarin.Module.Home.Views;assembly=shellXamarin.Module.Home"
-       Title="{Binding Title}" x:Class="shellXamarin.AppShell">
+       xmlns:settings="clr-namespace:shellXamarin.Module.Settings.Views;assembly=shellXamarin.Module.Settings"
+       Title="App-Shell" x:Class="shellXamarin.AppShell">
     <!-- 
         Styles and Resources 
     -->
@@ -32,7 +33,9 @@
         <Tab Title="Home" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate home:HomePage}" />
         </Tab>
-    
+    <Tab Title="Settings" Icon="tab_about.png">
+            <ShellContent ContentTemplate="{DataTemplate settings:SettingsPage}" />
+        </Tab>
           <Tab Title="Login" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate account:LoginPage}" />
         </Tab>

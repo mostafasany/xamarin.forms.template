@@ -47,9 +47,9 @@ namespace shellXamarin.Module.Startup.Resources {
             }
         }
         
-        internal static string BtnNavigateToHome {
+        internal static string startup_action_proceed {
             get {
-                return ResourceManager.GetString("BtnNavigateToHome", resourceCulture);
+                return ResourceManager.GetString("startup.action.proceed", resourceCulture);
             }
         }
     }

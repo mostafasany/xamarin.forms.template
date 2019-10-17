@@ -1,4 +1,4 @@
-﻿using shellXamarin.Account.ViewModels;
+﻿using shellXamarin.Module.Home.ViewModels;
 using Xamarin.Forms;
 
 namespace shellXamarin.Module.Home.Views
@@ -8,8 +8,8 @@ namespace shellXamarin.Module.Home.Views
         public HomePage()
         {
             InitializeComponent();
-            if (this.BindingContext == null)
-                this.BindingContext = new HomePageViewModel();
+            //if (this.BindingContext == null)
+            //    this.BindingContext = new HomePageViewModel();
         }
     }
 }
