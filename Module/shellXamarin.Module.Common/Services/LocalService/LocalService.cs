@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using shellXamarin.Module.Common.Models;
 
 namespace shellXamarin.Module.Common.Services
 {
@@ -43,9 +44,9 @@ namespace shellXamarin.Module.Common.Services
 
         public event LanguageChangedEventHandler LanguageChanged;
 
-        public void ChangeLanguage(string language)
+        public void ChangeLanguage(Language language)
         {
-            _settingsService.Set(LanguageKey, language);
+            _settingsService.Set(LanguageKey, language.Id);
             LanguageChanged?.Invoke(this, new LanguageChangedEventArgs {Langauge = language});
         }
 

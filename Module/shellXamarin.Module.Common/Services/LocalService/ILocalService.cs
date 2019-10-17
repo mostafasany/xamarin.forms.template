@@ -1,8 +1,10 @@
-﻿namespace shellXamarin.Module.Common.Services
+﻿using shellXamarin.Module.Common.Models;
+
+namespace shellXamarin.Module.Common.Services
 {
     public interface ILocalService
     {
-        void ChangeLanguage(string language);
+        void ChangeLanguage(Language language);
         string GetLanguage();
         event LanguageChangedEventHandler LanguageChanged;
         void SetDefaultLocal();

@@ -16,6 +16,7 @@
     <Folder Include="Services\PrefrencesService\" />
     <Folder Include="i18n\" />
     <Folder Include="Resources\" />
+    <Folder Include="Events\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />

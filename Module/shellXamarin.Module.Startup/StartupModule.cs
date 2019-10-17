@@ -12,8 +12,6 @@ namespace shellXamarin.Module.Startup
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            //var localService = containerProvider.Resolve<ILocalService>();
-            //localService.LanguageChanged += LocalService_LanguageChanged;
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
@@ -21,12 +19,6 @@ namespace shellXamarin.Module.Startup
             containerRegistry.RegisterForNavigation<StartupPage,StartupViewModel>();
             containerRegistry.RegisterSingleton<IStartupService, StartupService>();
         }
-
-        //private void LocalService_LanguageChanged(object sender, LanguageChangedEventArgs e)
-        //{
-        //    // Handle post initialization tasks like resolving IEventAggregator to subscribe events
-        //    AppResources.Culture = new CultureInfo(e.Langauge);
-        //}
 
         public static void LoadModule(IModuleCatalog moduleCatalog, IModuleManager managerManager)
         {

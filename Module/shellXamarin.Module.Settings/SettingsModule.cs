@@ -30,7 +30,7 @@ namespace shellXamarin.Module.Settings
 
         private void LocalService_LanguageChanged(object sender, LanguageChangedEventArgs e)
         {
-            AppResources.Culture = new CultureInfo(e.Langauge);
+            AppResources.Culture = new CultureInfo(e.Langauge.Id);
         }
 
         public static void LoadModule(IModuleCatalog moduleCatalog, IModuleManager managerManager)

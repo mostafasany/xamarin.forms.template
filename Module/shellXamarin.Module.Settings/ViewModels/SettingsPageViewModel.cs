@@ -1,8 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Prism.Commands;
+using Prism.Events;
 using Prism.Navigation;
 using shellXamarin.Module.Common.Models;
+using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.ViewModels;
 using shellXamarin.Module.Settings.BuinessServices;
 
@@ -10,10 +13,18 @@ namespace shellXamarin.Module.Settings.ViewModels
 {
     public class SettingsPageViewModel : BaseViewModel
     {
-        private readonly ISettingsService settingsService;
-        public SettingsPageViewModel(ISettingsService _settingsService)
+        private readonly ISettingsService _settingsService;
+        private readonly IEventAggregator _eventAggregator;
+        private readonly ILocalService _localService;
+        public SettingsPageViewModel(ISettingsService settingsService,
+            IEventAggregator eventAggregator,
+            ILocalService localService)
         {
-            settingsService = _settingsService;
+            _settingsService = settingsService;
+            _eventAggregator = eventAggregator;
+            _localService = localService;
+
+            //TODO: Move This to OnLoad Event
             Load();
         }
 
@@ -21,7 +32,7 @@ namespace shellXamarin.Module.Settings.ViewModels
 
         private async Task LoadLanguages()
         {
-            var langs = await settingsService.GetLanguages();
+            var langs = await _settingsService.GetLanguages();
             if (langs != null && langs.Any())
             {
                 languages = new ObservableCollection<Language>(langs);
@@ -71,6 +82,26 @@ namespace shellXamarin.Module.Settings.ViewModels
             get { return selectedLanguage; }
             set { SetProperty(ref selectedLanguage, value); }
         }
+
+        #endregion
+
+
+        #region Commands
+
+        #region LanguageChangedCommand
+
+        public DelegateCommand<Language> LanguageChangedCommand => new DelegateCommand<Language>(LanguageChanged);
+
+        private void LanguageChanged(Language language)
+        {
+            if (language != null)
+            {
+                _localService.ChangeLanguage(language);
+            }
+
+        }
+
+        #endregion
 
         #endregion
     }

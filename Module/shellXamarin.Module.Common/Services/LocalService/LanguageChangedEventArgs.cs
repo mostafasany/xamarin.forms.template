@@ -1,9 +1,10 @@
 ﻿using System;
+using shellXamarin.Module.Common.Models;
 
 namespace shellXamarin.Module.Common.Services
 {
     public class LanguageChangedEventArgs : EventArgs
     {
-        public string Langauge { get; set; }
+        public Language Langauge { get; set; }
     }
 }
