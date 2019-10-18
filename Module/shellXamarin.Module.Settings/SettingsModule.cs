@@ -30,6 +30,17 @@ namespace shellXamarin.Module.Settings
 
         private void LocalService_LanguageChanged(object sender, LanguageChangedEventArgs e)
         {
+            //AppResources.Culture = new CultureInfo(e.Langauge.Id);
+            //var ci = new CultureInfo(e.Langauge.Id);
+            //CultureInfo.DefaultThreadCurrentCulture = ci;
+            //CultureInfo.DefaultThreadCurrentUICulture = ci;
+            //CultureInfo.CurrentCulture = ci;
+            //CultureInfo.CurrentUICulture = ci;
+
+            //var culture = new CultureInfo(e.Langauge.Id);
+            //AppResources.Culture = culture;
+            //CultureInfo.CurrentCulture = culture;
+
             AppResources.Culture = new CultureInfo(e.Langauge.Id);
         }
 

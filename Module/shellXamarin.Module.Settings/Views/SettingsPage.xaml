@@ -1,13 +1,24 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Settings.Views.SettingsPage" xmlns:translate="clr-namespace:shellXamarin.Module.Settings.i18n" Title="{translate:Translate settings.title}">
     <ContentPage.Content>
-        <Grid>
+        <Grid Margin="10,60">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <ListView Grid.Row="0" SelectionMode="Single" ItemSelected="languageLV_SelectedIndexChanged" SeparatorVisibility="None" HasUnevenRows="True" ItemsSource="{Binding Languages}">
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="{Binding UsedLanguage.Name}" BackgroundColor="White" TextColor="#da1f26"></Label>
+                <Image Source="{Binding UsedLanguage.Flag}" WidthRequest="40" HeightRequest="40"></Image>
+            </Grid>
+            <BoxView Grid.Row="1" HeightRequest="2" WidthRequest="300" BackgroundColor="Black"></BoxView>
+            <ListView Grid.Row="2" SelectionMode="Single" ItemSelected="languageLV_SelectedIndexChanged" SeparatorVisibility="None" HasUnevenRows="True" ItemsSource="{Binding Languages}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -23,8 +34,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" WidthRequest="80" HeightRequest="80" />
-            <Button Grid.Row="2" Text="{translate:Translate settings.action.logout}" Command="{Binding LogoutCommand}" Margin="20" BackgroundColor="#da1f26" TextColor="White" VerticalOptions="Center"></Button>
+            <ActivityIndicator Grid.Row="3" IsRunning="{Binding IsBusy}" WidthRequest="80" HeightRequest="80" />
+            <Button Grid.Row="4" Text="{translate:Translate settings.action.logout}" Command="{Binding LogoutCommand}" Margin="20" BackgroundColor="#da1f26" TextColor="White" VerticalOptions="Center"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

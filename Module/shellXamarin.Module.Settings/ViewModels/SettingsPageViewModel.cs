@@ -19,12 +19,12 @@ namespace shellXamarin.Module.Settings.ViewModels
         private readonly ILocalService _localService;
         public SettingsPageViewModel(ISettingsService settingsService,
             IEventAggregator eventAggregator,
-            ILocalService localService)
+            ILocalService localService, INavigationService navigationService)
         {
             _settingsService = settingsService;
             _eventAggregator = eventAggregator;
             _localService = localService;
-
+            NavigationService = navigationService;
             //TODO: Move This to OnLoad Event
             Load();
         }
@@ -37,7 +37,8 @@ namespace shellXamarin.Module.Settings.ViewModels
             if (langs != null && langs.Any())
             {
                 languages = new ObservableCollection<Language>(langs);
-                selectedLanguage = languages.FirstOrDefault();
+                usedLanguage = languages.FirstOrDefault(lang => lang.Id == _localService?.UsedLanague?.Id);
+                languages.Remove(usedLanguage);
             }
 
         }
@@ -49,6 +50,7 @@ namespace shellXamarin.Module.Settings.ViewModels
         public override async Task Load()
         {
             await LoadLanguages();
+
             await base.Load();
         }
 
@@ -77,11 +79,11 @@ namespace shellXamarin.Module.Settings.ViewModels
         }
 
 
-        Language selectedLanguage;
-        public Language SelectedLanguage
+        Language usedLanguage;
+        public Language UsedLanguage
         {
-            get { return selectedLanguage; }
-            set { SetProperty(ref selectedLanguage, value); }
+            get { return usedLanguage; }
+            set { SetProperty(ref usedLanguage, value); }
         }
 
         #endregion
@@ -98,6 +100,7 @@ namespace shellXamarin.Module.Settings.ViewModels
             if (language != null)
             {
                 _localService.ChangeLanguage(language);
+                NavigationService.NavigateAsync("/HomePage");
             }
         }
 
@@ -111,6 +114,7 @@ namespace shellXamarin.Module.Settings.ViewModels
         private void Logout()
         {
             _eventAggregator.GetEvent<UserLogoutEvent>().Publish();
+            NavigationService.NavigateAsync("/HomePage");
         }
 
         #endregion
