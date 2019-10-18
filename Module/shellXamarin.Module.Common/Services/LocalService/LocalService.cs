@@ -33,6 +33,7 @@ namespace shellXamarin.Module.Common.Services
 
         public void ChangeLanguage(Language language)
         {
+            //TODO: Change Language cant happens on the fly, it need page to be refreshed.
             _settingsService.Set(LanguageKey, language.Id);
             SetDefaultLocal();
             LanguageChanged?.Invoke(this, new LanguageChangedEventArgs { Langauge = language });
