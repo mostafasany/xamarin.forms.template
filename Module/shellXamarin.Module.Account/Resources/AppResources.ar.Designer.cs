@@ -52,5 +52,47 @@ namespace shellXamarin.Module.Account.Resources {
                 return ResourceManager.GetString("account.login.title", resourceCulture);
             }
         }
+        
+        internal static string account_action_login {
+            get {
+                return ResourceManager.GetString("account.action.login", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_email_placeholder {
+            get {
+                return ResourceManager.GetString("account.form.email.placeholder", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_email_required {
+            get {
+                return ResourceManager.GetString("account.form.email.required", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_email_invalid {
+            get {
+                return ResourceManager.GetString("account.form.email.invalid", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_password_placeholder {
+            get {
+                return ResourceManager.GetString("account.form.password.placeholder", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_password_required {
+            get {
+                return ResourceManager.GetString("account.form.password.required", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_invalid {
+            get {
+                return ResourceManager.GetString("account.form.invalid", resourceCulture);
+            }
+        }
     }
 }

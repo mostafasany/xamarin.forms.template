@@ -29,6 +29,12 @@ namespace shellXamarin.Module.Account
         private void LocalService_LanguageChanged(object sender, LanguageChangedEventArgs e)
         {
             AppResources.Culture = new CultureInfo(e.Langauge.Id);
+            //AppResources.Culture = new CultureInfo(e.Langauge.Id);
+            //var ci = new CultureInfo(e.Langauge.Id);
+            //CultureInfo.DefaultThreadCurrentCulture = ci;
+            //CultureInfo.DefaultThreadCurrentUICulture = ci;
+            //CultureInfo.CurrentCulture = ci;
+            //CultureInfo.CurrentUICulture = ci;
         }
 
         public static void LoadModule(IModuleCatalog moduleCatalog, IModuleManager managerManager)

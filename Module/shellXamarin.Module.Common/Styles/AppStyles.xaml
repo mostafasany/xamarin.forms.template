@@ -18,6 +18,19 @@
     <!-- ActivityIndicator Styles -->
     <Style x:Key="ActivityIndicatorStyle" TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{DynamicResource SpinnerColor}" />
+        <Setter Property="WidthRequest" Value="80" />
+        <Setter Property="HeightRequest" Value="80" />
+    </Style>
+
+
+    <!-- Entry Styles -->
+    <Style x:Key="FormEntryStyle" TargetType="Entry">
+        <Setter Property="PlaceholderColor" Value="Gray" />
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="HeightRequest" Value="50" />
+        <Setter Property="BackgroundColor" Value="White" />
+        <Setter Property="FlowDirection" Value="RightToLeft" />
+        <Setter Property="HorizontalTextAlignment" Value="End" />
     </Style>
 
 

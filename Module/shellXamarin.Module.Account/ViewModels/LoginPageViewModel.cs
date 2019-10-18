@@ -1,4 +1,5 @@
-﻿using Prism.Navigation;
+﻿using Prism.Commands;
+using Prism.Navigation;
 using shellXamarin.Module.Common.ViewModels;
 
 namespace shellXamarin.Module.Account.ViewModels
@@ -9,5 +10,22 @@ namespace shellXamarin.Module.Account.ViewModels
         {
             NavigationService = _navigationService;
         }
+
+
+
+        #region Commands
+
+        #region LoginCommand
+
+        public DelegateCommand<object> LoginCommand => new DelegateCommand<object>(Login);
+
+        private async void Login(object obj)
+        {
+            await NavigationService.NavigateAsync("/HomePage");
+        }
+
+        #endregion
+
+        #endregion
     }
 }
