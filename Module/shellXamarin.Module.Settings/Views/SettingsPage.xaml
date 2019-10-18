@@ -17,7 +17,7 @@
                 <Label Text="{Binding UsedLanguage.Name}" BackgroundColor="White" TextColor="#da1f26"></Label>
                 <Image Source="{Binding UsedLanguage.Flag}" WidthRequest="40" HeightRequest="40"></Image>
             </Grid>
-            <BoxView Grid.Row="1" HeightRequest="2" WidthRequest="300" BackgroundColor="Black"></BoxView>
+            <BoxView Grid.Row="1" HeightRequest="1" WidthRequest="300" BackgroundColor="Black"></BoxView>
             <ListView Grid.Row="2" SelectionMode="Single" ItemSelected="languageLV_SelectedIndexChanged" SeparatorVisibility="None" HasUnevenRows="True" ItemsSource="{Binding Languages}">
                 <ListView.ItemTemplate>
                     <DataTemplate>

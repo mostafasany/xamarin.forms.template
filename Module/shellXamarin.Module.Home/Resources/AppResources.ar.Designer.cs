@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace shellXamarin.Module.Settings.Resources {
+namespace shellXamarin.Module.Home.Resources {
     using System;
     using System.Reflection;
     
@@ -30,7 +30,7 @@ namespace shellXamarin.Module.Settings.Resources {
         internal static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
-                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("shellXamarin.Module.Settings.Resources.AppResources.ar", typeof(AppResources_ar).Assembly);
+                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("shellXamarin.Module.Home.Resources.AppResources.ar", typeof(AppResources_ar).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -47,21 +47,21 @@ namespace shellXamarin.Module.Settings.Resources {
             }
         }
         
-        internal static string settings_title {
+        internal static string home_title {
             get {
-                return ResourceManager.GetString("settings.title", resourceCulture);
+                return ResourceManager.GetString("home.title", resourceCulture);
             }
         }
         
-        internal static string settings_action_logout {
+        internal static string home_action_navigation_settings {
             get {
-                return ResourceManager.GetString("settings.action.logout", resourceCulture);
+                return ResourceManager.GetString("home.action.navigation.settings", resourceCulture);
             }
         }
         
-        internal static string settings_languages_header {
+        internal static string home_action_navigation_login {
             get {
-                return ResourceManager.GetString("settings.languages.header", resourceCulture);
+                return ResourceManager.GetString("home.action.navigation.login", resourceCulture);
             }
         }
     }

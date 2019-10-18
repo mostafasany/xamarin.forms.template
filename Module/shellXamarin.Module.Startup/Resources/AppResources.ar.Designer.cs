@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace shellXamarin.Module.Settings.Resources {
+namespace shellXamarin.Module.Startup.Resources {
     using System;
     using System.Reflection;
     
@@ -30,7 +30,7 @@ namespace shellXamarin.Module.Settings.Resources {
         internal static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
-                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("shellXamarin.Module.Settings.Resources.AppResources.ar", typeof(AppResources_ar).Assembly);
+                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("shellXamarin.Module.Startup.Resources.AppResources.ar", typeof(AppResources_ar).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -47,21 +47,9 @@ namespace shellXamarin.Module.Settings.Resources {
             }
         }
         
-        internal static string settings_title {
+        internal static string startup_action_proceed {
             get {
-                return ResourceManager.GetString("settings.title", resourceCulture);
-            }
-        }
-        
-        internal static string settings_action_logout {
-            get {
-                return ResourceManager.GetString("settings.action.logout", resourceCulture);
-            }
-        }
-        
-        internal static string settings_languages_header {
-            get {
-                return ResourceManager.GetString("settings.languages.header", resourceCulture);
+                return ResourceManager.GetString("startup.action.proceed", resourceCulture);
             }
         }
     }
