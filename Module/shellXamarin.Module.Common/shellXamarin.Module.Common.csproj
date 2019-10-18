@@ -53,6 +53,9 @@
     <Compile Update="Themes\MainTheme.xaml.cs">
       <DependentUpon>MainTheme.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Styles\AppStyles.xaml.cs">
+      <DependentUpon>AppStyles.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Remove="Themes\AppMainTheme.xaml" />

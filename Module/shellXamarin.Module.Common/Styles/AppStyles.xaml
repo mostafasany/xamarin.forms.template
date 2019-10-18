@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:theme="clr-namespace:shellXamarin.Module.Common.Themes;assembly=shellXamarin.Module.Common" MergedWith="theme:MainTheme" x:Class="shellXamarin.Module.Common.Styles.AppStyles">
+
+    <!-- Root Layout Styles -->
+    <Style x:Key="RootLayoutStyle" TargetType="Grid">
+        <Setter Property="Padding" Value="15,60,15,15" />
+    </Style>
+
+    <!-- Seperator Styles -->
+    <Style x:Key="SeparatorStyle" TargetType="BoxView">
+        <Setter Property="HeightRequest" Value="1" />
+        <Setter Property="WidthRequest" Value="400" />
+        <Setter Property="BackgroundColor" Value="Black" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+    </Style>
+
+    <!-- ActivityIndicator Styles -->
+    <Style x:Key="ActivityIndicatorStyle" TargetType="ActivityIndicator">
+        <Setter Property="Color" Value="{DynamicResource SpinnerColor}" />
+    </Style>
+
+
+    <!-- BUTTONS Styles -->
+    <Style x:Key="BaseButtonStyle" TargetType="Button">
+        <Setter Property="VerticalOptions" Value="Center"></Setter>
+        <Setter Property="HeightRequest" Value="{StaticResource BaseButtonHeight}" />
+        <Setter Property="FontSize" Value="{DynamicResource BaseFontSize}" />
+    </Style>
+    <Style x:Key="RoundedButtonStyle" TargetType="Button">
+        <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryButtonColor}" />
+        <Setter Property="BorderRadius" Value="{DynamicResource BaseButtonBorderRadius}" />
+    </Style>
+    <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+        <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryButtonColor}" />
+    </Style>
+    <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryButtonColor}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource BaseTextColor}" />
+        <Setter Property="BorderColor" Value="{DynamicResource PrimaryButtonColor}" />
+        <Setter Property="BorderWidth" Value="1" />
+    </Style>
+    <Style x:Key="ImageButtonStyle" TargetType="ImageButton">
+        <Setter Property="VerticalOptions" Value="Center"></Setter>
+        <Setter Property="HeightRequest" Value="{StaticResource BaseButtonHeight}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryButtonColor}" />
+    </Style>
+
+</ResourceDictionary>
