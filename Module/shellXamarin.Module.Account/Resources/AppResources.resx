@@ -18,6 +18,9 @@
     <data name="account.action.login" xml:space="preserve">
         <value>Login</value>
     </data>
+    <data name="account.action.back" xml:space="preserve">
+        <value>Back</value>
+    </data>
     <data name="account.form.email.placeholder" xml:space="preserve">
         <value>Email</value>
     </data>
@@ -39,7 +42,7 @@
     <data name="account.cancel" xml:space="preserve">
         <value>Cancel</value>
     </data>
-      <data name="account.ok" xml:space="preserve">
+    <data name="account.ok" xml:space="preserve">
         <value>ok</value>
     </data>
 </root>

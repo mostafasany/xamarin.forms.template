@@ -27,6 +27,26 @@ namespace shellXamarin.Module.Settings.ViewModels
             Load();
         }
 
+        #region Properties
+
+
+        ObservableCollection<Language> languages;
+        public ObservableCollection<Language> Languages
+        {
+            get { return languages; }
+            set { SetProperty(ref languages, value); }
+        }
+
+
+        Language usedLanguage;
+        public Language UsedLanguage
+        {
+            get { return usedLanguage; }
+            set { SetProperty(ref usedLanguage, value); }
+        }
+
+        #endregion
+
         #region Methods
 
         private async Task LoadLanguages()
@@ -66,25 +86,7 @@ namespace shellXamarin.Module.Settings.ViewModels
 
         #endregion
 
-        #region Properties
 
-
-        ObservableCollection<Language> languages;
-        public ObservableCollection<Language> Languages
-        {
-            get { return languages; }
-            set { SetProperty(ref languages, value); }
-        }
-
-
-        Language usedLanguage;
-        public Language UsedLanguage
-        {
-            get { return usedLanguage; }
-            set { SetProperty(ref usedLanguage, value); }
-        }
-
-        #endregion
 
 
         #region Commands

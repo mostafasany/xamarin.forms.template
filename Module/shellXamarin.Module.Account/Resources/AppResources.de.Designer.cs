@@ -59,6 +59,12 @@ namespace shellXamarin.Module.Account.Resources {
             }
         }
         
+        internal static string account_action_back {
+            get {
+                return ResourceManager.GetString("account.action.back", resourceCulture);
+            }
+        }
+        
         internal static string account_form_email_placeholder {
             get {
                 return ResourceManager.GetString("account.form.email.placeholder", resourceCulture);

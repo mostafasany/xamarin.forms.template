@@ -19,6 +19,8 @@
     <Folder Include="Events\" />
     <Folder Include="Themes\" />
     <Folder Include="Styles\" />
+    <Folder Include="FormBuilder\" />
+    <Folder Include="FormBuilder\Models\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />

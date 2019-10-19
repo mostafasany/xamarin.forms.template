@@ -18,6 +18,9 @@
     <data name="account.action.login" xml:space="preserve">
          <value>تسجيل الدخول</value>
     </data>
+    <data name="account.action.back" xml:space="preserve">
+        <value>عودة</value>
+    </data>
     <data name="account.form.email.placeholder" xml:space="preserve">
         <value>البريد الإلكتروني</value>
     </data>
@@ -25,7 +28,7 @@
         <value>البريد الإلكتروني  مطلوب</value>
     </data>
     <data name="account.form.email.invalid" xml:space="preserve">
-        <value>البريد الإلكتروني  مطلوب</value>
+        <value>البريد الإلكتروني غير صالح</value>
     </data>
     <data name="account.form.password.placeholder" xml:space="preserve">
         <value>كلمه السر</value>
@@ -39,7 +42,7 @@
     <data name="account.cancel" xml:space="preserve">
         <value>إلغاء</value>
     </data>
-      <data name="account.ok" xml:space="preserve">
+    <data name="account.ok" xml:space="preserve">
         <value>حسنا</value>
     </data>
 </root>

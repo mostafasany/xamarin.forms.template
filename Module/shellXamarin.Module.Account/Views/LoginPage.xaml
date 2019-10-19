@@ -14,16 +14,18 @@
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
 
             <StackLayout Orientation="Vertical" Grid.Row="0">
-                <Entry Keyboard="Email" Style="{StaticResource FormEntryStyle}" IsTextPredictionEnabled="true" HorizontalTextAlignment="Start" ReturnType="Next" Placeholder="{translate:Translate account.form.email.placeholder}" Text="{Binding Email,Mode=TwoWay}"></Entry>
+                <Entry Keyboard="{Binding Email.Keyboard}" Style="{StaticResource FormEntryStyle}" ReturnType="{Binding Email.ReturnType}" Placeholder="{Binding Email.Placeholder}" Text="{Binding Email.Text,Mode=TwoWay}"></Entry>
 
-                <Entry IsPassword="True" Style="{StaticResource FormEntryStyle}" ReturnType="Default" Placeholder="{translate:Translate account.form.password.placeholder}" Text="{Binding Password,Mode=TwoWay}"></Entry>
+                <Entry IsPassword="{Binding Password.IsPassword}" Style="{StaticResource FormEntryStyle}" ReturnType="{Binding Email.ReturnType}" Placeholder="{Binding Password.Placeholder}" Text="{Binding Password.Text,Mode=TwoWay}"></Entry>
             </StackLayout>
             <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
 
             <Button Grid.Row="2" Text="{translate:Translate account.action.login}" Command="{Binding LoginCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
+            <Button Grid.Row="3" Text="{translate:Translate account.action.back}" Command="{Binding BackCommand}" Style="{StaticResource SecondaryButtonStyle}"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

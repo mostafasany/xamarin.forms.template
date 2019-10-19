@@ -42,9 +42,9 @@ namespace shellXamarin
         {
             var  moduleManager= Container.Resolve<IModuleManager>();
             CommonModule.LoadModule(moduleCatalog, moduleManager);
-            AccountModule.LoadModule(moduleCatalog, moduleManager);
             StartupModule.LoadModule(moduleCatalog, moduleManager);
             HomeModule.LoadModule(moduleCatalog, moduleManager);
+            AccountModule.LoadModule(moduleCatalog, moduleManager);
             SettingsModule.LoadModule(moduleCatalog, moduleManager);
         }
 
