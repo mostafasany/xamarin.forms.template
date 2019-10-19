@@ -1,6 +1,6 @@
 ﻿namespace shellXamarin.Module.Common.Models
 {
-    public class Language:BaseModel
+    public class Language : BaseModel
     {
         string id;
         public string Id
@@ -21,6 +21,14 @@
         {
             get { return name; }
             set { SetProperty(ref name, value); }
+        }
+
+
+        bool rtl;
+        public bool RTL
+        {
+            get { return rtl; }
+            set { SetProperty(ref rtl, value); }
         }
 
         public override string ToString()

@@ -29,8 +29,7 @@
         <Setter Property="TextColor" Value="Black" />
         <Setter Property="HeightRequest" Value="50" />
         <Setter Property="BackgroundColor" Value="White" />
-        <Setter Property="FlowDirection" Value="RightToLeft" />
-        <Setter Property="HorizontalTextAlignment" Value="End" />
+        <!--<Setter Property="FlowDirection" Value="RightToLeft" />-->
     </Style>
 
 

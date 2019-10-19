@@ -7,8 +7,8 @@ namespace shellXamarin
         public AppShell()
         {
             InitializeComponent();
-            if(this.BindingContext==null)
-               this.BindingContext = new AppShellViewModel();
+            //if(this.BindingContext==null)
+            //   this.BindingContext = new AppShellViewModel();
         }
     }
 }

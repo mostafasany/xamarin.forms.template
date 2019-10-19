@@ -1,10 +1,12 @@
-﻿using shellXamarin.Module.Common.ViewModels;
+﻿using shellXamarin.Module.Common.Services;
+using shellXamarin.Module.Common.ViewModels;
 
 namespace shellXamarin.ViewModels
 {
     public class AppShellViewModel : BaseViewModel
     {
-        public AppShellViewModel()
+        public AppShellViewModel(ILocalService localService)
+            : base(localService)
         {
         }
     }

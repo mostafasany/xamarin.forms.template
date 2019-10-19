@@ -24,7 +24,7 @@ namespace shellXamarin.Module.Common.Services
                 _settingsService.Set(LanguageKey, lang);
             }
             AppResources.Culture = CrossMultilingual.Current.CultureInfoList.FirstOrDefault((arg) => arg.Name == lang);
-            UsedLanague = new Language { Id = AppResources.Culture.Name };
+            UsedLanague = new Language { Id = AppResources.Culture.Name, RTL = AppResources.Culture.TextInfo.IsRightToLeft, Name = AppResources.Culture.DisplayName };
             CrossMultilingual.Current.CurrentCultureInfo = AppResources.Culture;
 
         }

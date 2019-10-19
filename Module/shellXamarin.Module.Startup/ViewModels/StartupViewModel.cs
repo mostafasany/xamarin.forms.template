@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Navigation;
+using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.ViewModels;
 using shellXamarin.Module.Startup.BuinessServices;
 
@@ -9,7 +10,8 @@ namespace shellXamarin.Module.Startup.ViewModels
     {
         private readonly IStartupService startupService;
         public StartupViewModel(INavigationService _navigationService,
-            IStartupService _startupService)
+            IStartupService _startupService, ILocalService localService)
+            : base(localService)
         {
             NavigationService = _navigationService;
             startupService = _startupService;

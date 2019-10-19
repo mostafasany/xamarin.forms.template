@@ -36,4 +36,10 @@
     <data name="account.form.invalid" xml:space="preserve">
         <value>Email / Passwort ungültig</value>
     </data>
+    <data name="account.cancel" xml:space="preserve">
+        <value>stornieren</value>
+    </data>
+     <data name="account.ok" xml:space="preserve">
+        <value>okay</value>
+    </data>
 </root>

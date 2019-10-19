@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Account.Views.LoginPage" xmlns:translate="clr-namespace:shellXamarin.Module.Account.i18n" Title="{translate:Translate account.login.title}" xmlns:theme="clr-namespace:shellXamarin.Module.Common.Themes;assembly=shellXamarin.Module.Common" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common" FlowDirection="RightToLeft">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Account.Views.LoginPage" xmlns:translate="clr-namespace:shellXamarin.Module.Account.i18n" Title="{translate:Translate account.login.title}" xmlns:theme="clr-namespace:shellXamarin.Module.Common.Themes;assembly=shellXamarin.Module.Common" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common">
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -16,8 +16,8 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <StackLayout Orientation="Vertical" Grid.Row="0" FlowDirection="RightToLeft">
-                <Entry Keyboard="Email" Style="{StaticResource FormEntryStyle}" ReturnType="Next" Placeholder="{translate:Translate account.form.email.placeholder}" Text="{Binding Email,Mode=TwoWay}"></Entry>
+            <StackLayout Orientation="Vertical" Grid.Row="0">
+                <Entry Keyboard="Email" Style="{StaticResource FormEntryStyle}" IsTextPredictionEnabled="true" HorizontalTextAlignment="Start" ReturnType="Next" Placeholder="{translate:Translate account.form.email.placeholder}" Text="{Binding Email,Mode=TwoWay}"></Entry>
 
                 <Entry IsPassword="True" Style="{StaticResource FormEntryStyle}" ReturnType="Default" Placeholder="{translate:Translate account.form.password.placeholder}" Text="{Binding Password,Mode=TwoWay}"></Entry>
             </StackLayout>

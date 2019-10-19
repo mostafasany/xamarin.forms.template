@@ -94,5 +94,17 @@ namespace shellXamarin.Module.Account.Resources {
                 return ResourceManager.GetString("account.form.invalid", resourceCulture);
             }
         }
+        
+        internal static string account_cancel {
+            get {
+                return ResourceManager.GetString("account.cancel", resourceCulture);
+            }
+        }
+        
+        internal static string account_ok {
+            get {
+                return ResourceManager.GetString("account.ok", resourceCulture);
+            }
+        }
     }
 }

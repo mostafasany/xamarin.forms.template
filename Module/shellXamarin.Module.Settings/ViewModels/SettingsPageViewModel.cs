@@ -16,14 +16,12 @@ namespace shellXamarin.Module.Settings.ViewModels
     {
         private readonly ISettingsService _settingsService;
         private readonly IEventAggregator _eventAggregator;
-        private readonly ILocalService _localService;
         public SettingsPageViewModel(ISettingsService settingsService,
             IEventAggregator eventAggregator,
-            ILocalService localService, INavigationService navigationService)
+            ILocalService localService, INavigationService navigationService) : base(localService)
         {
             _settingsService = settingsService;
             _eventAggregator = eventAggregator;
-            _localService = localService;
             NavigationService = navigationService;
             //TODO: Move This to OnLoad Event
             Load();
@@ -37,7 +35,7 @@ namespace shellXamarin.Module.Settings.ViewModels
             if (langs != null && langs.Any())
             {
                 languages = new ObservableCollection<Language>(langs);
-                usedLanguage = languages.FirstOrDefault(lang => lang.Id == _localService?.UsedLanague?.Id);
+                usedLanguage = languages.FirstOrDefault(lang => lang.Id == LocalService?.UsedLanague?.Id);
                 languages.Remove(usedLanguage);
             }
 
@@ -99,7 +97,7 @@ namespace shellXamarin.Module.Settings.ViewModels
         {
             if (language != null)
             {
-                _localService.ChangeLanguage(language);
+                LocalService.ChangeLanguage(language);
                 NavigationService.NavigateAsync("/HomePage");
             }
         }
