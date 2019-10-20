@@ -1,6 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Settings.Views.SettingsPage" xmlns:translate="clr-namespace:shellXamarin.Module.Settings.i18n" Title="{translate:Translate settings.title}" xmlns:theme="clr-namespace:shellXamarin.Module.Common.Themes;assembly=shellXamarin.Module.Common" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Settings.Views.SettingsPage" xmlns:translate="clr-namespace:shellXamarin.Module.Settings.i18n" Title="{translate:Translate settings.title}" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common">
     <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <styles:AppStyles></styles:AppStyles>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
         <DataTemplate x:Key="languageItemTemplate">
             <ViewCell>
                 <Grid Grid.Row="0">
@@ -13,12 +18,6 @@
                 </Grid>
             </ViewCell>
         </DataTemplate>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <theme:MainTheme></theme:MainTheme>
-                <styles:AppStyles></styles:AppStyles>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
     </ContentPage.Resources>
 
     <ContentPage.Content>
@@ -39,7 +38,7 @@
                     <Image Source="{Binding UsedLanguage.Flag}" HorizontalOptions="End" WidthRequest="40" HeightRequest="40"></Image>
                 </Grid>
                 <BoxView Style="{StaticResource SeparatorStyle}" Margin="0,10"></BoxView>
-                <ListView SelectionMode="Single" ItemSelected="languageLV_SelectedIndexChanged" SeparatorVisibility="None" HasUnevenRows="True" ItemsSource="{Binding Languages}" ItemTemplate="{StaticResource languageItemTemplate}" />
+                <ListView SelectionMode="Single" Style="{StaticResource ListStyle}" ItemSelected="languageLV_SelectedIndexChanged" SeparatorVisibility="None" HasUnevenRows="True" ItemsSource="{Binding Languages}" ItemTemplate="{StaticResource languageItemTemplate}" />
             </StackLayout>
 
             <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />

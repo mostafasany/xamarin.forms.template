@@ -5,6 +5,8 @@ using Prism.Modularity;
 using shellXamarin.Module.Common.Resources;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Services.ExceptionService;
+using shellXamarin.Module.Common.Styles;
+using Xamarin.Forms;
 
 namespace shellXamarin.Module.Common
 {
@@ -26,6 +28,7 @@ namespace shellXamarin.Module.Common
 
         private void LocalService_LanguageChanged(object sender, LanguageChangedEventArgs e)
         {
+           // var c=Application.Current.Resources.MergedWith;
             AppResources.Culture = new CultureInfo(e.Langauge.Id);
         }
 

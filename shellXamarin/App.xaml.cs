@@ -8,6 +8,10 @@ using shellXamarin.Module.Startup.BuinessServices;
 using shellXamarin.Module.Home;
 using shellXamarin.Module.Settings;
 using shellXamarin.Module.Common;
+using shellXamarin.Module.Common.Services;
+using Xamarin.Forms;
+using shellXamarin.Module.Common.Styles;
+using shellXamarin.Module.Common.Themes;
 
 namespace shellXamarin
 {
@@ -25,10 +29,23 @@ namespace shellXamarin
 
         protected override async void OnInitialized()
         {
+            var localService = Container.Resolve<ILocalService>();
+            localService.LanguageChanged += LanguageService_LanguageChanged;
+
             var startupService = Container.Resolve<IStartupService>();
             startupService.AppConfigureStarted += StartupService_AppConfigureStarted;
             await NavigationService.NavigateAsync("/StartupPage");
         }
+
+        private void LanguageService_LanguageChanged(object sender, LanguageChangedEventArgs e)
+        {
+            //var appStyles = new AppStyles();
+            //appStyles.ApplyTheme();
+
+           // Application.Current.Resources.MergedDictionaries.Clear();
+            //Application.Current.Resources.MergedDictionaries.Add(appStyles);
+        }
+
 
         //TODO: We might not need this event if Prism Navigation Service Support AppShell
         private async void StartupService_AppConfigureStarted(object sender, AppConfigureStartedEventArgs e)

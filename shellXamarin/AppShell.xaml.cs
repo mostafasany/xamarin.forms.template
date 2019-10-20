@@ -23,12 +23,16 @@ namespace shellXamarin
 
             var homePage = new HomePage();
             homePage.BindingContext = new HomePageViewModel(navigationService, localService);
-            home.ContentTemplate = new DataTemplate(() => { return homePage; });
+            //home.ContentTemplate = new DataTemplate(() => { return homePage; });
 
 
             var settingsPage = new SettingsPage();
             settingsPage.BindingContext = new SettingsPageViewModel(settingsService, eventAggregator, localService, navigationService);
-            settings.ContentTemplate = new DataTemplate(() => { return settingsPage; });
+            // settings.ContentTemplate = new DataTemplate(() => { return settingsPage; });
+
+            tabBar.Items.Add(new ShellContent { Title = "Home", Icon = "tab_feed.png", ContentTemplate = new DataTemplate(() => { return homePage; }) });
+            tabBar.Items.Add(new ShellContent { Title = "Settings", Icon = "tab_about.png", ContentTemplate = new DataTemplate(() => { return settingsPage; }) });
+
 
             if (this.BindingContext == null)
                 this.BindingContext = new AppShellViewModel(localService);

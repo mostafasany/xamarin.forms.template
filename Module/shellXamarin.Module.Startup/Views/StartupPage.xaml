@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Startup.Views.StartupPage" xmlns:translate="clr-namespace:shellXamarin.Module.Startup.i18n" xmlns:theme="clr-namespace:shellXamarin.Module.Common.Themes;assembly=shellXamarin.Module.Common" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Startup.Views.StartupPage" xmlns:translate="clr-namespace:shellXamarin.Module.Startup.i18n" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common">
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <theme:MainTheme></theme:MainTheme>
                 <styles:AppStyles></styles:AppStyles>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

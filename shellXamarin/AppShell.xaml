@@ -21,13 +21,13 @@
         </ResourceDictionary>
     </Shell.Resources>
     <!-- Your Pages -->
-    <TabBar>
-        <Tab Title="Home" Icon="tab_feed.png">
+    <TabBar x:Name="tabBar">
+        <!--<Tab Title="Home" Icon="tab_feed.png">
             <ShellContent Route="home"  x:Name="home" />
         </Tab>
         <Tab Title="Settings" Icon="tab_about.png">
             <ShellContent Route="settings" x:Name="settings" />
-        </Tab>
+        </Tab>-->
     </TabBar>
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.

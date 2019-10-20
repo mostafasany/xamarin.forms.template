@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:theme="clr-namespace:shellXamarin.Module.Common.Themes;assembly=shellXamarin.Module.Common" MergedWith="theme:MainTheme" x:Class="shellXamarin.Module.Common.Styles.AppStyles">
+<ResourceDictionary MergedWith="theme:DarkTheme" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:theme="clr-namespace:shellXamarin.Module.Common.Themes;assembly=shellXamarin.Module.Common" x:Class="shellXamarin.Module.Common.Styles.AppStyles">
 
     <!-- Root Layout Styles -->
     <Style x:Key="RootLayoutStyle" TargetType="Grid">
         <Setter Property="Padding" Value="15,60,15,15" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
     </Style>
 
     <!-- Seperator Styles -->
     <Style x:Key="SeparatorStyle" TargetType="BoxView">
         <Setter Property="HeightRequest" Value="1" />
         <Setter Property="WidthRequest" Value="400" />
-        <Setter Property="BackgroundColor" Value="Black" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource SeparatorColor}" />
         <Setter Property="HorizontalOptions" Value="Center" />
     </Style>
 
@@ -29,7 +30,12 @@
         <Setter Property="TextColor" Value="Black" />
         <Setter Property="HeightRequest" Value="50" />
         <Setter Property="BackgroundColor" Value="White" />
-        <!--<Setter Property="FlowDirection" Value="RightToLeft" />-->
+    </Style>
+
+
+    <!-- Entry Styles -->
+    <Style x:Key="ListStyle" TargetType="ListView">
+        <Setter Property="BackgroundColor" Value="{DynamicResource ListBackgroundColor}" />
     </Style>
 
 
@@ -43,10 +49,14 @@
         <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
         <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryButtonColor}" />
         <Setter Property="BorderRadius" Value="{DynamicResource BaseButtonBorderRadius}" />
+        <Setter Property="BorderColor" Value="{DynamicResource SecondaryButtonColor}" />
+        <Setter Property="BorderWidth" Value="1" />
     </Style>
     <Style x:Key="PrimaryButtonStyle" TargetType="Button">
         <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
         <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryButtonColor}" />
+        <Setter Property="BorderColor" Value="{DynamicResource SecondaryButtonColor}" />
+        <Setter Property="BorderWidth" Value="1" />
     </Style>
     <Style x:Key="SecondaryButtonStyle" TargetType="Button">
         <Setter Property="TextColor" Value="{DynamicResource PrimaryButtonColor}" />
