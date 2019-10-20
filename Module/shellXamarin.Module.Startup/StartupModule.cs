@@ -16,11 +16,11 @@ namespace shellXamarin.Module.Startup
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<StartupPage,StartupViewModel>();
+            containerRegistry.RegisterForNavigation<StartupPage, StartupViewModel>();
             containerRegistry.RegisterSingleton<IStartupService, StartupService>();
         }
 
-        public static void LoadModule(IModuleCatalog moduleCatalog, IModuleManager managerManager)
+        public static void AddModule(IModuleCatalog moduleCatalog, IModuleManager moduleManager, bool loadModule)
         {
             Type sampleModuleType = typeof(StartupModule);
             moduleCatalog.AddModule(
@@ -29,7 +29,8 @@ namespace shellXamarin.Module.Startup
                     InitializationMode = InitializationMode.OnDemand
                 });
 
-            managerManager.LoadModule("StartupModule");
+            if (loadModule)
+                moduleManager.LoadModule(nameof(StartupModule));
         }
     }
 }

@@ -1,8 +1,5 @@
-﻿using System;
-using Prism.Commands;
-using Prism.Events;
+﻿using Prism.Commands;
 using Prism.Navigation;
-using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.ViewModels;
 
@@ -12,7 +9,7 @@ namespace shellXamarin.Module.Home.ViewModels
     {
         //UserLogoutEvent _userLogoutEvent;
         //SubscriptionToken _token;
-        public HomePageViewModel(INavigationService _navigationService, IEventAggregator eventAggregator, ILocalService localService)
+        public HomePageViewModel(INavigationService _navigationService, ILocalService localService)
             : base(localService)
         {
             NavigationService = _navigationService;

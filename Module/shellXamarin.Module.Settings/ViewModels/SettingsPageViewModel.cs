@@ -9,6 +9,7 @@ using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.ViewModels;
 using shellXamarin.Module.Settings.BuinessServices;
+using Xamarin.Forms;
 
 namespace shellXamarin.Module.Settings.ViewModels
 {
@@ -17,8 +18,8 @@ namespace shellXamarin.Module.Settings.ViewModels
         private readonly ISettingsService _settingsService;
         private readonly IEventAggregator _eventAggregator;
         public SettingsPageViewModel(ISettingsService settingsService,
-            IEventAggregator eventAggregator,
-            ILocalService localService, INavigationService navigationService) : base(localService)
+            IEventAggregator eventAggregator, ILocalService localService, INavigationService navigationService)
+            : base(localService)
         {
             _settingsService = settingsService;
             _eventAggregator = eventAggregator;
@@ -100,6 +101,8 @@ namespace shellXamarin.Module.Settings.ViewModels
             if (language != null)
             {
                 LocalService.ChangeLanguage(language);
+                //Shell.Current.GoToAsync("home");
+
                 NavigationService.NavigateAsync("/HomePage");
             }
         }

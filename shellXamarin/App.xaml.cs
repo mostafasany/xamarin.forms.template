@@ -13,6 +13,8 @@ namespace shellXamarin
 {
     public partial class App : PrismApplication
     {
+        IModuleManager _moduleManager;
+        IModuleCatalog _moduleCatalog;
         public App() : this(null)
         {
         }
@@ -28,10 +30,15 @@ namespace shellXamarin
             await NavigationService.NavigateAsync("/StartupPage");
         }
 
+        //TODO: We might not need this event if Prism Navigation Service Support AppShell
         private async void StartupService_AppConfigureStarted(object sender, AppConfigureStartedEventArgs e)
         {
+            HomeModule.AddModule(_moduleCatalog, _moduleManager, true);
+            AccountModule.AddModule(_moduleCatalog, _moduleManager, true);
+            SettingsModule.AddModule(_moduleCatalog, _moduleManager, true);
+
             await NavigationService.NavigateAsync("/HomePage");
-            //MainPage = new AppShell();
+            //MainPage = new AppShell(Container, NavigationService);
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -40,12 +47,10 @@ namespace shellXamarin
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
-            var  moduleManager= Container.Resolve<IModuleManager>();
-            CommonModule.LoadModule(moduleCatalog, moduleManager);
-            StartupModule.LoadModule(moduleCatalog, moduleManager);
-            HomeModule.LoadModule(moduleCatalog, moduleManager);
-            AccountModule.LoadModule(moduleCatalog, moduleManager);
-            SettingsModule.LoadModule(moduleCatalog, moduleManager);
+            _moduleCatalog = moduleCatalog;
+            _moduleManager = Container.Resolve<IModuleManager>();
+            CommonModule.AddModule(moduleCatalog, _moduleManager, true);
+            StartupModule.AddModule(moduleCatalog, _moduleManager, true);
         }
 
         protected override void OnStart()

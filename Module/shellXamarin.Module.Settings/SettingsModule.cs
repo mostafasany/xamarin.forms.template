@@ -44,7 +44,7 @@ namespace shellXamarin.Module.Settings
             AppResources.Culture = new CultureInfo(e.Langauge.Id);
         }
 
-        public static void LoadModule(IModuleCatalog moduleCatalog, IModuleManager managerManager)
+        public static void AddModule(IModuleCatalog moduleCatalog, IModuleManager moduleManager, bool loadModule)
         {
             Type sampleModuleType = typeof(SettingsModule);
             moduleCatalog.AddModule(
@@ -53,7 +53,8 @@ namespace shellXamarin.Module.Settings
                     InitializationMode = InitializationMode.OnDemand
                 });
 
-            managerManager.LoadModule("SettingsModule");
+            if (loadModule)
+                moduleManager.LoadModule(nameof(SettingsModule));
         }
     }
 }

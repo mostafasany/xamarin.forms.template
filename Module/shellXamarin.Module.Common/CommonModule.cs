@@ -29,7 +29,7 @@ namespace shellXamarin.Module.Common
             AppResources.Culture = new CultureInfo(e.Langauge.Id);
         }
 
-        public static void LoadModule(IModuleCatalog moduleCatalog, IModuleManager managerManager)
+        public static void AddModule(IModuleCatalog moduleCatalog, IModuleManager moduleManager, bool loadModule)
         {
             Type sampleModuleType = typeof(CommonModule);
             moduleCatalog.AddModule(
@@ -38,7 +38,8 @@ namespace shellXamarin.Module.Common
                     InitializationMode = InitializationMode.OnDemand
                 });
 
-            managerManager.LoadModule("CommonModule");
+            if (loadModule)
+                moduleManager.LoadModule(nameof(CommonModule));
         }
     }
 }

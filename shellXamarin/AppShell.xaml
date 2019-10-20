@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Shell xmlns="http://xamarin.com/schemas/2014/forms"
-       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-       mc:Ignorable="d"
-       xmlns:account="clr-namespace:shellXamarin.Module.Account.Views;assembly=shellXamarin.Module.Account"
-       xmlns:home="clr-namespace:shellXamarin.Module.Home.Views;assembly=shellXamarin.Module.Home"
-       xmlns:settings="clr-namespace:shellXamarin.Module.Settings.Views;assembly=shellXamarin.Module.Settings"
-       Title="App-Shell" x:Class="shellXamarin.AppShell">
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" xmlns:account="clr-namespace:shellXamarin.Module.Account.Views;assembly=shellXamarin.Module.Account" xmlns:home="clr-namespace:shellXamarin.Module.Home.Views;assembly=shellXamarin.Module.Home" xmlns:settings="clr-namespace:shellXamarin.Module.Settings.Views;assembly=shellXamarin.Module.Settings" Title="App-Shell" x:Class="shellXamarin.AppShell">
     <!-- 
         Styles and Resources 
     -->
@@ -31,13 +23,10 @@
     <!-- Your Pages -->
     <TabBar>
         <Tab Title="Home" Icon="tab_feed.png">
-            <ShellContent ContentTemplate="{DataTemplate home:HomePage}" />
+            <ShellContent Route="home"  x:Name="home" />
         </Tab>
-    <Tab Title="Settings" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate settings:SettingsPage}" />
-        </Tab>
-          <Tab Title="Login" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate account:LoginPage}" />
+        <Tab Title="Settings" Icon="tab_about.png">
+            <ShellContent Route="settings" x:Name="settings" />
         </Tab>
     </TabBar>
     <!-- Optional Templates 
