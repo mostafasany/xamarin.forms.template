@@ -94,18 +94,7 @@ namespace shellXamarin.Module.Account.ViewModels
                 await _dialogService.DisplayAlertAsync("", Password.RequiredMessage, AppResources.account_ok);
                 return;
             }
-            await NavigationService.NavigateAsync("HomePage");
-        }
-
-        #endregion
-
-        #region BackCommand
-
-        public DelegateCommand BackCommand => new DelegateCommand(Back);
-
-        private async void Back()
-        {
-            await NavigationService.GoBackAsync();
+            await NavigationService.NavigateAsync("/MasterDetailsPage/NavigationPage/HomePage");
         }
 
         #endregion

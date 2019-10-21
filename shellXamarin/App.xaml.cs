@@ -10,8 +10,7 @@ using shellXamarin.Module.Settings;
 using shellXamarin.Module.Common;
 using shellXamarin.Module.Common.Services;
 using Xamarin.Forms;
-using shellXamarin.Module.Common.Styles;
-using shellXamarin.Module.Common.Themes;
+using shellXamarin.ViewModels;
 
 namespace shellXamarin
 {
@@ -42,7 +41,7 @@ namespace shellXamarin
             //var appStyles = new AppStyles();
             //appStyles.ApplyTheme();
 
-           // Application.Current.Resources.MergedDictionaries.Clear();
+            // Application.Current.Resources.MergedDictionaries.Clear();
             //Application.Current.Resources.MergedDictionaries.Add(appStyles);
         }
 
@@ -50,16 +49,14 @@ namespace shellXamarin
         //TODO: We might not need this event if Prism Navigation Service Support AppShell
         private async void StartupService_AppConfigureStarted(object sender, AppConfigureStartedEventArgs e)
         {
-            HomeModule.AddModule(_moduleCatalog, _moduleManager, true);
-            AccountModule.AddModule(_moduleCatalog, _moduleManager, true);
-            SettingsModule.AddModule(_moduleCatalog, _moduleManager, true);
-
             await NavigationService.NavigateAsync("/HomePage");
             //MainPage = new AppShell(Container, NavigationService);
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<MasterDetailsPage, MasterDetailsPageViewModel>();
+            containerRegistry.RegisterForNavigation<NavigationPage>();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
@@ -68,6 +65,9 @@ namespace shellXamarin
             _moduleManager = Container.Resolve<IModuleManager>();
             CommonModule.AddModule(moduleCatalog, _moduleManager, true);
             StartupModule.AddModule(moduleCatalog, _moduleManager, true);
+            HomeModule.AddModule(_moduleCatalog, _moduleManager, true);
+            AccountModule.AddModule(_moduleCatalog, _moduleManager, true);
+            SettingsModule.AddModule(_moduleCatalog, _moduleManager, true);
         }
 
         protected override void OnStart()

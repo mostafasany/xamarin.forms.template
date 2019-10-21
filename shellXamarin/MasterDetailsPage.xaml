@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.MasterDetailsPage" IsPresented="false" MasterBehavior="Split" xmlns:translate="clr-namespace:shellXamarin.i18n" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu" IconImageSource="hamburguer_icon.png">
+            <ContentPage.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <styles:AppStyles></styles:AppStyles>
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </ContentPage.Resources>
+            <ContentPage.Content>
+                <Grid BackgroundColor="White" Style="{StaticResource RootLayoutStyle}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" VerticalOptions="Start" Margin="0,20,0,10" HorizontalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" HorizontalOptions="Fill" HeightRequest="50" VerticalOptions="Fill" Source="https://bit.ly/2VZmdRk" />
+                        <Label Grid.Row="1" Margin="0,10" FontSize="16" Text="{Binding Username}" HorizontalOptions="Center" />
+                    </Grid>
+                    <ListView Grid.Row="1" x:Name="sampleListView" ItemsSource="{ Binding SamplesGroupedByCategory }" IsGroupingEnabled="true" GroupDisplayBinding="{ Binding Name }" SeparatorVisibility="None" VerticalOptions="FillAndExpand" CachingStrategy="RecycleElement">
+                        <ListView.GroupHeaderTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <!--<Grid>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnHeaderClicked" CommandParameter="{Binding PageHeader}" />
+                                        </Grid.GestureRecognizers>
+                                        <local:MainMenuGroupHeaderTemplate />
+                                    </Grid>-->
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.GroupHeaderTemplate>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Margin="24,0">
+                                        <!--<local:MainMenuGroupHeaderTemplate />-->
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackLayout Orientation="Horizontal" Grid.Row="2" Margin="12" IsVisible="{Binding IsLogin}">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OnLogoutCommand}" />
+                        </StackLayout.GestureRecognizers>
+                        <Grid WidthRequest="25" HeightRequest="25">
+                            <Image HorizontalOptions="Center" VerticalOptions="Center" Source="https://bit.ly/2MAs6S8" />
+                        </Grid>
+                        <Label Text="Logout" Margin="12,0" VerticalTextAlignment="Center" />
+                    </StackLayout>
+                </Grid>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+</MasterDetailPage>

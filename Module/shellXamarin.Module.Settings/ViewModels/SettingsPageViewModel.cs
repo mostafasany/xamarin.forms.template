@@ -103,7 +103,7 @@ namespace shellXamarin.Module.Settings.ViewModels
                 LocalService.ChangeLanguage(language);
                 //Shell.Current.GoToAsync("home");
 
-                NavigationService.NavigateAsync("/HomePage");
+                NavigationService.NavigateAsync("/MasterDetailsPage/NavigationPage/HomePage");
             }
         }
 
@@ -117,7 +117,7 @@ namespace shellXamarin.Module.Settings.ViewModels
         private void Logout()
         {
             _eventAggregator.GetEvent<UserLogoutEvent>().Publish();
-            NavigationService.NavigateAsync("/HomePage");
+            NavigationService.NavigateAsync("/MasterDetailsPage/NavigationPage/HomePage");
         }
 
         #endregion

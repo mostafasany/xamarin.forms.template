@@ -21,6 +21,7 @@
     <Folder Include="Styles\" />
     <Folder Include="FormBuilder\" />
     <Folder Include="FormBuilder\Models\" />
+    <Folder Include="Services\NavigationService\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />

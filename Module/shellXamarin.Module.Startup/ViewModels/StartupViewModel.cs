@@ -27,7 +27,8 @@ namespace shellXamarin.Module.Startup.ViewModels
 
         private async void Navigate()
         {
-            startupService.AppStarted();
+           await NavigationService.NavigateAsync("/MasterDetailsPage/NavigationPage/HomePage");
+            //startupService.AppStarted();
         }
 
         #endregion
