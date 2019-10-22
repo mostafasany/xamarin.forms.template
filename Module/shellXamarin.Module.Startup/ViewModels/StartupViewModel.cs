@@ -27,7 +27,7 @@ namespace shellXamarin.Module.Startup.ViewModels
 
         private async void Navigate()
         {
-           await NavigationService.NavigateAsync("/MasterDetailsPage/NavigationPage/HomePage");
+            await NavigateHome();
             //startupService.AppStarted();
         }
 

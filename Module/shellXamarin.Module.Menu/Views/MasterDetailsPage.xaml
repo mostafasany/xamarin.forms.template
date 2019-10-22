@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.MasterDetailsPage" IsPresented="false" MasterBehavior="Split" xmlns:translate="clr-namespace:shellXamarin.i18n" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common">
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Navigation.Views.MasterDetailsPage" IsPresented="false" MasterBehavior="Popover" xmlns:translate="clr-namespace:shellXamarin.Module.Navigation.i18n" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common">
     <MasterDetailPage.Master>
         <ContentPage Title="Menu" IconImageSource="hamburguer_icon.png">
             <ContentPage.Resources>
+
                 <ResourceDictionary>
                     <ResourceDictionary.MergedDictionaries>
                         <styles:AppStyles></styles:AppStyles>
@@ -24,16 +25,18 @@
                         <Image Grid.Row="0" HorizontalOptions="Fill" HeightRequest="50" VerticalOptions="Fill" Source="https://bit.ly/2VZmdRk" />
                         <Label Grid.Row="1" Margin="0,10" FontSize="16" Text="{Binding Username}" HorizontalOptions="Center" />
                     </Grid>
-                    <ListView Grid.Row="1" x:Name="sampleListView" ItemsSource="{ Binding SamplesGroupedByCategory }" IsGroupingEnabled="true" GroupDisplayBinding="{ Binding Name }" SeparatorVisibility="None" VerticalOptions="FillAndExpand" CachingStrategy="RecycleElement">
+                    <ListView Grid.Row="1" ItemSelected="ListView_ItemSelected" ItemsSource="{ Binding MenuItems }" IsGroupingEnabled="true" SeparatorVisibility="None" VerticalOptions="FillAndExpand" CachingStrategy="RecycleElement">
                         <ListView.GroupHeaderTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <!--<Grid>
+                                    <Grid Margin="10,5">
                                         <Grid.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="OnHeaderClicked" CommandParameter="{Binding PageHeader}" />
+                                            <TapGestureRecognizer  Tapped="OnHeaderClicked" CommandParameter="{Binding }" />
                                         </Grid.GestureRecognizers>
-                                        <local:MainMenuGroupHeaderTemplate />
-                                    </Grid>-->
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Title}" VerticalOptions="Center" />
+                                        </StackLayout>
+                                    </Grid>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.GroupHeaderTemplate>
@@ -41,7 +44,22 @@
                             <DataTemplate>
                                 <ViewCell>
                                     <Grid Margin="24,0">
-                                        <!--<local:MainMenuGroupHeaderTemplate />-->
+                                        <StackLayout Orientation="Horizontal">
+                                            <Grid WidthRequest="25" HeightRequest="25" VerticalOptions="Center">
+                                                <Image HorizontalOptions="Center" VerticalOptions="Center" Source="{ Binding Icon }" />
+                                            </Grid>
+
+                                            <Label Text="{Binding Title}" VerticalOptions="Center" />
+                                            <!--<Label IsVisible="{Binding NotificationCount,Converter={StaticResource IntToBoolConverter}" Margin="0,0,0,6" VerticalOptions="Center" TextColor="Red" HorizontalOptions="{DynamicResource LayoutDirectionHorizontalOptions}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{artina:Translate RightBracket }" />
+                                    <Span Text="{Binding NotificationCount}" />
+                                    <Span Text="{artina:Translate LeftBracket }" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>-->
+                                        </StackLayout>
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>
@@ -49,12 +67,12 @@
                     </ListView>
                     <StackLayout Orientation="Horizontal" Grid.Row="2" Margin="12" IsVisible="{Binding IsLogin}">
                         <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding OnLogoutCommand}" />
+                            <TapGestureRecognizer Command="{Binding LogoutCommand}" />
                         </StackLayout.GestureRecognizers>
                         <Grid WidthRequest="25" HeightRequest="25">
                             <Image HorizontalOptions="Center" VerticalOptions="Center" Source="https://bit.ly/2MAs6S8" />
                         </Grid>
-                        <Label Text="Logout" Margin="12,0" VerticalTextAlignment="Center" />
+                        <Label Text="{translate:Translate navigation.menu.logout}" Margin="12,0" VerticalTextAlignment="Center" />
                     </StackLayout>
                 </Grid>
             </ContentPage.Content>

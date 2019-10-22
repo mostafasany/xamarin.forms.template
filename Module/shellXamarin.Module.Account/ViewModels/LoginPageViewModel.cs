@@ -94,7 +94,8 @@ namespace shellXamarin.Module.Account.ViewModels
                 await _dialogService.DisplayAlertAsync("", Password.RequiredMessage, AppResources.account_ok);
                 return;
             }
-            await NavigationService.NavigateAsync("/MasterDetailsPage/NavigationPage/HomePage");
+
+            await NavigateHome();
         }
 
         #endregion

@@ -23,7 +23,7 @@ namespace shellXamarin.Module.Settings.ViewModels
         {
             _settingsService = settingsService;
             _eventAggregator = eventAggregator;
-            NavigationService = navigationService;
+             NavigationService = navigationService;
             //TODO: Move This to OnLoad Event
             Load();
         }
@@ -96,14 +96,13 @@ namespace shellXamarin.Module.Settings.ViewModels
 
         public DelegateCommand<Language> LanguageChangedCommand => new DelegateCommand<Language>(LanguageChanged);
 
-        private void LanguageChanged(Language language)
+        private async void LanguageChanged(Language language)
         {
             if (language != null)
             {
                 LocalService.ChangeLanguage(language);
-                //Shell.Current.GoToAsync("home");
 
-                NavigationService.NavigateAsync("/MasterDetailsPage/NavigationPage/HomePage");
+                await NavigateHome();
             }
         }
 
@@ -114,10 +113,11 @@ namespace shellXamarin.Module.Settings.ViewModels
 
         public DelegateCommand LogoutCommand => new DelegateCommand(Logout);
 
-        private void Logout()
+        private async void Logout()
         {
             _eventAggregator.GetEvent<UserLogoutEvent>().Publish();
-            NavigationService.NavigateAsync("/MasterDetailsPage/NavigationPage/HomePage");
+
+            await NavigateHome();
         }
 
         #endregion

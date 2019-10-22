@@ -12,7 +12,7 @@ namespace shellXamarin.Module.Home.ViewModels
         public HomePageViewModel(INavigationService _navigationService, ILocalService localService)
             : base(localService)
         {
-            NavigationService = _navigationService;
+             NavigationService = _navigationService;
             //_userLogoutEvent = eventAggregator.GetEvent<UserLogoutEvent>();
             //_token = _userLogoutEvent.Subscribe(UserLogoutChaged);
         }
@@ -42,7 +42,7 @@ namespace shellXamarin.Module.Home.ViewModels
 
         private async void NavigateToSettingsPage()
         {
-            await NavigationService.NavigateAsync("SettingsPage");
+            await  NavigationService.NavigateAsync("SettingsPage");
         }
 
         #endregion
@@ -54,7 +54,7 @@ namespace shellXamarin.Module.Home.ViewModels
 
         private async void NavigateToLoginPage()
         {
-            await NavigationService.NavigateAsync("LoginPage");
+            await  NavigationService.NavigateAsync("LoginPage");
         }
 
         #endregion

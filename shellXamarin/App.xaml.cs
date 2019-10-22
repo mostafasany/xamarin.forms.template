@@ -11,6 +11,7 @@ using shellXamarin.Module.Common;
 using shellXamarin.Module.Common.Services;
 using Xamarin.Forms;
 using shellXamarin.ViewModels;
+using shellXamarin.Module.Navigation;
 
 namespace shellXamarin
 {
@@ -55,8 +56,8 @@ namespace shellXamarin
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<MasterDetailsPage, MasterDetailsPageViewModel>();
-            containerRegistry.RegisterForNavigation<NavigationPage>();
+            //containerRegistry.RegisterForNavigation<MasterDetailsPage, MasterDetailsPageViewModel>();
+            //containerRegistry.RegisterForNavigation<NavigationPage>();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
@@ -65,6 +66,7 @@ namespace shellXamarin
             _moduleManager = Container.Resolve<IModuleManager>();
             CommonModule.AddModule(moduleCatalog, _moduleManager, true);
             StartupModule.AddModule(moduleCatalog, _moduleManager, true);
+            NavigationModule.AddModule(_moduleCatalog, _moduleManager, true);
             HomeModule.AddModule(_moduleCatalog, _moduleManager, true);
             AccountModule.AddModule(_moduleCatalog, _moduleManager, true);
             SettingsModule.AddModule(_moduleCatalog, _moduleManager, true);

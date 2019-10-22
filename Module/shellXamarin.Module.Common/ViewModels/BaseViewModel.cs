@@ -52,6 +52,21 @@ namespace shellXamarin.Module.Common.ViewModels
             set { SetProperty(ref title, value); }
         }
 
+        //TODO:Check if clearHistory needed
+        protected async Task NavigateHome(bool clearHistory = true)
+        {
+            if (NavigationService == null)
+            {
+                throw new System.Exception("NavigationService not set");
+            }
+            if (clearHistory)
+                await NavigationService.NavigateAsync("/MasterDetailsPage/HomeTabbedPage");
+            else
+                await NavigationService.NavigateAsync("MasterDetailsPage/HomeTabbedPage");
+
+            // await NavigationService.NavigateAsync("/MasterDetailsPage/NavigationPage/HomePage");
+
+        }
         public virtual async Task Load()
         {
         }
