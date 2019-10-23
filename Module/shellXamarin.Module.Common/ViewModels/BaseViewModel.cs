@@ -35,8 +35,14 @@ namespace shellXamarin.Module.Common.ViewModels
         public bool IsBusy
         {
             get { return isBusy; }
-            set { SetProperty(ref isBusy, value); }
+            set
+            {
+                SetProperty(ref isBusy, value);
+                RaisePropertyChanged(nameof(NotBusy));
+            }
         }
+
+        public bool NotBusy => !isBusy;
 
         FlowDirection flowDirection;
         public FlowDirection FlowDirection

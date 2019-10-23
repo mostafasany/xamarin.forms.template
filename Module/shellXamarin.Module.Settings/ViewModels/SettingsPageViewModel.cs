@@ -9,7 +9,6 @@ using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.ViewModels;
 using shellXamarin.Module.Settings.BuinessServices;
-using Xamarin.Forms;
 
 namespace shellXamarin.Module.Settings.ViewModels
 {
@@ -23,7 +22,7 @@ namespace shellXamarin.Module.Settings.ViewModels
         {
             _settingsService = settingsService;
             _eventAggregator = eventAggregator;
-             NavigationService = navigationService;
+            NavigationService = navigationService;
             //TODO: Move This to OnLoad Event
             Load();
         }
@@ -86,9 +85,6 @@ namespace shellXamarin.Module.Settings.ViewModels
 
 
         #endregion
-
-
-
 
         #region Commands
 

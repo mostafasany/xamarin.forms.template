@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Xamarin.Forms;
+﻿using System.Collections.Generic;
 
 namespace shellXamarin.Module.Navigation.Models
 {

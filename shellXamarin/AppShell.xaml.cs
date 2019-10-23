@@ -17,25 +17,25 @@ namespace shellXamarin
         public AppShell(IContainerProvider containerProvider, INavigationService navigationService)
         {
             InitializeComponent();
-            var localService = containerProvider.Resolve<ILocalService>();
-            var eventAggregator = containerProvider.Resolve<IEventAggregator>();
-            var settingsService = containerProvider.Resolve<ISettingsService>();
+            //var localService = containerProvider.Resolve<ILocalService>();
+            //var eventAggregator = containerProvider.Resolve<IEventAggregator>();
+            //var settingsService = containerProvider.Resolve<ISettingsService>();
 
-            var homePage = new HomePage();
-            homePage.BindingContext = new HomePageViewModel(navigationService, localService);
-            //home.ContentTemplate = new DataTemplate(() => { return homePage; });
-
-
-            var settingsPage = new SettingsPage();
-            settingsPage.BindingContext = new SettingsPageViewModel(settingsService, eventAggregator, localService, navigationService);
-            // settings.ContentTemplate = new DataTemplate(() => { return settingsPage; });
-
-            tabBar.Items.Add(new ShellContent { Title = "Home", Icon = "tab_feed.png", ContentTemplate = new DataTemplate(() => { return homePage; }) });
-            tabBar.Items.Add(new ShellContent { Title = "Settings", Icon = "tab_about.png", ContentTemplate = new DataTemplate(() => { return settingsPage; }) });
+            //var homePage = new HomePage();
+            //homePage.BindingContext = new HomePageViewModel(navigationService, localService, eventAggregator);
+            ////home.ContentTemplate = new DataTemplate(() => { return homePage; });
 
 
-            if (this.BindingContext == null)
-                this.BindingContext = new AppShellViewModel(localService);
+            //var settingsPage = new SettingsPage();
+            //settingsPage.BindingContext = new SettingsPageViewModel(settingsService, eventAggregator, localService, navigationService);
+            //// settings.ContentTemplate = new DataTemplate(() => { return settingsPage; });
+
+            //tabBar.Items.Add(new ShellContent { Title = "Home", Icon = "tab_feed.png", ContentTemplate = new DataTemplate(() => { return homePage; }) });
+            //tabBar.Items.Add(new ShellContent { Title = "Settings", Icon = "tab_about.png", ContentTemplate = new DataTemplate(() => { return settingsPage; }) });
+
+
+            //if (this.BindingContext == null)
+            //    this.BindingContext = new AppShellViewModel(localService);
         }
     }
 }

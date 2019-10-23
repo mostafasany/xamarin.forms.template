@@ -1,12 +1,19 @@
-﻿namespace shellXamarin.Module.Startup.BuinessServices
+﻿using System.Threading.Tasks;
+using shellXamarin.Module.Startup.DataServices;
+
+namespace shellXamarin.Module.Startup.BuinessServices
 {
     public class StartupService : IStartupService
     {
-        public event AppConfigureStarted AppConfigureStarted;
-
-        public void AppStarted()
+        private readonly IDataStartupService dataStartupService;
+        public StartupService(IDataStartupService _dataStartupService)
         {
-            AppConfigureStarted?.Invoke(this, new AppConfigureStartedEventArgs());
-       }
+            dataStartupService = _dataStartupService;
+        }
+        public async Task<bool> CanProceed()
+        {
+            await Task.Delay(50);
+            return true;
+        }
     }
 }

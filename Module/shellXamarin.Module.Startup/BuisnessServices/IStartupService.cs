@@ -1,16 +1,9 @@
-﻿using System;
+﻿using System.Threading.Tasks;
 
 namespace shellXamarin.Module.Startup.BuinessServices
 {
     public interface IStartupService
     {
-        event AppConfigureStarted AppConfigureStarted;
-        void AppStarted();
-    }
-
-    public delegate void AppConfigureStarted(object sender, AppConfigureStartedEventArgs e);
-
-    public class AppConfigureStartedEventArgs : EventArgs
-    {
+        Task<bool> CanProceed();
     }
 }

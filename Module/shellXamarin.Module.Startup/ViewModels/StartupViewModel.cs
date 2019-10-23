@@ -18,6 +18,28 @@ namespace shellXamarin.Module.Startup.ViewModels
             IsBusy = true;
         }
 
+        #region Properties
+
+        #endregion
+
+
+        #region Methods
+
+        #endregion
+
+        #region Navigation
+
+        public async override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+            bool canProceed = await startupService.CanProceed();
+            if (canProceed)
+                await NavigateHome();
+            else
+                IsBusy = false;
+        }
+
+        #endregion
 
         #region Commands
 
@@ -28,7 +50,6 @@ namespace shellXamarin.Module.Startup.ViewModels
         private async void Navigate()
         {
             await NavigateHome();
-            //startupService.AppStarted();
         }
 
         #endregion

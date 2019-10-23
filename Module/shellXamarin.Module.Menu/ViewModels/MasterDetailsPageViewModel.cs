@@ -8,7 +8,6 @@ using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.ViewModels;
 using shellXamarin.Module.Navigation.BuinessServices;
 using shellXamarin.Module.Navigation.Models;
-using Xamarin.Essentials;
 
 namespace shellXamarin.Module.Navigation.ViewModels
 {
@@ -46,6 +45,11 @@ namespace shellXamarin.Module.Navigation.ViewModels
         }
         #endregion
 
+        #region Navigation
+
+        #endregion
+
+
         #region Commands
 
         #region LogoutCommand
@@ -81,15 +85,7 @@ namespace shellXamarin.Module.Navigation.ViewModels
                 }
                 else
                 {
-                    //TODO: Navigation In Ios is diffrenet than Android
-                    if (DeviceInfo.Platform == DevicePlatform.iOS)
-                    {
-                        await NavigationService.NavigateAsync(new Uri($"NavigationPage/{page.Page}", UriKind.Relative));
-                    }
-                    else
-                    {
-                        await NavigationService.NavigateAsync(new Uri($"NavigationPage/{page.Page}", UriKind.Relative));
-                    }
+                    await NavigationService.NavigateAsync(new Uri($"NavigationPage/{page.Page}", UriKind.Relative));
                 }
             }
         }

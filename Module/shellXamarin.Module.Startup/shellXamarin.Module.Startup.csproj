@@ -21,6 +21,7 @@
     <Folder Include="Translators\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
+    <Folder Include="DataServices\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\shellXamarin.Module.Common\shellXamarin.Module.Common.csproj" />

@@ -13,6 +13,7 @@ namespace shellXamarin.Module.Navigation.BuinessServices
         {
             menuDataService = _menuDataService;
         }
+
         public async Task<List<MenuElement>> GetMenuItemsAsync()
         {
             var menuItems = new List<MenuElement>();

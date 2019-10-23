@@ -2,6 +2,7 @@
 using Prism.Ioc;
 using Prism.Modularity;
 using shellXamarin.Module.Startup.BuinessServices;
+using shellXamarin.Module.Startup.DataServices;
 using shellXamarin.Module.Startup.ViewModels;
 using shellXamarin.Module.Startup.Views;
 
@@ -16,8 +17,9 @@ namespace shellXamarin.Module.Startup
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<StartupPage, StartupViewModel>();
+            containerRegistry.RegisterSingleton<IDataStartupService, DataStartupService>();
             containerRegistry.RegisterSingleton<IStartupService, StartupService>();
+            containerRegistry.RegisterForNavigation<StartupPage, StartupViewModel>();
         }
 
         public static void AddModule(IModuleCatalog moduleCatalog, IModuleManager moduleManager, bool loadModule)

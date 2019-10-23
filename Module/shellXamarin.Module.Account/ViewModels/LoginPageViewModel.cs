@@ -39,7 +39,6 @@ namespace shellXamarin.Module.Account.ViewModels
 
         #endregion
 
-
         #region Methods
 
         private void LoadFormItems()
@@ -68,6 +67,10 @@ namespace shellXamarin.Module.Account.ViewModels
                 ReturnType = ReturnType.Default,
             };
         }
+
+        #endregion
+
+        #region
 
         #endregion
 
