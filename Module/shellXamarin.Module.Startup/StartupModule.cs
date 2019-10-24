@@ -6,7 +6,6 @@ using shellXamarin.Module.Startup.DataServices;
 using shellXamarin.Module.Startup.ViewModels;
 using shellXamarin.Module.Startup.Views;
 
-
 namespace shellXamarin.Module.Startup
 {
     public class StartupModule : IModule

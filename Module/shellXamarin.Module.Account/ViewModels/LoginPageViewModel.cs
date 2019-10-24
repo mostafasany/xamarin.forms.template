@@ -1,10 +1,15 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Navigation;
 using Prism.Services;
 using shellXamarin.Module.Account.Resources;
+using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.FormBuilder.Models;
+using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
+using shellXamarin.Module.Common.Services.EventBusService;
 using shellXamarin.Module.Common.ViewModels;
 using Xamarin.Forms;
 
@@ -13,11 +18,15 @@ namespace shellXamarin.Module.Account.ViewModels
     public class LoginPageViewModel : BaseViewModel
     {
         private readonly IPageDialogService _dialogService;
-        public LoginPageViewModel(INavigationService _navigationService, IPageDialogService dialogService, ILocalService localService)
-            : base(localService)
+        private readonly Tuple<UserLoginEvent, SubscriptionToken> userLoginEventAndToken;
+        public LoginPageViewModel(INavigationService _navigationService, IEventBusService eventBusService,
+            IPageDialogService dialogService, ILocalService localService)
+            : base(localService, eventBusService)
         {
             NavigationService = _navigationService;
             _dialogService = dialogService;
+            userLoginEventAndToken = eventBusService.Subscribe<UserLoginEvent>(UserLogin);
+
             LoadFormItems();
         }
 
@@ -68,9 +77,14 @@ namespace shellXamarin.Module.Account.ViewModels
             };
         }
 
+        private void UserLogin()
+        {
+
+        }
+
         #endregion
 
-        #region
+        #region Navigation
 
         #endregion
 
@@ -98,6 +112,7 @@ namespace shellXamarin.Module.Account.ViewModels
                 return;
             }
 
+            userLoginEventAndToken.Item1.Publish();
             await NavigateHome();
         }
 

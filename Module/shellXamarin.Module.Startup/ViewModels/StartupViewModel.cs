@@ -1,6 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Navigation;
 using shellXamarin.Module.Common.Services;
+using shellXamarin.Module.Common.Services.EventBusService;
 using shellXamarin.Module.Common.ViewModels;
 using shellXamarin.Module.Startup.BuinessServices;
 
@@ -9,9 +10,9 @@ namespace shellXamarin.Module.Startup.ViewModels
     public class StartupViewModel : BaseViewModel
     {
         private readonly IStartupService startupService;
-        public StartupViewModel(INavigationService _navigationService,
+        public StartupViewModel(INavigationService _navigationService, IEventBusService eventBusService,
             IStartupService _startupService, ILocalService localService)
-            : base(localService)
+            : base(localService, eventBusService)
         {
             NavigationService = _navigationService;
             startupService = _startupService;

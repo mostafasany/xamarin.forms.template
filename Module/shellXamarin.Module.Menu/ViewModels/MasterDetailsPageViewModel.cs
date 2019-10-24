@@ -5,6 +5,7 @@ using Prism.Events;
 using Prism.Navigation;
 using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.Services;
+using shellXamarin.Module.Common.Services.EventBusService;
 using shellXamarin.Module.Common.ViewModels;
 using shellXamarin.Module.Navigation.BuinessServices;
 using shellXamarin.Module.Navigation.Models;
@@ -14,16 +15,17 @@ namespace shellXamarin.Module.Navigation.ViewModels
     public class MasterDetailsPageViewModel : BaseViewModel
     {
         private readonly IMenuService _menuService;
-        private readonly IEventAggregator _eventAggregator;
-        UserLogoutEvent _userLogoutEvent;
-        SubscriptionToken _token;
-        public MasterDetailsPageViewModel(INavigationService navigationService, ILocalService localService, IMenuService menuService,
-            IEventAggregator eventAggregator)
-            : base(localService)
+        private readonly Tuple<UserLogoutEvent, SubscriptionToken> userLogoutEventAndToken;
+        private readonly Tuple<UserLoginEvent, SubscriptionToken> userLoginEventAndToken;
+        public MasterDetailsPageViewModel(INavigationService navigationService, ILocalService localService,
+            IMenuService menuService,
+            IEventBusService eventBusService)
+            : base(localService, eventBusService)
         {
             _menuService = menuService;
             NavigationService = navigationService;
-            _eventAggregator = eventAggregator;
+            userLogoutEventAndToken = eventBusService.Subscribe<UserLogoutEvent>(UserLogout);
+            userLoginEventAndToken = eventBusService.Subscribe<UserLoginEvent>(UserLogin);
             Load();
         }
 
@@ -45,12 +47,36 @@ namespace shellXamarin.Module.Navigation.ViewModels
         {
             MenuItems = await _menuService.GetMenuItemsAsync();
         }
+
+        private void UserLogout()
+        {
+
+        }
+
+
+        private void UserLogin()
+        {
+
+        }
+
+
         #endregion
 
         #region Navigation
 
-        #endregion
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+        }
 
+        public override void Destroy()
+        {
+            userLogoutEventAndToken.Item1.Unsubscribe(userLogoutEventAndToken.Item2);
+            userLoginEventAndToken.Item1.Unsubscribe(userLoginEventAndToken.Item2);
+            base.Destroy();
+        }
+
+        #endregion
 
         #region Commands
 
@@ -60,8 +86,7 @@ namespace shellXamarin.Module.Navigation.ViewModels
 
         private async void Logout()
         {
-            _eventAggregator.GetEvent<UserLogoutEvent>().Publish();
-
+            userLogoutEventAndToken.Item1.Publish();
             await NavigateHome();
         }
 

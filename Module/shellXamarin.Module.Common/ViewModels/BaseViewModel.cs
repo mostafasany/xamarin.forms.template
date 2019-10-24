@@ -1,8 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using Prism.Events;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services.Dialogs;
+using shellXamarin.Module.Common.Events;
+using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
+using shellXamarin.Module.Common.Services.EventBusService;
 using shellXamarin.Module.Common.Services.ExceptionService;
 using Xamarin.Forms;
 
@@ -14,21 +19,46 @@ namespace shellXamarin.Module.Common.ViewModels
         public IDialogService DialogService { get; set; }
         public IExceptionService ExceptionService { get; set; }
         public ILocalService LocalService { get; set; }
-        public BaseViewModel(ILocalService localService)
+        private readonly Tuple<UserLogoutEvent, SubscriptionToken> userLogoutEventAndToken;
+        private readonly Tuple<UserLoginEvent, SubscriptionToken> userLoginEventAndToken;
+        private readonly Tuple<LanguageChangedEvent, SubscriptionToken> languageChangedEventAndToken;
+        public BaseViewModel(ILocalService localService, IEventBusService eventBusService)
         {
             LocalService = localService;
             flowDirection = localService.UsedLanague.RTL ?
                 FlowDirection = FlowDirection.RightToLeft :
                 FlowDirection = FlowDirection.LeftToRight;
 
-            localService.LanguageChanged += LocalService_LanguageChanged;
+            userLogoutEventAndToken = eventBusService.Subscribe<UserLogoutEvent>(UserLogout);
+            userLoginEventAndToken = eventBusService.Subscribe<UserLoginEvent>(UserLogin);
+            localService.LanguageChanged += LanguageChanged;
+
+            //TODO: For unknow reason, eventbus not firing language changed events
+            //So LanguageChanged inside localservice is created
+            // languageChangedEventAndToken = eventBusService.Subscribe<LanguageChangedEvent, Language>(LanguageChanged);
         }
 
-        private void LocalService_LanguageChanged(object sender, LanguageChangedEventArgs e)
+        private void LanguageChanged(Language language)
         {
-            flowDirection = e.Langauge.RTL ?
+            flowDirection = language.RTL ?
                 FlowDirection = FlowDirection.RightToLeft :
                 FlowDirection = FlowDirection.LeftToRight;
+
+            //var ci = new CultureInfo(language.Id);
+            //CultureInfo.DefaultThreadCurrentCulture = ci;
+            //CultureInfo.DefaultThreadCurrentUICulture = ci;
+            //CultureInfo.CurrentCulture = ci;
+            //CultureInfo.CurrentUICulture = ci;
+        }
+
+        private void UserLogout()
+        {
+
+        }
+
+        private void UserLogin()
+        {
+
         }
 
         bool isBusy;
@@ -89,6 +119,9 @@ namespace shellXamarin.Module.Common.ViewModels
 
         public virtual void Destroy()
         {
+            userLogoutEventAndToken.Item1.Unsubscribe(userLogoutEventAndToken.Item2);
+            userLoginEventAndToken.Item1.Unsubscribe(userLoginEventAndToken.Item2);
+            languageChangedEventAndToken.Item1.Unsubscribe(languageChangedEventAndToken.Item2);
         }
     }
 }

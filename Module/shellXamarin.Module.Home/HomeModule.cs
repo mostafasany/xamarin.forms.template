@@ -5,8 +5,9 @@ using shellXamarin.Module.Home.ViewModels;
 using shellXamarin.Module.Home.BuinessServices;
 using shellXamarin.Module.Home.Views;
 using System.Globalization;
-using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Home.Resources;
+using shellXamarin.Module.Common.Models;
+using shellXamarin.Module.Common.Services;
 
 namespace shellXamarin.Module.Home
 {
@@ -14,8 +15,13 @@ namespace shellXamarin.Module.Home
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            var localService = containerProvider.Resolve<ILocalService>();
-            localService.LanguageChanged += LocalService_LanguageChanged;
+            //TODO: For unknow reason, eventbus not firing language changed events
+            //So LanguageChanged inside localservice is created
+
+            //IEventBusService eventBusService = containerProvider.Resolve<IEventBusService>();
+            //eventBusService.Subscribe<LanguageChangedEvent, Language>(LanguageChanged);
+            ILocalService localService = containerProvider.Resolve<ILocalService>();
+            localService.LanguageChanged += LanguageChanged;
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
@@ -24,9 +30,9 @@ namespace shellXamarin.Module.Home
             containerRegistry.RegisterSingleton<IHomeService, HomeService>();
         }
 
-        private void LocalService_LanguageChanged(object sender, LanguageChangedEventArgs e)
+        private void LanguageChanged(Language language)
         {
-            AppResources.Culture = new CultureInfo(e.Langauge.Id);
+            AppResources.Culture = new CultureInfo(language.Id);
         }
 
         public static void AddModule(IModuleCatalog moduleCatalog, IModuleManager moduleManager, bool loadModule)

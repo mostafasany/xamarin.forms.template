@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Settings.Views.SettingsPage" xmlns:translate="clr-namespace:shellXamarin.Module.Settings.i18n" Title="{translate:Translate settings.title}" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Settings.Views.SettingsPage" xmlns:translate="clr-namespace:shellXamarin.Module.Settings.i18n" Title="{translate:Translate settings.title}" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common" xmlns:controls="clr-namespace:shellXamarin.Module.Common.Controls;assembly=shellXamarin.Module.Common">
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -8,13 +8,14 @@
         </ResourceDictionary>
         <DataTemplate x:Key="languageItemTemplate">
             <ViewCell>
-                <Grid Grid.Row="0">
+                <Grid Grid.Row="0" HeightRequest="50">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Label  Grid.Column="0" Text="{Binding Name}" TextColor="{DynamicResource LabelTextColor}" VerticalOptions="Center"></Label>
-                    <Image  Grid.Column="1" Source="{Binding Flag}" HorizontalOptions="End" WidthRequest="40" HeightRequest="40" VerticalOptions="Center"></Image>
+                    <controls:SVGImageControl Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" Source="{ Binding Flag }" />
+
                 </Grid>
             </ViewCell>
         </DataTemplate>
@@ -35,7 +36,7 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Text="{Binding UsedLanguage.Name}" TextColor="{DynamicResource LabelTextColor}" VerticalOptions="Center"></Label>
-                    <Image Grid.Column="1" Source="{Binding UsedLanguage.Flag}" HorizontalOptions="End" WidthRequest="40" HeightRequest="40" VerticalOptions="Center"></Image>
+                    <controls:SVGImageControl Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" WidthRequest="35" HeightRequest="35" Source="{ Binding UsedLanguage.Flag }" />
                 </Grid>
                 <BoxView Style="{StaticResource SeparatorStyle}" Margin="0,10"></BoxView>
                 <ListView SelectionMode="Single" Style="{StaticResource ListStyle}" ItemSelected="languageLV_SelectedIndexChanged" SeparatorVisibility="None" HasUnevenRows="True" ItemsSource="{Binding Languages}" ItemTemplate="{StaticResource languageItemTemplate}" />

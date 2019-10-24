@@ -1,22 +1,26 @@
-﻿using Prism.Commands;
+﻿using System;
+using Prism.Commands;
 using Prism.Events;
+using Prism.Ioc;
 using Prism.Navigation;
 using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.Services;
+using shellXamarin.Module.Common.Services.EventBusService;
 using shellXamarin.Module.Common.ViewModels;
 
 namespace shellXamarin.Module.Home.ViewModels
 {
     public class HomePageViewModel : BaseViewModel
     {
-        UserLogoutEvent _userLogoutEvent;
-        SubscriptionToken _token;
-        public HomePageViewModel(INavigationService _navigationService, ILocalService localService, IEventAggregator eventAggregator)
-            : base(localService)
+        private readonly Tuple<UserLogoutEvent, SubscriptionToken> userLogoutEventAndToken;
+        private readonly Tuple<UserLoginEvent, SubscriptionToken> userLoginEventAndToken;
+        public HomePageViewModel(INavigationService _navigationService, ILocalService localService,
+            IEventBusService eventBusService)
+            : base(localService, eventBusService)
         {
             NavigationService = _navigationService;
-            _userLogoutEvent = eventAggregator.GetEvent<UserLogoutEvent>();
-            _token = _userLogoutEvent.Subscribe(UserLogoutChaged);
+            userLogoutEventAndToken = eventBusService.Subscribe<UserLogoutEvent>(UserLogout);
+            userLoginEventAndToken = eventBusService.Subscribe<UserLoginEvent>(UserLogin);
         }
 
         #region Properties
@@ -25,7 +29,13 @@ namespace shellXamarin.Module.Home.ViewModels
 
         #region Methods
 
-        private void UserLogoutChaged()
+        private void UserLogout()
+        {
+
+        }
+
+
+        private void UserLogin()
         {
 
         }
@@ -37,7 +47,8 @@ namespace shellXamarin.Module.Home.ViewModels
 
         public override void Destroy()
         {
-            _userLogoutEvent.Unsubscribe(_token);
+            userLogoutEventAndToken.Item1.Unsubscribe(userLogoutEventAndToken.Item2);
+            userLoginEventAndToken.Item1.Unsubscribe(userLoginEventAndToken.Item2);
             base.Destroy();
         }
 

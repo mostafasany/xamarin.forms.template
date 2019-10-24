@@ -5,9 +5,10 @@ using shellXamarin.Module.Settings.ViewModels;
 using shellXamarin.Module.Settings.BuinessServices;
 using shellXamarin.Module.Settings.Views;
 using shellXamarin.Module.Settings.DataServices;
-using System.Globalization;
 using shellXamarin.Module.Common.Services;
+using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Settings.Resources;
+using System.Globalization;
 
 namespace shellXamarin.Module.Settings
 {
@@ -15,10 +16,13 @@ namespace shellXamarin.Module.Settings
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            //var settingsService = containerProvider.Resolve<ISettingsService>();
-            //Xamarin.Forms.DependencyService.Register<ISettingsService, SettingsService>();
-            var localService = containerProvider.Resolve<ILocalService>();
-            localService.LanguageChanged += LocalService_LanguageChanged;
+            //TODO: For unknow reason, eventbus not firing language changed events
+            //So LanguageChanged inside localservice is created
+
+            //IEventBusService eventBusService = containerProvider.Resolve<IEventBusService>();
+            //eventBusService.Subscribe<LanguageChangedEvent, Language>(LanguageChanged);
+            ILocalService localService = containerProvider.Resolve<ILocalService>();
+            localService.LanguageChanged += LanguageChanged;
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
@@ -28,20 +32,9 @@ namespace shellXamarin.Module.Settings
             containerRegistry.RegisterSingleton<IDataSettingsService, DataSettingsService>();
         }
 
-        private void LocalService_LanguageChanged(object sender, LanguageChangedEventArgs e)
+        private void LanguageChanged(Language language)
         {
-            //AppResources.Culture = new CultureInfo(e.Langauge.Id);
-            //var ci = new CultureInfo(e.Langauge.Id);
-            //CultureInfo.DefaultThreadCurrentCulture = ci;
-            //CultureInfo.DefaultThreadCurrentUICulture = ci;
-            //CultureInfo.CurrentCulture = ci;
-            //CultureInfo.CurrentUICulture = ci;
-
-            //var culture = new CultureInfo(e.Langauge.Id);
-            //AppResources.Culture = culture;
-            //CultureInfo.CurrentCulture = culture;
-
-            AppResources.Culture = new CultureInfo(e.Langauge.Id);
+            AppResources.Culture = new CultureInfo(language.Id);
         }
 
         public static void AddModule(IModuleCatalog moduleCatalog, IModuleManager moduleManager, bool loadModule)

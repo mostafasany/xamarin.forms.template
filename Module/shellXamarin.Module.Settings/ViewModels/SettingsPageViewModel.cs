@@ -2,11 +2,11 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Prism.Commands;
-using Prism.Events;
 using Prism.Navigation;
 using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
+using shellXamarin.Module.Common.Services.EventBusService;
 using shellXamarin.Module.Common.ViewModels;
 using shellXamarin.Module.Settings.BuinessServices;
 
@@ -15,13 +15,13 @@ namespace shellXamarin.Module.Settings.ViewModels
     public class SettingsPageViewModel : BaseViewModel
     {
         private readonly ISettingsService _settingsService;
-        private readonly IEventAggregator _eventAggregator;
+        private readonly IEventBusService _eventBusService;
         public SettingsPageViewModel(ISettingsService settingsService,
-            IEventAggregator eventAggregator, ILocalService localService, INavigationService navigationService)
-            : base(localService)
+            IEventBusService eventBusService, ILocalService localService, INavigationService navigationService)
+            : base(localService, eventBusService)
         {
             _settingsService = settingsService;
-            _eventAggregator = eventAggregator;
+            _eventBusService = eventBusService;
             NavigationService = navigationService;
             //TODO: Move This to OnLoad Event
             Load();
@@ -58,6 +58,10 @@ namespace shellXamarin.Module.Settings.ViewModels
                 usedLanguage = languages.FirstOrDefault(lang => lang.Id == LocalService?.UsedLanague?.Id);
                 languages.Remove(usedLanguage);
             }
+        }
+
+        private void UserLogout()
+        {
 
         }
 
@@ -83,6 +87,11 @@ namespace shellXamarin.Module.Settings.ViewModels
             base.OnNavigatedTo(parameters);
         }
 
+        public override void Destroy()
+        {
+            base.Destroy();
+        }
+
 
         #endregion
 
@@ -96,7 +105,7 @@ namespace shellXamarin.Module.Settings.ViewModels
         {
             if (language != null)
             {
-                LocalService.ChangeLanguage(language);
+                LocalService.SetDefaultLanguage(language);
 
                 await NavigateHome();
             }
@@ -111,7 +120,7 @@ namespace shellXamarin.Module.Settings.ViewModels
 
         private async void Logout()
         {
-            _eventAggregator.GetEvent<UserLogoutEvent>().Publish();
+            _eventBusService.Publish<UserLogoutEvent>();
 
             await NavigateHome();
         }

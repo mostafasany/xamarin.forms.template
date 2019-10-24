@@ -64,5 +64,23 @@ namespace shellXamarin.Module.Settings.Resources {
                 return ResourceManager.GetString("settings.languages.header", resourceCulture);
             }
         }
+        
+        internal static string settings_languages_english {
+            get {
+                return ResourceManager.GetString("settings.languages.english", resourceCulture);
+            }
+        }
+        
+        internal static string settings_languages_arabic {
+            get {
+                return ResourceManager.GetString("settings.languages.arabic", resourceCulture);
+            }
+        }
+        
+        internal static string settings_languages_germany {
+            get {
+                return ResourceManager.GetString("settings.languages.germany", resourceCulture);
+            }
+        }
     }
 }

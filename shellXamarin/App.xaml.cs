@@ -11,6 +11,9 @@ using shellXamarin.Module.Common;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Navigation;
 using System.Globalization;
+using shellXamarin.Module.Common.Services.EventBusService;
+using shellXamarin.Module.Common.Events;
+using shellXamarin.Module.Common.Models;
 
 namespace shellXamarin
 {
@@ -29,16 +32,21 @@ namespace shellXamarin
 
         protected override async void OnInitialized()
         {
-            //_localService = Container.Resolve<ILocalService>();
-            //_localService.LanguageChanged += LanguageService_LanguageChanged;
+            //var eventBusService = Container.Resolve<IEventBusService>();
+            //eventBusService.Subscribe<LanguageChangedEvent, Language>(LanguageChanged);
 
             var startupService = Container.Resolve<IStartupService>();
             await NavigationService.NavigateAsync("/StartupPage");
         }
 
-        //private void LanguageService_LanguageChanged(object sender, LanguageChangedEventArgs e)
-        //{
-        //}
+        private void LanguageChanged(Language language)
+        {
+            //var ci = new CultureInfo(language.Id);
+            //CultureInfo.DefaultThreadCurrentCulture = ci;
+            //CultureInfo.DefaultThreadCurrentUICulture = ci;
+            //CultureInfo.CurrentCulture = ci;
+            //CultureInfo.CurrentUICulture = ci;
+        }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {

@@ -7,6 +7,7 @@ using shellXamarin.Module.Account.DataServices;
 using shellXamarin.Module.Account.Resources;
 using shellXamarin.Module.Account.ViewModels;
 using shellXamarin.Module.Account.Views;
+using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
 
 namespace shellXamarin.Module.Account
@@ -15,9 +16,15 @@ namespace shellXamarin.Module.Account
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            var localService = containerProvider.Resolve<ILocalService>();
-            localService.LanguageChanged += LocalService_LanguageChanged;
+            //TODO: For unknow reason, eventbus not firing language changed events
+            //So LanguageChanged inside localservice is created
+
+            //IEventBusService eventBusService = containerProvider.Resolve<IEventBusService>();
+            //eventBusService.Subscribe<LanguageChangedEvent, Language>(LanguageChanged);
+            ILocalService localService = containerProvider.Resolve<ILocalService>();
+            localService.LanguageChanged += LanguageChanged;
         }
+
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
@@ -26,9 +33,9 @@ namespace shellXamarin.Module.Account
             containerRegistry.RegisterSingleton<IAccountDataService, AccountDataService>();
         }
 
-        private void LocalService_LanguageChanged(object sender, LanguageChangedEventArgs e)
+        private void LanguageChanged(Language language)
         {
-            AppResources.Culture = new CultureInfo(e.Langauge.Id);
+            AppResources.Culture = new CultureInfo(language.Id);
         }
 
         public static void AddModule(IModuleCatalog moduleCatalog, IModuleManager moduleManager, bool loadModule)

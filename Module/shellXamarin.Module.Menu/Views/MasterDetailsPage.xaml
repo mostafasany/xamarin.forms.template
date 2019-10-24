@@ -3,7 +3,6 @@
     <MasterDetailPage.Master>
         <ContentPage Title="Menu" IconImageSource="hamburguer_icon.png">
             <ContentPage.Resources>
-
                 <ResourceDictionary>
                     <ResourceDictionary.MergedDictionaries>
                         <styles:AppStyles></styles:AppStyles>
@@ -22,7 +21,8 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <Image Grid.Row="0" HorizontalOptions="Fill" HeightRequest="50" VerticalOptions="Fill" Source="https://bit.ly/2VZmdRk" />
+                        <controls:SVGImageControl  Grid.Row="0" HorizontalOptions="Fill" HeightRequest="50" VerticalOptions="Fill" Source="https://bit.ly/2VZmdRk" />
+                        <!--<Image Grid.Row="0" HorizontalOptions="Fill" HeightRequest="50" VerticalOptions="Fill" Source="https://bit.ly/2VZmdRk" />-->
                         <Label Grid.Row="1" Margin="0,10" FontSize="16" Text="{Binding Username}" HorizontalOptions="Center" />
                     </Grid>
                     <ListView Grid.Row="1" ItemSelected="ListView_ItemSelected" ItemsSource="{ Binding MenuItems }" IsGroupingEnabled="true" SeparatorVisibility="None" VerticalOptions="FillAndExpand" CachingStrategy="RecycleElement">
@@ -45,20 +45,10 @@
                                 <ViewCell>
                                     <Grid Margin="12,0">
                                         <StackLayout Orientation="Horizontal">
-                                            <!--<Grid WidthRequest="25" HeightRequest="25" VerticalOptions="Center">
-                                                <Image HorizontalOptions="Center" VerticalOptions="Center" Source="{ Binding Icon }" />
-                                            </Grid>-->
-                                            <controls:SVGImageControl WidthRequest="15" HeightRequest="15" PortablePath="{ Binding Icon }" />
+
+                                            <controls:SVGImageControl WidthRequest="15" HeightRequest="15" LocalResourcePath="{ Binding Icon }" />
                                             <Label Text="{Binding Title}" VerticalOptions="Center" />
-                                            <!--<Label IsVisible="{Binding NotificationCount,Converter={StaticResource IntToBoolConverter}" Margin="0,0,0,6" VerticalOptions="Center" TextColor="Red" HorizontalOptions="{DynamicResource LayoutDirectionHorizontalOptions}">
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{artina:Translate RightBracket }" />
-                                    <Span Text="{Binding NotificationCount}" />
-                                    <Span Text="{artina:Translate LeftBracket }" />
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>-->
+
                                         </StackLayout>
                                     </Grid>
                                 </ViewCell>
@@ -69,7 +59,7 @@
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding LogoutCommand}" />
                         </StackLayout.GestureRecognizers>
-                        <controls:SVGImageControl WidthRequest="25" HeightRequest="25" PortablePath="myaccount.svg" />
+                        <controls:SVGImageControl WidthRequest="25" HeightRequest="25" LocalResourcePath="myaccount.svg" />
                         <Label Text="{translate:Translate navigation.menu.logout}" Margin="12,0" VerticalTextAlignment="Center" />
                     </StackLayout>
                 </Grid>

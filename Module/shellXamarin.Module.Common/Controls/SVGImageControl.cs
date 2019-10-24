@@ -6,8 +6,8 @@ namespace shellXamarin.Module.Common.Controls
 {
     public class SVGImageControl : SvgCachedImage
     {
-        public static readonly BindableProperty PortablePathProperty =
-            BindableProperty.Create(nameof(PortablePath), typeof(string), typeof(SVGImageControl), null,
+        public static readonly BindableProperty LocalResourcePathProperty =
+            BindableProperty.Create(nameof(LocalResourcePath), typeof(string), typeof(SVGImageControl), null,
                 BindingMode.TwoWay,
                 null,
                 (bindable, oldValue, newValue) =>
@@ -31,10 +31,10 @@ namespace shellXamarin.Module.Common.Controls
                     }
                 });
 
-        public string PortablePath
+        public string LocalResourcePath
         {
-            get => (string)GetValue(PortablePathProperty);
-            set => SetValue(PortablePathProperty, value);
+            get => (string)GetValue(LocalResourcePathProperty);
+            set => SetValue(LocalResourcePathProperty, value);
         }
     }
 }

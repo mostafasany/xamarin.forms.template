@@ -23,6 +23,7 @@
     <Folder Include="FormBuilder\Models\" />
     <Folder Include="Controls\" />
     <Folder Include="Assets\" />
+    <Folder Include="Services\EventBusService\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />
@@ -45,6 +46,9 @@
     <EmbeddedResource Include="Assets\password.svg" />
     <EmbeddedResource Include="Assets\about.svg" />
     <EmbeddedResource Include="Assets\settings.svg" />
+    <EmbeddedResource Include="Assets\countries\english.svg" />
+    <EmbeddedResource Include="Assets\countries\germany.svg" />
+    <EmbeddedResource Include="Assets\countries\egypt.svg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Resources\AppResources.resx">
@@ -91,6 +95,10 @@
     <None Remove="Assets\password.svg" />
     <None Remove="Assets\about.svg" />
     <None Remove="Assets\settings.svg" />
+    <None Remove="Assets\countries\english.svg" />
+    <None Remove="Assets\countries\germany.svg" />
+    <None Remove="Assets\countries\egypt.svg" />
+    <None Remove="Assets\egypt.svg" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Assets\exit.svg">
