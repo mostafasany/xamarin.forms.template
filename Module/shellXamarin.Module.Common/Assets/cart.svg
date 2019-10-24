@@ -1,0 +1,37 @@
+﻿<svg id="Group_586" data-name="Group 586" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 23.775 22.05">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d6d2c8;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1367" data-name="Rectangle 1367" fill="#d6d2c8" width="23.775" height="22.05"/>
+    </clipPath>
+  </defs>
+  <path id="Path_1840" data-name="Path 1840" fill="#d6d2c8" d="M54.274,101.145l.16-2.045H49.8l.16,2.045Zm0,0" transform="translate(-41.843 -83.266)"/>
+  <path id="Path_1841" data-name="Path 1841" fill="#d6d2c8" d="M83.2,76.951h4.218L88.3,73.5H83.488Zm0,0" transform="translate(-69.906 -61.756)"/>
+  <path id="Path_1842" data-name="Path 1842" fill="#d6d2c8" d="M20.1,99.1l.527,2.045h3.739l-.16-2.045Zm0,0" transform="translate(-16.888 -83.266)"/>
+  <g id="Group_578" data-name="Group 578">
+    <g id="Group_576" data-name="Group 576" class="cls-2">
+      <path id="Path_1843" data-name="Path 1843" fill="#d6d2c8" d="M86.15,99.1H82.06l-.16,2.045h3.739Zm0,0" transform="translate(-68.814 -83.266)"/>
+    </g>
+    <g id="Group_577" data-name="Group 577" class="cls-2">
+      <path id="Path_1844" data-name="Path 1844" fill="#d6d2c8" d="M92.346,35.1a.946.946,0,0,0-.527.176,1.26,1.26,0,0,0-.24.192c-.879.879-1.758,1.774-2.652,2.652a.794.794,0,0,0-.208.3H85.476L85.3,40.6h4.937l.367-1.374c.7-.7,1.406-1.438,2.109-2.077h1.694a1.025,1.025,0,0,0,0-2.045Zm0,0" transform="translate(-71.671 -29.492)"/>
+    </g>
+  </g>
+  <path id="Path_1845" data-name="Path 1845" fill="#d6d2c8" d="M46.476,58.073h5.4l.176-2.173H46.3Zm0,0" transform="translate(-38.902 -46.968)"/>
+  <path id="Path_1846" data-name="Path 1846" fill="#d6d2c8" d="M18.6,76.951,18.325,73.5H13.5l.879,3.451Zm0,0" transform="translate(-11.343 -61.756)"/>
+  <path id="Path_1847" data-name="Path 1847" fill="#d6d2c8" d="M8.8,55.9l.575,2.173h4.937L14.137,55.9Zm0,0" transform="translate(-7.394 -46.968)"/>
+  <path id="Path_1848" data-name="Path 1848" fill="#d6d2c8" d="M53.089,73.5H47.8l.272,3.451H52.8Zm0,0" transform="translate(-40.163 -61.756)"/>
+  <path id="Path_1849" data-name="Path 1849" fill="#d6d2c8" d="M28.351,117.226a1.726,1.726,0,1,1-1.726-1.726,1.729,1.729,0,0,1,1.726,1.726Zm0,0" transform="translate(-20.921 -97.045)"/>
+  <g id="Group_581" data-name="Group 581">
+    <g id="Group_579" data-name="Group 579" class="cls-2">
+      <path id="Path_1850" data-name="Path 1850" fill="#d6d2c8" d="M85.451,117.226a1.726,1.726,0,1,1-1.726-1.726,1.729,1.729,0,0,1,1.726,1.726Zm0,0" transform="translate(-68.898 -97.045)"/>
+    </g>
+  </g>
+</svg>

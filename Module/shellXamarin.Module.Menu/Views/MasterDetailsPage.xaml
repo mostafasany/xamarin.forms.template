@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Navigation.Views.MasterDetailsPage" IsPresented="false" MasterBehavior="Popover" xmlns:translate="clr-namespace:shellXamarin.Module.Navigation.i18n" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common">
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Navigation.Views.MasterDetailsPage" IsPresented="true" MasterBehavior="Popover" xmlns:translate="clr-namespace:shellXamarin.Module.Navigation.i18n" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" xmlns:controls="clr-namespace:shellXamarin.Module.Common.Controls;assembly=shellXamarin.Module.Common">
     <MasterDetailPage.Master>
         <ContentPage Title="Menu" IconImageSource="hamburguer_icon.png">
             <ContentPage.Resources>
@@ -43,12 +43,12 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Grid Margin="24,0">
+                                    <Grid Margin="12,0">
                                         <StackLayout Orientation="Horizontal">
-                                            <Grid WidthRequest="25" HeightRequest="25" VerticalOptions="Center">
+                                            <!--<Grid WidthRequest="25" HeightRequest="25" VerticalOptions="Center">
                                                 <Image HorizontalOptions="Center" VerticalOptions="Center" Source="{ Binding Icon }" />
-                                            </Grid>
-
+                                            </Grid>-->
+                                            <controls:SVGImageControl WidthRequest="15" HeightRequest="15" PortablePath="{ Binding Icon }" />
                                             <Label Text="{Binding Title}" VerticalOptions="Center" />
                                             <!--<Label IsVisible="{Binding NotificationCount,Converter={StaticResource IntToBoolConverter}" Margin="0,0,0,6" VerticalOptions="Center" TextColor="Red" HorizontalOptions="{DynamicResource LayoutDirectionHorizontalOptions}">
                             <Label.FormattedText>
@@ -69,9 +69,7 @@
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding LogoutCommand}" />
                         </StackLayout.GestureRecognizers>
-                        <Grid WidthRequest="25" HeightRequest="25">
-                            <Image HorizontalOptions="Center" VerticalOptions="Center" Source="https://bit.ly/2MAs6S8" />
-                        </Grid>
+                        <controls:SVGImageControl WidthRequest="25" HeightRequest="25" PortablePath="myaccount.svg" />
                         <Label Text="{translate:Translate navigation.menu.logout}" Margin="12,0" VerticalTextAlignment="Center" />
                     </StackLayout>
                 </Grid>

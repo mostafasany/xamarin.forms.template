@@ -15,6 +15,8 @@ namespace shellXamarin.Module.Navigation.ViewModels
     {
         private readonly IMenuService _menuService;
         private readonly IEventAggregator _eventAggregator;
+        UserLogoutEvent _userLogoutEvent;
+        SubscriptionToken _token;
         public MasterDetailsPageViewModel(INavigationService navigationService, ILocalService localService, IMenuService menuService,
             IEventAggregator eventAggregator)
             : base(localService)

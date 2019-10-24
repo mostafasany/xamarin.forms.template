@@ -17,13 +17,13 @@ namespace shellXamarin.Module.Navigation.BuinessServices
         public async Task<List<MenuElement>> GetMenuItemsAsync()
         {
             var menuItems = new List<MenuElement>();
-            menuItems.Add(new MenuElement(AppResources.navigation_menu_home, "HomePage", "https://bit.ly/360HU8u", true, false, null));
-            menuItems.Add(new MenuElement(AppResources.navigation_menu_account, "", "", false, false, new List<MenuElement>()
+            menuItems.Add(new MenuElement(AppResources.navigation_menu_home, "HomePage", "home.svg", true, false, null));
+            menuItems.Add(new MenuElement(AppResources.navigation_menu_account, "", "myaccount.svg", false, false, new List<MenuElement>()
             {
-                new MenuElement(AppResources.navigation_menu_login, "LoginPage", "https://bit.ly/2BAmq4a",  true, false, null),
-                new MenuElement(AppResources.navigation_menu_register, "RegisterPage",  "https://bit.ly/2PaOEur", true, false, null)
+                new MenuElement(AppResources.navigation_menu_login, "LoginPage", "myaccount.svg",  true, false, null),
+                new MenuElement(AppResources.navigation_menu_register, "RegisterPage",  "myaccount.svg", true, false, null)
             }));
-            menuItems.Add(new MenuElement(AppResources.navigation_menu_settings, "SettingsPage", "https://bit.ly/2pEVSfw", true, false, null));
+            menuItems.Add(new MenuElement(AppResources.navigation_menu_settings, "SettingsPage", "settings.svg", true, false, null));
 
             return menuItems;
         }
