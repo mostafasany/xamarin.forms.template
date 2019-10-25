@@ -14,7 +14,6 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-
             <StackLayout Orientation="Vertical" Grid.Row="0">
                 <Entry Style="{StaticResource FormEntryStyle}" ReturnType="{Binding Email.ReturnType}" Placeholder="{Binding Email.Placeholder}" Text="{Binding Email.Text,Mode=TwoWay}" Keyboard="{Binding Email.Keyboard}"></Entry>
                 <Entry Style="{StaticResource FormEntryStyle}" ReturnType="{Binding Password.ReturnType}" Placeholder="{Binding Password.Placeholder}" Text="{Binding Password.Text,Mode=TwoWay}" IsPassword="{Binding Password.IsPassword}"></Entry>

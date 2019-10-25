@@ -7,7 +7,6 @@ using Prism.Services;
 using shellXamarin.Module.Account.Resources;
 using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.FormBuilder.Models;
-using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Services.EventBusService;
 using shellXamarin.Module.Common.ViewModels;

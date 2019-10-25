@@ -24,6 +24,21 @@
     </Style>
 
 
+    <!-- DatePicker Styles -->
+    <Style x:Key="DatePickerStyle" TargetType="DatePicker">
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="HeightRequest" Value="50" />
+        <Setter Property="BackgroundColor" Value="White" />
+    </Style>
+
+    <!-- Picker Styles -->
+    <Style x:Key="PickerStyle" TargetType="Picker">
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="HeightRequest" Value="50" />
+        <Setter Property="BackgroundColor" Value="White" />
+    </Style>
+
+
     <!-- Entry Styles -->
     <Style x:Key="FormEntryStyle" TargetType="Entry">
         <Setter Property="PlaceholderColor" Value="Gray" />

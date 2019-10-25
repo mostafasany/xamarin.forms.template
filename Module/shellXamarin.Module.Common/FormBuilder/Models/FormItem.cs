@@ -1,4 +1,7 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 using shellXamarin.Module.Common.Models;
 using Xamarin.Forms;
 
@@ -23,27 +26,45 @@ namespace shellXamarin.Module.Common.FormBuilder.Models
         }
 
 
-        ReturnType returnType;
-        public ReturnType ReturnType
-        {
-            get { return returnType; }
-            set { SetProperty(ref returnType, value); }
-        }
-
-        //NavigableElement navigableElement;
-        //public NavigableElement NavigableElement
-        //{
-        //    get { return navigableElement; }
-        //    set { SetProperty(ref navigableElement, value); }
-        //}
-
-
         public string RequiredMessage { get; set; }
 
         public string InvalidMessage { get; set; }
 
     }
 
+    public class DatePickerItem : FormItem
+    {
+        DateTime text;
+        public DateTime Text
+        {
+            get { return text; }
+            set { SetProperty(ref text, value); }
+        }
+    }
+
+
+    public class ListItem<T> : FormItem
+    {
+        List<T> items;
+        public List<T> Items
+        {
+            get { return items; }
+            set { SetProperty(ref items, value); }
+        }
+
+        public T Selected
+        {
+            get
+            {
+                return items.FirstOrDefault(a => a.GetType().GetProperty(SelectedKey).GetValue(a) as string == SelectedValue);
+            }
+        }
+
+        public string SelectedKey { get; set; }
+
+        public string SelectedValue { get; set; }
+
+    }
 
     public class FormEntryItem : FormItem
     {
@@ -76,6 +97,13 @@ namespace shellXamarin.Module.Common.FormBuilder.Models
             set { SetProperty(ref isPassword, value); }
         }
 
+        ReturnType returnType;
+        public ReturnType ReturnType
+        {
+            get { return returnType; }
+            set { SetProperty(ref returnType, value); }
+        }
+
         public Regex Regex { get; set; }
 
         public int MinChar { get; set; } = 1;
@@ -87,8 +115,6 @@ namespace shellXamarin.Module.Common.FormBuilder.Models
         public bool RegexInvalid() => !Regex.Match(text).Success;
 
         public bool RequiredInvalid() => string.IsNullOrEmpty(text);
-
-
 
     }
 }

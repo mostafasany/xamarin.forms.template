@@ -15,6 +15,9 @@
     <data name="account.login.title" xml:space="preserve">
         <value>Einloggen</value>
     </data>
+    <data name="account.register.title" xml:space="preserve">
+        <value>Registrieren</value>
+    </data>
     <data name="account.action.login" xml:space="preserve">
         <value>Einloggen</value>
     </data>

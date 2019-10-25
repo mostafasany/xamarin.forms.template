@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Account.Views.RegisterPage" xmlns:translate="clr-namespace:shellXamarin.Module.Account.i18n" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common" Title="{translate:Translate account.register.title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <styles:AppStyles></styles:AppStyles>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Style="{StaticResource RootLayoutStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <StackLayout Orientation="Vertical" Grid.Row="0">
+                <Entry Style="{StaticResource FormEntryStyle}" ReturnType="{Binding FirstName.ReturnType}" Placeholder="{Binding FirstName.Placeholder}" Text="{Binding FirstName.Text,Mode=TwoWay}" Keyboard="{Binding FirstName.Keyboard}"></Entry>
+                <Entry Style="{StaticResource FormEntryStyle}" ReturnType="{Binding LastName.ReturnType}" Placeholder="{Binding LastName.Placeholder}" Text="{Binding LastName.Text,Mode=TwoWay}" Keyboard="{Binding LastName.Keyboard}"></Entry>
+                <DatePicker Style="{StaticResource DatePickerStyle}" Date="{Binding DOB.Text,Mode=TwoWay}"></DatePicker>
+                <Picker Style="{StaticResource PickerStyle}" ItemsSource="{Binding GenderList.Items,Mode=TwoWay}" SelectedItem="{Binding GenderList.Selected}">
+                </Picker>
+            </StackLayout>
+            <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
+
+            <Button Grid.Row="2" Text="{translate:Translate account.action.register}" Command="{Binding RegisterCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -59,6 +59,12 @@ namespace shellXamarin.Module.Account.Resources {
             }
         }
         
+        internal static string account_register_title {
+            get {
+                return ResourceManager.GetString("account.register.title", resourceCulture);
+            }
+        }
+        
         internal static string account_action_back {
             get {
                 return ResourceManager.GetString("account.action.back", resourceCulture);
