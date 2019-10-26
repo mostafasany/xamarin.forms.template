@@ -74,11 +74,11 @@
     <Compile Update="Resources\AppResources.ar.Designer.cs">
       <DependentUpon>AppResources.ar.resx</DependentUpon>
     </Compile>
-    <Compile Update="Themes\MainTheme.xaml.cs">
-      <DependentUpon>MainTheme.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Styles\AppStyles.xaml.cs">
       <DependentUpon>AppStyles.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Themes\LightTheme.xaml.cs">
+      <DependentUpon>LightTheme.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
