@@ -26,8 +26,8 @@
 
 
     <!-- Label COLORS -->
-    <Color x:Key="LabelBackgroundColor">#da1f26</Color>
-    <Color x:Key="LabelTextColor">Black</Color>
+    <Color x:Key="LabelBackgroundColor">White</Color>
+    <Color x:Key="LabelTextColor">#da1f26</Color>
 
 
     <!-- List COLORS -->

@@ -26,7 +26,7 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Label HorizontalOptions="Start" Text="{Binding ReadNewsLetter.Placeholder}" VerticalOptions="Center"></Label>
+                    <Label Style="{StaticResource LabelStyle}" HorizontalOptions="Start" Text="{Binding ReadNewsLetter.Placeholder}" VerticalOptions="Center"></Label>
                     <CheckBox HorizontalOptions="End" IsChecked="{Binding ReadNewsLetter.IsChecked, Mode=TwoWay}" VerticalOptions="Center"></CheckBox>
                 </Grid>
 

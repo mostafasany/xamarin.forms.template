@@ -49,7 +49,7 @@
 
 
      <!-- Label Styles -->
-    <Style x:Key="LabelStyle" TargetType="Entry">
+    <Style x:Key="LabelStyle" TargetType="Label">
         <Setter Property="TextColor" Value="{DynamicResource LabelTextColor}" />
         <Setter Property="BackgroundColor" Value="{DynamicResource LabelBackgroundColor}" />
     </Style>
