@@ -21,7 +21,7 @@
     <ProjectReference Include="..\Module\shellXamarin.Module.Common\shellXamarin.Module.Common.csproj" />
     <ProjectReference Include="..\Module\shellXamarin.Module.Settings\shellXamarin.Module.Settings.csproj" />
     <ProjectReference Include="..\Module\shellXamarin.Module.Account\shellXamarin.Module.Account.csproj" />
-    <ProjectReference Include="..\Module\shellXamarin.Module.Menu\shellXamarin.Module.Navigation.csproj" />
+    <ProjectReference Include="..\Module\shellXamarin.Module.Navigation\shellXamarin.Module.Navigation.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="i18n\" />

@@ -4,24 +4,15 @@ using Prism.Ioc;
 using Prism.Modularity;
 using shellXamarin.Module.Account;
 using shellXamarin.Module.Startup;
-using shellXamarin.Module.Startup.BuinessServices;
 using shellXamarin.Module.Home;
 using shellXamarin.Module.Settings;
 using shellXamarin.Module.Common;
-using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Navigation;
-using System.Globalization;
-using shellXamarin.Module.Common.Services.EventBusService;
-using shellXamarin.Module.Common.Events;
-using shellXamarin.Module.Common.Models;
 
 namespace shellXamarin
 {
     public partial class App : PrismApplication
     {
-        IModuleManager _moduleManager;
-        IModuleCatalog _moduleCatalog;
-        //ILocalService _localService;
         public App() : this(null)
         {
         }
@@ -32,20 +23,7 @@ namespace shellXamarin
 
         protected override async void OnInitialized()
         {
-            //var eventBusService = Container.Resolve<IEventBusService>();
-            //eventBusService.Subscribe<LanguageChangedEvent, Language>(LanguageChanged);
-
-            var startupService = Container.Resolve<IStartupService>();
             await NavigationService.NavigateAsync("/StartupPage");
-        }
-
-        private void LanguageChanged(Language language)
-        {
-            //var ci = new CultureInfo(language.Id);
-            //CultureInfo.DefaultThreadCurrentCulture = ci;
-            //CultureInfo.DefaultThreadCurrentUICulture = ci;
-            //CultureInfo.CurrentCulture = ci;
-            //CultureInfo.CurrentUICulture = ci;
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -54,14 +32,14 @@ namespace shellXamarin
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
-            _moduleCatalog = moduleCatalog;
-            _moduleManager = Container.Resolve<IModuleManager>();
-            CommonModule.AddModule(moduleCatalog, _moduleManager, true);
-            StartupModule.AddModule(moduleCatalog, _moduleManager, true);
-            NavigationModule.AddModule(_moduleCatalog, _moduleManager, true);
-            HomeModule.AddModule(_moduleCatalog, _moduleManager, true);
-            AccountModule.AddModule(_moduleCatalog, _moduleManager, true);
-            SettingsModule.AddModule(_moduleCatalog, _moduleManager, true);
+            //TODO: May be not loadig all modules
+            IModuleManager moduleManager = Container.Resolve<IModuleManager>();
+            CommonModule.AddModule(moduleCatalog, moduleManager, true);
+            StartupModule.AddModule(moduleCatalog, moduleManager, true);
+            NavigationModule.AddModule(moduleCatalog, moduleManager, true);
+            HomeModule.AddModule(moduleCatalog, moduleManager, true);
+            AccountModule.AddModule(moduleCatalog, moduleManager, true);
+            SettingsModule.AddModule(moduleCatalog, moduleManager, true);
         }
 
         protected override void OnStart()
