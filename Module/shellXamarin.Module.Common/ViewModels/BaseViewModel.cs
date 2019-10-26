@@ -93,7 +93,7 @@ namespace shellXamarin.Module.Common.ViewModels
         {
             if (NavigationService == null)
             {
-                throw new System.Exception("NavigationService not set");
+                throw new Exception("NavigationService not set");
             }
             if (clearHistory)
                 await NavigationService.NavigateAsync("/MasterDetailsPage/HomeTabbedPage");
@@ -103,6 +103,7 @@ namespace shellXamarin.Module.Common.ViewModels
             // await NavigationService.NavigateAsync("/MasterDetailsPage/NavigationPage/HomePage");
 
         }
+
         public virtual async Task Load()
         {
         }
@@ -119,9 +120,14 @@ namespace shellXamarin.Module.Common.ViewModels
 
         public virtual void Destroy()
         {
-            userLogoutEventAndToken.Item1.Unsubscribe(userLogoutEventAndToken.Item2);
-            userLoginEventAndToken.Item1.Unsubscribe(userLoginEventAndToken.Item2);
-            languageChangedEventAndToken.Item1.Unsubscribe(languageChangedEventAndToken.Item2);
+            if (userLogoutEventAndToken != null)
+                userLogoutEventAndToken.Item1.Unsubscribe(userLogoutEventAndToken.Item2);
+
+            if (userLoginEventAndToken != null)
+                userLoginEventAndToken.Item1.Unsubscribe(userLoginEventAndToken.Item2);
+
+            if (languageChangedEventAndToken != null)
+                languageChangedEventAndToken.Item1.Unsubscribe(languageChangedEventAndToken.Item2);
         }
     }
 }

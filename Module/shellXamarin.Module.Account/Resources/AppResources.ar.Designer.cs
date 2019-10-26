@@ -118,5 +118,83 @@ namespace shellXamarin.Module.Account.Resources {
                 return ResourceManager.GetString("account.ok", resourceCulture);
             }
         }
+        
+        internal static string account_form_firstname_placeholder {
+            get {
+                return ResourceManager.GetString("account.form.firstname.placeholder", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_firstname_required {
+            get {
+                return ResourceManager.GetString("account.form.firstname.required", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_firstname_invalid {
+            get {
+                return ResourceManager.GetString("account.form.firstname.invalid", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_lastname_placeholder {
+            get {
+                return ResourceManager.GetString("account.form.lastname.placeholder", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_lastname_required {
+            get {
+                return ResourceManager.GetString("account.form.lastname.required", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_lastname_invalid {
+            get {
+                return ResourceManager.GetString("account.form.lastname.invalid", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_dob_placeholder {
+            get {
+                return ResourceManager.GetString("account.form.dob.placeholder", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_dob_required {
+            get {
+                return ResourceManager.GetString("account.form.dob.required", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_dob_invalid {
+            get {
+                return ResourceManager.GetString("account.form.dob.invalid", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_newsletter_placeholder {
+            get {
+                return ResourceManager.GetString("account.form.newsletter.placeholder", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_newsletter_required {
+            get {
+                return ResourceManager.GetString("account.form.newsletter.required", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_male {
+            get {
+                return ResourceManager.GetString("account.form.male", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_female {
+            get {
+                return ResourceManager.GetString("account.form.female", resourceCulture);
+            }
+        }
     }
 }

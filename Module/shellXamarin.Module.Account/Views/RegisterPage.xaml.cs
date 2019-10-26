@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using shellXamarin.Module.Account.ViewModels;
+using Xamarin.Forms;
 
 namespace shellXamarin.Module.Account.Views
 {

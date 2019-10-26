@@ -31,15 +31,15 @@ namespace shellXamarin.Module.Account.ViewModels
 
         #region Properties
 
-        FormEntryItem email;
-        public FormEntryItem Email
+        EntryItem email;
+        public EntryItem Email
         {
             get { return email; }
             set { SetProperty(ref email, value); }
         }
 
-        FormEntryItem password;
-        public FormEntryItem Password
+        EntryItem password;
+        public EntryItem Password
         {
             get { return password; }
             set { SetProperty(ref password, value); }
@@ -51,7 +51,7 @@ namespace shellXamarin.Module.Account.ViewModels
 
         private void LoadFormItems()
         {
-            Email = new FormEntryItem
+            Email = new EntryItem
             {
                 Text = string.Empty,
                 Placeholder = AppResources.account_form_email_placeholder,
@@ -63,7 +63,7 @@ namespace shellXamarin.Module.Account.ViewModels
                 ReturnType = ReturnType.Next,
             };
 
-            Password = new FormEntryItem
+            Password = new EntryItem
             {
                 Text = string.Empty,
                 IsPassword = true,

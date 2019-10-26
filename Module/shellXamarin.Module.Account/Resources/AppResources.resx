@@ -48,4 +48,43 @@
     <data name="account.ok" xml:space="preserve">
         <value>ok</value>
     </data>
+    <data name="account.form.firstname.placeholder" xml:space="preserve">
+        <value>First name</value>
+    </data>
+    <data name="account.form.firstname.required" xml:space="preserve">
+        <value>First name is requried</value>
+    </data>
+    <data name="account.form.firstname.invalid" xml:space="preserve">
+        <value>First name is invalid</value>
+    </data>
+    <data name="account.form.lastname.placeholder" xml:space="preserve">
+        <value>Last name</value>
+    </data>
+    <data name="account.form.lastname.required" xml:space="preserve">
+        <value>Last name is requried</value>
+    </data>
+    <data name="account.form.lastname.invalid" xml:space="preserve">
+        <value>Last name is invalid</value>
+    </data>
+    <data name="account.form.dob.placeholder" xml:space="preserve">
+        <value>Date of Birth</value>
+    </data>
+    <data name="account.form.dob.required" xml:space="preserve">
+        <value>Date of Birth is requried</value>
+    </data>
+    <data name="account.form.dob.invalid" xml:space="preserve">
+        <value>Date of Birth is invalid</value>
+    </data>
+    <data name="account.form.newsletter.placeholder" xml:space="preserve">
+        <value>News letter</value>
+    </data>
+    <data name="account.form.newsletter.required" xml:space="preserve">
+        <value>News letter requried</value>
+    </data>
+    <data name="account.form.male" xml:space="preserve">
+        <value>Male</value>
+    </data>
+    <data name="account.form.female" xml:space="preserve">
+        <value>Female</value>
+    </data>
 </root>

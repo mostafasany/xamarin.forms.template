@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<ResourceDictionary MergedWith="theme:DarkTheme" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:theme="clr-namespace:shellXamarin.Module.Common.Themes;assembly=shellXamarin.Module.Common" x:Class="shellXamarin.Module.Common.Styles.AppStyles">
+<ResourceDictionary MergedWith="theme:MainTheme" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:theme="clr-namespace:shellXamarin.Module.Common.Themes;assembly=shellXamarin.Module.Common" x:Class="shellXamarin.Module.Common.Styles.AppStyles">
 
     <!-- Root Layout Styles -->
     <Style x:Key="RootLayoutStyle" TargetType="Grid">
@@ -48,7 +48,14 @@
     </Style>
 
 
-    <!-- Entry Styles -->
+     <!-- Label Styles -->
+    <Style x:Key="LabelStyle" TargetType="Entry">
+        <Setter Property="TextColor" Value="{DynamicResource LabelTextColor}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource LabelBackgroundColor}" />
+    </Style>
+
+
+    <!-- List Styles -->
     <Style x:Key="ListStyle" TargetType="ListView">
         <Setter Property="BackgroundColor" Value="{DynamicResource ListBackgroundColor}" />
     </Style>

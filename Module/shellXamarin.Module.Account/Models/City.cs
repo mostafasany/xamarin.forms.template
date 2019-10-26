@@ -1,9 +1,8 @@
 ﻿using Prism.Mvvm;
 
-
 namespace shellXamarin.Module.Account.Models
 {
-    public class Gender: BindableBase
+    public class City: BindableBase
     {
         public string Id { get; set; }
 

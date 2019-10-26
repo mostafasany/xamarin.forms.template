@@ -30,6 +30,7 @@ namespace shellXamarin.Module.Account
         {
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
+            containerRegistry.RegisterForNavigation<GenericListViewPage, GenericListViewPageViewModel>();
             containerRegistry.RegisterSingleton<IAccountService, AccountService>();
             containerRegistry.RegisterSingleton<IAccountDataService, AccountDataService>();
         }

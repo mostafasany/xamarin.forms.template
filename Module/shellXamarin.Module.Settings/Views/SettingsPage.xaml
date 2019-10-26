@@ -15,7 +15,6 @@
                     </Grid.ColumnDefinitions>
                     <Label  Grid.Column="0" Text="{Binding Name}" TextColor="{DynamicResource LabelTextColor}" VerticalOptions="Center"></Label>
                     <controls:SVGImageControl Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" Source="{ Binding Flag }" />
-
                 </Grid>
             </ViewCell>
         </DataTemplate>
