@@ -8,10 +8,10 @@ namespace shellXamarin.Module.Navigation.BuinessServices
 {
     public class MenuService : IMenuService
     {
-        private readonly IMenuDataService menuDataService;
-        public MenuService(IMenuDataService _menuDataService)
+        private readonly IMenuDataService _menuDataService;
+        public MenuService(IMenuDataService menuDataService)
         {
-            menuDataService = _menuDataService;
+            _menuDataService = menuDataService;
         }
 
         public async Task<List<MenuElement>> GetMenuItemsAsync()

@@ -7,16 +7,16 @@ namespace shellXamarin.Module.Settings.BuinessServices
 {
     public class SettingsService : ISettingsService
     {
-        private readonly IDataSettingsService dataSettingsService;
+        private readonly IDataSettingsService _dataSettingsService;
 
-        public SettingsService(IDataSettingsService _dataSettingsService)
+        public SettingsService(IDataSettingsService dataSettingsService)
         {
-            dataSettingsService = _dataSettingsService;
+            _dataSettingsService = dataSettingsService;
         }
 
         public async Task<List<Language>> GetLanguages()
         {
-            return await dataSettingsService.GetLanguages();
+            return await _dataSettingsService.GetLanguages();
         }
 
     }

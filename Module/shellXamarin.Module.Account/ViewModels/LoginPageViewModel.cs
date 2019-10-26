@@ -1,7 +1,5 @@
-﻿using System;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using Prism.Commands;
-using Prism.Events;
 using Prism.Navigation;
 using Prism.Services;
 using shellXamarin.Module.Account.Resources;
@@ -17,15 +15,14 @@ namespace shellXamarin.Module.Account.ViewModels
     public class LoginPageViewModel : BaseViewModel
     {
         private readonly IPageDialogService _dialogService;
-        private readonly Tuple<UserLoginEvent, SubscriptionToken> userLoginEventAndToken;
+        private readonly IEventBusService _eventBusService;
         public LoginPageViewModel(INavigationService _navigationService, IEventBusService eventBusService,
-            IPageDialogService dialogService, ILocalService localService)
+            IPageDialogService dialogService, ILanguageService localService)
             : base(localService, eventBusService)
         {
             NavigationService = _navigationService;
             _dialogService = dialogService;
-            userLoginEventAndToken = eventBusService.Subscribe<UserLoginEvent>(UserLogin);
-
+            _eventBusService = eventBusService;
             LoadFormItems();
         }
 
@@ -111,7 +108,7 @@ namespace shellXamarin.Module.Account.ViewModels
                 return;
             }
 
-            userLoginEventAndToken.Item1.Publish();
+            _eventBusService.Publish<LoginEvent>();
             await NavigateHome();
         }
 

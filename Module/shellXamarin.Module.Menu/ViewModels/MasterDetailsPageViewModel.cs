@@ -15,17 +15,17 @@ namespace shellXamarin.Module.Navigation.ViewModels
     public class MasterDetailsPageViewModel : BaseViewModel
     {
         private readonly IMenuService _menuService;
-        private readonly Tuple<UserLogoutEvent, SubscriptionToken> userLogoutEventAndToken;
-        private readonly Tuple<UserLoginEvent, SubscriptionToken> userLoginEventAndToken;
-        public MasterDetailsPageViewModel(INavigationService navigationService, ILocalService localService,
+        private readonly Tuple<LogoutEvent, SubscriptionToken> userLogoutEventAndToken;
+        private readonly Tuple<LoginEvent, SubscriptionToken> userLoginEventAndToken;
+        public MasterDetailsPageViewModel(INavigationService navigationService, ILanguageService localService,
             IMenuService menuService,
             IEventBusService eventBusService)
             : base(localService, eventBusService)
         {
             _menuService = menuService;
             NavigationService = navigationService;
-            userLogoutEventAndToken = eventBusService.Subscribe<UserLogoutEvent>(UserLogout);
-            userLoginEventAndToken = eventBusService.Subscribe<UserLoginEvent>(UserLogin);
+            userLogoutEventAndToken = eventBusService.Subscribe<LogoutEvent>(UserLogout);
+            userLoginEventAndToken = eventBusService.Subscribe<LoginEvent>(UserLogin);
             Load();
         }
 

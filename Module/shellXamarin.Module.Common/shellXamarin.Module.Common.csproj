@@ -12,7 +12,7 @@
     <Folder Include="Services\" />
     <Folder Include="Models\" />
     <Folder Include="Services\ExceptionService\" />
-    <Folder Include="Services\LocalService\" />
+    <Folder Include="Services\LanguageService\" />
     <Folder Include="Services\PrefrencesService\" />
     <Folder Include="i18n\" />
     <Folder Include="Resources\" />

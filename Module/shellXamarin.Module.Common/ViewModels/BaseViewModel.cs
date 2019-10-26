@@ -18,19 +18,19 @@ namespace shellXamarin.Module.Common.ViewModels
         public INavigationService NavigationService { get; set; }
         public IDialogService DialogService { get; set; }
         public IExceptionService ExceptionService { get; set; }
-        public ILocalService LocalService { get; set; }
-        private readonly Tuple<UserLogoutEvent, SubscriptionToken> userLogoutEventAndToken;
-        private readonly Tuple<UserLoginEvent, SubscriptionToken> userLoginEventAndToken;
+        public ILanguageService LocalService { get; set; }
+        private readonly Tuple<LogoutEvent, SubscriptionToken> userLogoutEventAndToken;
+        private readonly Tuple<LoginEvent, SubscriptionToken> userLoginEventAndToken;
         private readonly Tuple<LanguageChangedEvent, SubscriptionToken> languageChangedEventAndToken;
-        public BaseViewModel(ILocalService localService, IEventBusService eventBusService)
+        public BaseViewModel(ILanguageService localService, IEventBusService eventBusService)
         {
             LocalService = localService;
             flowDirection = localService.UsedLanague.RTL ?
                 FlowDirection = FlowDirection.RightToLeft :
                 FlowDirection = FlowDirection.LeftToRight;
 
-            userLogoutEventAndToken = eventBusService.Subscribe<UserLogoutEvent>(UserLogout);
-            userLoginEventAndToken = eventBusService.Subscribe<UserLoginEvent>(UserLogin);
+            userLogoutEventAndToken = eventBusService.Subscribe<LogoutEvent>(UserLogout);
+            userLoginEventAndToken = eventBusService.Subscribe<LoginEvent>(UserLogin);
             localService.LanguageChanged += LanguageChanged;
 
             //TODO: For unknow reason, eventbus not firing language changed events
@@ -53,12 +53,12 @@ namespace shellXamarin.Module.Common.ViewModels
 
         private void UserLogout()
         {
-
+            //Do Something on logout
         }
 
         private void UserLogin()
         {
-
+            //Do Something on Login
         }
 
         bool isBusy;
@@ -74,6 +74,8 @@ namespace shellXamarin.Module.Common.ViewModels
 
         public bool NotBusy => !isBusy;
 
+
+        //TODO: check if this `"{x:Static Device.FlowDirection}"` is enough
         FlowDirection flowDirection;
         public FlowDirection FlowDirection
         {
@@ -88,17 +90,16 @@ namespace shellXamarin.Module.Common.ViewModels
             set { SetProperty(ref title, value); }
         }
 
-        //TODO:Check if clearHistory needed
-        protected async Task NavigateHome(bool clearHistory = true)
+        protected async Task NavigateHome(bool keepNavigationHistory = true)
         {
             if (NavigationService == null)
             {
                 throw new Exception("NavigationService not set");
             }
-            if (clearHistory)
-                await NavigationService.NavigateAsync("/MasterDetailsPage/HomeTabbedPage");
-            else
+            if (keepNavigationHistory)
                 await NavigationService.NavigateAsync("MasterDetailsPage/HomeTabbedPage");
+            else
+                await NavigationService.NavigateAsync("/MasterDetailsPage/HomeTabbedPage");
 
             // await NavigationService.NavigateAsync("/MasterDetailsPage/NavigationPage/HomePage");
 

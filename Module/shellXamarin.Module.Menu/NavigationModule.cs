@@ -22,7 +22,7 @@ namespace shellXamarin.Module.Navigation
 
             //IEventBusService eventBusService = containerProvider.Resolve<IEventBusService>();
             //eventBusService.Subscribe<LanguageChangedEvent, Language>(LanguageChanged);
-            ILocalService localService = containerProvider.Resolve<ILocalService>();
+            ILanguageService localService = containerProvider.Resolve<ILanguageService>();
             localService.LanguageChanged += LanguageChanged;
         }
 

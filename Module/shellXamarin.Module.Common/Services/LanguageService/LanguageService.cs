@@ -1,24 +1,20 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Linq;
 using Plugin.Multilingual;
-using Prism.Events;
-using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Resources;
 using shellXamarin.Module.Common.Services.EventBusService;
 
 namespace shellXamarin.Module.Common.Services
 {
-    public class LocalService : ILocalService
+    public class LanguageService : ILanguageService
     {
-        //TODO: Make sure all private members to start with `_`
         private readonly IPrefrencesService _settingsService;
         private readonly IEventBusService _eventBusService;
         private const string LanguageKey = "LanguageKey";
         public Language UsedLanague { get; set; }
 
-        public LocalService(IPrefrencesService settingsService, IEventBusService eventBusService)
+        public LanguageService(IPrefrencesService settingsService, IEventBusService eventBusService)
         {
             _settingsService = settingsService;
             _eventBusService = eventBusService;

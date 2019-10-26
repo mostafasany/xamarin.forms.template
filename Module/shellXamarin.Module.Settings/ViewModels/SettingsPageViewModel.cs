@@ -17,7 +17,7 @@ namespace shellXamarin.Module.Settings.ViewModels
         private readonly ISettingsService _settingsService;
         private readonly IEventBusService _eventBusService;
         public SettingsPageViewModel(ISettingsService settingsService,
-            IEventBusService eventBusService, ILocalService localService, INavigationService navigationService)
+            IEventBusService eventBusService, ILanguageService localService, INavigationService navigationService)
             : base(localService, eventBusService)
         {
             _settingsService = settingsService;
@@ -120,7 +120,7 @@ namespace shellXamarin.Module.Settings.ViewModels
 
         private async void Logout()
         {
-            _eventBusService.Publish<UserLogoutEvent>();
+            _eventBusService.Publish<LogoutEvent>();
 
             await NavigateHome();
         }

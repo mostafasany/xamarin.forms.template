@@ -19,7 +19,6 @@
     <Folder Include="DataServices\" />
     <Folder Include="DataServices\" />
     <Folder Include="BuisnessServices\" />
-    <Folder Include="DataServices\Dto\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\AboutPage.xaml" />

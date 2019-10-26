@@ -12,15 +12,15 @@ namespace shellXamarin.Module.Home.ViewModels
 {
     public class HomePageViewModel : BaseViewModel
     {
-        private readonly Tuple<UserLogoutEvent, SubscriptionToken> userLogoutEventAndToken;
-        private readonly Tuple<UserLoginEvent, SubscriptionToken> userLoginEventAndToken;
-        public HomePageViewModel(INavigationService _navigationService, ILocalService localService,
+        private readonly Tuple<LogoutEvent, SubscriptionToken> userLogoutEventAndToken;
+        private readonly Tuple<LoginEvent, SubscriptionToken> userLoginEventAndToken;
+        public HomePageViewModel(INavigationService _navigationService, ILanguageService localService,
             IEventBusService eventBusService)
             : base(localService, eventBusService)
         {
             NavigationService = _navigationService;
-            userLogoutEventAndToken = eventBusService.Subscribe<UserLogoutEvent>(UserLogout);
-            userLoginEventAndToken = eventBusService.Subscribe<UserLoginEvent>(UserLogin);
+            userLogoutEventAndToken = eventBusService.Subscribe<LogoutEvent>(UserLogout);
+            userLoginEventAndToken = eventBusService.Subscribe<LoginEvent>(UserLogin);
         }
 
         #region Properties

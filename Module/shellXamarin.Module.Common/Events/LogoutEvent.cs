@@ -2,7 +2,7 @@
 
 namespace shellXamarin.Module.Common.Events
 {
-    public class MenuItemSelectedEvent : PubSubEvent<string>
+    public class LogoutEvent : PubSubEvent
     {
     }
 }

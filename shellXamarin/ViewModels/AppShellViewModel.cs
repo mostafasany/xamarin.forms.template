@@ -6,7 +6,7 @@ namespace shellXamarin.ViewModels
 {
     public class AppShellViewModel : BaseViewModel
     {
-        public AppShellViewModel(ILocalService localService, IEventBusService eventBusService)
+        public AppShellViewModel(ILanguageService localService, IEventBusService eventBusService)
             : base(localService, eventBusService)
         {
         }

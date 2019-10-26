@@ -14,7 +14,7 @@ namespace shellXamarin.Module.Account.ViewModels
 {
     public class RegisterPageViewModel : BaseViewModel
     {
-        public RegisterPageViewModel(INavigationService _navigationService, IEventBusService eventBusService, ILocalService localService)
+        public RegisterPageViewModel(INavigationService _navigationService, IEventBusService eventBusService, ILanguageService localService)
             : base(localService, eventBusService)
         {
             NavigationService = _navigationService;

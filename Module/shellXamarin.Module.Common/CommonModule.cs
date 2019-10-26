@@ -11,7 +11,7 @@ namespace shellXamarin.Module.Common
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            var localService = containerProvider.Resolve<ILocalService>();
+            var localService = containerProvider.Resolve<ILanguageService>();
             localService.SetDefaultLanguage();
         }
 
@@ -19,7 +19,7 @@ namespace shellXamarin.Module.Common
         {
             containerRegistry.RegisterSingleton<IEventBusService, EventBusService>();
             containerRegistry.RegisterSingleton<IPrefrencesService, PrefrencesService>();
-            containerRegistry.RegisterSingleton<ILocalService, LocalService>();
+            containerRegistry.RegisterSingleton<ILanguageService, LanguageService>();
             containerRegistry.RegisterSingleton<IExceptionService, ExceptionService>();
         }
 

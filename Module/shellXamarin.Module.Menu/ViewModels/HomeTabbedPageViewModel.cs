@@ -6,7 +6,7 @@ namespace shellXamarin.Module.Navigation.ViewModels
 {
     public class HomeTabbedPageViewModel : BaseViewModel
     {
-        public HomeTabbedPageViewModel(ILocalService localService,IEventBusService eventBusService)
+        public HomeTabbedPageViewModel(ILanguageService localService,IEventBusService eventBusService)
             : base(localService, eventBusService)
         {
         }

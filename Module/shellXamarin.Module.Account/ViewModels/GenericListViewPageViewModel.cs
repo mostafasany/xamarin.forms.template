@@ -12,7 +12,7 @@ namespace shellXamarin.Module.Account.ViewModels
     {
         Type navigationItemType;
         public GenericListViewPageViewModel(INavigationService _navigationService,
-            IEventBusService eventBusService, ILocalService localService)
+            IEventBusService eventBusService, ILanguageService localService)
             : base(localService, eventBusService)
         {
             NavigationService = _navigationService;

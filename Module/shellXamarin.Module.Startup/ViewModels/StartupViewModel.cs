@@ -9,13 +9,13 @@ namespace shellXamarin.Module.Startup.ViewModels
 {
     public class StartupViewModel : BaseViewModel
     {
-        private readonly IStartupService startupService;
+        private readonly IStartupService _startupService;
         public StartupViewModel(INavigationService _navigationService, IEventBusService eventBusService,
-            IStartupService _startupService, ILocalService localService)
+            IStartupService startupService, ILanguageService localService)
             : base(localService, eventBusService)
         {
             NavigationService = _navigationService;
-            startupService = _startupService;
+            _startupService = startupService;
             IsBusy = true;
         }
 
@@ -33,7 +33,7 @@ namespace shellXamarin.Module.Startup.ViewModels
         public async override void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
-            bool canProceed = await startupService.CanProceed();
+            bool canProceed = await _startupService.CanProceed();
             if (canProceed)
                 await NavigateHome();
             else
