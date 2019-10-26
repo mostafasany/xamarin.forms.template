@@ -1,5 +1,11 @@
 # Boilerplate Xamarin Forms Template 
 
+## Features
+1. Multilanguage Support
+2. Multiple themes
+3. Modules Intercommunication
+4. SVG Support
+
 ## Dependencies:
 
 1. Xamarin forms 4.3+
