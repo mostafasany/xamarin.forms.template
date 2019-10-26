@@ -5,6 +5,7 @@ using Prism.Navigation;
 using shellXamarin.Module.Account.Models;
 using shellXamarin.Module.Account.Resources;
 using shellXamarin.Module.Common.FormBuilder.Models;
+using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Services.EventBusService;
 using shellXamarin.Module.Common.ViewModels;
@@ -52,8 +53,8 @@ namespace shellXamarin.Module.Account.ViewModels
             set { SetProperty(ref genderList, value); }
         }
 
-        NavigationItem<City> cities;
-        public NavigationItem<City> Cities
+        NavigationItem<INavigationElementEntity> cities;
+        public NavigationItem<INavigationElementEntity> Cities
         {
             get { return cities; }
             set { SetProperty(ref cities, value); }
@@ -121,9 +122,9 @@ namespace shellXamarin.Module.Account.ViewModels
                 RequiredMessage = string.Empty,
             };
 
-            Cities = new NavigationItem<City>
+            Cities = new NavigationItem<INavigationElementEntity>
             {
-                Items = new System.Collections.Generic.List<City>
+                Items = new System.Collections.Generic.List<INavigationElementEntity>
                 {
                     new City { Id = "1", Title = "Cairo" },
                     new City { Id = "2", Title = "Alexandria" },
@@ -162,12 +163,13 @@ namespace shellXamarin.Module.Account.ViewModels
         {
             if (parameters.GetNavigationMode() == NavigationMode.Back)
             {
-                var navigationItemType = parameters.GetValue<Type>("NavigationItemType");
-                if (navigationItemType == typeof(City))
+                var selectedNavigationItem = parameters.GetValue<NavigationItem<INavigationElementEntity>>("SelectedNavigationItem");
+                if (selectedNavigationItem != null)
                 {
-                    Cities = parameters.GetValue<NavigationItem<City>>("SelectedNavigationItem");
+                    cities = selectedNavigationItem;
                     RaisePropertyChanged(nameof(Cities));
                 }
+
             }
 
             base.OnNavigatedTo(parameters);
@@ -183,18 +185,10 @@ namespace shellXamarin.Module.Account.ViewModels
 
         private async void NavigationButton(object obj)
         {
-            // Type elementType = Type.GetType("shellXamarin.Module.Common.Models.Language");
-            Type itemType = Type.GetType("shellXamarin.Module.Account.Models.City");
-            // var type = typeof(NavigationItem<>).MakeGenericType(cityType);
-
-            if (itemType == typeof(City))
-            {
-                NavigationItem<City> navigationItem = obj as NavigationItem<City>;
-                Prism.Navigation.NavigationParameters parameters = new Prism.Navigation.NavigationParameters();
-                parameters.Add("NavigationItemType", itemType);
-                parameters.Add("NavigationItem", navigationItem);
-                await NavigationService.NavigateAsync(navigationItem.NavigationContext.NavigationPage, parameters);
-            }
+            NavigationItem<INavigationElementEntity> navigationItem = obj as NavigationItem<INavigationElementEntity>;
+            NavigationParameters parameters = new NavigationParameters();
+            parameters.Add("NavigationItem", navigationItem);
+            await NavigationService.NavigateAsync(navigationItem.NavigationContext.NavigationPage, parameters);
         }
 
         #endregion

@@ -108,7 +108,7 @@ namespace shellXamarin.Module.Navigation.ViewModels
             {
                 if (page.Page == "HomePage")
                 {
-                    await NavigateHome(false);
+                    await NavigateHome();
                 }
                 else
                 {

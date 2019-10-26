@@ -90,16 +90,14 @@ namespace shellXamarin.Module.Common.ViewModels
             set { SetProperty(ref title, value); }
         }
 
-        protected async Task NavigateHome(bool keepNavigationHistory = true)
+        protected async Task NavigateHome()
         {
             if (NavigationService == null)
             {
                 throw new Exception("NavigationService not set");
             }
-            if (keepNavigationHistory)
-                await NavigationService.NavigateAsync("MasterDetailsPage/HomeTabbedPage");
-            else
-                await NavigationService.NavigateAsync("/MasterDetailsPage/HomeTabbedPage");
+
+            await NavigationService.NavigateAsync("/MasterDetailsPage/HomeTabbedPage");
 
             // await NavigationService.NavigateAsync("/MasterDetailsPage/NavigationPage/HomePage");
 

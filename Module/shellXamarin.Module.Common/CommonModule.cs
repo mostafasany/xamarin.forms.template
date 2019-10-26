@@ -4,6 +4,8 @@ using Prism.Modularity;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Services.EventBusService;
 using shellXamarin.Module.Common.Services.ExceptionService;
+using shellXamarin.Module.Common.ViewModels;
+using shellXamarin.Module.Common.Views;
 
 namespace shellXamarin.Module.Common
 {
@@ -17,6 +19,7 @@ namespace shellXamarin.Module.Common
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<GenericListViewPage, GenericListViewPageViewModel>();
             containerRegistry.RegisterSingleton<IEventBusService, EventBusService>();
             containerRegistry.RegisterSingleton<IPrefrencesService, PrefrencesService>();
             containerRegistry.RegisterSingleton<ILanguageService, LanguageService>();

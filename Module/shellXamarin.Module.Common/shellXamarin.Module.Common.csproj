@@ -24,6 +24,7 @@
     <Folder Include="Controls\" />
     <Folder Include="Assets\" />
     <Folder Include="Services\EventBusService\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />
@@ -79,6 +80,10 @@
     </Compile>
     <Compile Update="Themes\LightTheme.xaml.cs">
       <DependentUpon>LightTheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\GenericListViewPage.xaml.cs">
+      <DependentUpon>GenericListViewPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

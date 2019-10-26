@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace shellXamarin.Module.Account.Views
+namespace shellXamarin.Module.Common.Views
 {
     public partial class GenericListViewPage : ContentPage
     {
