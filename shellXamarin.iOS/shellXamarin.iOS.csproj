@@ -133,6 +133,9 @@
     <BundleResource Include="Resources\Mocks\en\menu.json" />
     <BundleResource Include="Resources\Mocks\ar\menu.json" />
     <BundleResource Include="Resources\Mocks\de\menu.json" />
+    <BundleResource Include="Resources\Mocks\en\profile.json" />
+    <BundleResource Include="Resources\Mocks\de\profile.json" />
+    <BundleResource Include="Resources\Mocks\ar\profile.json" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

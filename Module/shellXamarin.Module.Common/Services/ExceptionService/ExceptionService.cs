@@ -47,6 +47,7 @@ namespace shellXamarin.Module.Common.Services.ExceptionService
             Console.WriteLine(ex.Message);
             _loggerService.Log(ex.Message, Category.Exception, Priority.High);
 
+            //TODO: _dialogService throw exception
             _dialogService.ShowDialog(string.IsNullOrEmpty(error) ? ex.Message : error);
         }
     }

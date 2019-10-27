@@ -18,7 +18,7 @@
             <StackLayout Orientation="Vertical" Grid.Row="0">
                 <Entry Style="{StaticResource FormEntryStyle}" ReturnType="{Binding FirstName.ReturnType}" Placeholder="{Binding FirstName.Placeholder}" Text="{Binding FirstName.Text,Mode=TwoWay}" Keyboard="{Binding FirstName.Keyboard}"></Entry>
                 <Entry Style="{StaticResource FormEntryStyle}" ReturnType="{Binding LastName.ReturnType}" Placeholder="{Binding LastName.Placeholder}" Text="{Binding LastName.Text,Mode=TwoWay}" Keyboard="{Binding LastName.Keyboard}"></Entry>
-                <DatePicker Style="{StaticResource DatePickerStyle}" Date="{Binding DOB.Text,Mode=TwoWay}"></DatePicker>
+                <DatePicker Style="{StaticResource DatePickerStyle}" Date="{Binding DOB.Date,Mode=TwoWay}"></DatePicker>
                 <Picker Style="{StaticResource PickerStyle}" ItemsSource="{Binding GenderList.Items,Mode=TwoWay}" SelectedItem="{Binding GenderList.Selected}" />
                 <Button Style="{StaticResource SecondaryButtonStyle}" CommandParameter="{Binding Cities}" Command="{Binding NavigationButtonCommand}" Text="{Binding Cities.Selected.Title}"></Button>
                 <Grid>

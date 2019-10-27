@@ -15,6 +15,7 @@ namespace shellXamarin.Module.Navigation.ViewModels
 {
     public class MasterDetailsPageViewModel : BaseViewModel
     {
+        //TODO: Check how to retreive Account Details in Side Menu
         private readonly IMenuService _menuService;
         private readonly Tuple<LogoutEvent, SubscriptionToken> userLogoutEventAndToken;
         private readonly Tuple<LoginEvent, SubscriptionToken> userLoginEventAndToken;

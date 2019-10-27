@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using shellXamarin.Module.Account.DataServices;
@@ -68,6 +69,49 @@ namespace shellXamarin.Module.Account.BuinessServices
             try
             {
                 return await _accountDataService.LogoutAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+        public async Task<List<INavigationElementEntity>> GetGendersNavigationElementsAsync()
+        {
+            try
+            {
+                var genderDtos = await _accountDataService.GetGendersAsync();
+                List<INavigationElementEntity> navigationElementEntities = new List<INavigationElementEntity>();
+                foreach (var gender in genderDtos)
+                {
+                    navigationElementEntities.Add(new City { Id = gender.Id, Title = gender.Title });
+                }
+                return navigationElementEntities;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+        public async Task<User> GetUser()
+        {
+            try
+            {
+                //TODO: 31/10/1989 is not rendered correcly 
+                var userDto = await _accountDataService.GetUser();
+                return new User
+                {
+                    City = userDto.City,
+                    DOB = DateTime.ParseExact(userDto.DOB, "dd/MM/yyyy",
+                                           CultureInfo.InvariantCulture),
+                    FName = userDto.FName,
+                    Gender = userDto.Gender,
+                    Id = userDto.Id,
+                    LName = userDto.LName
+                };
             }
             catch (Exception ex)
             {

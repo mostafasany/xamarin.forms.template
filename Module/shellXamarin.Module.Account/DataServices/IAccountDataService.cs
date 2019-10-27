@@ -11,5 +11,7 @@ namespace shellXamarin.Module.Account.DataServices
         Task<List<GenderDto>> GetGendersAsync();
 
         Task<List<CityDto>> GetCitiesAsync();
+
+        Task<UserDto> GetUser();
     }
 }

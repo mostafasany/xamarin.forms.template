@@ -1,9 +1,9 @@
 ﻿using Prism.Mvvm;
-
+using shellXamarin.Module.Common.Models;
 
 namespace shellXamarin.Module.Account.Models
 {
-    public class Gender: BindableBase
+    public class Gender : BindableBase, INavigationElementEntity
     {
         public string Id { get; set; }
 

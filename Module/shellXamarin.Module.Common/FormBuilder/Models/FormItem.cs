@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Prism.Commands;
 using Prism.Mvvm;
+using shellXamarin.Module.Common.Models;
 using Xamarin.Forms;
 
 namespace shellXamarin.Module.Common.FormBuilder.Models
 {
     public class FormItem : BindableBase
     {
+        public string Id { get; set; }
+
         string placeholder;
         public string Placeholder
         {
@@ -27,19 +31,37 @@ namespace shellXamarin.Module.Common.FormBuilder.Models
 
         public string InvalidMessage { get; set; }
 
+        public virtual bool IsInvalid()
+        {
+            return false;
+        }
+
+        public virtual bool IsRequried()
+        {
+            return false;
+        }
     }
 
     public class DatePickerItem : FormItem
     {
-        DateTime text;
-        public DateTime Text
+        DateTime date;
+        public DateTime Date
         {
-            get { return text; }
-            set { SetProperty(ref text, value); }
+            get { return date; }
+            set { SetProperty(ref date, value); }
+        }
+
+        public DateTime StartDate { get; set; }
+
+        public DateTime EndDate { get; set; }
+
+        public override bool IsInvalid()
+        {
+            return Date < StartDate || date > EndDate;
         }
     }
 
-    public class ListItem<T> : FormItem
+    public class PickerItem<T> : FormItem
     {
         List<T> items;
         public List<T> Items
@@ -113,10 +135,15 @@ namespace shellXamarin.Module.Common.FormBuilder.Models
 
         public string MaxCharMessage { get; set; }
 
-        public bool RegexInvalid() => !Regex.Match(text).Success;
+        public override bool IsInvalid()
+        {
+            return !Regex.Match(text).Success;
+        }
 
-        public bool RequiredInvalid() => string.IsNullOrEmpty(text);
-
+        public override bool IsRequried()
+        {
+            return string.IsNullOrEmpty(text);
+        }
     }
 
     public class CheckItem : FormItem
@@ -129,7 +156,7 @@ namespace shellXamarin.Module.Common.FormBuilder.Models
         }
     }
 
-    public class NavigationItem<T> : ListItem<T>
+    public class NavigationItem<T> : PickerItem<T>
     {
         public NavigationContext NavigationContext { get; set; }
     }
@@ -140,7 +167,7 @@ namespace shellXamarin.Module.Common.FormBuilder.Models
 
         public DataTemplate PageTemplate { get; set; }
 
-        public string NavigationCommand { get; set; }
+        public DelegateCommand<NavigationItem<INavigationElementEntity>> NavigationCommand { get; set; }
 
     }
 }

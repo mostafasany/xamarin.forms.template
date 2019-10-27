@@ -98,17 +98,17 @@ namespace shellXamarin.Module.Account.ViewModels
         {
             try
             {
-                if (Email.RequiredInvalid())
+                if (Email.IsRequried())
                 {
                     await _dialogService.DisplayAlertAsync("", Email.RequiredMessage, AppResources.account_ok);
                     return;
                 }
-                if (Email.RegexInvalid())
+                if (Email.IsInvalid())
                 {
                     await _dialogService.DisplayAlertAsync("", Email.InvalidMessage, AppResources.account_ok);
                     return;
                 }
-                if (Password.RequiredInvalid())
+                if (Password.IsRequried())
                 {
                     await _dialogService.DisplayAlertAsync("", Password.RequiredMessage, AppResources.account_ok);
                     return;

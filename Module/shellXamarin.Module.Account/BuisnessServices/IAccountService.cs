@@ -9,10 +9,14 @@ namespace shellXamarin.Module.Account.BuinessServices
     {
         Task<bool> LogoutAsync();
 
+        Task<User> GetUser();
+
         Task<List<Gender>> GetGendersAsync();
 
-        Task<List<INavigationElementEntity>> GetCitiesNavigationElementsAsync();
+        Task<List<INavigationElementEntity>> GetGendersNavigationElementsAsync();
 
         Task<List<City>> GetCitiesAsync();
+
+        Task<List<INavigationElementEntity>> GetCitiesNavigationElementsAsync();
     }
 }
