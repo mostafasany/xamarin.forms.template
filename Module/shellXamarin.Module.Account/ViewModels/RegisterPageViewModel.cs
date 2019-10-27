@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Text.RegularExpressions;
 using Prism.Commands;
 using Prism.Navigation;
@@ -10,6 +9,7 @@ using shellXamarin.Module.Common.FormBuilder.Models;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Services.EventBusService;
+using shellXamarin.Module.Common.Services.ExceptionService;
 using shellXamarin.Module.Common.ViewModels;
 using Xamarin.Forms;
 
@@ -20,8 +20,8 @@ namespace shellXamarin.Module.Account.ViewModels
         private readonly IAccountService _accountService;
         public RegisterPageViewModel(INavigationService _navigationService,
             IEventBusService eventBusService, ILanguageService localService,
-            IAccountService accountService)
-            : base(localService, eventBusService)
+            IAccountService accountService, IExceptionService exceptionService)
+            : base(localService, eventBusService, exceptionService)
         {
             NavigationService = _navigationService;
             _accountService = accountService;
@@ -80,75 +80,82 @@ namespace shellXamarin.Module.Account.ViewModels
 
         private async void LoadFormItems()
         {
-            FirstName = new EntryItem
+            try
             {
-                Text = string.Empty,
-                Placeholder = AppResources.account_form_firstname_placeholder,
-                Keyboard = Keyboard.Text,
-                Required = true,
-                Regex = new Regex(""),
-                RequiredMessage = AppResources.account_form_firstname_required,
-                InvalidMessage = AppResources.account_form_firstname_invalid,
-                ReturnType = ReturnType.Next,
-            };
-
-            LastName = new EntryItem
-            {
-                Text = string.Empty,
-                Placeholder = AppResources.account_form_lastname_placeholder,
-                Keyboard = Keyboard.Text,
-                Required = true,
-                Regex = new Regex(""),
-                RequiredMessage = AppResources.account_form_lastname_required,
-                InvalidMessage = AppResources.account_form_lastname_invalid,
-                ReturnType = ReturnType.Next,
-            };
-
-            DOB = new DatePickerItem
-            {
-                Text = DateTime.Now,
-                InvalidMessage = AppResources.account_form_dob_invalid,
-                Placeholder = AppResources.account_form_dob_placeholder,
-                Required = true,
-                RequiredMessage = AppResources.account_form_dob_required,
-            };
-
-            GenderList = new ListItem<Gender>
-            {
-                Items = await _accountService.GetGendersAsync(),
-                SelectedKey = "Id",
-                SelectedValue = "1",
-                Required = true,
-                InvalidMessage = String.Empty,
-                Placeholder = "Gender",
-                RequiredMessage = string.Empty,
-            };
-
-            Cities = new NavigationItem<INavigationElementEntity>
-            {
-                Items = await _accountService.GetCitiesNavigationElementsAsync(),
-                SelectedKey = "Id",
-                SelectedValue = "2",
-                Required = true,
-                InvalidMessage = string.Empty,
-                Placeholder = "Cities",
-                RequiredMessage = string.Empty,
-                NavigationContext = new NavigationContext
+                FirstName = new EntryItem
                 {
-                    NavigationPage = "GenericListViewPage",
-                    PageTemplate = new DataTemplate(),
-                    NavigationCommand = "",
-                }
-            };
+                    Text = string.Empty,
+                    Placeholder = AppResources.account_form_firstname_placeholder,
+                    Keyboard = Keyboard.Text,
+                    Required = true,
+                    Regex = new Regex(""),
+                    RequiredMessage = AppResources.account_form_firstname_required,
+                    InvalidMessage = AppResources.account_form_firstname_invalid,
+                    ReturnType = ReturnType.Next,
+                };
 
-            ReadNewsLetter = new CheckItem
+                LastName = new EntryItem
+                {
+                    Text = string.Empty,
+                    Placeholder = AppResources.account_form_lastname_placeholder,
+                    Keyboard = Keyboard.Text,
+                    Required = true,
+                    Regex = new Regex(""),
+                    RequiredMessage = AppResources.account_form_lastname_required,
+                    InvalidMessage = AppResources.account_form_lastname_invalid,
+                    ReturnType = ReturnType.Next,
+                };
+
+                DOB = new DatePickerItem
+                {
+                    Text = DateTime.Now,
+                    InvalidMessage = AppResources.account_form_dob_invalid,
+                    Placeholder = AppResources.account_form_dob_placeholder,
+                    Required = true,
+                    RequiredMessage = AppResources.account_form_dob_required,
+                };
+
+                GenderList = new ListItem<Gender>
+                {
+                    Items = await _accountService.GetGendersAsync(),
+                    SelectedKey = "Id",
+                    SelectedValue = "1",
+                    Required = true,
+                    InvalidMessage = String.Empty,
+                    Placeholder = "Gender",
+                    RequiredMessage = string.Empty,
+                };
+
+                Cities = new NavigationItem<INavigationElementEntity>
+                {
+                    Items = await _accountService.GetCitiesNavigationElementsAsync(),
+                    SelectedKey = "Id",
+                    SelectedValue = "2",
+                    Required = true,
+                    InvalidMessage = string.Empty,
+                    Placeholder = "Cities",
+                    RequiredMessage = string.Empty,
+                    NavigationContext = new NavigationContext
+                    {
+                        NavigationPage = "GenericListViewPage",
+                        PageTemplate = new DataTemplate(),
+                        NavigationCommand = "",
+                    }
+                };
+
+                ReadNewsLetter = new CheckItem
+                {
+                    InvalidMessage = "",
+                    IsChecked = true,
+                    Placeholder = AppResources.account_form_newsletter_required,
+                    Required = true,
+                    RequiredMessage = AppResources.account_form_newsletter_required
+                };
+            }
+            catch (Exception ex)
             {
-                InvalidMessage = "",
-                IsChecked = true,
-                Placeholder = AppResources.account_form_newsletter_required,
-                Required = true,
-                RequiredMessage = AppResources.account_form_newsletter_required
-            };
+                ExceptionService.LogAndShowDialog(ex);
+            }
         }
 
         #endregion
@@ -165,7 +172,6 @@ namespace shellXamarin.Module.Account.ViewModels
                     cities = selectedNavigationItem;
                     RaisePropertyChanged(nameof(Cities));
                 }
-
             }
 
             base.OnNavigatedTo(parameters);
@@ -182,9 +188,12 @@ namespace shellXamarin.Module.Account.ViewModels
         private async void NavigationButton(object obj)
         {
             NavigationItem<INavigationElementEntity> navigationItem = obj as NavigationItem<INavigationElementEntity>;
-            NavigationParameters parameters = new NavigationParameters();
-            parameters.Add("NavigationItem", navigationItem);
-            await NavigationService.NavigateAsync(navigationItem.NavigationContext.NavigationPage, parameters);
+            if (navigationItem != null)
+            {
+                NavigationParameters parameters = new NavigationParameters();
+                parameters.Add("NavigationItem", navigationItem);
+                await NavigationService.NavigateAsync(navigationItem.NavigationContext.NavigationPage, parameters);
+            }
         }
 
         #endregion
@@ -195,23 +204,30 @@ namespace shellXamarin.Module.Account.ViewModels
 
         private async void Register(object obj)
         {
-            //if (Email.RequiredInvalid())
-            //{
-            //    await _dialogService.DisplayAlertAsync("", Email.RequiredMessage, AppResources.account_ok);
-            //    return;
-            //}
-            //if (Email.RegexInvalid())
-            //{
-            //    await _dialogService.DisplayAlertAsync("", Email.InvalidMessage, AppResources.account_ok);
-            //    return;
-            //}
-            //if (Password.RequiredInvalid())
-            //{
-            //    await _dialogService.DisplayAlertAsync("", Password.RequiredMessage, AppResources.account_ok);
-            //    return;
-            //}
+            try
+            {
+                //if (Email.RequiredInvalid())
+                //{
+                //    await _dialogService.DisplayAlertAsync("", Email.RequiredMessage, AppResources.account_ok);
+                //    return;
+                //}
+                //if (Email.RegexInvalid())
+                //{
+                //    await _dialogService.DisplayAlertAsync("", Email.InvalidMessage, AppResources.account_ok);
+                //    return;
+                //}
+                //if (Password.RequiredInvalid())
+                //{
+                //    await _dialogService.DisplayAlertAsync("", Password.RequiredMessage, AppResources.account_ok);
+                //    return;
+                //}
 
-            await NavigateHome();
+                await NavigateHome();
+            }
+            catch (Exception ex)
+            {
+                ExceptionService.LogAndShowDialog(ex);
+            }
         }
 
         #endregion

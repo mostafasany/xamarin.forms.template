@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using shellXamarin.Module.Navigation.DataServices;
 using shellXamarin.Module.Navigation.Models;
-using shellXamarin.Module.Navigation.Resources;
 
 namespace shellXamarin.Module.Navigation.BuinessServices
 {
@@ -16,17 +17,29 @@ namespace shellXamarin.Module.Navigation.BuinessServices
 
         public async Task<List<MenuElement>> GetMenuItemsAsync()
         {
-            var menuItems = new List<MenuElement>();
-            menuItems.Add(new MenuElement(AppResources.navigation_menu_home, "HomePage", "home.svg", true, false, null));
-            menuItems.Add(new MenuElement(AppResources.navigation_menu_account, "", "myaccount.svg", false, false, new List<MenuElement>()
+            try
             {
-                new MenuElement(AppResources.navigation_menu_login, "LoginPage", "myaccount.svg",  true, false, null),
-                new MenuElement(AppResources.navigation_menu_register, "RegisterPage",  "myaccount.svg", true, false, null)
-            }));
-            menuItems.Add(new MenuElement(AppResources.navigation_menu_settings, "SettingsPage", "settings.svg", true, false, null));
-
-            return menuItems;
+                var menuItems = new List<MenuElement>();
+                var menuItemsDto = await _menuDataService.GetMenuItemsAsync();
+                foreach (var itemDto in menuItemsDto)
+                {
+                    var children = new List<MenuElement>();
+                    if (itemDto.Children != null && itemDto.Children.Any())
+                    {
+                        foreach (var childrenDto in itemDto.Children)
+                        {
+                            children.Add(new MenuElement(childrenDto.Title, childrenDto.Page, childrenDto.Icon, childrenDto.CanNavigate, childrenDto.Modal));
+                        }
+                    }
+                    menuItems.Add(new MenuElement(itemDto.Title, itemDto.Page, itemDto.Icon, itemDto.CanNavigate, itemDto.Modal, children));
+                }
+                return menuItems;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
         }
     }
-
 }

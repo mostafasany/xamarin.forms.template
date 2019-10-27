@@ -20,12 +20,10 @@
     <Folder Include="DataServices\" />
     <Folder Include="DataServices\" />
     <Folder Include="BuisnessServices\" />
-    <Folder Include="DataServices\Mocks\" />
     <Folder Include="DataServices\Dto\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\AboutPage.xaml" />
-    <None Remove="DataServices\Mocks\mock_languages.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Views\AboutPage.xaml.cs" />
@@ -46,9 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\shellXamarin.Module.Common\shellXamarin.Module.Common.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="DataServices\Mocks\mock_languages.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Resources\AppResources.resx">

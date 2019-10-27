@@ -7,6 +7,7 @@ using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Services.EventBusService;
+using shellXamarin.Module.Common.Services.ExceptionService;
 using shellXamarin.Module.Common.ViewModels;
 using shellXamarin.Module.Settings.BuinessServices;
 
@@ -16,9 +17,9 @@ namespace shellXamarin.Module.Settings.ViewModels
     {
         private readonly ISettingsService _settingsService;
         private readonly IEventBusService _eventBusService;
-        public SettingsPageViewModel(ISettingsService settingsService,
+        public SettingsPageViewModel(ISettingsService settingsService, IExceptionService exceptionService,
             IEventBusService eventBusService, ILanguageService localService, INavigationService navigationService)
-            : base(localService, eventBusService)
+            : base(localService, eventBusService, exceptionService)
         {
             _settingsService = settingsService;
             _eventBusService = eventBusService;

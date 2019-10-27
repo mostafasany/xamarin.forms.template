@@ -18,21 +18,6 @@
     <data name="navigation.tab.settings" xml:space="preserve">
         <value>الإعدادات</value>
     </data>
-    <data name="navigation.menu.home" xml:space="preserve">
-       <value>الصفحة الرئيسية</value>
-    </data>
-    <data name="navigation.menu.settings" xml:space="preserve">
-          <value>الإعدادات</value>
-    </data>
-    <data name="navigation.menu.account" xml:space="preserve">
-        <value>الحساب</value>
-    </data>
-    <data name="navigation.menu.login" xml:space="preserve">
-        <value>تسجيل الدخول</value>
-    </data>
-    <data name="navigation.menu.register" xml:space="preserve">
-        <value>تسجيل</value>
-    </data>
     <data name="navigation.menu.logout" xml:space="preserve">
         <value>تسجيل خروج</value>
     </data>

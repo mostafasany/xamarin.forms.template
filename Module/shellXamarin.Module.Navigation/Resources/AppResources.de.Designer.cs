@@ -59,36 +59,6 @@ namespace shellXamarin.Module.Navigation.Resources {
             }
         }
         
-        internal static string navigation_menu_home {
-            get {
-                return ResourceManager.GetString("navigation.menu.home", resourceCulture);
-            }
-        }
-        
-        internal static string navigation_menu_settings {
-            get {
-                return ResourceManager.GetString("navigation.menu.settings", resourceCulture);
-            }
-        }
-        
-        internal static string navigation_menu_account {
-            get {
-                return ResourceManager.GetString("navigation.menu.account", resourceCulture);
-            }
-        }
-        
-        internal static string navigation_menu_login {
-            get {
-                return ResourceManager.GetString("navigation.menu.login", resourceCulture);
-            }
-        }
-        
-        internal static string navigation_menu_register {
-            get {
-                return ResourceManager.GetString("navigation.menu.register", resourceCulture);
-            }
-        }
-        
         internal static string navigation_menu_logout {
             get {
                 return ResourceManager.GetString("navigation.menu.logout", resourceCulture);

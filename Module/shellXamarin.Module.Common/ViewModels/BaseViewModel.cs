@@ -22,16 +22,24 @@ namespace shellXamarin.Module.Common.ViewModels
         private readonly Tuple<LogoutEvent, SubscriptionToken> userLogoutEventAndToken;
         private readonly Tuple<LoginEvent, SubscriptionToken> userLoginEventAndToken;
         private readonly Tuple<LanguageChangedEvent, SubscriptionToken> languageChangedEventAndToken;
-        public BaseViewModel(ILanguageService localService, IEventBusService eventBusService)
+        public BaseViewModel(ILanguageService localService, IEventBusService eventBusService, IExceptionService exceptionService)
         {
-            LocalService = localService;
-            flowDirection = localService.UsedLanague.RTL ?
-                FlowDirection = FlowDirection.RightToLeft :
-                FlowDirection = FlowDirection.LeftToRight;
+            ExceptionService = exceptionService;
 
-            userLogoutEventAndToken = eventBusService.Subscribe<LogoutEvent>(UserLogout);
-            userLoginEventAndToken = eventBusService.Subscribe<LoginEvent>(UserLogin);
-            localService.LanguageChanged += LanguageChanged;
+            if (localService != null)
+            {
+                LocalService = localService;
+                flowDirection = localService.UsedLanague.RTL ?
+                    FlowDirection = FlowDirection.RightToLeft :
+                    FlowDirection = FlowDirection.LeftToRight;
+                localService.LanguageChanged += LanguageChanged;
+            }
+
+            if (eventBusService != null)
+            {
+                userLogoutEventAndToken = eventBusService.Subscribe<LogoutEvent>(UserLogout);
+                userLoginEventAndToken = eventBusService.Subscribe<LoginEvent>(UserLogin);
+            }
 
             //TODO: For unknow reason, eventbus not firing language changed events
             //So LanguageChanged inside localservice is created

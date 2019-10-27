@@ -27,6 +27,7 @@
     <Folder Include="Translators\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
+    <Folder Include="DataServices\Dto\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\AppResources.ar.Designer.cs">

@@ -5,11 +5,11 @@ namespace shellXamarin.Module.Common.Services.ExceptionService
 {
     public interface IExceptionService
     {
-        void Handle(Exception ex, [CallerMemberName] string method = "",
+        void Log(Exception ex, [CallerMemberName] string method = "",
             [CallerLineNumber] int line = -1,
             [CallerFilePath] string file = "");
 
-        void HandleAndShowDialog(Exception ex, string error = "", [CallerMemberName] string method = "",
+        void LogAndShowDialog(Exception ex, string error = "", [CallerMemberName] string method = "",
             [CallerLineNumber] int line = -1,
             [CallerFilePath] string file = "");
     }

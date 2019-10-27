@@ -110,6 +110,9 @@
     <AndroidAsset Include="Assets\Mocks\en\cities.json" />
     <AndroidAsset Include="Assets\Mocks\en\genders.json" />
     <AndroidAsset Include="Assets\Mocks\en\languages.json" />
+    <AndroidAsset Include="Assets\Mocks\ar\menu.json" />
+    <AndroidAsset Include="Assets\Mocks\de\menu.json" />
+    <AndroidAsset Include="Assets\Mocks\en\menu.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\Mocks\" />

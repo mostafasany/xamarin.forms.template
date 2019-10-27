@@ -7,6 +7,7 @@ using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.FormBuilder.Models;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Services.EventBusService;
+using shellXamarin.Module.Common.Services.ExceptionService;
 using shellXamarin.Module.Common.ViewModels;
 using Xamarin.Forms;
 
@@ -17,8 +18,8 @@ namespace shellXamarin.Module.Account.ViewModels
         private readonly IPageDialogService _dialogService;
         private readonly IEventBusService _eventBusService;
         public LoginPageViewModel(INavigationService _navigationService, IEventBusService eventBusService,
-            IPageDialogService dialogService, ILanguageService localService)
-            : base(localService, eventBusService)
+            IPageDialogService dialogService, ILanguageService localService, IExceptionService exceptionService)
+            : base(localService, eventBusService, exceptionService)
         {
             NavigationService = _navigationService;
             _dialogService = dialogService;
@@ -48,33 +49,36 @@ namespace shellXamarin.Module.Account.ViewModels
 
         private void LoadFormItems()
         {
-            Email = new EntryItem
+            try
             {
-                Text = string.Empty,
-                Placeholder = AppResources.account_form_email_placeholder,
-                Keyboard = Keyboard.Email,
-                Required = true,
-                Regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"),
-                RequiredMessage = AppResources.account_form_email_required,
-                InvalidMessage = AppResources.account_form_email_invalid,
-                ReturnType = ReturnType.Next,
-            };
+                Email = new EntryItem
+                {
+                    Text = string.Empty,
+                    Placeholder = AppResources.account_form_email_placeholder,
+                    Keyboard = Keyboard.Email,
+                    Required = true,
+                    Regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"),
+                    RequiredMessage = AppResources.account_form_email_required,
+                    InvalidMessage = AppResources.account_form_email_invalid,
+                    ReturnType = ReturnType.Next,
+                };
 
-            Password = new EntryItem
+                Password = new EntryItem
+                {
+                    Text = string.Empty,
+                    IsPassword = true,
+                    Placeholder = AppResources.account_form_password_placeholder,
+                    Keyboard = Keyboard.Default,
+                    Required = true,
+                    MinChar = 6,
+                    RequiredMessage = AppResources.account_form_password_required,
+                    ReturnType = ReturnType.Default,
+                };
+            }
+            catch (System.Exception ex)
             {
-                Text = string.Empty,
-                IsPassword = true,
-                Placeholder = AppResources.account_form_password_placeholder,
-                Keyboard = Keyboard.Default,
-                Required = true,
-                MinChar = 6,
-                RequiredMessage = AppResources.account_form_password_required,
-                ReturnType = ReturnType.Default,
-            };
-        }
-
-        private void UserLogin()
-        {
+                ExceptionService.LogAndShowDialog(ex);
+            }
 
         }
 
@@ -92,24 +96,32 @@ namespace shellXamarin.Module.Account.ViewModels
 
         private async void Login(object obj)
         {
-            if (Email.RequiredInvalid())
+            try
             {
-                await _dialogService.DisplayAlertAsync("", Email.RequiredMessage, AppResources.account_ok);
-                return;
+                if (Email.RequiredInvalid())
+                {
+                    await _dialogService.DisplayAlertAsync("", Email.RequiredMessage, AppResources.account_ok);
+                    return;
+                }
+                if (Email.RegexInvalid())
+                {
+                    await _dialogService.DisplayAlertAsync("", Email.InvalidMessage, AppResources.account_ok);
+                    return;
+                }
+                if (Password.RequiredInvalid())
+                {
+                    await _dialogService.DisplayAlertAsync("", Password.RequiredMessage, AppResources.account_ok);
+                    return;
+                }
+
+                _eventBusService.Publish<LoginEvent>();
+                await NavigateHome();
             }
-            if (Email.RegexInvalid())
+            catch (System.Exception ex)
             {
-                await _dialogService.DisplayAlertAsync("", Email.InvalidMessage, AppResources.account_ok);
-                return;
-            }
-            if (Password.RequiredInvalid())
-            {
-                await _dialogService.DisplayAlertAsync("", Password.RequiredMessage, AppResources.account_ok);
-                return;
+                ExceptionService.LogAndShowDialog(ex);
             }
 
-            _eventBusService.Publish<LoginEvent>();
-            await NavigateHome();
         }
 
         #endregion

@@ -18,21 +18,6 @@
     <data name="navigation.tab.settings" xml:space="preserve">
         <value>Settings</value>
     </data>
-    <data name="navigation.menu.home" xml:space="preserve">
-        <value>Home</value>
-    </data>
-    <data name="navigation.menu.settings" xml:space="preserve">
-        <value>Settings</value>
-    </data>
-    <data name="navigation.menu.account" xml:space="preserve">
-        <value>Account</value>
-    </data>
-    <data name="navigation.menu.login" xml:space="preserve">
-        <value>Login</value>
-    </data>
-    <data name="navigation.menu.register" xml:space="preserve">
-        <value>Register</value>
-    </data>
     <data name="navigation.menu.logout" xml:space="preserve">
         <value>Logout</value>
     </data>

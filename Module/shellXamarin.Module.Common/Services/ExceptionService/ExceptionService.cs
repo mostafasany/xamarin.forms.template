@@ -6,7 +6,7 @@ using Prism.Services.Dialogs;
 
 namespace shellXamarin.Module.Common.Services.ExceptionService
 {
-    public class ExceptionService: IExceptionService
+    public class ExceptionService : IExceptionService
     {
         private readonly IDialogService _dialogService;
         private readonly ILoggerFacade _loggerService;
@@ -17,7 +17,7 @@ namespace shellXamarin.Module.Common.Services.ExceptionService
             _loggerService = loggerService;
         }
 
-        public void Handle(Exception ex, [CallerMemberName] string method = "",
+        public void Log(Exception ex, [CallerMemberName] string method = "",
             [CallerLineNumber] int line = -1,
             [CallerFilePath] string file = "")
         {
@@ -28,10 +28,11 @@ namespace shellXamarin.Module.Common.Services.ExceptionService
                     {nameof(CallerLineNumberAttribute), line.ToString()},
                     {nameof(CallerFilePathAttribute), file}
                 };
-            _loggerService.Log(ex.Message,Category.Exception, Priority.High);
+            Console.WriteLine(ex.Message);
+            _loggerService.Log(ex.Message, Category.Exception, Priority.High);
         }
 
-        public void HandleAndShowDialog(Exception ex, string error = "", [CallerMemberName] string method = "",
+        public void LogAndShowDialog(Exception ex, string error = "", [CallerMemberName] string method = "",
             [CallerLineNumber] int line = -1,
             [CallerFilePath] string file = "")
         {
@@ -42,8 +43,10 @@ namespace shellXamarin.Module.Common.Services.ExceptionService
                     {nameof(CallerLineNumberAttribute), line.ToString()},
                     {nameof(CallerFilePathAttribute), file}
                 };
+
+            Console.WriteLine(ex.Message);
             _loggerService.Log(ex.Message, Category.Exception, Priority.High);
-          
+
             _dialogService.ShowDialog(string.IsNullOrEmpty(error) ? ex.Message : error);
         }
     }

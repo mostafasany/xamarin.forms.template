@@ -4,14 +4,15 @@ using shellXamarin.Module.Common.FormBuilder.Models;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Services.EventBusService;
+using shellXamarin.Module.Common.Services.ExceptionService;
 
 namespace shellXamarin.Module.Common.ViewModels
 {
     public class GenericListViewPageViewModel : BaseViewModel
     {
         public GenericListViewPageViewModel(INavigationService _navigationService,
-            IEventBusService eventBusService, ILanguageService localService)
-            : base(localService, eventBusService)
+            IEventBusService eventBusService, ILanguageService localService, IExceptionService exceptionService)
+            : base(localService, eventBusService, exceptionService)
         {
             NavigationService = _navigationService;
         }

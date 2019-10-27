@@ -6,6 +6,7 @@ using Prism.Navigation;
 using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Services.EventBusService;
+using shellXamarin.Module.Common.Services.ExceptionService;
 using shellXamarin.Module.Common.ViewModels;
 using shellXamarin.Module.Navigation.BuinessServices;
 using shellXamarin.Module.Navigation.Models;
@@ -18,9 +19,9 @@ namespace shellXamarin.Module.Navigation.ViewModels
         private readonly Tuple<LogoutEvent, SubscriptionToken> userLogoutEventAndToken;
         private readonly Tuple<LoginEvent, SubscriptionToken> userLoginEventAndToken;
         public MasterDetailsPageViewModel(INavigationService navigationService, ILanguageService localService,
-            IMenuService menuService,
+            IMenuService menuService, IExceptionService exceptionService,
             IEventBusService eventBusService)
-            : base(localService, eventBusService)
+            : base(localService, eventBusService, exceptionService)
         {
             _menuService = menuService;
             NavigationService = navigationService;

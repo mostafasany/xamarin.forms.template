@@ -63,7 +63,15 @@ namespace shellXamarin.Module.Account.DataServices
 
         public async Task<bool> LogoutAsync()
         {
-            return true;
+            try
+            {
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
         }
     }
 
