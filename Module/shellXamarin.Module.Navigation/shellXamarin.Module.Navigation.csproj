@@ -24,7 +24,6 @@
     <Folder Include="i18n\" />
     <Folder Include="Models\" />
     <Folder Include="Resources\" />
-    <Folder Include="Translators\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
     <Folder Include="DataServices\Dto\" />
