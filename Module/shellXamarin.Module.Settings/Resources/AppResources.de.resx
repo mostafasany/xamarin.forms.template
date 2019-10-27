@@ -21,13 +21,4 @@
     <data name="settings.languages.header" xml:space="preserve">
         <value>Sprachen</value>
     </data>
-    <data name="settings.languages.english" xml:space="preserve">
-        <value>Englisch</value>
-    </data>
-    <data name="settings.languages.arabic" xml:space="preserve">
-        <value>Arabisch</value>
-    </data>
-    <data name="settings.languages.germany" xml:space="preserve">
-        <value>Deutsche</value>
-    </data>
 </root>

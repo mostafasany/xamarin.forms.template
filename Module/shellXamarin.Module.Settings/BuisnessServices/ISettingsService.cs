@@ -6,6 +6,6 @@ namespace shellXamarin.Module.Settings.BuinessServices
 {
     public interface ISettingsService
     {
-        Task<List<Language>> GetLanguages();
+        Task<List<Language>> GetLanguagesAsync();
     }
 }

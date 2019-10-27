@@ -184,17 +184,5 @@ namespace shellXamarin.Module.Account.Resources {
                 return ResourceManager.GetString("account.form.newsletter.required", resourceCulture);
             }
         }
-        
-        internal static string account_form_male {
-            get {
-                return ResourceManager.GetString("account.form.male", resourceCulture);
-            }
-        }
-        
-        internal static string account_form_female {
-            get {
-                return ResourceManager.GetString("account.form.female", resourceCulture);
-            }
-        }
     }
 }

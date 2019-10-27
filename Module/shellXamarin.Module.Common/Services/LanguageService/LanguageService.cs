@@ -39,14 +39,19 @@ namespace shellXamarin.Module.Common.Services
             }
 
             _settingsService.Set(LanguageKey, langId);
-            var ci = CrossMultilingual.Current.CultureInfoList.FirstOrDefault((arg) => arg.Name == langId);
-            AppResources.Culture = ci;
-            CultureInfo.DefaultThreadCurrentCulture = ci;
-            CultureInfo.DefaultThreadCurrentUICulture = ci;
-            CultureInfo.CurrentCulture = ci;
-            CultureInfo.CurrentUICulture = ci;
-            CrossMultilingual.Current.CurrentCultureInfo = ci;
-            UsedLanague = new Language { Id = AppResources.Culture.Name, RTL = AppResources.Culture.TextInfo.IsRightToLeft, Name = AppResources.Culture.DisplayName };
+
+            //MainThread.BeginInvokeOnMainThread(() =>
+            //{
+                // Code to run on the main thread
+                var ci = CrossMultilingual.Current.CultureInfoList.FirstOrDefault((arg) => arg.Name == langId);
+                AppResources.Culture = ci;
+                CultureInfo.DefaultThreadCurrentCulture = ci;
+                CultureInfo.DefaultThreadCurrentUICulture = ci;
+                CultureInfo.CurrentCulture = ci;
+                CultureInfo.CurrentUICulture = ci;
+                CrossMultilingual.Current.CurrentCultureInfo = ci;
+                UsedLanague = new Language { Id = AppResources.Culture.Name, RTL = AppResources.Culture.TextInfo.IsRightToLeft, Name = AppResources.Culture.DisplayName };
+           // });
 
             LanguageChanged.Invoke(UsedLanague);
 

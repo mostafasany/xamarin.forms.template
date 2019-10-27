@@ -4,7 +4,6 @@ using shellXamarin.Module.Common.FormBuilder.Models;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Services.EventBusService;
-using shellXamarin.Module.Common.ViewModels;
 
 namespace shellXamarin.Module.Common.ViewModels
 {

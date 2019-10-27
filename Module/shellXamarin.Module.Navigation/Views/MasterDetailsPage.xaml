@@ -29,11 +29,11 @@
                         <ListView.GroupHeaderTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Grid Margin="10,5">
+                                    <Grid BackgroundColor="White">
                                         <Grid.GestureRecognizers>
                                             <TapGestureRecognizer  Tapped="OnHeaderClicked" CommandParameter="{Binding }" />
                                         </Grid.GestureRecognizers>
-                                        <StackLayout Orientation="Horizontal">
+                                        <StackLayout Margin="10,5" Orientation="Horizontal">
                                             <Label Text="{Binding Title}" VerticalOptions="Center" />
                                         </StackLayout>
                                     </Grid>
@@ -43,12 +43,10 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Grid Margin="12,0">
-                                        <StackLayout Orientation="Horizontal">
-
+                                    <Grid BackgroundColor="White">
+                                        <StackLayout Margin="12,0" Orientation="Horizontal">
                                             <controls:SVGImageControl WidthRequest="15" HeightRequest="15" LocalResourcePath="{ Binding Icon }" />
                                             <Label Text="{Binding Title}" VerticalOptions="Center" />
-
                                         </StackLayout>
                                     </Grid>
                                 </ViewCell>

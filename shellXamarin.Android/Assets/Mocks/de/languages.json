@@ -1,0 +1,20 @@
+﻿[
+  {
+    "id": "en",
+    "name": "Englisch",
+    "flag": "https://bit.ly/2MtkYXy",
+    "rtl": false
+  },
+  {
+    "id": "ar",
+    "name": "Arabisch",
+    "flag": "https://bit.ly/2MJhr7H",
+    "rtl": true
+  },
+  {
+    "id": "de",
+    "name": "Englisch",
+    "flag": "https://bit.ly/31yuCww",
+    "rtl": false
+  }
+]

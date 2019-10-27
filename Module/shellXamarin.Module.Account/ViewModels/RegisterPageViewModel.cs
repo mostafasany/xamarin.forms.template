@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Prism.Commands;
 using Prism.Navigation;
+using shellXamarin.Module.Account.BuinessServices;
 using shellXamarin.Module.Account.Models;
 using shellXamarin.Module.Account.Resources;
 using shellXamarin.Module.Common.FormBuilder.Models;
@@ -15,10 +17,14 @@ namespace shellXamarin.Module.Account.ViewModels
 {
     public class RegisterPageViewModel : BaseViewModel
     {
-        public RegisterPageViewModel(INavigationService _navigationService, IEventBusService eventBusService, ILanguageService localService)
+        private readonly IAccountService _accountService;
+        public RegisterPageViewModel(INavigationService _navigationService,
+            IEventBusService eventBusService, ILanguageService localService,
+            IAccountService accountService)
             : base(localService, eventBusService)
         {
             NavigationService = _navigationService;
+            _accountService = accountService;
             LoadFormItems();
         }
 
@@ -72,7 +78,7 @@ namespace shellXamarin.Module.Account.ViewModels
 
         #region Methods
 
-        private void LoadFormItems()
+        private async void LoadFormItems()
         {
             FirstName = new EntryItem
             {
@@ -109,11 +115,7 @@ namespace shellXamarin.Module.Account.ViewModels
 
             GenderList = new ListItem<Gender>
             {
-                Items = new System.Collections.Generic.List<Gender>
-                {
-                    new Gender { Id = "1", Title = AppResources.account_form_male },
-                    new Gender { Id = "2", Title = AppResources.account_form_female }
-                },
+                Items = await _accountService.GetGendersAsync(),
                 SelectedKey = "Id",
                 SelectedValue = "1",
                 Required = true,
@@ -124,13 +126,7 @@ namespace shellXamarin.Module.Account.ViewModels
 
             Cities = new NavigationItem<INavigationElementEntity>
             {
-                Items = new System.Collections.Generic.List<INavigationElementEntity>
-                {
-                    new City { Id = "1", Title = "Cairo" },
-                    new City { Id = "2", Title = "Alexandria" },
-                    new City { Id = "3", Title = "Giza" },
-                    new City { Id = "4", Title = "Hurghada" }
-                },
+                Items = await _accountService.GetCitiesNavigationElementsAsync(),
                 SelectedKey = "Id",
                 SelectedValue = "2",
                 Required = true,

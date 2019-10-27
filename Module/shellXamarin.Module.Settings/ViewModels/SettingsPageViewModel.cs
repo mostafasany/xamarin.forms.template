@@ -23,7 +23,8 @@ namespace shellXamarin.Module.Settings.ViewModels
             _settingsService = settingsService;
             _eventBusService = eventBusService;
             NavigationService = navigationService;
-            //TODO: Move This to OnLoad Event
+
+            //TODO: Settings Page is in Home tab bar, so it had to be constructed a head
             Load();
         }
 
@@ -51,12 +52,12 @@ namespace shellXamarin.Module.Settings.ViewModels
 
         private async Task LoadLanguages()
         {
-            var langs = await _settingsService.GetLanguages();
+            var langs = await _settingsService.GetLanguagesAsync();
             if (langs != null && langs.Any())
             {
-                languages = new ObservableCollection<Language>(langs);
-                usedLanguage = languages.FirstOrDefault(lang => lang.Id == LocalService?.UsedLanague?.Id);
-                languages.Remove(usedLanguage);
+                Languages = new ObservableCollection<Language>(langs);
+                UsedLanguage = languages.FirstOrDefault(lang => lang.Id == LocalService?.UsedLanague?.Id);
+                Languages.Remove(usedLanguage);
             }
         }
 

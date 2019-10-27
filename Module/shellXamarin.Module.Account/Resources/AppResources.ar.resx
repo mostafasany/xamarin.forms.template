@@ -48,7 +48,7 @@
     <data name="account.ok" xml:space="preserve">
         <value>حسنا</value>
     </data>
-     <data name="account.form.firstname.placeholder" xml:space="preserve">
+    <data name="account.form.firstname.placeholder" xml:space="preserve">
         <value>الاسم الاول</value>
     </data>
     <data name="account.form.firstname.required" xml:space="preserve">
@@ -80,11 +80,5 @@
     </data>
     <data name="account.form.newsletter.required" xml:space="preserve">
         <value>النشرة الإخبارية المطلوبة</value>
-    </data>
-     <data name="account.form.male" xml:space="preserve">
-        <value>ذكر</value>
-    </data>
-    <data name="account.form.female" xml:space="preserve">
-        <value>أنثى</value>
     </data>
 </root>

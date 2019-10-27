@@ -1,20 +1,41 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
-using shellXamarin.Module.Common.Models;
-using shellXamarin.Module.Settings.Resources;
+using Newtonsoft.Json;
+using shellXamarin.Module.Common.Services;
+using shellXamarin.Module.Settings.DataServices.Dto;
+using Xamarin.Essentials;
 
 namespace shellXamarin.Module.Settings.DataServices
 {
     public class DataSettingsService : IDataSettingsService
     {
-        public async Task<List<Language>> GetLanguages()
+        private readonly ILanguageService _languageService;
+        public DataSettingsService(ILanguageService languageService)
         {
-            return new List<Language>
+            _languageService = languageService;
+        }
+        public async Task<List<LanguageDto>> GetLanguagesAsync()
+        {
+            try
             {
-                new Language { Id = "en", Name =AppResources.settings_languages_english,Flag="https://bit.ly/2MtkYXy" },
-                new Language { Id = "ar", Name = AppResources.settings_languages_arabic,Flag="https://bit.ly/2MJhr7H",RTL=true },
-                new Language { Id = "de", Name = AppResources.settings_languages_germany,Flag="https://bit.ly/31yuCww" }
-            };
+                string mockFilePath = string.Format("Mocks/{0}/languages.json", _languageService.UsedLanague.Id);
+                using (var stream = await FileSystem.OpenAppPackageFileAsync(mockFilePath))
+                {
+                    using (var reader = new StreamReader(stream))
+                    {
+                        var json = await reader.ReadToEndAsync();
+                        List<LanguageDto> languageDtos = JsonConvert.DeserializeObject<List<LanguageDto>>(json);
+                        return languageDtos;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
         }
     }
 }

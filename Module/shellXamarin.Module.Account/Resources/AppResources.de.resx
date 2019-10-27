@@ -81,10 +81,4 @@
     <data name="account.form.newsletter.required" xml:space="preserve">
         <value>Newsletter erforderlich</value>
     </data>
-    <data name="account.form.male" xml:space="preserve">
-        <value>männlich</value>
-    </data>
-    <data name="account.form.female" xml:space="preserve">
-        <value>Weiblich</value>
-    </data>
 </root>
