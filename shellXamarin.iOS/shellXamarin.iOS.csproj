@@ -26,6 +26,8 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchI18n>mideast</MtouchI18n>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -65,6 +67,7 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PathManager_IOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -159,11 +162,16 @@
       <Project>{42D99B98-7E17-429D-AD52-C91503647293}</Project>
       <Name>shellXamarin</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Module\shellXamarin.Module.Common\shellXamarin.Module.Common.csproj">
+      <Project>{4C414662-42BF-4C5D-B8D8-2294FADA5F23}</Project>
+      <Name>shellXamarin.Module.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Mocks\" />
     <Folder Include="Resources\Mocks\en\" />
     <Folder Include="Resources\Mocks\ar\" />
     <Folder Include="Resources\Mocks\de\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 </Project>

@@ -4,6 +4,7 @@ using Plugin.Multilingual;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Resources;
 using shellXamarin.Module.Common.Services.EventBusService;
+using Xamarin.Forms;
 
 namespace shellXamarin.Module.Common.Services
 {
@@ -51,8 +52,16 @@ namespace shellXamarin.Module.Common.Services
                 CultureInfo.CurrentUICulture = ci;
                 CrossMultilingual.Current.CurrentCultureInfo = ci;
                 UsedLanague = new Language { Id = AppResources.Culture.Name, RTL = AppResources.Culture.TextInfo.IsRightToLeft, Name = AppResources.Culture.DisplayName };
-           // });
+            // });
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                if (UsedLanague.RTL)
 
+                    DependencyService.Get<IPathManager>().SetLayoutRTL();
+                else
+                    DependencyService.Get<IPathManager>().SetLayoutLTR();
+            }
+    
             LanguageChanged.Invoke(UsedLanague);
 
             //TODO: For unknow reason, eventbus not firing language changed events

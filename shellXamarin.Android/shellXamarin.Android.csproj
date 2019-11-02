@@ -99,6 +99,10 @@
       <Project>{42D99B98-7E17-429D-AD52-C91503647293}</Project>
       <Name>shellXamarin</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Module\shellXamarin.Module.Common\shellXamarin.Module.Common.csproj">
+      <Project>{4C414662-42BF-4C5D-B8D8-2294FADA5F23}</Project>
+      <Name>shellXamarin.Module.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Mocks\ar\cities.json" />
