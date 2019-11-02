@@ -8,11 +8,11 @@ using UIKit;
 using System.Diagnostics;
 using shellXamarin.Module.Common.Services;
 
-[assembly: Dependency(typeof(PathManager_IOS))]
+[assembly: Dependency(typeof(LayoutDIrectionService))]
 
 namespace shellXamarin.iOS
 {
-    public class PathManager_IOS : IPathManager
+    public class LayoutDIrectionService : ILayoutDIrectionService
     {
         [DllImport(ObjCRuntime.Constants.ObjectiveCLibrary, EntryPoint = "objc_msgSend")]
 
@@ -20,7 +20,7 @@ namespace shellXamarin.iOS
         internal extern static IntPtr IntPtr_objc_msgSend(IntPtr receiver, IntPtr selector, UISemanticContentAttribute arg1);
         //internal extern static IntPtr IntPtr_objcText_msgSend(IntPtr receiver, IntPtr selector, UITextAlignment arg1);
 
-        public PathManager_IOS()
+        public LayoutDIrectionService()
         {
 
         }

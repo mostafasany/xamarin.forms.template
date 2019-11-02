@@ -57,9 +57,9 @@ namespace shellXamarin.Module.Common.Services
             {
                 if (UsedLanague.RTL)
 
-                    DependencyService.Get<IPathManager>().SetLayoutRTL();
+                    DependencyService.Get<ILayoutDIrectionService>().SetLayoutRTL();
                 else
-                    DependencyService.Get<IPathManager>().SetLayoutLTR();
+                    DependencyService.Get<ILayoutDIrectionService>().SetLayoutLTR();
             }
     
             LanguageChanged.Invoke(UsedLanague);
