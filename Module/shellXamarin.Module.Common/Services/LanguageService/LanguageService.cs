@@ -56,10 +56,9 @@ namespace shellXamarin.Module.Common.Services
             if (Device.RuntimePlatform == Device.iOS)
             {
                 if (UsedLanague.RTL)
-
-                    DependencyService.Get<ILayoutDIrectionService>().SetLayoutRTL();
+                    DependencyService.Get<ILayoutDirectionService>().SetLayoutRTL();
                 else
-                    DependencyService.Get<ILayoutDIrectionService>().SetLayoutLTR();
+                    DependencyService.Get<ILayoutDirectionService>().SetLayoutLTR();
             }
     
             LanguageChanged.Invoke(UsedLanague);

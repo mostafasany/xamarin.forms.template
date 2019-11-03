@@ -1,7 +1,7 @@
 ﻿using System;
 namespace shellXamarin.Module.Common.Services
 {
-    public interface ILayoutDIrectionService
+    public interface ILayoutDirectionService
     {
         void SetLayoutRTL();
         void SetLayoutLTR();

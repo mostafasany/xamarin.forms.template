@@ -8,11 +8,11 @@ using UIKit;
 using System.Diagnostics;
 using shellXamarin.Module.Common.Services;
 
-[assembly: Dependency(typeof(LayoutDIrectionService))]
+[assembly: Dependency(typeof(LayoutDirectionService))]
 
 namespace shellXamarin.iOS
 {
-    public class LayoutDIrectionService : ILayoutDIrectionService
+    public class LayoutDirectionService : ILayoutDirectionService
     {
         [DllImport(ObjCRuntime.Constants.ObjectiveCLibrary, EntryPoint = "objc_msgSend")]
         internal extern static IntPtr IntPtr_objc_msgSend(IntPtr receiver, IntPtr selector, UISemanticContentAttribute arg1);
