@@ -8,7 +8,7 @@ namespace shellXamarin.Module.Common.Styles
         public AppStyles()
         {
             InitializeComponent();
-            MergedWith = typeof(DarkTheme);
+            //MergedWith = typeof(DarkTheme);
         }
 
         //public void ApplyTheme()
