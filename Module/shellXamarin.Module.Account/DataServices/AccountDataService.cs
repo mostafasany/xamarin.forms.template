@@ -39,6 +39,29 @@ namespace shellXamarin.Module.Account.DataServices
             }
         }
 
+        public async Task<List<CountryDto>> GetCountriesAsync()
+        {
+            try
+            {
+                string mockFilePath = string.Format("Mocks/{0}/countries.json", _languageService.UsedLanague.Id);
+                using (var stream = await FileSystem.OpenAppPackageFileAsync(mockFilePath))
+                {
+                    using (var reader = new StreamReader(stream))
+                    {
+                        var json = await reader.ReadToEndAsync();
+                        List<CountryDto> countriesDto = JsonConvert.DeserializeObject<List<CountryDto>>(json);
+                        return countriesDto;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+
         public async Task<List<GenderDto>> GetGendersAsync()
         {
             try

@@ -18,5 +18,8 @@ namespace shellXamarin.Module.Account.BuinessServices
         Task<List<City>> GetCitiesAsync();
 
         Task<List<INavigationElementEntity>> GetCitiesNavigationElementsAsync();
+
+        Task<List<Country>> GetCountriesAsync();
+        Task<List<INavigationElementEntity>> GetCountriesNavigationElementsAsync();
     }
 }

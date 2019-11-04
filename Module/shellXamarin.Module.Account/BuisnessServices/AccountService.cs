@@ -50,6 +50,40 @@ namespace shellXamarin.Module.Account.BuinessServices
             }
         }
 
+        public async Task<List<INavigationElementEntity>> GetCountriesNavigationElementsAsync()
+        {
+            try
+            {
+                var countriesDto = await _accountDataService.GetCountriesAsync();
+                List<INavigationElementEntity> navigationElementEntities = new List<INavigationElementEntity>();
+                foreach (var country in countriesDto)
+                {
+                    navigationElementEntities.Add(new City { Id = country.Id, Title = country.Title });
+                }
+                return navigationElementEntities;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+        public async Task<List<Country>> GetCountriesAsync()
+        {
+            try
+            {
+                var countriesDto = await _accountDataService.GetCountriesAsync();
+                return countriesDto.Select(country => new Country { Id = country.Id, Title = country.Title }).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+
         public async Task<List<Gender>> GetGendersAsync()
         {
             try
@@ -110,7 +144,10 @@ namespace shellXamarin.Module.Account.BuinessServices
                     FName = userDto.FName,
                     Gender = userDto.Gender,
                     Id = userDto.Id,
-                    LName = userDto.LName
+                    LName = userDto.LName,
+                    Country = userDto.Country,
+                    MobileNumber = userDto.MobileNumber,
+                    State = userDto.State
                 };
             }
             catch (Exception ex)

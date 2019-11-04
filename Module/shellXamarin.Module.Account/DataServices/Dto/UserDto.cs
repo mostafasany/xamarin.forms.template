@@ -12,6 +12,12 @@
 
         public string Gender { get; set; }
 
+        public string Country { get; set; }
+
+        public string State { get; set; }
+
         public string City { get; set; }
+
+        public string MobileNumber { get; set; }
     }
 }

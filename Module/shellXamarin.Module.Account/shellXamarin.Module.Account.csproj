@@ -13,13 +13,9 @@
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
-    <Folder Include="Models\" />
     <Folder Include="Resources\" />
     <Folder Include="i18n\" />
-    <Folder Include="DataServices\" />
-    <Folder Include="DataServices\" />
     <Folder Include="BuisnessServices\" />
-    <Folder Include="DataServices\Dto\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\AboutPage.xaml" />
@@ -33,6 +29,8 @@
     </Compile>
     <Compile Update="Resources\AppResources.Designer.cs">
       <DependentUpon>AppResources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Update="Resources\AppResources.de.Designer.cs">
       <DependentUpon>AppResources.de.resx</DependentUpon>

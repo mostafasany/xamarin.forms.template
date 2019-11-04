@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Prism.Commands;
 using Prism.Navigation;
+using Prism.Services;
 using shellXamarin.Module.Account.BuinessServices;
 using shellXamarin.Module.Account.Resources;
 using shellXamarin.Module.Common.FormBuilder.Models;
@@ -29,50 +32,14 @@ namespace shellXamarin.Module.Account.ViewModels
 
         #region Properties
 
-        EntryItem firstName;
-        public EntryItem FirstName
+        ObservableCollection<FormItem> formItems;
+        public ObservableCollection<FormItem> FormItems
         {
-            get { return firstName; }
-            set { SetProperty(ref firstName, value); }
+            get { return formItems; }
+            set { SetProperty(ref formItems, value); }
         }
 
-        EntryItem lastName;
-        public EntryItem LastName
-        {
-            get { return lastName; }
-            set { SetProperty(ref lastName, value); }
-        }
-
-        DatePickerItem dob;
-        public DatePickerItem DOB
-        {
-            get { return dob; }
-            set { SetProperty(ref dob, value); }
-        }
-
-
-        PickerItem<INavigationElementEntity> genderList;
-        public PickerItem<INavigationElementEntity> GenderList
-        {
-            get { return genderList; }
-            set { SetProperty(ref genderList, value); }
-        }
-
-        NavigationItem<INavigationElementEntity> cities;
-        public NavigationItem<INavigationElementEntity> Cities
-        {
-            get { return cities; }
-            set { SetProperty(ref cities, value); }
-        }
-
-        CheckItem readNewsLetter;
-        public CheckItem ReadNewsLetter
-        {
-            get { return readNewsLetter; }
-            set { SetProperty(ref readNewsLetter, value); }
-        }
-
-
+        
         #endregion
 
         #region Methods
@@ -81,9 +48,12 @@ namespace shellXamarin.Module.Account.ViewModels
         {
             try
             {
-                FirstName = new EntryItem
+                var user = await _accountService.GetUser();
+                FormItems = new ObservableCollection<FormItem>();
+                FormItems.Add(new EntryItem
                 {
-                    Text = string.Empty,
+                    Id = "1",
+                    Text = user.FName,
                     Placeholder = AppResources.account_form_firstname_placeholder,
                     Keyboard = Keyboard.Text,
                     Required = true,
@@ -91,11 +61,12 @@ namespace shellXamarin.Module.Account.ViewModels
                     RequiredMessage = AppResources.account_form_firstname_required,
                     InvalidMessage = AppResources.account_form_firstname_invalid,
                     ReturnType = ReturnType.Next,
-                };
+                });
 
-                LastName = new EntryItem
+                FormItems.Add(new EntryItem
                 {
-                    Text = string.Empty,
+                    Id = "2",
+                    Text = user.LName,
                     Placeholder = AppResources.account_form_lastname_placeholder,
                     Keyboard = Keyboard.Text,
                     Required = true,
@@ -103,33 +74,58 @@ namespace shellXamarin.Module.Account.ViewModels
                     RequiredMessage = AppResources.account_form_lastname_required,
                     InvalidMessage = AppResources.account_form_lastname_invalid,
                     ReturnType = ReturnType.Next,
-                };
+                });
 
-                DOB = new DatePickerItem
+                FormItems.Add(new DatePickerItem
                 {
-                    Date = DateTime.Now,
+                    Id = "3",
+                    Date = user.DOB,
+                    StartDate = new DateTime(1900, 1, 1),
+                    EndDate = DateTime.Now,
                     InvalidMessage = AppResources.account_form_dob_invalid,
                     Placeholder = AppResources.account_form_dob_placeholder,
                     Required = true,
                     RequiredMessage = AppResources.account_form_dob_required,
-                };
+                });
 
-                GenderList = new PickerItem<INavigationElementEntity>
+                FormItems.Add(new PickerItem<INavigationElementEntity>
                 {
+                    Id = "4",
                     Items = await _accountService.GetGendersNavigationElementsAsync(),
                     SelectedKey = "Id",
-                    SelectedValue = "1",
+                    SelectedValue = user.Gender,
                     Required = true,
                     InvalidMessage = String.Empty,
                     Placeholder = "Gender",
                     RequiredMessage = string.Empty,
-                };
+                });
 
-                Cities = new NavigationItem<INavigationElementEntity>
+                FormItems.Add(new NavigationItem<INavigationElementEntity>
                 {
+                    Id = "5",
+                    Items = await _accountService.GetCountriesNavigationElementsAsync(),
+                    SelectedKey = "Id",
+                    SelectedValue = user.Country,
+                    Required = true,
+                    InvalidMessage = string.Empty,
+                    Placeholder = AppResources.account_form_country_placeholder,
+                    RequiredMessage = AppResources.account_form_country_required,
+                    NavigationContext = new NavigationContext
+                    {
+                        NavigationPage = "GenericListViewPage",
+                        PageTemplate = new DataTemplate(),
+                        NavigationCommand = new DelegateCommand<NavigationItem<INavigationElementEntity>>(NavigationButton),
+                    }
+                });
+
+
+
+                FormItems.Add(new NavigationItem<INavigationElementEntity>
+                {
+                    Id = "6",
                     Items = await _accountService.GetCitiesNavigationElementsAsync(),
                     SelectedKey = "Id",
-                    SelectedValue = "2",
+                    SelectedValue = user.City,
                     Required = true,
                     InvalidMessage = string.Empty,
                     Placeholder = "Cities",
@@ -140,16 +136,31 @@ namespace shellXamarin.Module.Account.ViewModels
                         PageTemplate = new DataTemplate(),
                         NavigationCommand = new DelegateCommand<NavigationItem<INavigationElementEntity>>(NavigationButton),
                     }
-                };
+                });
 
-                ReadNewsLetter = new CheckItem
+                FormItems.Add(new EntryItem
                 {
+                    Id = "7",
+                    Text = user.MobileNumber,
+                    Placeholder = AppResources.account_form_mobileNumber_placeholder,
+                    Keyboard = Keyboard.Numeric,
+                    Required = true,
+                    Regex = new Regex(""),
+                    RequiredMessage = AppResources.account_form_mobileNumber_required,
+                    InvalidMessage = AppResources.account_form_mobileNumber_invalid,
+                    ReturnType = ReturnType.Next,
+                });
+
+                FormItems.Add(new CheckItem
+                {
+                    Id = "100",
                     InvalidMessage = "",
                     IsChecked = true,
                     Placeholder = AppResources.account_form_newsletter_required,
                     Required = true,
                     RequiredMessage = AppResources.account_form_newsletter_required
-                };
+                });
+
             }
             catch (Exception ex)
             {
@@ -161,20 +172,20 @@ namespace shellXamarin.Module.Account.ViewModels
 
         #region Navigation
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            if (parameters.GetNavigationMode() == NavigationMode.Back)
-            {
-                var selectedNavigationItem = parameters.GetValue<NavigationItem<INavigationElementEntity>>("SelectedNavigationItem");
-                if (selectedNavigationItem != null)
-                {
-                    cities = selectedNavigationItem;
-                    RaisePropertyChanged(nameof(Cities));
-                }
-            }
+        //public override void OnNavigatedTo(INavigationParameters parameters)
+        //{
+        //    if (parameters.GetNavigationMode() == NavigationMode.Back)
+        //    {
+        //        var selectedNavigationItem = parameters.GetValue<NavigationItem<INavigationElementEntity>>("SelectedNavigationItem");
+        //        if (selectedNavigationItem != null)
+        //        {
+        //            cities = selectedNavigationItem;
+        //            RaisePropertyChanged(nameof(Cities));
+        //        }
+        //    }
 
-            base.OnNavigatedTo(parameters);
-        }
+        //    base.OnNavigatedTo(parameters);
+        //}
 
         #endregion
 
