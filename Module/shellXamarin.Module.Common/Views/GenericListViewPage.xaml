@@ -9,7 +9,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <Grid Style="{StaticResource RootLayoutStyle}">
-            <ListView Style="{StaticResource ListStyle}" HorizontalOptions="" HeaderTemplate="{Binding NavigationItem.Placeholder}" HasUnevenRows="True" SeparatorVisibility="None" HeightRequest="10" ItemsSource="{Binding NavigationItem.Items,Mode=TwoWay}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}">
+            <ListView Style="{StaticResource ListStyle}" HeaderTemplate="{Binding NavigationItem.Placeholder}" HasUnevenRows="True" SeparatorVisibility="None" HeightRequest="10" ItemsSource="{Binding NavigationItem.Items,Mode=TwoWay}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell Height="40">

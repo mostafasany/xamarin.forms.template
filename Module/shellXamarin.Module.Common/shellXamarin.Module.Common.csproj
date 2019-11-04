@@ -25,6 +25,7 @@
     <Folder Include="Assets\" />
     <Folder Include="Services\EventBusService\" />
     <Folder Include="Views\" />
+    <Folder Include="Services\SharedService\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />

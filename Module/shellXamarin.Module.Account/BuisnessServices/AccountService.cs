@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 using shellXamarin.Module.Account.DataServices;
 using shellXamarin.Module.Account.Models;
 using shellXamarin.Module.Common.Models;
-
+using shellXamarin.Module.Common.Services.SharedService;
 
 namespace shellXamarin.Module.Account.BuinessServices
 {
     public class AccountService : IAccountService
     {
         private readonly IAccountDataService _accountDataService;
-        public AccountService(IAccountDataService accountDataService)
+        private readonly ISharedService _sharedService;
+        public AccountService(IAccountDataService accountDataService, ISharedService sharedService)
         {
             _accountDataService = accountDataService;
+            _sharedService = sharedService;
         }
 
         public async Task<List<INavigationElementEntity>> GetCitiesNavigationElementsAsync()
@@ -112,7 +114,10 @@ namespace shellXamarin.Module.Account.BuinessServices
         {
             try
             {
-                var userDto = await _accountDataService.LoginAsync(email,password);
+                var userDto = await _accountDataService.LoginAsync(email, password);
+                _sharedService.SetUser(string.Format("{0} {1}", userDto.FName, userDto.LName), userDto.Profile,
+                    Guid.NewGuid().ToString());
+
                 return new User
                 {
                     City = userDto.City,

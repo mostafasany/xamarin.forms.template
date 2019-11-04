@@ -7,7 +7,6 @@
     "icon": "home.svg",
     "badge": 1,
     "page": "HomePage",
-    "requireLogin": false,
     "children": []
   },
   {
@@ -62,7 +61,6 @@
     "icon": "settings.svg",
     "badge": 1,
     "page": "SettingsPage",
-    "requireLogin": false,
     "children": []
   }
 ]

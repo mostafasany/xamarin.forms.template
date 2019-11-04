@@ -82,8 +82,6 @@ namespace shellXamarin.Module.Common.ViewModels
 
         public bool NotBusy => !isBusy;
 
-
-        //TODO: check if this `"{x:Static Device.FlowDirection}"` is enough
         FlowDirection flowDirection;
         public FlowDirection FlowDirection
         {

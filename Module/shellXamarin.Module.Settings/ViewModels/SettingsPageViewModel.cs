@@ -3,11 +3,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Prism.Commands;
 using Prism.Navigation;
-using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Services.EventBusService;
 using shellXamarin.Module.Common.Services.ExceptionService;
+using shellXamarin.Module.Common.Services.SharedService;
 using shellXamarin.Module.Common.ViewModels;
 using shellXamarin.Module.Settings.BuinessServices;
 
@@ -16,16 +16,16 @@ namespace shellXamarin.Module.Settings.ViewModels
     public class SettingsPageViewModel : BaseViewModel
     {
         private readonly ISettingsService _settingsService;
-        private readonly IEventBusService _eventBusService;
-        public SettingsPageViewModel(ISettingsService settingsService, IExceptionService exceptionService,
+        private readonly ISharedService _sharedService;
+        public SettingsPageViewModel(ISettingsService settingsService, IExceptionService exceptionService, ISharedService sharedService,
             IEventBusService eventBusService, ILanguageService localService, INavigationService navigationService)
             : base(localService, eventBusService, exceptionService)
         {
             _settingsService = settingsService;
-            _eventBusService = eventBusService;
+            _sharedService = sharedService;
             NavigationService = navigationService;
 
-            //TODO: Settings Page is in Home tab bar, so it had to be constructed a head
+            //TODO: Settings Page is in Home tab bar, so data has to be constructed a head
             Load();
         }
 
@@ -61,12 +61,6 @@ namespace shellXamarin.Module.Settings.ViewModels
                 Languages.Remove(usedLanguage);
             }
         }
-
-        private void UserLogout()
-        {
-
-        }
-
 
         private async void LanguageChanged(Language language)
         {
@@ -107,8 +101,7 @@ namespace shellXamarin.Module.Settings.ViewModels
 
         private async void Logout()
         {
-            _eventBusService.Publish<LogoutEvent>();
-
+            _sharedService.RemoveAllUserPreferences();
             await NavigateHome();
         }
 

@@ -4,6 +4,7 @@ using Prism.Modularity;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Services.EventBusService;
 using shellXamarin.Module.Common.Services.ExceptionService;
+using shellXamarin.Module.Common.Services.SharedService;
 using shellXamarin.Module.Common.ViewModels;
 using shellXamarin.Module.Common.Views;
 
@@ -24,6 +25,7 @@ namespace shellXamarin.Module.Common
             containerRegistry.RegisterSingleton<IPrefrencesService, PrefrencesService>();
             containerRegistry.RegisterSingleton<ILanguageService, LanguageService>();
             containerRegistry.RegisterSingleton<IExceptionService, ExceptionService>();
+            containerRegistry.RegisterSingleton<ISharedService, SharedService>();
         }
 
         public static void AddModule(IModuleCatalog moduleCatalog, IModuleManager moduleManager, bool loadModule)

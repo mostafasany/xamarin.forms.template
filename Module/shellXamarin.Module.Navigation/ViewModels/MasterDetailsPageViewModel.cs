@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Prism.Commands;
-using Prism.Events;
 using Prism.Navigation;
-using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Services.EventBusService;
 using shellXamarin.Module.Common.Services.ExceptionService;
+using shellXamarin.Module.Common.Services.SharedService;
 using shellXamarin.Module.Common.ViewModels;
 using shellXamarin.Module.Navigation.BuinessServices;
 using shellXamarin.Module.Navigation.Models;
@@ -15,20 +14,16 @@ namespace shellXamarin.Module.Navigation.ViewModels
 {
     public class MasterDetailsPageViewModel : BaseViewModel
     {
-        //TODO: Check how to retreive Account Details in Side Menu
         private readonly IMenuService _menuService;
-        private readonly Tuple<LogoutEvent, SubscriptionToken> userLogoutEventAndToken;
-        private readonly Tuple<LoginEvent, SubscriptionToken> userLoginEventAndToken;
+        private readonly ISharedService _sharedService;
         public MasterDetailsPageViewModel(INavigationService navigationService, ILanguageService localService,
-            IMenuService menuService, IExceptionService exceptionService,
+            IMenuService menuService, IExceptionService exceptionService, ISharedService sharedService,
             IEventBusService eventBusService)
             : base(localService, eventBusService, exceptionService)
         {
             _menuService = menuService;
+            _sharedService = sharedService;
             NavigationService = navigationService;
-            userLogoutEventAndToken = eventBusService.Subscribe<LogoutEvent>(UserLogout);
-            userLoginEventAndToken = eventBusService.Subscribe<LoginEvent, UserLoginEvent>(UserLogin);
-            Load();
         }
 
         #region Properties
@@ -41,23 +36,39 @@ namespace shellXamarin.Module.Navigation.ViewModels
         }
 
 
+        bool isLoggedIn;
+        public bool IsLoggedIn
+        {
+            get { return isLoggedIn; }
+            set { SetProperty(ref isLoggedIn, value); }
+        }
+
+
+        string username;
+        public string Username
+        {
+            get { return username; }
+            set { SetProperty(ref username, value); }
+        }
+
+        string profile;
+        public string Profile
+        {
+            get { return profile; }
+            set { SetProperty(ref profile, value); }
+        }
+
+
         #endregion
 
         #region Methods
 
         async void Load()
         {
-            MenuItems = await _menuService.GetMenuItemsAsync();
-        }
-
-        private void UserLogout()
-        {
-            Load();
-        }
-
-        private void UserLogin(UserLoginEvent userLoginEvent)
-        {
-            Load();
+            IsLoggedIn = _sharedService.IsLoggedIn();
+            MenuItems = await _menuService.GetMenuItemsAsync(IsLoggedIn);
+            Username = _sharedService.GetUsername();
+            Profile = _sharedService.GetProfile();
         }
 
         private async void Navigate(MenuElement page)
@@ -82,7 +93,7 @@ namespace shellXamarin.Module.Navigation.ViewModels
 
         private async void Logout()
         {
-            userLogoutEventAndToken.Item1.Publish();
+            _sharedService.RemoveAllUserPreferences();
             await NavigateHome();
         }
 
@@ -93,13 +104,7 @@ namespace shellXamarin.Module.Navigation.ViewModels
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
-        }
-
-        public override void Destroy()
-        {
-            userLogoutEventAndToken.Item1.Unsubscribe(userLogoutEventAndToken.Item2);
-            userLoginEventAndToken.Item1.Unsubscribe(userLoginEventAndToken.Item2);
-            base.Destroy();
+            Load();
         }
 
         #endregion

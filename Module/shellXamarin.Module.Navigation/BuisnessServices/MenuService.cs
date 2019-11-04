@@ -15,7 +15,7 @@ namespace shellXamarin.Module.Navigation.BuinessServices
             _menuDataService = menuDataService;
         }
 
-        public async Task<List<MenuElement>> GetMenuItemsAsync()
+        public async Task<List<MenuElement>> GetMenuItemsAsync(bool isLogin = true)
         {
             try
             {
@@ -28,10 +28,28 @@ namespace shellXamarin.Module.Navigation.BuinessServices
                     {
                         foreach (var childrenDto in itemDto.Children)
                         {
-                            children.Add(new MenuElement(childrenDto.Title, childrenDto.Page, childrenDto.Icon, childrenDto.CanNavigate, childrenDto.Modal));
+                            if (childrenDto.RequireLogin.HasValue)
+                            {
+                                if (childrenDto.RequireLogin.Value == isLogin)
+                                    children.Add(new MenuElement(childrenDto.Title, childrenDto.Page, childrenDto.Icon, childrenDto.CanNavigate, childrenDto.Modal));
+                            }
+                            else
+                            {
+                                children.Add(new MenuElement(childrenDto.Title, childrenDto.Page, childrenDto.Icon, childrenDto.CanNavigate, childrenDto.Modal));
+                            }
+
                         }
                     }
-                    menuItems.Add(new MenuElement(itemDto.Title, itemDto.Page, itemDto.Icon, itemDto.CanNavigate, itemDto.Modal, children));
+                    if (itemDto.RequireLogin.HasValue)
+                    {
+                        if (itemDto.RequireLogin.Value == isLogin)
+                            menuItems.Add(new MenuElement(itemDto.Title, itemDto.Page, itemDto.Icon, itemDto.CanNavigate, itemDto.Modal, children));
+                    }
+                    else
+                    {
+                        menuItems.Add(new MenuElement(itemDto.Title, itemDto.Page, itemDto.Icon, itemDto.CanNavigate, itemDto.Modal, children));
+                    }
+
                 }
                 return menuItems;
             }

@@ -1,5 +1,4 @@
 ﻿using System;
-using FFImageLoading.Svg.Forms;
 using shellXamarin.Module.Navigation.Models;
 using shellXamarin.Module.Navigation.ViewModels;
 using Xamarin.Forms;

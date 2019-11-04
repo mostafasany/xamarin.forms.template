@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary  MergedWith="styles:AppStyles" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Common.Styles.AppTemplates">
+    <DataTemplate x:Key="entryTemplate">
+        <ViewCell>
+            <Entry Style="{StaticResource FormEntryStyle}" ReturnType="{Binding ReturnType}" Placeholder="{Binding Placeholder}" Text="{Binding Text,Mode=TwoWay}" Keyboard="{Binding Keyboard}"></Entry>
+        </ViewCell>
+    </DataTemplate>
+    <DataTemplate x:Key="datePickerTemplate">
+        <ViewCell>
+            <DatePicker Style="{StaticResource DatePickerStyle}" Date="{Binding Date,Mode=TwoWay}"></DatePicker>
+        </ViewCell>
+    </DataTemplate>
+    <DataTemplate x:Key="pickerTemplate">
+        <ViewCell>
+            <Picker Style="{StaticResource PickerStyle}" ItemsSource="{Binding Items,Mode=TwoWay}" SelectedItem="{Binding Selected}" />
+        </ViewCell>
+    </DataTemplate>
+    <DataTemplate x:Key="navigationTemplate">
+        <ViewCell>
+            <Button Style="{StaticResource SecondaryButtonStyle}" CommandParameter="{Binding}" Command="{Binding NavigationContext.NavigationCommand}" Text="{Binding Selected.Title}"></Button>
+        </ViewCell>
+    </DataTemplate>
+    <DataTemplate x:Key="sectionHeaderTemplate">
+        <ViewCell>
+            <Label Margin="0,20,0,0" Style="{StaticResource LabelStyle}" Text="{Binding Placeholder}" HorizontalOptions="{Binding HorizontalLayoutOptions}"></Label>
+        </ViewCell>
+    </DataTemplate>
+    <DataTemplate x:Key="buttonTemplate">
+        <Button  Text="{Binding Placeholder}" CommandParameter="{Binding}" Command="{Binding ActionCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
+    </DataTemplate>
+    <DataTemplate x:Key="checkTemplate">
+        <ViewCell>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Style="{StaticResource LabelStyle}" HorizontalOptions="Start" Text="{Binding Placeholder}" VerticalOptions="Center"></Label>
+                <CheckBox HorizontalOptions="End" IsChecked="{Binding IsChecked, Mode=TwoWay}" VerticalOptions="Center"></CheckBox>
+            </Grid>
+        </ViewCell>
+    </DataTemplate>
+    <DataTemplate x:Key="defaultTemplate">
+        <ViewCell>
+        </ViewCell>
+    </DataTemplate>
+</ResourceDictionary>
