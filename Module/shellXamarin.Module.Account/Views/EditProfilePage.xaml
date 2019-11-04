@@ -25,6 +25,16 @@
                     <Button Style="{StaticResource SecondaryButtonStyle}" CommandParameter="{Binding}" Command="{Binding NavigationContext.NavigationCommand}" Text="{Binding Selected.Title}"></Button>
                 </ViewCell>
             </DataTemplate>
+            <DataTemplate x:Key="sectionHeaderTemplate">
+                <ViewCell>
+                    <Label Margin="0,20,0,0" Style="{StaticResource LabelStyle}" Text="{Binding Placeholder}" HorizontalOptions="{Binding HorizontalLayoutOptions}"></Label>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="buttonTemplate">
+
+                <Button  Text="{Binding Placeholder}" CommandParameter="{Binding}" Command="{Binding ActionCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
+
+            </DataTemplate>
             <DataTemplate x:Key="checkTemplate">
                 <ViewCell>
                     <Grid>
@@ -41,7 +51,7 @@
                 <ViewCell>
                 </ViewCell>
             </DataTemplate>
-            <selectors:GenericFormTemplateSelector x:Key="genericFormTemplateSelector" EntryTemplate="{StaticResource entryTemplate}" DatePickerTemplate="{StaticResource datePickerTemplate}" PickerTemplate="{StaticResource pickerTemplate}" NavigationTemplate="{StaticResource navigationTemplate}" CheckTemplate="{StaticResource checkTemplate}" DefaultTemplate="{StaticResource defaultTemplate}" />
+            <selectors:GenericFormTemplateSelector x:Key="genericFormTemplateSelector" ButtonTemplate="{StaticResource buttonTemplate}" SectionHeaderTemplate="{StaticResource sectionHeaderTemplate}" EntryTemplate="{StaticResource entryTemplate}" DatePickerTemplate="{StaticResource datePickerTemplate}" PickerTemplate="{StaticResource pickerTemplate}" NavigationTemplate="{StaticResource navigationTemplate}" CheckTemplate="{StaticResource checkTemplate}" DefaultTemplate="{StaticResource defaultTemplate}" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -51,9 +61,10 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <ListView SelectionMode="None" SeparatorVisibility="None" ItemsSource="{Binding FormItems}" ItemTemplate="{StaticResource genericFormTemplateSelector}" />
+            <ListView SelectionMode="None" SeparatorVisibility="None" ItemsSource="{Binding Form.Items}" ItemTemplate="{StaticResource genericFormTemplateSelector}">
+            </ListView>
             <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
-            <Button Grid.Row="2" Text="Update Profile" Command="{Binding EditProfileCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
+            <Button Grid.Row="2" Text="Update Profile" Command="{Binding EditCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

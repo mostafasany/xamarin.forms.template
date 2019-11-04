@@ -2,6 +2,7 @@
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
+using shellXamarin.Module.Account.BuinessServices;
 using shellXamarin.Module.Account.Resources;
 using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.FormBuilder.Models;
@@ -17,13 +18,15 @@ namespace shellXamarin.Module.Account.ViewModels
     {
         private readonly IPageDialogService _dialogService;
         private readonly IEventBusService _eventBusService;
-        public LoginPageViewModel(INavigationService _navigationService, IEventBusService eventBusService,
+        private readonly IAccountService _accountService;
+        public LoginPageViewModel(INavigationService _navigationService, IEventBusService eventBusService, IAccountService accountService,
             IPageDialogService dialogService, ILanguageService localService, IExceptionService exceptionService)
             : base(localService, eventBusService, exceptionService)
         {
             NavigationService = _navigationService;
             _dialogService = dialogService;
             _eventBusService = eventBusService;
+            _accountService = accountService;
             LoadFormItems();
         }
 
@@ -82,18 +85,6 @@ namespace shellXamarin.Module.Account.ViewModels
 
         }
 
-        #endregion
-
-        #region Navigation
-
-        #endregion
-
-        #region Commands
-
-        #region LoginCommand
-
-        public DelegateCommand<object> LoginCommand => new DelegateCommand<object>(Login);
-
         private async void Login(object obj)
         {
             try
@@ -114,7 +105,13 @@ namespace shellXamarin.Module.Account.ViewModels
                     return;
                 }
 
-                _eventBusService.Publish<LoginEvent>();
+                var user = await _accountService.LoginAsync(Email.Text, Password.Text);
+                _eventBusService.Publish<LoginEvent, UserLoginEvent>(new UserLoginEvent
+                {
+                    Id = user.Id,
+                    FirstName = user.FName,
+                    LastName = user.LName
+                });
                 await NavigateHome();
             }
             catch (System.Exception ex)
@@ -125,6 +122,14 @@ namespace shellXamarin.Module.Account.ViewModels
         }
 
         #endregion
+
+        #region Navigation
+
+        #endregion
+
+        #region Commands
+
+        public DelegateCommand<object> LoginCommand => new DelegateCommand<object>(Login);
 
         #endregion
     }

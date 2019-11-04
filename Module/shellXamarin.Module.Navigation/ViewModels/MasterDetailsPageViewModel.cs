@@ -27,7 +27,7 @@ namespace shellXamarin.Module.Navigation.ViewModels
             _menuService = menuService;
             NavigationService = navigationService;
             userLogoutEventAndToken = eventBusService.Subscribe<LogoutEvent>(UserLogout);
-            userLoginEventAndToken = eventBusService.Subscribe<LoginEvent>(UserLogin);
+            userLoginEventAndToken = eventBusService.Subscribe<LoginEvent, UserLoginEvent>(UserLogin);
             Load();
         }
 
@@ -52,52 +52,13 @@ namespace shellXamarin.Module.Navigation.ViewModels
 
         private void UserLogout()
         {
-
+            Load();
         }
 
-
-        private void UserLogin()
+        private void UserLogin(UserLoginEvent userLoginEvent)
         {
-
+            Load();
         }
-
-
-        #endregion
-
-        #region Navigation
-
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            base.OnNavigatedTo(parameters);
-        }
-
-        public override void Destroy()
-        {
-            userLogoutEventAndToken.Item1.Unsubscribe(userLogoutEventAndToken.Item2);
-            userLoginEventAndToken.Item1.Unsubscribe(userLoginEventAndToken.Item2);
-            base.Destroy();
-        }
-
-        #endregion
-
-        #region Commands
-
-        #region LogoutCommand
-
-        public DelegateCommand LogoutCommand => new DelegateCommand(Logout);
-
-        private async void Logout()
-        {
-            userLogoutEventAndToken.Item1.Publish();
-            await NavigateHome();
-        }
-
-        #endregion
-
-
-        #region OnNavigateCommand
-
-        public DelegateCommand<MenuElement> OnNavigateCommand => new DelegateCommand<MenuElement>(Navigate);
 
         private async void Navigate(MenuElement page)
         {
@@ -119,7 +80,35 @@ namespace shellXamarin.Module.Navigation.ViewModels
             }
         }
 
+        private async void Logout()
+        {
+            userLogoutEventAndToken.Item1.Publish();
+            await NavigateHome();
+        }
+
         #endregion
+
+        #region Navigation
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+        }
+
+        public override void Destroy()
+        {
+            userLogoutEventAndToken.Item1.Unsubscribe(userLogoutEventAndToken.Item2);
+            userLoginEventAndToken.Item1.Unsubscribe(userLoginEventAndToken.Item2);
+            base.Destroy();
+        }
+
+        #endregion
+
+        #region Commands
+
+        public DelegateCommand LogoutCommand => new DelegateCommand(Logout);
+
+        public DelegateCommand<MenuElement> OnNavigateCommand => new DelegateCommand<MenuElement>(Navigate);
 
         #endregion
     }

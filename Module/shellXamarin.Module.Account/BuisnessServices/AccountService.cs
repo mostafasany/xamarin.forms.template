@@ -7,6 +7,7 @@ using shellXamarin.Module.Account.DataServices;
 using shellXamarin.Module.Account.Models;
 using shellXamarin.Module.Common.Models;
 
+
 namespace shellXamarin.Module.Account.BuinessServices
 {
     public class AccountService : IAccountService
@@ -64,19 +65,6 @@ namespace shellXamarin.Module.Account.BuinessServices
             }
         }
 
-        public async Task<bool> LogoutAsync()
-        {
-            try
-            {
-                return await _accountDataService.LogoutAsync();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                throw ex;
-            }
-        }
-
         public async Task<List<INavigationElementEntity>> GetGendersNavigationElementsAsync()
         {
             try
@@ -101,7 +89,7 @@ namespace shellXamarin.Module.Account.BuinessServices
             try
             {
                 //TODO: 31/10/1989 is not rendered correcly 
-                var userDto = await _accountDataService.GetUser();
+                var userDto = await _accountDataService.GetUserAsync();
                 return new User
                 {
                     City = userDto.City,
@@ -112,6 +100,43 @@ namespace shellXamarin.Module.Account.BuinessServices
                     Id = userDto.Id,
                     LName = userDto.LName
                 };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+        public async Task<User> LoginAsync(string email, string password)
+        {
+            try
+            {
+                var userDto = await _accountDataService.LoginAsync(email,password);
+                return new User
+                {
+                    City = userDto.City,
+                    DOB = DateTime.ParseExact(userDto.DOB, "dd/MM/yyyy",
+                                           CultureInfo.InvariantCulture),
+                    FName = userDto.FName,
+                    Gender = userDto.Gender,
+                    Id = userDto.Id,
+                    LName = userDto.LName
+                };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+        public async Task<bool> Logout()
+        {
+            try
+            {
+                await _accountDataService.LogoutAsync();
+                return true;
             }
             catch (Exception ex)
             {

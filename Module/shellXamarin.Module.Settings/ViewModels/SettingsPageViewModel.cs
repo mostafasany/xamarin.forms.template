@@ -67,6 +67,17 @@ namespace shellXamarin.Module.Settings.ViewModels
 
         }
 
+
+        private async void LanguageChanged(Language language)
+        {
+            if (language != null)
+            {
+                LocalService.SetDefaultLanguage(language);
+
+                await NavigateHome();
+            }
+        }
+
         #endregion
 
         #region Navigation
@@ -94,32 +105,6 @@ namespace shellXamarin.Module.Settings.ViewModels
             base.Destroy();
         }
 
-
-        #endregion
-
-        #region Commands
-
-        #region LanguageChangedCommand
-
-        public DelegateCommand<Language> LanguageChangedCommand => new DelegateCommand<Language>(LanguageChanged);
-
-        private async void LanguageChanged(Language language)
-        {
-            if (language != null)
-            {
-                LocalService.SetDefaultLanguage(language);
-
-                await NavigateHome();
-            }
-        }
-
-        #endregion
-
-
-        #region LogoutCommand
-
-        public DelegateCommand LogoutCommand => new DelegateCommand(Logout);
-
         private async void Logout()
         {
             _eventBusService.Publish<LogoutEvent>();
@@ -128,6 +113,12 @@ namespace shellXamarin.Module.Settings.ViewModels
         }
 
         #endregion
+
+        #region Commands
+
+        public DelegateCommand<Language> LanguageChangedCommand => new DelegateCommand<Language>(LanguageChanged);
+
+        public DelegateCommand LogoutCommand => new DelegateCommand(Logout);
 
         #endregion
     }

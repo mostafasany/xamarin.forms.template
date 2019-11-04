@@ -61,7 +61,29 @@ namespace shellXamarin.Module.Account.DataServices
             }
         }
 
-        public async Task<UserDto> GetUser()
+        public async Task<UserDto> GetUserAsync()
+        {
+            try
+            {
+                string mockFilePath = string.Format("Mocks/{0}/profile.json", _languageService.UsedLanague.Id);
+                using (var stream = await FileSystem.OpenAppPackageFileAsync(mockFilePath))
+                {
+                    using (var reader = new StreamReader(stream))
+                    {
+                        var json = await reader.ReadToEndAsync();
+                        UserDto userDto = JsonConvert.DeserializeObject<UserDto>(json);
+                        return userDto;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+        public async Task<UserDto> LoginAsync(string email, string password)
         {
             try
             {

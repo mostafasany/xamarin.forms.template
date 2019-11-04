@@ -157,51 +157,7 @@ namespace shellXamarin.Module.Account.ViewModels
             }
         }
 
-        #endregion
-
-        #region Navigation
-
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            if (parameters.GetNavigationMode() == NavigationMode.Back)
-            {
-                var selectedNavigationItem = parameters.GetValue<NavigationItem<INavigationElementEntity>>("SelectedNavigationItem");
-                if (selectedNavigationItem != null)
-                {
-                    cities = selectedNavigationItem;
-                    RaisePropertyChanged(nameof(Cities));
-                }
-            }
-
-            base.OnNavigatedTo(parameters);
-        }
-
-        #endregion
-
-        #region Commands
-
-        #region NavigationButton
-
-        public DelegateCommand<object> NavigationButtonCommand => new DelegateCommand<object>(NavigationButton);
-
-        private async void NavigationButton(object obj)
-        {
-            NavigationItem<INavigationElementEntity> navigationItem = obj as NavigationItem<INavigationElementEntity>;
-            if (navigationItem != null)
-            {
-                NavigationParameters parameters = new NavigationParameters();
-                parameters.Add("NavigationItem", navigationItem);
-                await NavigationService.NavigateAsync(navigationItem.NavigationContext.NavigationPage, parameters);
-            }
-        }
-
-        #endregion
-
-        #region RegisterCommand
-
-        public DelegateCommand<object> RegisterCommand => new DelegateCommand<object>(Register);
-
-        private async void Register(object obj)
+        private async void Register()
         {
             try
             {
@@ -229,7 +185,43 @@ namespace shellXamarin.Module.Account.ViewModels
             }
         }
 
+        private async void NavigationButton(object obj)
+        {
+            NavigationItem<INavigationElementEntity> navigationItem = obj as NavigationItem<INavigationElementEntity>;
+            if (navigationItem != null)
+            {
+                NavigationParameters parameters = new NavigationParameters();
+                parameters.Add("NavigationItem", navigationItem);
+                await NavigationService.NavigateAsync(navigationItem.NavigationContext.NavigationPage, parameters);
+            }
+        }
+
         #endregion
+
+        #region Navigation
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            if (parameters.GetNavigationMode() == NavigationMode.Back)
+            {
+                var selectedNavigationItem = parameters.GetValue<NavigationItem<INavigationElementEntity>>("SelectedNavigationItem");
+                if (selectedNavigationItem != null)
+                {
+                    cities = selectedNavigationItem;
+                    RaisePropertyChanged(nameof(Cities));
+                }
+            }
+
+            base.OnNavigatedTo(parameters);
+        }
+
+        #endregion
+
+        #region Commands
+
+        public DelegateCommand<object> NavigationButtonCommand => new DelegateCommand<object>(NavigationButton);
+
+        public DelegateCommand RegisterCommand => new DelegateCommand(Register);
 
         #endregion
     }

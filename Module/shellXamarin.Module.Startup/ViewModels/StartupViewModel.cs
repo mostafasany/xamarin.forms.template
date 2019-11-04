@@ -24,8 +24,12 @@ namespace shellXamarin.Module.Startup.ViewModels
 
         #endregion
 
-
         #region Methods
+
+        private async void Navigate()
+        {
+            await NavigateHome();
+        }
 
         #endregion
 
@@ -45,16 +49,7 @@ namespace shellXamarin.Module.Startup.ViewModels
 
         #region Commands
 
-        #region RetryCommand
-
         public DelegateCommand NavigateLoginPageCommand => new DelegateCommand(Navigate);
-
-        private async void Navigate()
-        {
-            await NavigateHome();
-        }
-
-        #endregion
 
         #endregion
     }

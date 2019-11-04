@@ -7,7 +7,9 @@ namespace shellXamarin.Module.Account.BuinessServices
 {
     public interface IAccountService
     {
-        Task<bool> LogoutAsync();
+        Task<User> LoginAsync(string email, string password);
+
+        Task<bool> Logout();
 
         Task<User> GetUser();
 

@@ -22,6 +22,8 @@ namespace shellXamarin.Module.Navigation.Models
             CanNavigate = canNavigate;
         }
 
+        public bool RequireLogin { get; set; } = false;
+
         public bool Modal { get; set; }
 
         public bool CanNavigate { get; set; }

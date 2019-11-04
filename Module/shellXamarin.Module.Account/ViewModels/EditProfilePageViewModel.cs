@@ -29,29 +29,36 @@ namespace shellXamarin.Module.Account.ViewModels
             NavigationService = _navigationService;
             _dialogService = dialogService;
             _accountService = accountService;
-            LoadFormItems();
+            LoadForm();
         }
 
         #region Properties
 
-        ObservableCollection<FormItem> formItems;
-        public ObservableCollection<FormItem> FormItems
+        Form form;
+        public Form Form
         {
-            get { return formItems; }
-            set { SetProperty(ref formItems, value); }
+            get { return form; }
+            set { SetProperty(ref form, value); }
         }
 
         #endregion
 
         #region Methods
 
-        private async void LoadFormItems()
+        private async void LoadForm()
         {
             try
             {
                 var user = await _accountService.GetUser();
-                FormItems = new ObservableCollection<FormItem>();
-                FormItems.Add(new EntryItem
+                Form = new Form();
+                var formItems = new ObservableCollection<FormItem>();
+                formItems.Add(new SectionHeaderItem
+                {
+                    Id = "0",
+                    Placeholder = "Personal Details:",
+                    HorizontalLayoutOptions = LayoutOptions.Start
+                });
+                formItems.Add(new EntryItem
                 {
                     Id = "1",
                     Text = user.FName,
@@ -64,7 +71,7 @@ namespace shellXamarin.Module.Account.ViewModels
                     ReturnType = ReturnType.Next,
                 });
 
-                FormItems.Add(new EntryItem
+                formItems.Add(new EntryItem
                 {
                     Id = "2",
                     Text = user.LName,
@@ -77,7 +84,7 @@ namespace shellXamarin.Module.Account.ViewModels
                     ReturnType = ReturnType.Next,
                 });
 
-                FormItems.Add(new DatePickerItem
+                formItems.Add(new DatePickerItem
                 {
                     Id = "3",
                     Date = user.DOB,
@@ -89,7 +96,7 @@ namespace shellXamarin.Module.Account.ViewModels
                     RequiredMessage = AppResources.account_form_dob_required,
                 });
 
-                FormItems.Add(new PickerItem<INavigationElementEntity>
+                formItems.Add(new PickerItem<INavigationElementEntity>
                 {
                     Id = "4",
                     Items = await _accountService.GetGendersNavigationElementsAsync(),
@@ -101,9 +108,16 @@ namespace shellXamarin.Module.Account.ViewModels
                     RequiredMessage = string.Empty,
                 });
 
-                FormItems.Add(new NavigationItem<INavigationElementEntity>
+                formItems.Add(new SectionHeaderItem
                 {
                     Id = "5",
+                    Placeholder = "Location:",
+                    HorizontalLayoutOptions = LayoutOptions.Start
+                });
+
+                formItems.Add(new NavigationItem<INavigationElementEntity>
+                {
+                    Id = "6",
                     Items = await _accountService.GetCitiesNavigationElementsAsync(),
                     SelectedKey = "Id",
                     SelectedValue = user.City,
@@ -119,7 +133,7 @@ namespace shellXamarin.Module.Account.ViewModels
                     }
                 });
 
-                FormItems.Add(new CheckItem
+                formItems.Add(new CheckItem
                 {
                     Id = "6",
                     InvalidMessage = "",
@@ -128,6 +142,8 @@ namespace shellXamarin.Module.Account.ViewModels
                     Required = true,
                     RequiredMessage = AppResources.account_form_newsletter_required
                 });
+
+                Form.Items = new ObservableCollection<FormItem>(formItems.Where(a => a.Visible));
             }
             catch (Exception ex)
             {
@@ -145,40 +161,11 @@ namespace shellXamarin.Module.Account.ViewModels
             }
         }
 
-        #endregion
-
-        #region Navigation
-
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            if (parameters.GetNavigationMode() == NavigationMode.Back)
-            {
-                var selectedNavigationItem = parameters.GetValue<NavigationItem<INavigationElementEntity>>("SelectedNavigationItem");
-                if (selectedNavigationItem != null)
-                {
-                    var item = formItems.FirstOrDefault(a => a.Id == selectedNavigationItem.Id);
-                    int index = FormItems.IndexOf(item);
-                    FormItems[index] = selectedNavigationItem;
-                    RaisePropertyChanged(nameof(FormItems));
-                }
-            }
-
-            base.OnNavigatedTo(parameters);
-        }
-
-        #endregion
-
-        #region Commands
-
-        #region EditProfileCommand
-
-        public DelegateCommand EditProfileCommand => new DelegateCommand(EditProfile);
-
         private async void EditProfile()
         {
             try
             {
-                foreach (var item in FormItems)
+                foreach (var item in Form.Items)
                 {
                     if (item.IsRequried())
                     {
@@ -200,6 +187,31 @@ namespace shellXamarin.Module.Account.ViewModels
         }
 
         #endregion
+
+        #region Navigation
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            if (parameters.GetNavigationMode() == NavigationMode.Back)
+            {
+                var selectedNavigationItem = parameters.GetValue<NavigationItem<INavigationElementEntity>>("SelectedNavigationItem");
+                if (selectedNavigationItem != null)
+                {
+                    var item = form.Items.FirstOrDefault(a => a.Id == selectedNavigationItem.Id);
+                    int index = form.Items.IndexOf(item);
+                    form.Items[index] = selectedNavigationItem;
+                    RaisePropertyChanged(nameof(form));
+                }
+            }
+
+            base.OnNavigatedTo(parameters);
+        }
+
+        #endregion
+
+        #region Commands
+
+        public DelegateCommand EditCommand => new DelegateCommand(EditProfile);
 
         #endregion
     }
