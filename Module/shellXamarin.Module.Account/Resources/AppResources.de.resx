@@ -201,7 +201,7 @@
   <data name="account.form.mobileNumber.required" xml:space="preserve">
     <value>Mobile number is required</value>
   </data>
-  <data name="account.form.state.invalid" xml:space="preserve">
+  <data name="account.form.state.required" xml:space="preserve">
     <value>State is required</value>
   </data>
   <data name="account.form.state.placeholder" xml:space="preserve">

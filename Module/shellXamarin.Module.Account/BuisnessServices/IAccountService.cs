@@ -21,5 +21,8 @@ namespace shellXamarin.Module.Account.BuinessServices
 
         Task<List<Country>> GetCountriesAsync();
         Task<List<INavigationElementEntity>> GetCountriesNavigationElementsAsync();
+
+        Task<List<State>> GetStatesAsync();
+        Task<List<INavigationElementEntity>> GetStatesNavigationElementsAsync();
     }
 }

@@ -7,12 +7,10 @@ namespace shellXamarin.Module.Account.DataServices
     public interface IAccountDataService
     {
         Task<bool> LogoutAsync();
-
         Task<List<GenderDto>> GetGendersAsync();
-
         Task<List<CityDto>> GetCitiesAsync();
         Task<List<CountryDto>> GetCountriesAsync();
-
+        Task<List<StateDto>> GetStatesAsync();
         Task<UserDto> GetUser();
     }
 }

@@ -104,6 +104,44 @@ namespace shellXamarin.Module.Account.ViewModels
                 FormItems.Add(new NavigationItem<INavigationElementEntity>
                 {
                     Id = "5",
+                    Items = await _accountService.GetCountriesNavigationElementsAsync(),
+                    SelectedKey = "Id",
+                    SelectedValue = user.Country,
+                    Required = true,
+                    InvalidMessage = string.Empty,
+                    Placeholder = AppResources.account_form_country_placeholder,
+                    RequiredMessage = AppResources.account_form_country_required,
+                    NavigationContext = new NavigationContext
+                    {
+                        NavigationPage = "GenericListViewPage",
+                        PageTemplate = new DataTemplate(),
+                        NavigationCommand = new DelegateCommand<NavigationItem<INavigationElementEntity>>(NavigationButton),
+                    }
+                });
+
+                FormItems.Add(new NavigationItem<INavigationElementEntity>
+                {
+                    Id = "6",
+                    Items = await _accountService.GetStatesNavigationElementsAsync(),
+                    SelectedKey = "Id",
+                    SelectedValue = user.State,
+                    Required = true,
+                    InvalidMessage = string.Empty,
+                    Placeholder = AppResources.account_form_state_placeholder,
+                    RequiredMessage = AppResources.account_form_state_required,
+                    NavigationContext = new NavigationContext
+                    {
+                        NavigationPage = "GenericListViewPage",
+                        PageTemplate = new DataTemplate(),
+                        NavigationCommand = new DelegateCommand<NavigationItem<INavigationElementEntity>>(NavigationButton),
+                    }
+                });
+
+
+
+                FormItems.Add(new NavigationItem<INavigationElementEntity>
+                {
+                    Id = "7",
                     Items = await _accountService.GetCitiesNavigationElementsAsync(),
                     SelectedKey = "Id",
                     SelectedValue = user.City,
@@ -119,15 +157,29 @@ namespace shellXamarin.Module.Account.ViewModels
                     }
                 });
 
+                FormItems.Add(new EntryItem
+                {
+                    Id = "8",
+                    Text = user.MobileNumber,
+                    Placeholder = AppResources.account_form_mobileNumber_placeholder,
+                    Keyboard = Keyboard.Numeric,
+                    Required = true,
+                    Regex = new Regex(""),
+                    RequiredMessage = AppResources.account_form_mobileNumber_required,
+                    InvalidMessage = AppResources.account_form_mobileNumber_invalid,
+                    ReturnType = ReturnType.Next,
+                });
+
                 FormItems.Add(new CheckItem
                 {
-                    Id = "6",
+                    Id = "100",
                     InvalidMessage = "",
                     IsChecked = true,
                     Placeholder = AppResources.account_form_newsletter_required,
                     Required = true,
                     RequiredMessage = AppResources.account_form_newsletter_required
                 });
+
             }
             catch (Exception ex)
             {

@@ -90,6 +90,9 @@
     <AndroidAsset Include="Assets\Mocks\en\profile.json" />
     <AndroidAsset Include="Assets\Mocks\de\countries.json" />
     <AndroidAsset Include="Assets\Mocks\en\countries.json" />
+    <AndroidAsset Include="Assets\Mocks\en\states.json" />
+    <AndroidAsset Include="Assets\Mocks\de\states.json" />
+    <AndroidAsset Include="Assets\Mocks\ar\states.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

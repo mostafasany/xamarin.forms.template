@@ -295,20 +295,20 @@ namespace shellXamarin.Module.Account.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to State is required.
-        /// </summary>
-        internal static string account_form_state_invalid {
-            get {
-                return ResourceManager.GetString("account.form.state.invalid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to State.
         /// </summary>
         internal static string account_form_state_placeholder {
             get {
                 return ResourceManager.GetString("account.form.state.placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to State is required.
+        /// </summary>
+        internal static string account_form_state_required {
+            get {
+                return ResourceManager.GetString("account.form.state.required", resourceCulture);
             }
         }
         

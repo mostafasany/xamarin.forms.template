@@ -83,6 +83,39 @@ namespace shellXamarin.Module.Account.BuinessServices
             }
         }
 
+        public async Task<List<INavigationElementEntity>> GetStatesNavigationElementsAsync()
+        {
+            try
+            {
+                var statesDto = await _accountDataService.GetStatesAsync();
+                List<INavigationElementEntity> navigationElementEntities = new List<INavigationElementEntity>();
+                foreach (var state in statesDto)
+                {
+                    navigationElementEntities.Add(new State { Id = state.Id, Title = state.Title });
+                }
+                return navigationElementEntities;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+        public async Task<List<State>> GetStatesAsync()
+        {
+            try
+            {
+                var statesDto = await _accountDataService.GetStatesAsync();
+                return statesDto.Select(state => new State { Id = state.Id, Title = state.ToString() }).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
 
         public async Task<List<Gender>> GetGendersAsync()
         {
@@ -156,6 +189,8 @@ namespace shellXamarin.Module.Account.BuinessServices
                 throw ex;
             }
         }
+
+   
     }
 
 }

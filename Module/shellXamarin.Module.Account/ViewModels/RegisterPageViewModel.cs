@@ -118,11 +118,29 @@ namespace shellXamarin.Module.Account.ViewModels
                     }
                 });
 
+                FormItems.Add(new NavigationItem<INavigationElementEntity>
+                {
+                    Id = "6",
+                    Items = await _accountService.GetStatesNavigationElementsAsync(),
+                    SelectedKey = "Id",
+                    SelectedValue = user.State,
+                    Required = true,
+                    InvalidMessage = string.Empty,
+                    Placeholder = AppResources.account_form_state_placeholder,
+                    RequiredMessage = AppResources.account_form_state_required,
+                    NavigationContext = new NavigationContext
+                    {
+                        NavigationPage = "GenericListViewPage",
+                        PageTemplate = new DataTemplate(),
+                        NavigationCommand = new DelegateCommand<NavigationItem<INavigationElementEntity>>(NavigationButton),
+                    }
+                });
+
 
 
                 FormItems.Add(new NavigationItem<INavigationElementEntity>
                 {
-                    Id = "6",
+                    Id = "7",
                     Items = await _accountService.GetCitiesNavigationElementsAsync(),
                     SelectedKey = "Id",
                     SelectedValue = user.City,
@@ -140,7 +158,7 @@ namespace shellXamarin.Module.Account.ViewModels
 
                 FormItems.Add(new EntryItem
                 {
-                    Id = "7",
+                    Id = "8",
                     Text = user.MobileNumber,
                     Placeholder = AppResources.account_form_mobileNumber_placeholder,
                     Keyboard = Keyboard.Numeric,
