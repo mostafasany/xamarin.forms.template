@@ -65,10 +65,14 @@ namespace shellXamarin.Module.Navigation.ViewModels
 
         async void Load()
         {
-            IsLoggedIn = _sharedService.IsLoggedIn();
+            var user = await _sharedService.GetUser();
+            IsLoggedIn = user != null;
             MenuItems = await _menuService.GetMenuItemsAsync(IsLoggedIn);
-            Username = _sharedService.GetUsername();
-            Profile = _sharedService.GetProfile();
+            if(user!=null)
+            {
+                Username = string.Format("{0} {1}", user.FName, user.LName);
+                Profile = user.Profile;
+            }
         }
 
         private async void Navigate(MenuElement page)
@@ -93,7 +97,7 @@ namespace shellXamarin.Module.Navigation.ViewModels
 
         private async void Logout()
         {
-            _sharedService.RemoveAllUserPreferences();
+            await _sharedService.RemoveAllUserPreferences();
             await NavigateHome();
         }
 

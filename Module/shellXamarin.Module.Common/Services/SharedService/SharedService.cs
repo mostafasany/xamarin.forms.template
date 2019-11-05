@@ -1,49 +1,75 @@
-﻿namespace shellXamarin.Module.Common.Services.SharedService
+﻿using System;
+using System.Threading.Tasks;
+using shellXamarin.Module.Common.Database;
+using shellXamarin.Module.Common.Services.DatabaseService;
+
+namespace shellXamarin.Module.Common.Services.SharedService
 {
     public class SharedService : ISharedService
     {
-        private readonly IPrefrencesService _prefrencesService;
-        const string AccessTokenKey = "AccessTokenKey";
-        const string UserNameKey = "UserNameKey";
-        const string UserProfileKey = "UserProfileKey";
-        public SharedService(IPrefrencesService prefrencesService)
+        private readonly IDatabaseService _databaseService;
+        public SharedService(IDatabaseService databaseService)
         {
-            _prefrencesService = prefrencesService;
+            _databaseService = databaseService;
         }
 
-        public string GetAccessToken()
+        public async Task<Models.SharedUser> GetUser()
         {
-            return _prefrencesService.Get(AccessTokenKey);
+            try
+            {
+                User user = await _databaseService.DatabaseConnection.Table<User>().FirstOrDefaultAsync();
+                if (user == null)
+                    return null;
+                return new Models.SharedUser
+                {
+                    Accesstoken = user.Accesstoken,
+                    City = user.City,
+                    DOB = user.DOB,
+                    FName = user.FName,
+                    Gender = user.Gender,
+                    Id = user.Id,
+                    LName = user.LName,
+                    Profile = user.Profile
+                };
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+                throw ex;
+            }
         }
 
-
-        public string GetProfile()
+        public async Task SetUser(string firstName, string lastName, string profile, string accessToken)
         {
-            return _prefrencesService.Get(UserProfileKey);
+            try
+            {
+                int added = await _databaseService.DatabaseConnection.InsertAsync(new User
+                {
+                    FName = firstName,
+                    LName = lastName,
+                    Profile = profile,
+                    Accesstoken = accessToken
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+                throw ex;
+            }
         }
 
-        public string GetUsername()
+        public async Task RemoveAllUserPreferences()
         {
-            return _prefrencesService.Get(UserNameKey);
-        }
+            try
+            {
+                await _databaseService.DatabaseConnection.DeleteAllAsync<User>();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+                throw ex;
+            }
 
-        public bool IsLoggedIn()
-        {
-            return GetAccessToken() != string.Empty;
-        }
-
-        public void SetUser(string username, string profile, string accessToken)
-        {
-            _prefrencesService.Set(UserNameKey, username);
-            _prefrencesService.Set(UserProfileKey, profile);
-            _prefrencesService.Set(AccessTokenKey, accessToken);
-        }
-
-        public void RemoveAllUserPreferences()
-        {
-            _prefrencesService.Remove(UserProfileKey);
-            _prefrencesService.Remove(UserNameKey);
-            _prefrencesService.Remove(AccessTokenKey);
         }
     }
 }

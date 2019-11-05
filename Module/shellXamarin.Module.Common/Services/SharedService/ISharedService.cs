@@ -1,15 +1,13 @@
-﻿namespace shellXamarin.Module.Common.Services.SharedService
+﻿using System.Threading.Tasks;
+
+namespace shellXamarin.Module.Common.Services.SharedService
 {
     public interface ISharedService
     {
-        bool IsLoggedIn();
+        Task<Models.SharedUser> GetUser();
 
-        string GetUsername();
-        string GetAccessToken();
-        string GetProfile();
+        Task SetUser(string firstName, string lastName, string profile, string accessToken);
 
-        void SetUser(string username, string profile, string accessToken);
-
-        void RemoveAllUserPreferences();
+        Task RemoveAllUserPreferences();
     }
 }

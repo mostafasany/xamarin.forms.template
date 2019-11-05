@@ -115,7 +115,8 @@ namespace shellXamarin.Module.Account.BuinessServices
             try
             {
                 var userDto = await _accountDataService.LoginAsync(email, password);
-                await _sharedService.SetUser(userDto.FName, userDto.LName, userDto.Profile, Guid.NewGuid().ToString());
+                _sharedService.SetUser(string.Format("{0} {1}", userDto.FName, userDto.LName), userDto.Profile,
+                    Guid.NewGuid().ToString());
 
                 return new User
                 {
