@@ -21,9 +21,10 @@ namespace shellXamarin.Module.Account.ViewModels
         private readonly IPageDialogService _dialogService;
         private readonly IEventBusService _eventBusService;
         private readonly IAccountService _accountService;
-        public LoginPageViewModel(INavigationService _navigationService, IEventBusService eventBusService, IAccountService accountService,
-            IPageDialogService dialogService, ILanguageService localService, IExceptionService exceptionService)
-            : base(localService, eventBusService, exceptionService)
+        public LoginPageViewModel(INavigationService _navigationService, IEventBusService eventBusService,
+            IAccountService accountService, IPageDialogService dialogService, ILanguageService languageService,
+            IExceptionService exceptionService)
+            : base(languageService, eventBusService, exceptionService)
         {
             NavigationService = _navigationService;
             _dialogService = dialogService;
@@ -120,7 +121,6 @@ namespace shellXamarin.Module.Account.ViewModels
             {
                 ExceptionService.LogAndShowDialog(ex);
             }
-
         }
 
         #endregion
