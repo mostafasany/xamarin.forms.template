@@ -155,6 +155,8 @@ namespace shellXamarin.Module.Common.FormBuilder.Models
 
         public override bool IsInvalid()
         {
+            if (Regex == null)
+                return false;
             return !Regex.Match(text).Success;
         }
 
@@ -171,6 +173,11 @@ namespace shellXamarin.Module.Common.FormBuilder.Models
         {
             get { return isChecked; }
             set { SetProperty(ref isChecked, value); }
+        }
+
+        public override bool IsRequried()
+        {
+            return !isChecked && Required;
         }
     }
 

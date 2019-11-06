@@ -2,22 +2,22 @@
 <ResourceDictionary  MergedWith="styles:AppStyles" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Common.Styles.AppTemplates">
     <DataTemplate x:Key="entryTemplate">
         <ViewCell>
-            <Entry Style="{StaticResource FormEntryStyle}" ReturnType="{Binding ReturnType}" Placeholder="{Binding Placeholder}" Text="{Binding Text,Mode=TwoWay}" Keyboard="{Binding Keyboard}"></Entry>
+            <Entry Style="{StaticResource FormEntryStyle}" Margin="0,5" ReturnType="{Binding ReturnType}" Placeholder="{Binding Placeholder}" Text="{Binding Text,Mode=TwoWay}" Keyboard="{Binding Keyboard}"></Entry>
         </ViewCell>
     </DataTemplate>
     <DataTemplate x:Key="datePickerTemplate">
         <ViewCell>
-            <DatePicker Style="{StaticResource DatePickerStyle}" Date="{Binding Date,Mode=TwoWay}"></DatePicker>
+            <DatePicker Style="{StaticResource DatePickerStyle}" Margin="0,5" Date="{Binding Date,Mode=TwoWay}"></DatePicker>
         </ViewCell>
     </DataTemplate>
     <DataTemplate x:Key="pickerTemplate">
         <ViewCell>
-            <Picker Style="{StaticResource PickerStyle}" ItemsSource="{Binding Items,Mode=TwoWay}" SelectedItem="{Binding Selected}" />
+            <Picker Style="{StaticResource PickerStyle}" Margin="0,5" ItemsSource="{Binding Items,Mode=TwoWay}" SelectedItem="{Binding Selected}" />
         </ViewCell>
     </DataTemplate>
     <DataTemplate x:Key="navigationTemplate">
         <ViewCell>
-            <Button Style="{StaticResource SecondaryButtonStyle}" CommandParameter="{Binding}" Command="{Binding NavigationContext.NavigationCommand}" Text="{Binding Selected.Title}"></Button>
+            <Button Style="{StaticResource SecondaryButtonStyle}" Margin="0,5" CommandParameter="{Binding}" Command="{Binding NavigationContext.NavigationCommand}" Text="{Binding Selected.Title}"></Button>
         </ViewCell>
     </DataTemplate>
     <DataTemplate x:Key="sectionHeaderTemplate">
@@ -26,11 +26,11 @@
         </ViewCell>
     </DataTemplate>
     <DataTemplate x:Key="buttonTemplate">
-        <Button  Text="{Binding Placeholder}" CommandParameter="{Binding}" Command="{Binding ActionCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
+        <Button  Text="{Binding Placeholder}" Margin="0,5" CommandParameter="{Binding}" Command="{Binding ActionCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
     </DataTemplate>
     <DataTemplate x:Key="checkTemplate">
         <ViewCell>
-            <Grid>
+            <Grid  Margin="0,5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
