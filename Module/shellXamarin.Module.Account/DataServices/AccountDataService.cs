@@ -1,40 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using shellXamarin.Module.Account.DataServices.Dto;
 using shellXamarin.Module.Common.Services;
-using Xamarin.Essentials;
+using shellXamarin.Module.Common.Services.ResourceService;
 
 namespace shellXamarin.Module.Account.DataServices
 {
     public class AccountDataService : IAccountDataService
     {
         private readonly ILanguageService _languageService;
-        public AccountDataService(ILanguageService languageService)
+        private readonly IResourceService _resourceService;
+        public AccountDataService(ILanguageService languageService, IResourceService resourceService)
         {
             _languageService = languageService;
+            _resourceService = resourceService;
         }
 
         public async Task<List<CityDto>> GetCitiesAsync()
         {
             try
             {
-                string mockFilePath = string.Format("Mocks/{0}/cities.json", _languageService.UsedLanague.Id);
-                using (var stream = await FileSystem.OpenAppPackageFileAsync(mockFilePath))
-                {
-                    using (var reader = new StreamReader(stream))
-                    {
-                        var json = await reader.ReadToEndAsync();
-                        List<CityDto> citiesDtos = JsonConvert.DeserializeObject<List<CityDto>>(json);
-                        return citiesDtos;
-                    }
-                }
+                string dbFile = "cities.json";
+                var assembly = IntrospectionExtensions.GetTypeInfo(typeof(Common.CommonModule)).Assembly;
+                var json = await _resourceService.GetResourceStringAsync(assembly, string.Format("Assets.Mocks.{0}.{1}", _languageService.UsedLanague.Id, dbFile));
+                List<CityDto> citiesDtos = JsonConvert.DeserializeObject<List<CityDto>>(json);
+                return citiesDtos;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }
@@ -43,20 +40,15 @@ namespace shellXamarin.Module.Account.DataServices
         {
             try
             {
-                string mockFilePath = string.Format("Mocks/{0}/genders.json", _languageService.UsedLanague.Id);
-                using (var stream = await FileSystem.OpenAppPackageFileAsync(mockFilePath))
-                {
-                    using (var reader = new StreamReader(stream))
-                    {
-                        var json = await reader.ReadToEndAsync();
-                        List<GenderDto> genderDtos = JsonConvert.DeserializeObject<List<GenderDto>>(json);
-                        return genderDtos;
-                    }
-                }
+                string dbFile = "genders.json";
+                var assembly = IntrospectionExtensions.GetTypeInfo(typeof(Common.CommonModule)).Assembly;
+                var json = await _resourceService.GetResourceStringAsync(assembly, string.Format("Assets.Mocks.{0}.{1}", _languageService.UsedLanague.Id, dbFile));
+                List<GenderDto> genderDtos = JsonConvert.DeserializeObject<List<GenderDto>>(json);
+                return genderDtos;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }
@@ -65,20 +57,15 @@ namespace shellXamarin.Module.Account.DataServices
         {
             try
             {
-                string mockFilePath = string.Format("Mocks/{0}/profile.json", _languageService.UsedLanague.Id);
-                using (var stream = await FileSystem.OpenAppPackageFileAsync(mockFilePath))
-                {
-                    using (var reader = new StreamReader(stream))
-                    {
-                        var json = await reader.ReadToEndAsync();
-                        UserDto userDto = JsonConvert.DeserializeObject<UserDto>(json);
-                        return userDto;
-                    }
-                }
+                string dbFile = "profile.json";
+                var assembly = IntrospectionExtensions.GetTypeInfo(typeof(Common.CommonModule)).Assembly;
+                var json = await _resourceService.GetResourceStringAsync(assembly, string.Format("Assets.Mocks.{0}.{1}", _languageService.UsedLanague.Id, dbFile));
+                UserDto userDto = JsonConvert.DeserializeObject<UserDto>(json);
+                return userDto;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }
@@ -87,20 +74,15 @@ namespace shellXamarin.Module.Account.DataServices
         {
             try
             {
-                string mockFilePath = string.Format("Mocks/{0}/profile.json", _languageService.UsedLanague.Id);
-                using (var stream = await FileSystem.OpenAppPackageFileAsync(mockFilePath))
-                {
-                    using (var reader = new StreamReader(stream))
-                    {
-                        var json = await reader.ReadToEndAsync();
-                        UserDto userDto = JsonConvert.DeserializeObject<UserDto>(json);
-                        return userDto;
-                    }
-                }
+                string dbFile = "profile.json";
+                var assembly = IntrospectionExtensions.GetTypeInfo(typeof(Common.CommonModule)).Assembly;
+                var json = await _resourceService.GetResourceStringAsync(assembly, string.Format("Assets.Mocks.{0}.{1}", _languageService.UsedLanague.Id, dbFile));
+                UserDto userDto = JsonConvert.DeserializeObject<UserDto>(json);
+                return userDto;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }
@@ -113,7 +95,7 @@ namespace shellXamarin.Module.Account.DataServices
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }

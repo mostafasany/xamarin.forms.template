@@ -34,7 +34,7 @@ namespace shellXamarin.Module.Common.Services.SharedService
             }
             catch (Exception ex)
             {
-                Console.Write(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }
@@ -53,7 +53,7 @@ namespace shellXamarin.Module.Common.Services.SharedService
             }
             catch (Exception ex)
             {
-                Console.Write(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }
@@ -66,7 +66,7 @@ namespace shellXamarin.Module.Common.Services.SharedService
             }
             catch (Exception ex)
             {
-                Console.Write(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
 

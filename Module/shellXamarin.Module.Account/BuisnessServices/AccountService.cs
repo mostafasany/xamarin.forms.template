@@ -34,7 +34,7 @@ namespace shellXamarin.Module.Account.BuinessServices
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }
@@ -48,7 +48,7 @@ namespace shellXamarin.Module.Account.BuinessServices
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }
@@ -62,7 +62,7 @@ namespace shellXamarin.Module.Account.BuinessServices
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }
@@ -81,7 +81,7 @@ namespace shellXamarin.Module.Account.BuinessServices
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }
@@ -105,7 +105,7 @@ namespace shellXamarin.Module.Account.BuinessServices
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }
@@ -130,7 +130,7 @@ namespace shellXamarin.Module.Account.BuinessServices
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }
@@ -144,7 +144,7 @@ namespace shellXamarin.Module.Account.BuinessServices
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }

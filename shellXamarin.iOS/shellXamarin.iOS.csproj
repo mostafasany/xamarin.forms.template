@@ -121,21 +121,6 @@
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <BundleResource Include="Resources\hamburguer_icon.png" />
     <BundleResource Include="Resources\hamburguer_icon%402x.png" />
-    <BundleResource Include="Resources\Mocks\en\cities.json" />
-    <BundleResource Include="Resources\Mocks\en\genders.json" />
-    <BundleResource Include="Resources\Mocks\en\languages.json" />
-    <BundleResource Include="Resources\Mocks\ar\cities.json" />
-    <BundleResource Include="Resources\Mocks\ar\genders.json" />
-    <BundleResource Include="Resources\Mocks\ar\languages.json" />
-    <BundleResource Include="Resources\Mocks\de\cities.json" />
-    <BundleResource Include="Resources\Mocks\de\genders.json" />
-    <BundleResource Include="Resources\Mocks\de\languages.json" />
-    <BundleResource Include="Resources\Mocks\en\menu.json" />
-    <BundleResource Include="Resources\Mocks\ar\menu.json" />
-    <BundleResource Include="Resources\Mocks\de\menu.json" />
-    <BundleResource Include="Resources\Mocks\en\profile.json" />
-    <BundleResource Include="Resources\Mocks\de\profile.json" />
-    <BundleResource Include="Resources\Mocks\ar\profile.json" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -165,11 +150,5 @@
       <Project>{42D99B98-7E17-429D-AD52-C91503647293}</Project>
       <Name>shellXamarin</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Mocks\" />
-    <Folder Include="Resources\Mocks\en\" />
-    <Folder Include="Resources\Mocks\ar\" />
-    <Folder Include="Resources\Mocks\de\" />
   </ItemGroup>
 </Project>

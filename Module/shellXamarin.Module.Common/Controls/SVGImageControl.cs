@@ -27,7 +27,7 @@ namespace shellXamarin.Module.Common.Controls
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex?.Message);
+                        System.Diagnostics.Debug.WriteLine(ex?.Message);
                     }
                 });
 

@@ -9,8 +9,6 @@ namespace shellXamarin.Module.Common.Services.DatabaseService
     {
         public DatabaseService()
         {
-            //    System.Diagnostics.Debug.WriteLine("found resource: " + res);
-
             string dbFile = "sqlite.db3";
             var assembly = Assembly.GetExecutingAssembly();
             string dbResourcePath = string.Format("{0}.Assets.Database.{1}", assembly.GetName().Name, dbFile);

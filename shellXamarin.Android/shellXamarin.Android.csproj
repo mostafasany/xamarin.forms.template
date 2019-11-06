@@ -106,25 +106,5 @@
       <Name>shellXamarin</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\Mocks\ar\cities.json" />
-    <AndroidAsset Include="Assets\Mocks\ar\genders.json" />
-    <AndroidAsset Include="Assets\Mocks\ar\languages.json" />
-    <AndroidAsset Include="Assets\Mocks\de\cities.json" />
-    <AndroidAsset Include="Assets\Mocks\de\genders.json" />
-    <AndroidAsset Include="Assets\Mocks\de\languages.json" />
-    <AndroidAsset Include="Assets\Mocks\en\cities.json" />
-    <AndroidAsset Include="Assets\Mocks\en\genders.json" />
-    <AndroidAsset Include="Assets\Mocks\en\languages.json" />
-    <AndroidAsset Include="Assets\Mocks\ar\menu.json" />
-    <AndroidAsset Include="Assets\Mocks\de\menu.json" />
-    <AndroidAsset Include="Assets\Mocks\en\menu.json" />
-    <AndroidAsset Include="Assets\Mocks\ar\profile.json" />
-    <AndroidAsset Include="Assets\Mocks\de\profile.json" />
-    <AndroidAsset Include="Assets\Mocks\en\profile.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Mocks\" />
-  </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
