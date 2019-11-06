@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Reflection;
 using SQLite;
 
 namespace shellXamarin.Module.Common.Services.DatabaseService
@@ -7,12 +9,22 @@ namespace shellXamarin.Module.Common.Services.DatabaseService
     {
         public DatabaseService()
         {
-            //TODO: Find a better way to get DB path 
-            string dbPath = "/Users/mkhodeir/Projects/shellXamarin/Module/shellXamarin.Module.Common/Assets/Database/sqlite.db3";
-            if (File.Exists(dbPath))
+            //    System.Diagnostics.Debug.WriteLine("found resource: " + res);
+
+            string dbFile = "sqlite.db3";
+            var assembly = Assembly.GetExecutingAssembly();
+            string dbResourcePath = string.Format("{0}.Assets.Database.{1}", assembly.GetName().Name, dbFile);
+            Stream stream = assembly.GetManifestResourceStream(dbResourcePath);
+            string savedDbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), dbFile);
+            if (!File.Exists(savedDbPath))
             {
-                DatabaseConnection = new SQLiteAsyncConnection(dbPath);
+                using (var fileStream = new FileStream(savedDbPath, FileMode.OpenOrCreate, FileAccess.Write))
+                {
+                    stream.CopyTo(fileStream);
+                }
             }
+            DatabaseConnection = new SQLiteAsyncConnection(savedDbPath);
+
         }
 
         public SQLiteAsyncConnection DatabaseConnection { get; set; }

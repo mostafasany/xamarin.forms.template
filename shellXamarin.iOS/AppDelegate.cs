@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using FFImageLoading.Forms.Platform;
+﻿using FFImageLoading.Forms.Platform;
 using FFImageLoading.Svg.Forms;
 using Foundation;
 using UIKit;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace shellXamarin.iOS
 {
@@ -28,7 +28,12 @@ namespace shellXamarin.iOS
             global::Xamarin.Forms.Forms.Init();
             CachedImageRenderer.Init(); // Initializing FFImageLoading
             var ignore = typeof(SvgCachedImage);
+
+            AppCenter.Start("24e00b97-6c80-468a-9843-0e7fe40098b9",
+                               typeof(Analytics), typeof(Crashes));
+
             LoadApplication(new App());
+
 
             return base.FinishedLaunching(app, options);
         }
