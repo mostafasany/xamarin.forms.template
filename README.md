@@ -5,6 +5,9 @@
 2. Multiple themes
 3. Modules Intercommunication
 4. SVG Support
+5. SQLite
+6. Unit tests
+7. Test coverage commandline
 
 ## Dependencies:
 
