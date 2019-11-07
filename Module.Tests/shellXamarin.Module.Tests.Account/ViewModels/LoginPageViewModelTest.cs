@@ -26,6 +26,7 @@ namespace shellXamarin.Module.Tests.Account
         [Fact]
         public void NotValidEmailShouldNotCallLoginEndpoint()
         {
+            //Arrange
             string email = "mostafa";
             string password = "123456";
             A.CallTo(() => accountService.LoginAsync(email, password)).Returns(Task.FromResult(new Module.Account.Models.User { FName = "mostafa", LName = "khodeir" }));
@@ -37,14 +38,17 @@ namespace shellXamarin.Module.Tests.Account
             var passwordEntry = loginPageViewModel.Form.Items.FirstOrDefault(a => a.Id == "2") as EntryItem;
             passwordEntry.Text = password;
 
+            //Act
             loginPageViewModel.LoginCommand.Execute(null);
 
+            //Assert
             A.CallTo(() => accountService.LoginAsync(email, password)).MustNotHaveHappened();
         }
 
         [Fact]
         public void ValidEmailAndPasswordShouldCallLoginEndpoint()
         {
+            //Arrange
             string email = "mostafa@test.com";
             string password = "123456";
             A.CallTo(() => accountService.LoginAsync(email, password)).Returns(Task.FromResult(new Module.Account.Models.User { FName = "mostafa", LName = "khodeir" }));
@@ -56,8 +60,10 @@ namespace shellXamarin.Module.Tests.Account
             var passwordEntry = loginPageViewModel.Form.Items.FirstOrDefault(a => a.Id == "2") as EntryItem;
             passwordEntry.Text = password;
 
+            //Act
             loginPageViewModel.LoginCommand.Execute(null);
 
+            //Assert
             A.CallTo(() => accountService.LoginAsync(email, password)).MustHaveHappened();
         }
     }

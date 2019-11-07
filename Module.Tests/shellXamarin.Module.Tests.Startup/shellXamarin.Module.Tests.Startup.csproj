@@ -17,4 +17,7 @@
     <ProjectReference Include="..\..\Module\shellXamarin.Module.Common\shellXamarin.Module.Common.csproj" />
     <ProjectReference Include="..\..\Module\shellXamarin.Module.Startup\shellXamarin.Module.Startup.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
 </Project>
