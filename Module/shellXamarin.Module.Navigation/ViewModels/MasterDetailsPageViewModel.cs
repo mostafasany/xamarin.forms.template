@@ -68,10 +68,14 @@ namespace shellXamarin.Module.Navigation.ViewModels
             var user = await _sharedService.GetUser();
             IsLoggedIn = user != null;
             MenuItems = await _menuService.GetMenuItemsAsync(IsLoggedIn);
-            if(user!=null)
+            if (user != null)
             {
                 Username = string.Format("{0} {1}", user.FName, user.LName);
                 Profile = user.Profile;
+            }
+            else
+            {
+                Profile = "https://bit.ly/2JZgt5z";
             }
         }
 

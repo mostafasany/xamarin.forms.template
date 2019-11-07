@@ -16,7 +16,7 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <ListView SelectionMode="None" SeparatorVisibility="None" RowHeight="50" ItemsSource="{Binding Form.Items}" ItemTemplate="{StaticResource genericFormTemplateSelector}" />
+            <ListView SelectionMode="None" SeparatorVisibility="None" Style="{StaticResource ListStyle}" RowHeight="50" ItemsSource="{Binding Form.Items}" ItemTemplate="{StaticResource genericFormTemplateSelector}" />
             <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
             <Button Grid.Row="2" Text="{translate:Translate account.register.title}" Command="{Binding RegisterCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
         </Grid>

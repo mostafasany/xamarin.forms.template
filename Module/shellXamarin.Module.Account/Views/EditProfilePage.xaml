@@ -16,7 +16,7 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <ListView SelectionMode="None" SeparatorVisibility="None" ItemsSource="{Binding Form.Items}" RowHeight="50" ItemTemplate="{StaticResource genericFormTemplateSelector}" />
+            <ListView SelectionMode="None" SeparatorVisibility="None" Style="{StaticResource ListStyle}" ItemsSource="{Binding Form.Items}" RowHeight="50" ItemTemplate="{StaticResource genericFormTemplateSelector}" />
             <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
             <Button Grid.Row="2" Text="Update Profile" Command="{Binding EditCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
         </Grid>
