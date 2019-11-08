@@ -7,5 +7,9 @@ namespace shellXamarin.Module.Common.Services
         void SetDefaultLanguage(Language language = null);
         Language UsedLanague { get; set; }
         event LanguageChangedEventHandler LanguageChanged;
+
+        void ChangeTheme(string theme = null);
+        string UsedTheme { get; set; }
+        event ThemeChangedEventHandler ThemeChanged;
     }
 }
