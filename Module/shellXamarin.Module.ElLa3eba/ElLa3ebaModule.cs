@@ -29,6 +29,7 @@ namespace shellXamarin.Module.ElLa3eba
             containerRegistry.RegisterForNavigation<PositionSelectionPage, PositionSelectionPageViewModel>();
             containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
             containerRegistry.RegisterForNavigation<SetFromationPage, SetFromationPageViewModel>();
+            containerRegistry.RegisterForNavigation<CreateTeamPage, CreateTeamPageViewModel>();
         }
 
         private void LanguageChanged(Language language)
