@@ -13,7 +13,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell Height="40">
-                            <Grid BackgroundColor="White">
+                            <Grid>
                                 <Label Style="{StaticResource LabelStyle}" VerticalOptions="Center" Text="{Binding Title}"></Label>
                             </Grid>
                         </ViewCell>
