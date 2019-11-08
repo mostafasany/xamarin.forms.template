@@ -5,6 +5,8 @@ using Prism.Modularity;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.ElLa3eba.Resources;
+using shellXamarin.Module.ElLa3eba.ViewModels;
+using shellXamarin.Module.ElLa3eba.Views;
 
 namespace shellXamarin.Module.ElLa3eba
 {
@@ -18,6 +20,14 @@ namespace shellXamarin.Module.ElLa3eba
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<BecomeManagerPage, BecomeManagerPageViewModel>();
+            containerRegistry.RegisterForNavigation<BecomePlayerPage, BecomePlayerPageViewModel>();
+            containerRegistry.RegisterForNavigation<ElLa3ebaHomePage, ElLa3ebaHomePageViewModel>();
+            containerRegistry.RegisterForNavigation<FaceVerficationPage, FaceVerficationPageViewModel>();
+            containerRegistry.RegisterForNavigation<LocationSelectionPage, LocationSelectionPageViewModel>();
+            containerRegistry.RegisterForNavigation<MobileVerficationPage, MobileVerficationPageViewModel>();
+            containerRegistry.RegisterForNavigation<PositionSelectionPage, PositionSelectionPageViewModel>();
+            containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
         }
 
         private void LanguageChanged(Language language)
