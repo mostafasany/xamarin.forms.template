@@ -21,13 +21,13 @@ namespace shellXamarin.Module.Common.Controls
                         var assembly = System.Reflection.Assembly.GetExecutingAssembly();
                         SvgImageSource source = Device.RuntimePlatform == Device.UWP
                             ? SvgImageSource.FromFile("Assets/" + svgImage)
-                            : SvgImageSource.FromResource(string.Format("{0}.Assets.{1}", System.Reflection.Assembly.GetExecutingAssembly().GetName().Name, svgImage), assembly);
+                            : SvgImageSource.FromResource(string.Format("{0}.Assets.{1}", assembly.GetName().Name, svgImage), assembly);
 
                         ((SVGImageControl)bindable).Source = source;
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex?.Message);
+                        System.Diagnostics.Debug.WriteLine(ex?.Message);
                     }
                 });
 

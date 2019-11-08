@@ -21,10 +21,10 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <controls:SVGImageControl  Grid.Row="0" HorizontalOptions="Fill" HeightRequest="50" VerticalOptions="Fill" Source="https://bit.ly/2VZmdRk" />
+                        <controls:SVGImageControl  Grid.Row="0" HorizontalOptions="Fill" HeightRequest="50" VerticalOptions="Fill" Source="{Binding Profile}" />
                         <Label Grid.Row="1" Margin="0,10" FontSize="16" Text="{Binding Username}" HorizontalOptions="Center" />
                     </Grid>
-                    <ListView Grid.Row="1" ItemSelected="ListView_ItemSelected" ItemsSource="{ Binding MenuItems }" IsGroupingEnabled="true" SeparatorVisibility="None" VerticalOptions="FillAndExpand" CachingStrategy="RecycleElement">
+                    <ListView Grid.Row="1" ItemSelected="ListView_ItemSelected" ItemsSource="{Binding MenuItems}" IsGroupingEnabled="true" SeparatorVisibility="None" VerticalOptions="FillAndExpand" CachingStrategy="RecycleElement">
                         <ListView.GroupHeaderTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -52,7 +52,7 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <StackLayout Orientation="Horizontal" Grid.Row="2" Margin="12" IsVisible="{Binding IsLogin}">
+                    <StackLayout Orientation="Horizontal" Grid.Row="2" Margin="12" IsVisible="{Binding IsLoggedIn}">
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding LogoutCommand}" />
                         </StackLayout.GestureRecognizers>

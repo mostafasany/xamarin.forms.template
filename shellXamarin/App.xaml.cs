@@ -8,6 +8,7 @@ using shellXamarin.Module.Home;
 using shellXamarin.Module.Settings;
 using shellXamarin.Module.Common;
 using shellXamarin.Module.Navigation;
+using shellXamarin.Module.ElLa3eba;
 
 namespace shellXamarin
 {
@@ -40,6 +41,7 @@ namespace shellXamarin
             HomeModule.AddModule(moduleCatalog, moduleManager, true);
             AccountModule.AddModule(moduleCatalog, moduleManager, true);
             SettingsModule.AddModule(moduleCatalog, moduleManager, true);
+            ElLa3ebaModule.AddModule(moduleCatalog, moduleManager, true);
         }
 
         protected override void OnStart()

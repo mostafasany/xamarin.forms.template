@@ -11,8 +11,8 @@ namespace shellXamarin.Module.Startup.ViewModels
     public class StartupViewModel : BaseViewModel
     {
         private readonly IStartupService _startupService;
-        public StartupViewModel(INavigationService _navigationService, IEventBusService eventBusService, IExceptionService exceptionService,
-            IStartupService startupService, ILanguageService localService)
+        public StartupViewModel(IStartupService startupService, INavigationService _navigationService,
+            IEventBusService eventBusService, IExceptionService exceptionService, ILanguageService localService)
             : base(localService, eventBusService, exceptionService)
         {
             NavigationService = _navigationService;
@@ -24,8 +24,12 @@ namespace shellXamarin.Module.Startup.ViewModels
 
         #endregion
 
-
         #region Methods
+
+        private async void Navigate()
+        {
+            await NavigateHome();
+        }
 
         #endregion
 
@@ -45,16 +49,7 @@ namespace shellXamarin.Module.Startup.ViewModels
 
         #region Commands
 
-        #region RetryCommand
-
         public DelegateCommand NavigateLoginPageCommand => new DelegateCommand(Navigate);
-
-        private async void Navigate()
-        {
-            await NavigateHome();
-        }
-
-        #endregion
 
         #endregion
     }

@@ -19,7 +19,7 @@ namespace shellXamarin.Module.Home.ViewModels
         {
             NavigationService = _navigationService;
             userLogoutEventAndToken = eventBusService.Subscribe<LogoutEvent>(UserLogout);
-            userLoginEventAndToken = eventBusService.Subscribe<LoginEvent>(UserLogin);
+            userLoginEventAndToken = eventBusService.Subscribe<LoginEvent, UserLoginEvent>(UserLogin);
         }
 
         #region Properties
@@ -34,7 +34,7 @@ namespace shellXamarin.Module.Home.ViewModels
         }
 
 
-        private void UserLogin()
+        private void UserLogin(UserLoginEvent userLoginEvent)
         {
 
         }

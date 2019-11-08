@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,13 +25,20 @@
     <Folder Include="Assets\" />
     <Folder Include="Services\EventBusService\" />
     <Folder Include="Views\" />
+    <Folder Include="Services\SharedService\" />
+    <Folder Include="Services\DatabaseService\" />
+    <Folder Include="Assets\Database\" />
+    <Folder Include="Database\" />
+    <Folder Include="Assets\Mocks\" />
+    <Folder Include="Services\ResourceService\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />
     <PackageReference Include="Prism.Forms" Version="7.2.0.1367" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.947036" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\exit.svg">
@@ -50,6 +57,22 @@
     <EmbeddedResource Include="Assets\countries\english.svg" />
     <EmbeddedResource Include="Assets\countries\germany.svg" />
     <EmbeddedResource Include="Assets\countries\egypt.svg" />
+    <EmbeddedResource Include="Assets\Database\sqlite.db3" />
+    <EmbeddedResource Include="Assets\Mocks\ar\cities.json" />
+    <EmbeddedResource Include="Assets\Mocks\ar\genders.json" />
+    <EmbeddedResource Include="Assets\Mocks\ar\languages.json" />
+    <EmbeddedResource Include="Assets\Mocks\ar\menu.json" />
+    <EmbeddedResource Include="Assets\Mocks\ar\profile.json" />
+    <EmbeddedResource Include="Assets\Mocks\de\cities.json" />
+    <EmbeddedResource Include="Assets\Mocks\de\genders.json" />
+    <EmbeddedResource Include="Assets\Mocks\de\languages.json" />
+    <EmbeddedResource Include="Assets\Mocks\de\menu.json" />
+    <EmbeddedResource Include="Assets\Mocks\de\profile.json" />
+    <EmbeddedResource Include="Assets\Mocks\en\cities.json" />
+    <EmbeddedResource Include="Assets\Mocks\en\genders.json" />
+    <EmbeddedResource Include="Assets\Mocks\en\languages.json" />
+    <EmbeddedResource Include="Assets\Mocks\en\menu.json" />
+    <EmbeddedResource Include="Assets\Mocks\en\profile.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Resources\AppResources.resx">
@@ -104,6 +127,22 @@
     <None Remove="Assets\countries\germany.svg" />
     <None Remove="Assets\countries\egypt.svg" />
     <None Remove="Assets\egypt.svg" />
+    <None Remove="Assets\Database\sqlite.db3" />
+    <None Remove="Assets\Mocks\ar\cities.json" />
+    <None Remove="Assets\Mocks\ar\genders.json" />
+    <None Remove="Assets\Mocks\ar\languages.json" />
+    <None Remove="Assets\Mocks\ar\menu.json" />
+    <None Remove="Assets\Mocks\ar\profile.json" />
+    <None Remove="Assets\Mocks\de\cities.json" />
+    <None Remove="Assets\Mocks\de\genders.json" />
+    <None Remove="Assets\Mocks\de\languages.json" />
+    <None Remove="Assets\Mocks\de\menu.json" />
+    <None Remove="Assets\Mocks\de\profile.json" />
+    <None Remove="Assets\Mocks\en\cities.json" />
+    <None Remove="Assets\Mocks\en\genders.json" />
+    <None Remove="Assets\Mocks\en\languages.json" />
+    <None Remove="Assets\Mocks\en\menu.json" />
+    <None Remove="Assets\Mocks\en\profile.json" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Assets\exit.svg">

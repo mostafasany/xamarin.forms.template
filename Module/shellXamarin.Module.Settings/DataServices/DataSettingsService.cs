@@ -1,39 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using shellXamarin.Module.Common.Services;
+using shellXamarin.Module.Common.Services.ResourceService;
 using shellXamarin.Module.Settings.DataServices.Dto;
-using Xamarin.Essentials;
 
 namespace shellXamarin.Module.Settings.DataServices
 {
     public class DataSettingsService : IDataSettingsService
     {
         private readonly ILanguageService _languageService;
-        public DataSettingsService(ILanguageService languageService)
+        private readonly IResourceService _resourceService;
+        public DataSettingsService(ILanguageService languageService, IResourceService resourceService)
         {
             _languageService = languageService;
+            _resourceService = resourceService;
         }
         public async Task<List<LanguageDto>> GetLanguagesAsync()
         {
             try
             {
-                string mockFilePath = string.Format("Mocks/{0}/languages.json", _languageService.UsedLanague.Id);
-                using (var stream = await FileSystem.OpenAppPackageFileAsync(mockFilePath))
-                {
-                    using (var reader = new StreamReader(stream))
-                    {
-                        var json = await reader.ReadToEndAsync();
-                        List<LanguageDto> languageDtos = JsonConvert.DeserializeObject<List<LanguageDto>>(json);
-                        return languageDtos;
-                    }
-                }
+                string dbFile = "languages.json";
+                var assembly = IntrospectionExtensions.GetTypeInfo(typeof(Common.CommonModule)).Assembly;
+                var json = await _resourceService.GetResourceStringAsync(assembly, string.Format("Assets.Mocks.{0}.{1}", _languageService.UsedLanague.Id, dbFile));
+                List<LanguageDto> languageDtos = JsonConvert.DeserializeObject<List<LanguageDto>>(json);
+                return languageDtos;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }

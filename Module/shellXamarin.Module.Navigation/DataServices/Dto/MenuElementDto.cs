@@ -14,6 +14,8 @@ namespace shellXamarin.Module.Navigation.DataServices.Dto
 
         public int Badge { get; set; }
 
+        public bool? RequireLogin { get; set; }
+
         public string Page { get; set; }
 
         public List<MenuElementDto> Children { get; set; }

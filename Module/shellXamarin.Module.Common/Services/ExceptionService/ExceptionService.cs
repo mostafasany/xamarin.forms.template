@@ -28,7 +28,7 @@ namespace shellXamarin.Module.Common.Services.ExceptionService
                     {nameof(CallerLineNumberAttribute), line.ToString()},
                     {nameof(CallerFilePathAttribute), file}
                 };
-            Console.WriteLine(ex.Message);
+            System.Diagnostics.Debug.WriteLine(ex.Message);
             _loggerService.Log(ex.Message, Category.Exception, Priority.High);
         }
 
@@ -44,7 +44,7 @@ namespace shellXamarin.Module.Common.Services.ExceptionService
                     {nameof(CallerFilePathAttribute), file}
                 };
 
-            Console.WriteLine(ex.Message);
+            System.Diagnostics.Debug.WriteLine(ex.Message);
             _loggerService.Log(ex.Message, Category.Exception, Priority.High);
 
             //TODO: _dialogService throw exception

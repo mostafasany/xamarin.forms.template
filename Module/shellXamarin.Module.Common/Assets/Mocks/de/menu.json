@@ -1,0 +1,66 @@
+﻿[
+  {
+    "id": "1",
+    "modal": false,
+    "canNavigate": true,
+    "Title": "Zuhause",
+    "icon": "home.svg",
+    "badge": 1,
+    "page": "HomePage",
+    "children": []
+  },
+  {
+    "id": "2",
+    "modal": false,
+    "canNavigate": false,
+    "title": "Mein Konto",
+    "icon": "myaccount.svg",
+    "badge": 1,
+    "page": "",
+    "children": [
+      {
+        "id": "3",
+        "modal": false,
+        "canNavigate": true,
+        "title": "Einloggen",
+        "icon": "myaccount.svg",
+        "badge": 1,
+        "page": "LoginPage",
+        "requireLogin": false,
+        "children": []
+      },
+      {
+        "id": "4",
+        "modal": false,
+        "canNavigate": true,
+        "title": "Registrieren",
+        "icon": "myaccount.svg",
+        "badge": 1,
+        "page": "RegisterPage",
+        "requireLogin": false,
+        "children": []
+      },
+      {
+        "id": "5",
+        "modal": false,
+        "canNavigate": true,
+        "title": "Bearbeiten",
+        "icon": "myaccount.svg",
+        "badge": 1,
+        "page": "EditProfilePage",
+        "requireLogin": true,
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "modal": false,
+    "canNavigate": true,
+    "title": "Einstellungen",
+    "icon": "settings.svg",
+    "badge": 1,
+    "page": "SettingsPage",
+    "children": []
+  }
+]
