@@ -40,10 +40,6 @@ namespace shellXamarin.Module.Common.ViewModels
                 userLogoutEventAndToken = eventBusService.Subscribe<LogoutEvent>(UserLogout);
                 userLoginEventAndToken = eventBusService.Subscribe<LoginEvent, UserLoginEvent>(UserLogin);
             }
-
-            //TODO: For unknow reason, eventbus not firing language changed events
-            //So LanguageChanged inside localservice is created
-            // languageChangedEventAndToken = eventBusService.Subscribe<LanguageChangedEvent, Language>(LanguageChanged);
         }
 
         private void LanguageChanged(Language language)
