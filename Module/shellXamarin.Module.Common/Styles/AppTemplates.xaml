@@ -22,7 +22,7 @@
     </DataTemplate>
     <DataTemplate x:Key="sectionHeaderTemplate">
         <ViewCell>
-            <Label Margin="0,20,0,0" Style="{StaticResource LabelStyle}" Text="{Binding Placeholder}" HorizontalOptions="{Binding HorizontalLayoutOptions}"></Label>
+            <Label Margin="0,20,0,0" Style="{StaticResource LabelHeaderStyle}" Text="{Binding Placeholder}" HorizontalOptions="{Binding HorizontalLayoutOptions}"></Label>
         </ViewCell>
     </DataTemplate>
     <DataTemplate x:Key="buttonTemplate">
