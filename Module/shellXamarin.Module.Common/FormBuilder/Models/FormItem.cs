@@ -153,6 +153,15 @@ namespace shellXamarin.Module.Common.FormBuilder.Models
 
         public string MaxCharMessage { get; set; }
 
+        //Used in EntryValidationBehavior
+        public bool IsValid
+        {
+            get
+            {
+                return !IsInvalid();
+            }
+        }
+
         public override bool IsInvalid()
         {
             if (Regex == null)

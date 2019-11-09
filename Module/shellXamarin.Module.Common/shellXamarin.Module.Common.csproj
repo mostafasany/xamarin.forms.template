@@ -31,6 +31,7 @@
     <Folder Include="Database\" />
     <Folder Include="Assets\Mocks\" />
     <Folder Include="Services\ResourceService\" />
+    <Folder Include="Behaviors\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />

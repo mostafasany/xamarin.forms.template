@@ -77,7 +77,7 @@ namespace shellXamarin.Module.Account.ViewModels
                     Text = "",
                     Placeholder = AppResources.account_form_lastname_placeholder,
                     Keyboard = Keyboard.Text,
-                    Required = true,
+                    Required = false,
                     Regex = new Regex(""),
                     RequiredMessage = AppResources.account_form_lastname_required,
                     InvalidMessage = AppResources.account_form_lastname_invalid,
