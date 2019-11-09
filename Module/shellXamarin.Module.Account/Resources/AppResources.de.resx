@@ -18,11 +18,23 @@
     <data name="account.register.title" xml:space="preserve">
         <value>Registrieren</value>
     </data>
+    <data name="account.edit.title" xml:space="preserve">
+        <value>bearbeiten</value>
+    </data>
     <data name="account.action.login" xml:space="preserve">
         <value>Einloggen</value>
     </data>
+    <data name="account.action.update" xml:space="preserve">
+          <value>bearbeiten</value>
+    </data>
     <data name="account.action.back" xml:space="preserve">
         <value>zurück</value>
+    </data>
+    <data name="account.form.header.personal" xml:space="preserve">
+        <value>Persönliche Daten</value>
+    </data>
+    <data name="account.form.header.location" xml:space="preserve">
+        <value>Lage</value>
     </data>
     <data name="account.form.email.placeholder" xml:space="preserve">
         <value>Email</value>

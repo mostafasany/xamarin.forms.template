@@ -55,7 +55,7 @@ namespace shellXamarin.Module.Account.ViewModels
                 formItems.Add(new SectionHeaderItem
                 {
                     Id = "0",
-                    Placeholder = "Personal Details:",
+                    Placeholder = AppResources.account_form_header_personal,
                     HorizontalLayoutOptions = LayoutOptions.Start
                 });
                 formItems.Add(new EntryItem
@@ -111,9 +111,9 @@ namespace shellXamarin.Module.Account.ViewModels
                 formItems.Add(new SectionHeaderItem
                 {
                     Id = "5",
-                    Placeholder = "Location:",
+                    Placeholder = AppResources.account_form_header_location,
                     HorizontalLayoutOptions = LayoutOptions.Start
-                });
+                }); ;
 
                 formItems.Add(new NavigationItem<INavigationElementEntity>
                 {

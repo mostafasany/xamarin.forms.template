@@ -59,9 +59,21 @@ namespace shellXamarin.Module.Account.Resources {
             }
         }
         
+        internal static string account_edit_title {
+            get {
+                return ResourceManager.GetString("account.edit.title", resourceCulture);
+            }
+        }
+        
         internal static string account_action_login {
             get {
                 return ResourceManager.GetString("account.action.login", resourceCulture);
+            }
+        }
+        
+        internal static string account_action_update {
+            get {
+                return ResourceManager.GetString("account.action.update", resourceCulture);
             }
         }
         
@@ -74,6 +86,18 @@ namespace shellXamarin.Module.Account.Resources {
         internal static string account_form_email_placeholder {
             get {
                 return ResourceManager.GetString("account.form.email.placeholder", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_header_personal {
+            get {
+                return ResourceManager.GetString("account.form.header.personal", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_header_location {
+            get {
+                return ResourceManager.GetString("account.form.header.location", resourceCulture);
             }
         }
         

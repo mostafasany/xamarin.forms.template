@@ -18,11 +18,23 @@
     <data name="account.action.login" xml:space="preserve">
          <value>تسجيل الدخول</value>
     </data>
+    <data name="account.action.update" xml:space="preserve">
+            <value>تعديل</value>
+    </data>
     <data name="account.register.title" xml:space="preserve">
         <value>تسجيل</value>
     </data>
+    <data name="account.edit.title" xml:space="preserve">
+        <value>تعديل</value>
+    </data>
     <data name="account.action.back" xml:space="preserve">
         <value>عودة</value>
+    </data>
+    <data name="account.form.header.personal" xml:space="preserve">
+        <value> تفاصيل شخصية</value>
+    </data>
+    <data name="account.form.header.location" xml:space="preserve">
+        <value>موقع</value>
     </data>
     <data name="account.form.email.placeholder" xml:space="preserve">
         <value>البريد الإلكتروني</value>
