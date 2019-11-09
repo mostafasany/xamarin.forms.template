@@ -16,12 +16,7 @@
     <Compile Remove="Views\LoginPage.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Module\shellXamarin.Module.Home\shellXamarin.Module.Home.csproj" />
     <ProjectReference Include="..\Module\shellXamarin.Module.Startup\shellXamarin.Module.Startup.csproj" />
-    <ProjectReference Include="..\Module\shellXamarin.Module.Settings\shellXamarin.Module.Settings.csproj" />
-    <ProjectReference Include="..\Module\shellXamarin.Module.Account\shellXamarin.Module.Account.csproj" />
-    <ProjectReference Include="..\Module\shellXamarin.Module.Navigation\shellXamarin.Module.Navigation.csproj" />
-    <ProjectReference Include="..\Module\shellXamarin.Module.ElLa3eba\shellXamarin.Module.ElLa3eba.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="i18n\" />

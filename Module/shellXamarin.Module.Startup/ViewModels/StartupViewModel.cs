@@ -6,6 +6,11 @@ using shellXamarin.Module.Common.Services.EventBusService;
 using shellXamarin.Module.Common.Services.ExceptionService;
 using shellXamarin.Module.Common.ViewModels;
 using shellXamarin.Module.Startup.BuinessServices;
+using shellXamarin.Module.Home;
+using shellXamarin.Module.Settings;
+using shellXamarin.Module.Account;
+using shellXamarin.Module.Navigation;
+using shellXamarin.Module.ElLa3eba;
 
 namespace shellXamarin.Module.Startup.ViewModels
 {
@@ -47,14 +52,14 @@ namespace shellXamarin.Module.Startup.ViewModels
             bool canProceed = await _startupService.CanProceed();
             if (canProceed)
             {
-                //NavigationModule.AddModule(_moduleCatalog, _moduleManager, true);
-                //HomeModule.AddModule(_moduleCatalog, _moduleManager, true);
-                //AccountModule.AddModule(_moduleCatalog, _moduleManager, true);
-                //SettingsModule.AddModule(_moduleCatalog, _moduleManager, true);
-                //ElLa3ebaModule.AddModule(_moduleCatalog, _moduleManager, true);
+                NavigationModule.AddModule(_moduleCatalog, _moduleManager, true);
+                HomeModule.AddModule(_moduleCatalog, _moduleManager, true);
+                AccountModule.AddModule(_moduleCatalog, _moduleManager, true);
+                SettingsModule.AddModule(_moduleCatalog, _moduleManager, true);
+                ElLa3ebaModule.AddModule(_moduleCatalog, _moduleManager, true);
                 await NavigateHome();
             }
-               
+
             else
                 IsBusy = false;
         }
