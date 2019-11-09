@@ -17,9 +17,9 @@ namespace shellXamarin
         {
         }
 
-        protected override async void OnInitialized()
+        protected override void OnInitialized()
         {
-            await NavigationService.NavigateAsync("/StartupPage");
+            NavigationService.NavigateAsync("/StartupPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
