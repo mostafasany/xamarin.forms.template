@@ -6,9 +6,9 @@ using shellXamarin.Module.Common.ViewModels;
 
 namespace shellXamarin.Module.ElLa3eba.ViewModels
 {
-    public class RegisterPageViewModel : BaseViewModel
+    public class SetFromationPageViewModel : BaseViewModel
     {
-        public RegisterPageViewModel(INavigationService _navigationService, IEventBusService eventBusService,
+        public SetFromationPageViewModel(INavigationService _navigationService, IEventBusService eventBusService,
             ILanguageService languageService, IExceptionService exceptionService)
             : base(languageService, eventBusService, exceptionService)
         {

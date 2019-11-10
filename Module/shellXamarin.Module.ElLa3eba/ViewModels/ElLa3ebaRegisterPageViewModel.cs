@@ -4,12 +4,12 @@ using shellXamarin.Module.Common.Services.EventBusService;
 using shellXamarin.Module.Common.Services.ExceptionService;
 using shellXamarin.Module.Common.ViewModels;
 
-//TODO: 4. Moataz Ahmed
+//TODO: 1. Moataz Ahmed
 namespace shellXamarin.Module.ElLa3eba.ViewModels
 {
-    public class FaceVerficationPageViewModel : BaseViewModel
+    public class ElLa3ebaRegisterPageViewModel : BaseViewModel
     {
-        public FaceVerficationPageViewModel(INavigationService _navigationService, IEventBusService eventBusService,
+        public ElLa3ebaRegisterPageViewModel(INavigationService _navigationService, IEventBusService eventBusService,
             ILanguageService languageService, IExceptionService exceptionService)
             : base(languageService, eventBusService, exceptionService)
         {

@@ -16,11 +16,6 @@ namespace shellXamarin.Module.Settings
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            //TODO: For unknow reason, eventbus not firing language changed events
-            //So LanguageChanged inside localservice is created
-
-            //IEventBusService eventBusService = containerProvider.Resolve<IEventBusService>();
-            //eventBusService.Subscribe<LanguageChangedEvent, Language>(LanguageChanged);
             ILanguageService localService = containerProvider.Resolve<ILanguageService>();
             localService.LanguageChanged += LanguageChanged;
         }

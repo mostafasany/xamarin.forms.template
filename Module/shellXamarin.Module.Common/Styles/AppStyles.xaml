@@ -48,10 +48,17 @@
     </Style>
 
 
-     <!-- Label Styles -->
+    <!-- Label Styles -->
     <Style x:Key="LabelStyle" TargetType="Label">
         <Setter Property="TextColor" Value="{DynamicResource LabelTextColor}" />
         <Setter Property="BackgroundColor" Value="{DynamicResource LabelBackgroundColor}" />
+        <Setter Property="FontSize" Value="{DynamicResource BaseFontSize}" />
+    </Style>
+
+    <Style x:Key="LabelHeaderStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource LabelTextColor}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource LabelBackgroundColor}" />
+        <Setter Property="FontSize" Value="{DynamicResource BaseHeaderFontSize}" />
     </Style>
 
 

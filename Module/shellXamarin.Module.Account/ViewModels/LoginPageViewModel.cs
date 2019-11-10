@@ -73,13 +73,13 @@ namespace shellXamarin.Module.Account.ViewModels
                     Placeholder = AppResources.account_form_password_placeholder,
                     Keyboard = Keyboard.Default,
                     Required = true,
+                    Regex = new Regex(@"^.{6,12}$"),
                     MinChar = 6,
                     RequiredMessage = AppResources.account_form_password_required,
                     ReturnType = ReturnType.Default,
                 });
 
                 Form.Items = new ObservableCollection<FormItem>(formItems.Where(a => a.Visible));
-
             }
             catch (System.Exception ex)
             {

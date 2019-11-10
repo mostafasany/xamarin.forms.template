@@ -55,17 +55,17 @@ namespace shellXamarin.Module.Account.ViewModels
                 formItems.Add(new SectionHeaderItem
                 {
                     Id = "0",
-                    Placeholder = "Personal Details:",
+                    Placeholder = AppResources.account_form_header_personal,
                     HorizontalLayoutOptions = LayoutOptions.Start
                 });
                 formItems.Add(new EntryItem
                 {
                     Id = "1",
-                    Text ="",
+                    Text = "",
                     Placeholder = AppResources.account_form_firstname_placeholder,
                     Keyboard = Keyboard.Text,
                     Required = true,
-                    Regex = new Regex(""),
+                    Regex = new Regex(@"^.{2,24}$"),
                     RequiredMessage = AppResources.account_form_firstname_required,
                     InvalidMessage = AppResources.account_form_firstname_invalid,
                     ReturnType = ReturnType.Next,
@@ -78,7 +78,7 @@ namespace shellXamarin.Module.Account.ViewModels
                     Placeholder = AppResources.account_form_lastname_placeholder,
                     Keyboard = Keyboard.Text,
                     Required = true,
-                    Regex = new Regex(""),
+                    Regex = new Regex(@"^.{2,24}$"),
                     RequiredMessage = AppResources.account_form_lastname_required,
                     InvalidMessage = AppResources.account_form_lastname_invalid,
                     ReturnType = ReturnType.Next,
@@ -102,16 +102,16 @@ namespace shellXamarin.Module.Account.ViewModels
                     Items = await _accountService.GetGendersNavigationElementsAsync(),
                     SelectedKey = "Id",
                     SelectedValue = "1",
-                    Required = true,
+                    Required = false,
                     InvalidMessage = String.Empty,
-                    Placeholder = "Gender",
+                    Placeholder = AppResources.account_form_gender_placeholder,
                     RequiredMessage = string.Empty,
                 });
 
                 formItems.Add(new SectionHeaderItem
                 {
                     Id = "5",
-                    Placeholder = "Location:",
+                    Placeholder = AppResources.account_form_header_location,
                     HorizontalLayoutOptions = LayoutOptions.Start
                 });
 
@@ -123,7 +123,7 @@ namespace shellXamarin.Module.Account.ViewModels
                     SelectedValue = "1",
                     Required = true,
                     InvalidMessage = string.Empty,
-                    Placeholder = "Cities",
+                    Placeholder = AppResources.account_form_cities_placeholder,
                     RequiredMessage = string.Empty,
                     NavigationContext = new NavigationContext
                     {
@@ -215,6 +215,6 @@ namespace shellXamarin.Module.Account.ViewModels
 
         #endregion
 
-     
+
     }
 }
