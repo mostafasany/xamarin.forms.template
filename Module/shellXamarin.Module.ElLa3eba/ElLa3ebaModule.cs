@@ -4,6 +4,8 @@ using Prism.Ioc;
 using Prism.Modularity;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
+using shellXamarin.Module.ElLa3eba.BuinessServices;
+using shellXamarin.Module.ElLa3eba.DataServices;
 using shellXamarin.Module.ElLa3eba.Resources;
 using shellXamarin.Module.ElLa3eba.ViewModels;
 using shellXamarin.Module.ElLa3eba.Views;
@@ -20,6 +22,8 @@ namespace shellXamarin.Module.ElLa3eba
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.Register<IPlayerDataService, PlayerDataService>();
+            containerRegistry.Register<IPlayerService, PlayerService>();
             containerRegistry.RegisterForNavigation<BecomeManagerPage, BecomeManagerPageViewModel>();
             containerRegistry.RegisterForNavigation<BecomePlayerPage, BecomePlayerPageViewModel>();
             containerRegistry.RegisterForNavigation<ElLa3ebaHomePage, ElLa3ebaHomePageViewModel>();

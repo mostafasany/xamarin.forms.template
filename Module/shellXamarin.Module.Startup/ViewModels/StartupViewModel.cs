@@ -44,7 +44,8 @@ namespace shellXamarin.Module.Startup.ViewModels
             AccountModule.AddModule(_moduleCatalog, _moduleManager, true);
             SettingsModule.AddModule(_moduleCatalog, _moduleManager, true);
             ElLa3ebaModule.AddModule(_moduleCatalog, _moduleManager, true);
-            await NavigateHome();
+            NavigationService.NavigateAsync("/SetFromationPage");
+            //await NavigateHome();
         }
 
         #endregion
