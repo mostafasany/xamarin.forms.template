@@ -3,6 +3,7 @@ using System.Linq;
 using Plugin.Multilingual;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Resources;
+using Xamarin.Forms;
 
 namespace shellXamarin.Module.Common.Services
 {
@@ -43,16 +44,25 @@ namespace shellXamarin.Module.Common.Services
 
             //MainThread.BeginInvokeOnMainThread(() =>
             //{
-            var ci = CrossMultilingual.Current.CultureInfoList.FirstOrDefault((arg) => arg.Name == langId);
-            AppResources.Culture = ci;
-            CultureInfo.DefaultThreadCurrentCulture = ci;
-            CultureInfo.DefaultThreadCurrentUICulture = ci;
-            CultureInfo.CurrentCulture = ci;
-            CultureInfo.CurrentUICulture = ci;
-            CrossMultilingual.Current.CurrentCultureInfo = ci;
-            UsedLanague = new Language { Id = AppResources.Culture.Name, RTL = AppResources.Culture.TextInfo.IsRightToLeft, Name = AppResources.Culture.DisplayName };
+                // Code to run on the main thread
+                var ci = CrossMultilingual.Current.CultureInfoList.FirstOrDefault((arg) => arg.Name == langId);
+                AppResources.Culture = ci;
+                CultureInfo.DefaultThreadCurrentCulture = ci;
+                CultureInfo.DefaultThreadCurrentUICulture = ci;
+                CultureInfo.CurrentCulture = ci;
+                CultureInfo.CurrentUICulture = ci;
+                CrossMultilingual.Current.CurrentCultureInfo = ci;
+                UsedLanague = new Language { Id = AppResources.Culture.Name, RTL = AppResources.Culture.TextInfo.IsRightToLeft, Name = AppResources.Culture.DisplayName };
             // });
 
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                if (UsedLanague.RTL)
+                    DependencyService.Get<ILayoutDirectionService>().SetLayoutRTL();
+                else
+                    DependencyService.Get<ILayoutDirectionService>().SetLayoutLTR();
+            }
+    
             LanguageChanged?.Invoke(UsedLanague);
         }
 
