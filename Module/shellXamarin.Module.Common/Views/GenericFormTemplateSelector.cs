@@ -11,6 +11,8 @@ namespace shellXamarin.Module.Common.Views
         public DataTemplate PickerTemplate { get; set; }
         public DataTemplate NavigationTemplate { get; set; }
         public DataTemplate CheckTemplate { get; set; }
+        public DataTemplate SectionHeaderTemplate { get; set; }
+        public DataTemplate ButtonTemplate { get; set; }
         public DataTemplate DefaultTemplate { get; set; }
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
@@ -34,6 +36,14 @@ namespace shellXamarin.Module.Common.Views
             else if (item is CheckItem)
             {
                 return CheckTemplate;
+            }
+            else if (item is SectionHeaderItem)
+            {
+                return SectionHeaderTemplate;
+            }
+            else if (item is ButtonItem)
+            {
+                return ButtonTemplate;
             }
             return DefaultTemplate;
         }

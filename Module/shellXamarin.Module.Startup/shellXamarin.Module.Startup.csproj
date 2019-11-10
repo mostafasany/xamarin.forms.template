@@ -9,7 +9,7 @@
     <Compile Remove="ViewModels\BaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.947036" />
     <PackageReference Include="Prism.Forms" Version="7.2.0.1367" />
     <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />
   </ItemGroup>
@@ -24,6 +24,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\shellXamarin.Module.Common\shellXamarin.Module.Common.csproj" />
+    <ProjectReference Include="..\shellXamarin.Module.Navigation\shellXamarin.Module.Navigation.csproj" />
+    <ProjectReference Include="..\shellXamarin.Module.Home\shellXamarin.Module.Home.csproj" />
+    <ProjectReference Include="..\shellXamarin.Module.ElLa3eba\shellXamarin.Module.ElLa3eba.csproj" />
+    <ProjectReference Include="..\shellXamarin.Module.ECommerce\shellXamarin.Module.ECommerce.csproj" />
+    <ProjectReference Include="..\shellXamarin.Module.Account\shellXamarin.Module.Account.csproj" />
+    <ProjectReference Include="..\shellXamarin.Module.Settings\shellXamarin.Module.Settings.csproj" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppResources.resx">

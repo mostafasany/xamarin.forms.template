@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary  MergedWith="styles:AppStyles" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:behaviors="clr-namespace:shellXamarin.Module.Common.Behaviors" xmlns:converter="clr-namespace:shellXamarin.Module.Common.Connverters" x:Class="shellXamarin.Module.Common.Styles.AppTemplates">
+    <converter:MandatoryToColorConverter x:Key="mandatoryToColorConverter" />
+    <DataTemplate x:Key="entryTemplate">
+        <ViewCell>
+            <!--<Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Entry Grid.Column="0" x:Name="entry" Style="{StaticResource FormEntryStyle}"  Margin="0,5" ReturnType="{Binding ReturnType}" Placeholder="{Binding Placeholder}" Text="{Binding Text,Mode=TwoWay,UpdateSourceEventName=TextChanged}" Keyboard="{Binding Keyboard}">
+                    <Entry.Behaviors>
+                        <behaviors:EntryValidationBehavior
+                            IsValid="{Binding Source={x:Reference entry},Path=BindingContext.IsValid,Mode=TwoWay,UpdateSourceEventName=TextChanged}" ></behaviors:EntryValidationBehavior>
+                    </Entry.Behaviors>
+                </Entry>
+                <Label Grid.Column="1" IsVisible="{Binding Required}" TextColor="Red" HorizontalOptions="Center"  VerticalOptions="Center" Text="*"></Label>
+            </Grid>-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" TextColor="{Binding Required,Converter={StaticResource mandatoryToColorConverter}}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding Placeholder}"></Label>
+                <Entry Grid.Column="1" x:Name="entry" Style="{StaticResource FormEntryStyle}"  Margin="0,5" ReturnType="{Binding ReturnType}" Text="{Binding Text,Mode=TwoWay,UpdateSourceEventName=TextChanged}" Keyboard="{Binding Keyboard}">
+                    <Entry.Behaviors>
+                        <behaviors:EntryValidationBehavior
+                            IsValid="{Binding Source={x:Reference entry},Path=BindingContext.IsValid,Mode=TwoWay,UpdateSourceEventName=TextChanged}" ></behaviors:EntryValidationBehavior>
+                    </Entry.Behaviors>
+                </Entry>
+            </Grid>
+        </ViewCell>
+    </DataTemplate>
+    <DataTemplate x:Key="datePickerTemplate">
+        <ViewCell>
+            <!--<Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <DatePicker Grid.Column="0" Style="{StaticResource DatePickerStyle}" Margin="0,5" Date="{Binding Date,Mode=TwoWay}"></DatePicker>
+                <Label Grid.Column="1" IsVisible="{Binding Required}" TextColor="Red" HorizontalOptions="Center"  VerticalOptions="Center" Text="*"></Label>
+            </Grid>-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" TextColor="{Binding Required,Converter={StaticResource mandatoryToColorConverter}}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding Placeholder}"></Label>
+                <DatePicker Grid.Column="1" Style="{StaticResource DatePickerStyle}" Margin="0,5" Date="{Binding Date,Mode=TwoWay}"></DatePicker>
+            </Grid>
+        </ViewCell>
+    </DataTemplate>
+    <DataTemplate x:Key="pickerTemplate">
+        <ViewCell>
+            <!--<Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Picker  Grid.Column="0" Style="{StaticResource PickerStyle}" Margin="0,5" ItemsSource="{Binding Items,Mode=TwoWay}" SelectedItem="{Binding Selected}" />
+                <Label Grid.Column="1" IsVisible="{Binding Required}" TextColor="Red" HorizontalOptions="Center"  VerticalOptions="Center" Text="*"></Label>
+            </Grid>-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" TextColor="{Binding Required,Converter={StaticResource mandatoryToColorConverter}}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding Placeholder}"></Label>
+                <Picker  Grid.Column="1" Style="{StaticResource PickerStyle}" Margin="0,5" ItemsSource="{Binding Items,Mode=TwoWay}" SelectedItem="{Binding Selected}" />
+            </Grid>
+        </ViewCell>
+    </DataTemplate>
+    <DataTemplate x:Key="navigationTemplate">
+        <ViewCell>
+            <!--<Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0"  Style="{StaticResource SecondaryButtonStyle}" Margin="0,5" CommandParameter="{Binding}" Command="{Binding NavigationContext.NavigationCommand}" Text="{Binding Selected.Title}"></Button>
+                <Label Grid.Column="1" IsVisible="{Binding Required}" TextColor="Red" HorizontalOptions="Center"  VerticalOptions="Center" Text="*"></Label>
+            </Grid>-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" TextColor="{Binding Required,Converter={StaticResource mandatoryToColorConverter}}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding Placeholder}"></Label>
+                <Button Grid.Column="1"  Style="{StaticResource SecondaryButtonStyle}" Margin="0,5" CommandParameter="{Binding}" Command="{Binding NavigationContext.NavigationCommand}" Text="{Binding Selected.Title}"></Button>
+            </Grid>
+        </ViewCell>
+    </DataTemplate>
+    <DataTemplate x:Key="sectionHeaderTemplate">
+        <ViewCell>
+            <Label Margin="0,20,0,0" Style="{StaticResource LabelHeaderStyle}" Text="{Binding Placeholder}" HorizontalOptions="{Binding HorizontalLayoutOptions}"></Label>
+        </ViewCell>
+    </DataTemplate>
+    <DataTemplate x:Key="buttonTemplate">
+        <Button  Text="{Binding Placeholder}" Margin="0,5" CommandParameter="{Binding}" Command="{Binding ActionCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
+    </DataTemplate>
+    <DataTemplate x:Key="checkTemplate">
+        <ViewCell>
+            <Grid  Margin="0,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Style="{StaticResource LabelStyle}" HorizontalOptions="Start" Text="{Binding Placeholder}" VerticalOptions="Center"></Label>
+                <CheckBox HorizontalOptions="End" IsChecked="{Binding IsChecked, Mode=TwoWay}" VerticalOptions="Center"></CheckBox>
+            </Grid>
+        </ViewCell>
+    </DataTemplate>
+    <DataTemplate x:Key="defaultTemplate">
+        <ViewCell>
+        </ViewCell>
+    </DataTemplate>
+</ResourceDictionary>

@@ -21,4 +21,7 @@
     <data name="settings.languages.header" xml:space="preserve">
         <value>Languages</value>
     </data>
+    <data name="settings.themes.header" xml:space="preserve">
+        <value>Themes</value>
+    </data>
 </root>

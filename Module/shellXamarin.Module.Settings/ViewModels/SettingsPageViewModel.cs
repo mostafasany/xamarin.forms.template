@@ -1,13 +1,13 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Prism.Commands;
 using Prism.Navigation;
-using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Services.EventBusService;
 using shellXamarin.Module.Common.Services.ExceptionService;
+using shellXamarin.Module.Common.Services.SharedService;
 using shellXamarin.Module.Common.ViewModels;
 using shellXamarin.Module.Settings.BuinessServices;
 
@@ -16,24 +16,24 @@ namespace shellXamarin.Module.Settings.ViewModels
     public class SettingsPageViewModel : BaseViewModel
     {
         private readonly ISettingsService _settingsService;
-        private readonly IEventBusService _eventBusService;
-        public SettingsPageViewModel(ISettingsService settingsService, IExceptionService exceptionService,
+        private readonly ISharedService _sharedService;
+        public SettingsPageViewModel(ISettingsService settingsService, IExceptionService exceptionService, ISharedService sharedService,
             IEventBusService eventBusService, ILanguageService localService, INavigationService navigationService)
             : base(localService, eventBusService, exceptionService)
         {
             _settingsService = settingsService;
-            _eventBusService = eventBusService;
+            _sharedService = sharedService;
             NavigationService = navigationService;
 
-            //TODO: Settings Page is in Home tab bar, so it had to be constructed a head
+            //TODO: Settings Page is in Home tab bar, so data has to be constructed a head
             Load();
         }
 
         #region Properties
 
 
-        ObservableCollection<Language> languages;
-        public ObservableCollection<Language> Languages
+        List<Language> languages;
+        public List<Language> Languages
         {
             get { return languages; }
             set { SetProperty(ref languages, value); }
@@ -47,6 +47,29 @@ namespace shellXamarin.Module.Settings.ViewModels
             set { SetProperty(ref usedLanguage, value); }
         }
 
+
+        List<string> themes;
+        public List<string> Themes
+        {
+            get { return themes; }
+            set { SetProperty(ref themes, value); }
+        }
+
+
+        string usedTheme;
+        public string UsedTheme
+        {
+            get { return usedTheme; }
+            set
+            {
+                SetProperty(ref usedTheme, value);
+                if(usedTheme!=null)
+                {
+                    LocalService.ChangeTheme(usedTheme);
+                }
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -56,15 +79,30 @@ namespace shellXamarin.Module.Settings.ViewModels
             var langs = await _settingsService.GetLanguagesAsync();
             if (langs != null && langs.Any())
             {
-                Languages = new ObservableCollection<Language>(langs);
+                Languages = langs;
                 UsedLanguage = languages.FirstOrDefault(lang => lang.Id == LocalService?.UsedLanague?.Id);
                 Languages.Remove(usedLanguage);
             }
         }
 
-        private void UserLogout()
-        {
 
+        private async Task LoadThemes()
+        {
+            Themes = new List<string>();
+            Themes.Add("Dark");
+            Themes.Add("Light");
+            UsedTheme = Themes.FirstOrDefault();
+        }
+
+
+        private async void LanguageChanged(Language language)
+        {
+            if (language != null)
+            {
+                LocalService.SetDefaultLanguage(language);
+
+                await NavigateHome();
+            }
         }
 
         #endregion
@@ -74,6 +112,8 @@ namespace shellXamarin.Module.Settings.ViewModels
         public override async Task Load()
         {
             await LoadLanguages();
+
+            await LoadThemes();
 
             await base.Load();
         }
@@ -89,45 +129,19 @@ namespace shellXamarin.Module.Settings.ViewModels
             base.OnNavigatedTo(parameters);
         }
 
-        public override void Destroy()
+        private async void Logout()
         {
-            base.Destroy();
+            await _sharedService.RemoveAllUserPreferences();
+            await NavigateHome();
         }
-
 
         #endregion
 
         #region Commands
 
-        #region LanguageChangedCommand
-
         public DelegateCommand<Language> LanguageChangedCommand => new DelegateCommand<Language>(LanguageChanged);
 
-        private async void LanguageChanged(Language language)
-        {
-            if (language != null)
-            {
-                LocalService.SetDefaultLanguage(language);
-
-                await NavigateHome();
-            }
-        }
-
-        #endregion
-
-
-        #region LogoutCommand
-
         public DelegateCommand LogoutCommand => new DelegateCommand(Logout);
-
-        private async void Logout()
-        {
-            _eventBusService.Publish<LogoutEvent>();
-
-            await NavigateHome();
-        }
-
-        #endregion
 
         #endregion
     }

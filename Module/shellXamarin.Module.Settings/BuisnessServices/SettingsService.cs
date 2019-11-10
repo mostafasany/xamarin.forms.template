@@ -31,7 +31,7 @@ namespace shellXamarin.Module.Settings.BuinessServices
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }

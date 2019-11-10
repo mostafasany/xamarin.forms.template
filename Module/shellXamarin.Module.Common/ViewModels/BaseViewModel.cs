@@ -38,12 +38,8 @@ namespace shellXamarin.Module.Common.ViewModels
             if (eventBusService != null)
             {
                 userLogoutEventAndToken = eventBusService.Subscribe<LogoutEvent>(UserLogout);
-                userLoginEventAndToken = eventBusService.Subscribe<LoginEvent>(UserLogin);
+                userLoginEventAndToken = eventBusService.Subscribe<LoginEvent, UserLoginEvent>(UserLogin);
             }
-
-            //TODO: For unknow reason, eventbus not firing language changed events
-            //So LanguageChanged inside localservice is created
-            // languageChangedEventAndToken = eventBusService.Subscribe<LanguageChangedEvent, Language>(LanguageChanged);
         }
 
         private void LanguageChanged(Language language)
@@ -64,7 +60,7 @@ namespace shellXamarin.Module.Common.ViewModels
             //Do Something on logout
         }
 
-        private void UserLogin()
+        private void UserLogin(UserLoginEvent userLoginEvent)
         {
             //Do Something on Login
         }
@@ -82,8 +78,6 @@ namespace shellXamarin.Module.Common.ViewModels
 
         public bool NotBusy => !isBusy;
 
-
-        //TODO: check if this `"{x:Static Device.FlowDirection}"` is enough
         FlowDirection flowDirection;
         public FlowDirection FlowDirection
         {

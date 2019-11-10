@@ -21,4 +21,7 @@
     <data name="settings.languages.header" xml:space="preserve">
         <value>اللغات</value>
     </data>
+    <data name="settings.themes.header" xml:space="preserve">
+        <value>لون التطبيق</value>
+    </data>
 </root>

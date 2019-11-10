@@ -64,5 +64,11 @@ namespace shellXamarin.Module.Settings.Resources {
                 return ResourceManager.GetString("settings.languages.header", resourceCulture);
             }
         }
+        
+        internal static string settings_themes_header {
+            get {
+                return ResourceManager.GetString("settings.themes.header", resourceCulture);
+            }
+        }
     }
 }

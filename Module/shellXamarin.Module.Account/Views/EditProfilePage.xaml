@@ -1,47 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Account.Views.EditProfilePage" xmlns:translate="clr-namespace:shellXamarin.Module.Account.i18n" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common" xmlns:selectors="clr-namespace:shellXamarin.Module.Common.Views;assembly=shellXamarin.Module.Common" Title="Edit">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Account.Views.EditProfilePage" xmlns:translate="clr-namespace:shellXamarin.Module.Account.i18n" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common" xmlns:selectors="clr-namespace:shellXamarin.Module.Common.Views;assembly=shellXamarin.Module.Common"
+             Title="{translate:Translate account.edit.title}">
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <styles:AppStyles></styles:AppStyles>
+                <styles:AppTemplates></styles:AppTemplates>
             </ResourceDictionary.MergedDictionaries>
-            <DataTemplate x:Key="entryTemplate">
-                <ViewCell>
-                    <Entry Style="{StaticResource FormEntryStyle}" ReturnType="{Binding ReturnType}" Placeholder="{Binding Placeholder}" Text="{Binding Text,Mode=TwoWay}" Keyboard="{Binding Keyboard}"></Entry>
-                </ViewCell>
-            </DataTemplate>
-            <DataTemplate x:Key="datePickerTemplate">
-                <ViewCell>
-                    <DatePicker Style="{StaticResource DatePickerStyle}" Date="{Binding Date,Mode=TwoWay}"></DatePicker>
-                </ViewCell>
-            </DataTemplate>
-            <DataTemplate x:Key="pickerTemplate">
-                <ViewCell>
-                    <Picker Style="{StaticResource PickerStyle}" ItemsSource="{Binding Items,Mode=TwoWay}" SelectedItem="{Binding Selected}" />
-                </ViewCell>
-            </DataTemplate>
-            <DataTemplate x:Key="navigationTemplate">
-                <ViewCell>
-                    <Button Style="{StaticResource SecondaryButtonStyle}" CommandParameter="{Binding}" Command="{Binding NavigationContext.NavigationCommand}" Text="{Binding Selected.Title}"></Button>
-                </ViewCell>
-            </DataTemplate>
-            <DataTemplate x:Key="checkTemplate">
-                <ViewCell>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Label Style="{StaticResource LabelStyle}" HorizontalOptions="Start" Text="{Binding Placeholder}" VerticalOptions="Center"></Label>
-                        <CheckBox HorizontalOptions="End" IsChecked="{Binding IsChecked, Mode=TwoWay}" VerticalOptions="Center"></CheckBox>
-                    </Grid>
-                </ViewCell>
-            </DataTemplate>
-            <DataTemplate x:Key="defaultTemplate">
-                <ViewCell>
-                </ViewCell>
-            </DataTemplate>
-            <selectors:GenericFormTemplateSelector x:Key="genericFormTemplateSelector" EntryTemplate="{StaticResource entryTemplate}" DatePickerTemplate="{StaticResource datePickerTemplate}" PickerTemplate="{StaticResource pickerTemplate}" NavigationTemplate="{StaticResource navigationTemplate}" CheckTemplate="{StaticResource checkTemplate}" DefaultTemplate="{StaticResource defaultTemplate}" />
+            <selectors:GenericFormTemplateSelector x:Key="genericFormTemplateSelector" ButtonTemplate="{StaticResource buttonTemplate}" SectionHeaderTemplate="{StaticResource sectionHeaderTemplate}" EntryTemplate="{StaticResource entryTemplate}" DatePickerTemplate="{StaticResource datePickerTemplate}" PickerTemplate="{StaticResource pickerTemplate}" NavigationTemplate="{StaticResource navigationTemplate}" CheckTemplate="{StaticResource checkTemplate}" DefaultTemplate="{StaticResource defaultTemplate}" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -51,9 +17,9 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <ListView SelectionMode="None" SeparatorVisibility="None" ItemsSource="{Binding FormItems}" ItemTemplate="{StaticResource genericFormTemplateSelector}" />
+            <ListView SelectionMode="None" SeparatorVisibility="None" Style="{StaticResource ListStyle}" ItemsSource="{Binding Form.Items}" RowHeight="50" ItemTemplate="{StaticResource genericFormTemplateSelector}" />
             <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
-            <Button Grid.Row="2" Text="Update Profile" Command="{Binding EditProfileCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
+            <Button Grid.Row="2" Text="{translate:Translate account.action.update}" Command="{Binding EditCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
