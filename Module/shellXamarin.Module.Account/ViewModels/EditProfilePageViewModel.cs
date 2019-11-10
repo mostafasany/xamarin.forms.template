@@ -152,11 +152,18 @@ namespace shellXamarin.Module.Account.ViewModels
 
         private async void NavigationButton(NavigationItem<INavigationElementEntity> navigationItem)
         {
-            if (navigationItem != null)
+            try
             {
-                NavigationParameters parameters = new NavigationParameters();
-                parameters.Add("NavigationItem", navigationItem);
-                await NavigationService.NavigateAsync(navigationItem.NavigationContext.NavigationPage, parameters);
+                if (navigationItem != null)
+                {
+                    NavigationParameters parameters = new NavigationParameters();
+                    parameters.Add("NavigationItem", navigationItem);
+                    await NavigationService.NavigateAsync(navigationItem.NavigationContext.NavigationPage, parameters);
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionService.LogAndShowDialog(ex);
             }
         }
 
@@ -191,19 +198,26 @@ namespace shellXamarin.Module.Account.ViewModels
 
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
-            if (parameters.GetNavigationMode() == NavigationMode.Back)
+            try
             {
-                var selectedNavigationItem = parameters.GetValue<NavigationItem<INavigationElementEntity>>("SelectedNavigationItem");
-                if (selectedNavigationItem != null)
+                if (parameters.GetNavigationMode() == NavigationMode.Back)
                 {
-                    var item = form.Items.FirstOrDefault(a => a.Id == selectedNavigationItem.Id);
-                    int index = form.Items.IndexOf(item);
-                    form.Items[index] = selectedNavigationItem;
-                    RaisePropertyChanged(nameof(form));
+                    var selectedNavigationItem = parameters.GetValue<NavigationItem<INavigationElementEntity>>("SelectedNavigationItem");
+                    if (selectedNavigationItem != null)
+                    {
+                        var item = form.Items.FirstOrDefault(a => a.Id == selectedNavigationItem.Id);
+                        int index = form.Items.IndexOf(item);
+                        form.Items[index] = selectedNavigationItem;
+                        RaisePropertyChanged(nameof(form));
+                    }
                 }
-            }
 
-            base.OnNavigatedTo(parameters);
+                base.OnNavigatedTo(parameters);
+            }
+            catch (Exception ex)
+            {
+                ExceptionService.LogAndShowDialog(ex);
+            }
         }
 
         #endregion

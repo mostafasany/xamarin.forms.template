@@ -38,6 +38,10 @@ namespace shellXamarin.Module.Account
         public static void AddModule(IModuleCatalog moduleCatalog, IModuleManager moduleManager, bool loadModule)
         {
             Type sampleModuleType = typeof(AccountModule);
+            string moduleName = sampleModuleType.Name;
+            if (moduleCatalog.Exists(moduleName))
+                return;
+
             moduleCatalog.AddModule(
                 new ModuleInfo(sampleModuleType)
                 {
@@ -45,7 +49,7 @@ namespace shellXamarin.Module.Account
                 });
 
             if (loadModule)
-                moduleManager.LoadModule(nameof(AccountModule));
+                moduleManager.LoadModule(moduleName);
         }
     }
 }

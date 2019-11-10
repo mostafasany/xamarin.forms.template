@@ -24,6 +24,10 @@ namespace shellXamarin.Module.Startup
         public static void AddModule(IModuleCatalog moduleCatalog, IModuleManager moduleManager, bool loadModule)
         {
             Type sampleModuleType = typeof(StartupModule);
+            string moduleName = sampleModuleType.Name;
+            if (moduleCatalog.Exists(moduleName))
+                return;
+
             moduleCatalog.AddModule(
                 new ModuleInfo(sampleModuleType)
                 {
@@ -31,7 +35,7 @@ namespace shellXamarin.Module.Startup
                 });
 
             if (loadModule)
-                moduleManager.LoadModule(nameof(StartupModule));
+                moduleManager.LoadModule(moduleName);
         }
     }
 }

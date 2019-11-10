@@ -46,5 +46,17 @@ namespace shellXamarin.Module.Common.Resources {
                 resourceCulture = value;
             }
         }
+        
+        internal static string dialog_ok {
+            get {
+                return ResourceManager.GetString("dialog.ok", resourceCulture);
+            }
+        }
+        
+        internal static string dialog_exception {
+            get {
+                return ResourceManager.GetString("dialog.exception", resourceCulture);
+            }
+        }
     }
 }

@@ -33,6 +33,10 @@ namespace shellXamarin.Module.Home
         public static void AddModule(IModuleCatalog moduleCatalog, IModuleManager moduleManager, bool loadModule)
         {
             Type sampleModuleType = typeof(HomeModule);
+            string moduleName = sampleModuleType.Name;
+            if (moduleCatalog.Exists(moduleName))
+                return;
+
             moduleCatalog.AddModule(
                 new ModuleInfo(sampleModuleType)
                 {
@@ -40,7 +44,7 @@ namespace shellXamarin.Module.Home
                 });
 
             if (loadModule)
-                moduleManager.LoadModule(nameof(HomeModule));
+                moduleManager.LoadModule(moduleName);
         }
     }
 }
