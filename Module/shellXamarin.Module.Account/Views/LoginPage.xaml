@@ -18,7 +18,7 @@
             </Grid.RowDefinitions>
             <ListView SelectionMode="None" SeparatorVisibility="None" Style="{StaticResource ListStyle}" RowHeight="50" ItemsSource="{Binding Form.Items}" ItemTemplate="{StaticResource genericFormTemplateSelector}" />
             <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
-            <Button Grid.Row="2" Text="{translate:Translate account.action.login}" Command="{Binding LoginCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
+            <Button Grid.Row="2" Text="{translate:Translate account.action.login}" Command="{Binding LoginCommand}" Style="{StaticResource PrimaryButtonStyle}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -5,13 +5,12 @@ namespace shellXamarin.Module.Common.Behaviors
     public class EntryValidationBehavior : Behavior<Entry>
     {
         public static readonly BindableProperty IsValidProperty =
-            BindableProperty.CreateAttached("IsValid", typeof(bool), typeof(EntryValidationBehavior), false);
+          BindableProperty.Create(nameof(IsValid), typeof(bool), typeof(EntryValidationBehavior), true, BindingMode.TwoWay);
+
+
         public bool IsValid
         {
-            get
-            {
-                return (bool)GetValue(IsValidProperty);
-            }
+            get { return (bool)GetValue(IsValidProperty); }
             set
             {
                 SetValue(IsValidProperty, value);
@@ -28,7 +27,7 @@ namespace shellXamarin.Module.Common.Behaviors
         private void Bindable_TextChanged(object sender, TextChangedEventArgs e)
         {
             Entry entry = (sender as Entry);
-            if(IsValid)
+            if (IsValid)
             {
                 entry.PlaceholderColor = Color.Black;
                 entry.TextColor = Color.Black;

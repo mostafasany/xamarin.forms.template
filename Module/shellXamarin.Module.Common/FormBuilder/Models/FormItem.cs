@@ -113,7 +113,11 @@ namespace shellXamarin.Module.Common.FormBuilder.Models
         public string Text
         {
             get { return text; }
-            set { SetProperty(ref text, value); }
+            set
+            {
+                SetProperty(ref text, value);
+                RaisePropertyChanged(nameof(IsValid));
+            }
         }
 
 
@@ -154,19 +158,14 @@ namespace shellXamarin.Module.Common.FormBuilder.Models
         public string MaxCharMessage { get; set; }
 
         //Used in EntryValidationBehavior
-        public bool IsValid
-        {
-            get
-            {
-                return !IsInvalid();
-            }
-        }
-
+        public bool IsValid => !IsInvalid();
+      
         public override bool IsInvalid()
         {
             if (Regex == null)
                 return false;
-            return !Regex.Match(text).Success;
+            bool isInavlid= string.IsNullOrEmpty(text) || !Regex.Match(text).Success;
+            return isInavlid;
         }
 
         public override bool IsRequried()

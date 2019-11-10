@@ -32,6 +32,7 @@
     <Folder Include="Assets\Mocks\" />
     <Folder Include="Services\ResourceService\" />
     <Folder Include="Behaviors\" />
+    <Folder Include="Connverters\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />
