@@ -1,5 +1,4 @@
-﻿using System;
-namespace shellXamarin.Module.Common.Services
+﻿namespace shellXamarin.Module.Common.Services
 {
     public interface ILayoutDirectionService
     {
