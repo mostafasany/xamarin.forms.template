@@ -1,12 +1,12 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace shellXamarin.Module.Home.Views
+namespace shellXamarin.Module.ElLa3eba.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomePage : ContentPage
+    public partial class CreateTeamPage : ContentPage
     {
-        public HomePage()
+        public CreateTeamPage()
         {
             InitializeComponent();
         }

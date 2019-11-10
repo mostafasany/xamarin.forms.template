@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using FakeItEasy;
+using Prism.Modularity;
 using Prism.Navigation;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Services.EventBusService;
@@ -18,13 +19,16 @@ namespace shellXamarin.Module.Tests.Account
         IStartupService startupService = A.Fake<IStartupService>();
         ILanguageService languageService = A.Fake<ILanguageService>();
         IExceptionService exceptionService = A.Fake<IExceptionService>();
+        IModuleCatalog moduleCatalog = A.Fake<IModuleCatalog>();
+        IModuleManager moduleManager = A.Fake<IModuleManager>();
 
         [Fact]
         public async void GivenCanProceedHomePageShouldBePresented()
         {
             //Arrange
             A.CallTo(() => startupService.CanProceed()).Returns(Task.FromResult(true));
-            startupViewModel = new StartupViewModel(startupService, navigationService, eventBusService, exceptionService, languageService);
+            startupViewModel = new StartupViewModel(startupService, navigationService, eventBusService,
+                exceptionService, languageService, moduleCatalog, moduleManager);
 
             //Act
             startupViewModel.OnNavigatedTo(null);
@@ -38,7 +42,8 @@ namespace shellXamarin.Module.Tests.Account
         {
             //Arrange
             A.CallTo(() => startupService.CanProceed()).Returns(Task.FromResult(false));
-            startupViewModel = new StartupViewModel(startupService, navigationService, eventBusService, exceptionService, languageService);
+            startupViewModel = new StartupViewModel(startupService, navigationService, eventBusService,
+                exceptionService, languageService, moduleCatalog, moduleManager);
 
             //Act
             startupViewModel.OnNavigatedTo(null);

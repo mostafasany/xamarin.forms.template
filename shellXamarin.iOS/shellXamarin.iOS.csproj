@@ -158,12 +158,4 @@
       <Name>shellXamarin.Module.Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Mocks\" />
-    <Folder Include="Resources\Mocks\en\" />
-    <Folder Include="Resources\Mocks\ar\" />
-    <Folder Include="Resources\Mocks\de\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>

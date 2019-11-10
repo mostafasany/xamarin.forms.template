@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Prism.Commands;
@@ -32,8 +32,8 @@ namespace shellXamarin.Module.Settings.ViewModels
         #region Properties
 
 
-        ObservableCollection<Language> languages;
-        public ObservableCollection<Language> Languages
+        List<Language> languages;
+        public List<Language> Languages
         {
             get { return languages; }
             set { SetProperty(ref languages, value); }
@@ -47,6 +47,29 @@ namespace shellXamarin.Module.Settings.ViewModels
             set { SetProperty(ref usedLanguage, value); }
         }
 
+
+        List<string> themes;
+        public List<string> Themes
+        {
+            get { return themes; }
+            set { SetProperty(ref themes, value); }
+        }
+
+
+        string usedTheme;
+        public string UsedTheme
+        {
+            get { return usedTheme; }
+            set
+            {
+                SetProperty(ref usedTheme, value);
+                if(usedTheme!=null)
+                {
+                    LocalService.ChangeTheme(usedTheme);
+                }
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -56,11 +79,21 @@ namespace shellXamarin.Module.Settings.ViewModels
             var langs = await _settingsService.GetLanguagesAsync();
             if (langs != null && langs.Any())
             {
-                Languages = new ObservableCollection<Language>(langs);
+                Languages = langs;
                 UsedLanguage = languages.FirstOrDefault(lang => lang.Id == LocalService?.UsedLanague?.Id);
                 Languages.Remove(usedLanguage);
             }
         }
+
+
+        private async Task LoadThemes()
+        {
+            Themes = new List<string>();
+            Themes.Add("Dark");
+            Themes.Add("Light");
+            UsedTheme = Themes.FirstOrDefault();
+        }
+
 
         private async void LanguageChanged(Language language)
         {
@@ -80,6 +113,8 @@ namespace shellXamarin.Module.Settings.ViewModels
         {
             await LoadLanguages();
 
+            await LoadThemes();
+
             await base.Load();
         }
 
@@ -94,14 +129,9 @@ namespace shellXamarin.Module.Settings.ViewModels
             base.OnNavigatedTo(parameters);
         }
 
-        public override void Destroy()
-        {
-            base.Destroy();
-        }
-
         private async void Logout()
         {
-            _sharedService.RemoveAllUserPreferences();
+            await _sharedService.RemoveAllUserPreferences();
             await NavigateHome();
         }
 

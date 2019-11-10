@@ -5,7 +5,6 @@
         public AppStyles()
         {
             InitializeComponent();
-            //MergedWith = typeof(DarkTheme);
         }
     }
 }

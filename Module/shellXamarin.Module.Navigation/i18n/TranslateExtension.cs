@@ -12,27 +12,27 @@ namespace shellXamarin.Module.Navigation.i18n
     [ContentProperty(nameof(Text))]
     internal class TranslateExtension : IMarkupExtension
     {
-        private const string ResourceId = "shellXamarin.Module.Navigation.Resources.AppResources";
+        private readonly Lazy<ResourceManager> Resmgr;
+        private readonly string resourceId;
 
-        private static readonly Lazy<ResourceManager> Resmgr = new Lazy<ResourceManager>(() => new ResourceManager(ResourceId, typeof(TranslateExtension).GetTypeInfo().Assembly));
+        public TranslateExtension()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            resourceId = string.Format("{0}.Resources.AppResources", assembly.GetName().Name);
+            Resmgr = new Lazy<ResourceManager>(() => new ResourceManager(resourceId, assembly));
+        }
 
         public string Text { get; set; }
 
         public object ProvideValue(IServiceProvider serviceProvider)
         {
             CultureInfo ci = CrossMultilingual.Current.CurrentCultureInfo;
-
             string translation = Resmgr.Value.GetString(Text, ci);
 
             if (translation == null)
             {
-#if DEBUG
-                throw new ArgumentException($"Key '{Text}' was not found in resources '{ResourceId}' for culture '{ci.Name}'.");
-#else
-                translation = Text; // returns the key, which GETS DISPLAYED TO THE USER
-#endif
+                translation = string.Format("{{{0}}}", Text); // returns the key, which GETS DISPLAYED TO THE USER
             }
-
             return translation;
         }
     }

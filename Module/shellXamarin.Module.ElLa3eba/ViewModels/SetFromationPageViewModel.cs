@@ -4,12 +4,11 @@ using shellXamarin.Module.Common.Services.EventBusService;
 using shellXamarin.Module.Common.Services.ExceptionService;
 using shellXamarin.Module.Common.ViewModels;
 
-//TODO: 1. Moataz Ahmed
 namespace shellXamarin.Module.ElLa3eba.ViewModels
 {
-    public class RegisterPageViewModel : BaseViewModel
+    public class SetFromationPageViewModel : BaseViewModel
     {
-        public RegisterPageViewModel(INavigationService _navigationService, IEventBusService eventBusService,
+        public SetFromationPageViewModel(INavigationService _navigationService, IEventBusService eventBusService,
             ILanguageService languageService, IExceptionService exceptionService)
             : base(languageService, eventBusService, exceptionService)
         {
