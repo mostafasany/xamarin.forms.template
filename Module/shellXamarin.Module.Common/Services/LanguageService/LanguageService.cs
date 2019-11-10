@@ -63,7 +63,7 @@ namespace shellXamarin.Module.Common.Services
                     DependencyService.Get<ILayoutDirectionService>().SetLayoutLTR();
             }
     
-            LanguageChanged.Invoke(UsedLanague);
+            LanguageChanged?.Invoke(UsedLanague);
         }
 
         public void ChangeTheme(string theme)
