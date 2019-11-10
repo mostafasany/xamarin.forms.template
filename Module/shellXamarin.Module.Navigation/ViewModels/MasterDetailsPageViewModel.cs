@@ -85,16 +85,16 @@ namespace shellXamarin.Module.Navigation.ViewModels
                 return;
 
             if (page.Modal)
-                await NavigationService.NavigateAsync($"NavigationPage/{page.Page}", useModalNavigation: true);
+                NavigationService.NavigateAsync($"NavigationPage/{page.Page}", useModalNavigation: true);
             else
             {
                 if (page.Page == "HomePage")
                 {
-                    await NavigateHome();
+                    NavigateHome();
                 }
                 else
                 {
-                    await NavigationService.NavigateAsync(new Uri($"NavigationPage/{page.Page}", UriKind.Relative));
+                    NavigationService.NavigateAsync(new Uri($"NavigationPage/{page.Page}", UriKind.Relative));
                 }
             }
         }

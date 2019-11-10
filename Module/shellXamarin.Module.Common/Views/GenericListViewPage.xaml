@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Common.Views.GenericListViewPage" xmlns:translate="clr-namespace:shellXamarin.Module.Common.i18n" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common" Title="{Binding Items.Placeholder}">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="shellXamarin.Module.Common.Views.GenericListViewPage"
+             xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common"
+             Title="{Binding NavigationItem.Placeholder}">
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -9,11 +13,14 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <Grid Style="{StaticResource RootLayoutStyle}">
-            <ListView Style="{StaticResource ListStyle}" HeaderTemplate="{Binding NavigationItem.Placeholder}" HasUnevenRows="True" SeparatorVisibility="None" HeightRequest="10" ItemsSource="{Binding NavigationItem.Items,Mode=TwoWay}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}">
+            <ListView x:Name="listView" Style="{StaticResource ListStyle}" HeaderTemplate="{Binding NavigationItem.Placeholder}" HasUnevenRows="True" SeparatorVisibility="None" HeightRequest="10" ItemsSource="{Binding NavigationItem.Items,Mode=TwoWay}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell Height="40">
                             <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.SelectionChangedCommand, Source={x:Reference Name=listView}}" CommandParameter="{Binding }" />
+                                </Grid.GestureRecognizers>
                                 <Label Style="{StaticResource LabelStyle}" VerticalOptions="Center" Text="{Binding Title}"></Label>
                             </Grid>
                         </ViewCell>

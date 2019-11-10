@@ -128,7 +128,6 @@ namespace shellXamarin.Module.Account.ViewModels
                     NavigationContext = new NavigationContext
                     {
                         NavigationPage = "GenericListViewPage",
-                        PageTemplate = new DataTemplate(),
                         NavigationCommand = new DelegateCommand<NavigationItem<INavigationElementEntity>>(NavigationButton),
                     }
                 });

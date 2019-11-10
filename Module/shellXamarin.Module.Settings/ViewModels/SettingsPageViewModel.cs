@@ -88,10 +88,10 @@ namespace shellXamarin.Module.Settings.ViewModels
 
         private async Task LoadThemes()
         {
-            Themes = new List<string>();
-            Themes.Add("Dark");
-            Themes.Add("Light");
-            UsedTheme = Themes.FirstOrDefault();
+            //Themes = new List<string>();
+            //Themes.Add("Dark");
+            //Themes.Add("Light");
+            //UsedTheme = Themes.FirstOrDefault();
         }
 
 

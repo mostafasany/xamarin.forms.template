@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+﻿using Prism.Commands;
 using Prism.Navigation;
 using shellXamarin.Module.Common.FormBuilder.Models;
 using shellXamarin.Module.Common.Models;
@@ -31,19 +31,14 @@ namespace shellXamarin.Module.Common.ViewModels
         public INavigationElementEntity SelectedItem
         {
             get { return selectedItem; }
-            set
-            {
-                SetProperty(ref selectedItem, value);
-                SelectionChanged(value);
-            }
+            set { SetProperty(ref selectedItem, value); }
         }
-
 
         #endregion
 
         #region Methods
 
-        private async Task SelectionChanged(INavigationElementEntity _selectedItem)
+        private void SelectionChanged(INavigationElementEntity _selectedItem)
         {
             if (_selectedItem == null)
                 return;
@@ -51,7 +46,7 @@ namespace shellXamarin.Module.Common.ViewModels
             NavigationParameters parameters = new NavigationParameters();
             NavigationItem.SelectedValue = _selectedItem.Id;
             parameters.Add("SelectedNavigationItem", NavigationItem);
-            await NavigationService.GoBackAsync(parameters);
+            NavigationService.GoBackAsync(parameters);
         }
 
         #endregion
@@ -68,6 +63,7 @@ namespace shellXamarin.Module.Common.ViewModels
 
         #region Commands
 
+        public DelegateCommand<INavigationElementEntity> SelectionChangedCommand => new DelegateCommand<INavigationElementEntity>(SelectionChanged);
 
         #endregion
     }

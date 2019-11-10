@@ -99,7 +99,7 @@ namespace shellXamarin.Module.Common.ViewModels
                 throw new Exception("NavigationService not set");
             }
 
-            await NavigationService.NavigateAsync("/MasterDetailsPage/HomeTabbedPage");
+            NavigationService.NavigateAsync("/MasterDetailsPage/HomeTabbedPage");
 
             // await NavigationService.NavigateAsync("/MasterDetailsPage/NavigationPage/HomePage");
 

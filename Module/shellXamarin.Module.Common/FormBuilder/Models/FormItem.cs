@@ -159,12 +159,12 @@ namespace shellXamarin.Module.Common.FormBuilder.Models
 
         //Used in EntryValidationBehavior
         public bool IsValid => !IsInvalid();
-      
+
         public override bool IsInvalid()
         {
             if (Regex == null)
                 return false;
-            bool isInavlid= string.IsNullOrEmpty(text) || !Regex.Match(text).Success;
+            bool isInavlid = string.IsNullOrEmpty(text) || !Regex.Match(text).Success;
             return isInavlid;
         }
 
@@ -197,9 +197,6 @@ namespace shellXamarin.Module.Common.FormBuilder.Models
     public class NavigationContext
     {
         public string NavigationPage { get; set; }
-
-        //TODO: Check if it can be passed
-        public DataTemplate PageTemplate { get; set; }
 
         public DelegateCommand<NavigationItem<INavigationElementEntity>> NavigationCommand { get; set; }
     }

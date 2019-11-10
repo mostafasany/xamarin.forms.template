@@ -8,7 +8,7 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Entry Grid.Column="0" x:Name="entry" Style="{StaticResource FormEntryStyle}"  Margin="0,5" ReturnType="{Binding ReturnType}" Placeholder="{Binding Placeholder}" Text="{Binding Text,Mode=TwoWay,UpdateSourceEventName=TextChanged}" Keyboard="{Binding Keyboard}">
+                <Entry Grid.Column="0" x:Name="entry" Style="{StaticResource FormEntryStyle}"  Margin="0,5" ReturnType="{Binding ReturnType}" Placeholder="{Binding Placeholder}" Text="{Binding Text,Mode=TwoWay,UpdateSourceEventName=TextChanged}" Keyboard="{Binding Keyboard}" IsPassword="{Binding IsPassword}">
                     <Entry.Behaviors>
                         <behaviors:EntryValidationBehavior
                             IsValid="{Binding Source={x:Reference entry},Path=BindingContext.IsValid,Mode=TwoWay,UpdateSourceEventName=TextChanged}" ></behaviors:EntryValidationBehavior>
@@ -18,11 +18,11 @@
             </Grid>-->
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" TextColor="{Binding Required,Converter={StaticResource mandatoryToColorConverter}}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding Placeholder}"></Label>
-                <Entry Grid.Column="1" x:Name="entry" Style="{StaticResource FormEntryStyle}"  Margin="0,5" ReturnType="{Binding ReturnType}" Text="{Binding Text,Mode=TwoWay,UpdateSourceEventName=TextChanged}" Keyboard="{Binding Keyboard}">
+                <Label Grid.Column="0" TextColor="{Binding Required,Converter={StaticResource mandatoryToColorConverter}}" HorizontalOptions="Start"  VerticalOptions="Center" Text="{Binding Placeholder}"></Label>
+                <Entry Grid.Column="1" x:Name="entry" Style="{StaticResource FormEntryStyle}"  Margin="0,5" ReturnType="{Binding ReturnType}" Text="{Binding Text,Mode=TwoWay,UpdateSourceEventName=TextChanged}" Keyboard="{Binding Keyboard}" IsPassword="{Binding IsPassword}">
                     <Entry.Behaviors>
                         <behaviors:EntryValidationBehavior
                             IsValid="{Binding Source={x:Reference entry},Path=BindingContext.IsValid,Mode=TwoWay,UpdateSourceEventName=TextChanged}" ></behaviors:EntryValidationBehavior>
@@ -43,10 +43,10 @@
             </Grid>-->
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" TextColor="{Binding Required,Converter={StaticResource mandatoryToColorConverter}}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding Placeholder}"></Label>
+                <Label Grid.Column="0" TextColor="{Binding Required,Converter={StaticResource mandatoryToColorConverter}}" HorizontalOptions="Start"  VerticalOptions="Center" Text="{Binding Placeholder}"></Label>
                 <DatePicker Grid.Column="1" Style="{StaticResource DatePickerStyle}" Margin="0,5" Date="{Binding Date,Mode=TwoWay}"></DatePicker>
             </Grid>
         </ViewCell>
@@ -63,10 +63,10 @@
             </Grid>-->
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" TextColor="{Binding Required,Converter={StaticResource mandatoryToColorConverter}}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding Placeholder}"></Label>
+                <Label Grid.Column="0" TextColor="{Binding Required,Converter={StaticResource mandatoryToColorConverter}}" HorizontalOptions="Start"  VerticalOptions="Center" Text="{Binding Placeholder}"></Label>
                 <Picker  Grid.Column="1" Style="{StaticResource PickerStyle}" Margin="0,5" ItemsSource="{Binding Items,Mode=TwoWay}" SelectedItem="{Binding Selected}" />
             </Grid>
         </ViewCell>
@@ -83,10 +83,10 @@
             </Grid>-->
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" TextColor="{Binding Required,Converter={StaticResource mandatoryToColorConverter}}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding Placeholder}"></Label>
+                <Label Grid.Column="0" TextColor="{Binding Required,Converter={StaticResource mandatoryToColorConverter}}" HorizontalOptions="Start"  VerticalOptions="Center" Text="{Binding Placeholder}"></Label>
                 <Button Grid.Column="1"  Style="{StaticResource SecondaryButtonStyle}" Margin="0,5" CommandParameter="{Binding}" Command="{Binding NavigationContext.NavigationCommand}" Text="{Binding Selected.Title}"></Button>
             </Grid>
         </ViewCell>
