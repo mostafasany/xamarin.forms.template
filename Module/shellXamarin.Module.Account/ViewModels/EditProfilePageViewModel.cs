@@ -104,7 +104,7 @@ namespace shellXamarin.Module.Account.ViewModels
                     SelectedValue = user.Gender,
                     Required = false,
                     InvalidMessage = String.Empty,
-                    Placeholder = "Gender",
+                    Placeholder = AppResources.account_form_gender_placeholder,
                     RequiredMessage = string.Empty,
                 });
 
@@ -123,7 +123,7 @@ namespace shellXamarin.Module.Account.ViewModels
                     SelectedValue = user.City,
                     Required = true,
                     InvalidMessage = string.Empty,
-                    Placeholder = "Cities",
+                    Placeholder = AppResources.account_form_cities_placeholder,
                     RequiredMessage = string.Empty,
                     NavigationContext = new NavigationContext
                     {

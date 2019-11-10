@@ -33,6 +33,12 @@
     <data name="account.form.email.placeholder" xml:space="preserve">
         <value>Email</value>
     </data>
+    <data name="account.form.cities.placeholder" xml:space="preserve">
+        <value>Cities</value>
+    </data>
+    <data name="account.form.gender.placeholder" xml:space="preserve">
+        <value>Gender</value>
+    </data>
     <data name="account.form.header.personal" xml:space="preserve">
         <value>Personal Details</value>
     </data>

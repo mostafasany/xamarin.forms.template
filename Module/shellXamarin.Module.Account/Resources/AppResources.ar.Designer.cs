@@ -101,6 +101,18 @@ namespace shellXamarin.Module.Account.Resources {
             }
         }
         
+        internal static string account_form_cities_placeholder {
+            get {
+                return ResourceManager.GetString("account.form.cities.placeholder", resourceCulture);
+            }
+        }
+        
+        internal static string account_form_gender_placeholder {
+            get {
+                return ResourceManager.GetString("account.form.gender.placeholder", resourceCulture);
+            }
+        }
+        
         internal static string account_form_email_required {
             get {
                 return ResourceManager.GetString("account.form.email.required", resourceCulture);
