@@ -30,7 +30,7 @@
                                 <ViewCell>
                                     <Grid BackgroundColor="White">
                                         <Grid.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.OnNavigateCommand, Source={x:Reference Name=listView}}" CommandParameter="{Binding }" />
+                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.MenuItemGroupNavigateCommand, Source={x:Reference Name=listView}}" CommandParameter="{Binding }" />
                                         </Grid.GestureRecognizers>
                                         <StackLayout Margin="10,5" Orientation="Horizontal">
                                             <Label Text="{Binding Title}" VerticalOptions="Center" />
@@ -44,7 +44,7 @@
                                 <ViewCell>
                                     <Grid BackgroundColor="White">
                                         <Grid.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.OnNavigateCommand, Source={x:Reference Name=listView}}" CommandParameter="{Binding }" />
+                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.MenuItemNavigateCommand, Source={x:Reference Name=listView}}" CommandParameter="{Binding }" />
                                         </Grid.GestureRecognizers>
                                         <StackLayout Margin="12,0" Orientation="Horizontal">
                                             <controls:SVGImageControl WidthRequest="15" HeightRequest="15" LocalResourcePath="{ Binding Icon }" />

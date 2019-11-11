@@ -15,11 +15,11 @@ namespace shellXamarin.Module.Navigation.BuinessServices
             _menuDataService = menuDataService;
         }
 
-        public async Task<List<MenuElement>> GetMenuItemsAsync(bool isLogin = true)
+        public async Task<List<MenuElementGroup>> GetMenuItemsAsync(bool isLogin = true)
         {
             try
             {
-                var menuItems = new List<MenuElement>();
+                var menuItems = new List<MenuElementGroup>();
                 var menuItemsDto = await _menuDataService.GetMenuItemsAsync();
                 foreach (var itemDto in menuItemsDto)
                 {
@@ -31,11 +31,13 @@ namespace shellXamarin.Module.Navigation.BuinessServices
                             if (childrenDto.RequireLogin.HasValue)
                             {
                                 if (childrenDto.RequireLogin.Value == isLogin)
-                                    children.Add(new MenuElement(childrenDto.Title, childrenDto.Page, childrenDto.Icon, childrenDto.CanNavigate, childrenDto.Modal));
+                                    children.Add(new MenuElement(childrenDto.Title, childrenDto.Page,
+                                        childrenDto.Icon, childrenDto.CanNavigate, childrenDto.Modal));
                             }
                             else
                             {
-                                children.Add(new MenuElement(childrenDto.Title, childrenDto.Page, childrenDto.Icon, childrenDto.CanNavigate, childrenDto.Modal));
+                                children.Add(new MenuElement(childrenDto.Title, childrenDto.Page,
+                                    childrenDto.Icon, childrenDto.CanNavigate, childrenDto.Modal));
                             }
 
                         }
@@ -43,11 +45,13 @@ namespace shellXamarin.Module.Navigation.BuinessServices
                     if (itemDto.RequireLogin.HasValue)
                     {
                         if (itemDto.RequireLogin.Value == isLogin)
-                            menuItems.Add(new MenuElement(itemDto.Title, itemDto.Page, itemDto.Icon, itemDto.CanNavigate, itemDto.Modal, children));
+                            menuItems.Add(new MenuElementGroup(itemDto.Title, itemDto.Page, itemDto.Icon,
+                                itemDto.CanNavigate, itemDto.Modal, children));
                     }
                     else
                     {
-                        menuItems.Add(new MenuElement(itemDto.Title, itemDto.Page, itemDto.Icon, itemDto.CanNavigate, itemDto.Modal, children));
+                        menuItems.Add(new MenuElementGroup(itemDto.Title, itemDto.Page, itemDto.Icon,
+                            itemDto.CanNavigate, itemDto.Modal, children));
                     }
 
                 }
