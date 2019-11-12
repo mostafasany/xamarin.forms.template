@@ -19,15 +19,7 @@ namespace shellXamarin.Module.Common.i18n
         public TranslateExtension()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var platform = DeviceInfo.Platform;
-            if (platform == DevicePlatform.UWP)
-            {
-                resourceId = string.Format("{0}/Resources/AppResources", assembly.GetName().Name);
-            }
-            else
-            {
-                resourceId = string.Format("{0}.Resources.AppResources", assembly.GetName().Name);
-            }
+            resourceId = string.Format("{0}.Resources.AppResources", assembly.GetName().Name);
             Resmgr = new Lazy<ResourceManager>(() => new ResourceManager(resourceId, assembly));
         }
 
@@ -36,8 +28,12 @@ namespace shellXamarin.Module.Common.i18n
         public object ProvideValue(IServiceProvider serviceProvider)
         {
             CultureInfo ci = CrossMultilingual.Current.CurrentCultureInfo;
+            if (DeviceInfo.Platform == DevicePlatform.UWP)
+            {
+                Text = Text.Replace(".", "/");
+            }
             string translation = Resmgr.Value.GetString(Text, ci);
-
+           
             if (translation == null)
             {
                 translation = string.Format("{{{0}}}", Text); // returns the key, which GETS DISPLAYED TO THE USER
