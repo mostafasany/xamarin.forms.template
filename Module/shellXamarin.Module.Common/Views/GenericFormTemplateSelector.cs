@@ -15,6 +15,8 @@ namespace shellXamarin.Module.Common.Views
         public DataTemplate ButtonTemplate { get; set; }
         public DataTemplate DefaultTemplate { get; set; }
 
+
+
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
             if (item is EntryItem)

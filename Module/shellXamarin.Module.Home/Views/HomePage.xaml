@@ -1,20 +1,47 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Home.Views.HomePage" xmlns:translate="clr-namespace:shellXamarin.Module.Home.i18n" Title="{translate:Translate home.title}" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common">
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    FlowDirection="{Binding FlowDirection}"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="shellXamarin.Module.Home.Views.HomePage"
+    xmlns:translate="clr-namespace:shellXamarin.Module.Home.i18n"
+    Title="{translate:Translate home.title}"
+    xmlns:selectors="clr-namespace:shellXamarin.Module.Home.Views;assembly=shellXamarin.Module.Home"
+    xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common">
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <styles:AppStyles></styles:AppStyles>
+                <selectors:HomeTemplates></selectors:HomeTemplates>
             </ResourceDictionary.MergedDictionaries>
+            <selectors:HomeTemplateSelector
+                x:Key="homeTemplateSelector"
+                ChooseRoleTemplate="{StaticResource chooseRoleTemplate}"
+                FeedsTemplate="{StaticResource feedsTemplate}"
+                CommingGameTemplate="{StaticResource commingGameTemplate}"
+                TeamRankingTemplate="{StaticResource teamRankingTemplate}"
+                DefaultTemplate="{StaticResource defaultTemplate}" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid Style="{StaticResource RootLayoutStyle}">
+
+        <Grid
+            Style="{StaticResource RootLayoutStyle}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition
+                    Height="*"></RowDefinition>
+                <RowDefinition
+                    Height="Auto"></RowDefinition>
+                <RowDefinition
+                    Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <ActivityIndicator Grid.Row="0" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
+            <ListView
+                SelectionMode="None"
+                Style="{StaticResource ListStyle}"
+                HasUnevenRows="True"
+                ItemsSource="{Binding HomeModel}"
+                ItemTemplate="{StaticResource homeTemplateSelector}" />
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>
