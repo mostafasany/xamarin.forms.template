@@ -63,7 +63,7 @@ namespace shellXamarin.Module.Settings.ViewModels
             set
             {
                 SetProperty(ref usedTheme, value);
-                if(usedTheme!=null)
+                if (usedTheme != null)
                 {
                     LocalService.ChangeTheme(usedTheme);
                 }
@@ -79,19 +79,21 @@ namespace shellXamarin.Module.Settings.ViewModels
             var langs = await _settingsService.GetLanguagesAsync();
             if (langs != null && langs.Any())
             {
+                //TODO: Argument exeption when navigate twice to settings pages
                 Languages = langs;
                 UsedLanguage = languages.FirstOrDefault(lang => lang.Id == LocalService?.UsedLanague?.Id);
-                Languages.Remove(usedLanguage);
+                if (UsedLanguage != null)
+                    Languages.Remove(usedLanguage);
             }
         }
 
 
         private async Task LoadThemes()
         {
-            //Themes = new List<string>();
-            //Themes.Add("Dark");
-            //Themes.Add("Light");
-            //UsedTheme = Themes.FirstOrDefault();
+            Themes = new List<string>();
+            Themes.Add("Dark");
+            Themes.Add("Light");
+            UsedTheme = Themes.FirstOrDefault();
         }
 
 
@@ -113,7 +115,7 @@ namespace shellXamarin.Module.Settings.ViewModels
         {
             await LoadLanguages();
 
-            await LoadThemes();
+            //await LoadThemes();
 
             await base.Load();
         }

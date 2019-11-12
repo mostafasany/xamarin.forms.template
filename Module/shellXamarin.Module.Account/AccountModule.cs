@@ -4,7 +4,7 @@ using Prism.Ioc;
 using Prism.Modularity;
 using shellXamarin.Module.Account.BuinessServices;
 using shellXamarin.Module.Account.DataServices;
-using shellXamarin.Module.Account.Resources;
+using shellXamarin.Module.Common.Resources;
 using shellXamarin.Module.Account.ViewModels;
 using shellXamarin.Module.Account.Views;
 using shellXamarin.Module.Common.Models;

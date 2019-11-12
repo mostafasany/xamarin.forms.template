@@ -16,7 +16,7 @@ namespace shellXamarin.Module.Common.Resources {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class AppResources {
+    public class AppResources {
         
         private static System.Resources.ResourceManager resourceMan;
         
@@ -27,7 +27,7 @@ namespace shellXamarin.Module.Common.Resources {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static System.Resources.ResourceManager ResourceManager {
+        public static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
                     System.Resources.ResourceManager temp = new System.Resources.ResourceManager("shellXamarin.Module.Common.Resources.AppResources", typeof(AppResources).Assembly);
@@ -38,7 +38,7 @@ namespace shellXamarin.Module.Common.Resources {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static System.Globalization.CultureInfo Culture {
+        public static System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -47,15 +47,255 @@ namespace shellXamarin.Module.Common.Resources {
             }
         }
         
-        internal static string dialog_ok {
+        public static string dialog_ok {
             get {
                 return ResourceManager.GetString("dialog.ok", resourceCulture);
             }
         }
         
-        internal static string dialog_exception {
+        public static string dialog_exception {
             get {
                 return ResourceManager.GetString("dialog.exception", resourceCulture);
+            }
+        }
+        
+        public static string startup_action_proceed {
+            get {
+                return ResourceManager.GetString("startup.action.proceed", resourceCulture);
+            }
+        }
+        
+        public static string navigation_tab_home {
+            get {
+                return ResourceManager.GetString("navigation.tab.home", resourceCulture);
+            }
+        }
+        
+        public static string navigation_tab_settings {
+            get {
+                return ResourceManager.GetString("navigation.tab.settings", resourceCulture);
+            }
+        }
+        
+        public static string navigation_menu_logout {
+            get {
+                return ResourceManager.GetString("navigation.menu.logout", resourceCulture);
+            }
+        }
+        
+        public static string home_title {
+            get {
+                return ResourceManager.GetString("home.title", resourceCulture);
+            }
+        }
+        
+        public static string home_action_navigation_settings {
+            get {
+                return ResourceManager.GetString("home.action.navigation.settings", resourceCulture);
+            }
+        }
+        
+        public static string home_action_navigation_login {
+            get {
+                return ResourceManager.GetString("home.action.navigation.login", resourceCulture);
+            }
+        }
+        
+        public static string settings_title {
+            get {
+                return ResourceManager.GetString("settings.title", resourceCulture);
+            }
+        }
+        
+        public static string settings_action_logout {
+            get {
+                return ResourceManager.GetString("settings.action.logout", resourceCulture);
+            }
+        }
+        
+        public static string settings_languages_header {
+            get {
+                return ResourceManager.GetString("settings.languages.header", resourceCulture);
+            }
+        }
+        
+        public static string settings_themes_header {
+            get {
+                return ResourceManager.GetString("settings.themes.header", resourceCulture);
+            }
+        }
+        
+        public static string account_login_title {
+            get {
+                return ResourceManager.GetString("account.login.title", resourceCulture);
+            }
+        }
+        
+        public static string account_register_title {
+            get {
+                return ResourceManager.GetString("account.register.title", resourceCulture);
+            }
+        }
+        
+        public static string account_edit_title {
+            get {
+                return ResourceManager.GetString("account.edit.title", resourceCulture);
+            }
+        }
+        
+        public static string account_action_login {
+            get {
+                return ResourceManager.GetString("account.action.login", resourceCulture);
+            }
+        }
+        
+        public static string account_action_update {
+            get {
+                return ResourceManager.GetString("account.action.update", resourceCulture);
+            }
+        }
+        
+        public static string account_action_back {
+            get {
+                return ResourceManager.GetString("account.action.back", resourceCulture);
+            }
+        }
+        
+        public static string account_form_email_placeholder {
+            get {
+                return ResourceManager.GetString("account.form.email.placeholder", resourceCulture);
+            }
+        }
+        
+        public static string account_form_cities_placeholder {
+            get {
+                return ResourceManager.GetString("account.form.cities.placeholder", resourceCulture);
+            }
+        }
+        
+        public static string account_form_gender_placeholder {
+            get {
+                return ResourceManager.GetString("account.form.gender.placeholder", resourceCulture);
+            }
+        }
+        
+        public static string account_form_header_personal {
+            get {
+                return ResourceManager.GetString("account.form.header.personal", resourceCulture);
+            }
+        }
+        
+        public static string account_form_header_location {
+            get {
+                return ResourceManager.GetString("account.form.header.location", resourceCulture);
+            }
+        }
+        
+        public static string account_form_email_required {
+            get {
+                return ResourceManager.GetString("account.form.email.required", resourceCulture);
+            }
+        }
+        
+        public static string account_form_email_invalid {
+            get {
+                return ResourceManager.GetString("account.form.email.invalid", resourceCulture);
+            }
+        }
+        
+        public static string account_form_password_placeholder {
+            get {
+                return ResourceManager.GetString("account.form.password.placeholder", resourceCulture);
+            }
+        }
+        
+        public static string account_form_password_required {
+            get {
+                return ResourceManager.GetString("account.form.password.required", resourceCulture);
+            }
+        }
+        
+        public static string account_form_invalid {
+            get {
+                return ResourceManager.GetString("account.form.invalid", resourceCulture);
+            }
+        }
+        
+        public static string account_cancel {
+            get {
+                return ResourceManager.GetString("account.cancel", resourceCulture);
+            }
+        }
+        
+        public static string account_ok {
+            get {
+                return ResourceManager.GetString("account.ok", resourceCulture);
+            }
+        }
+        
+        public static string account_form_firstname_placeholder {
+            get {
+                return ResourceManager.GetString("account.form.firstname.placeholder", resourceCulture);
+            }
+        }
+        
+        public static string account_form_firstname_required {
+            get {
+                return ResourceManager.GetString("account.form.firstname.required", resourceCulture);
+            }
+        }
+        
+        public static string account_form_firstname_invalid {
+            get {
+                return ResourceManager.GetString("account.form.firstname.invalid", resourceCulture);
+            }
+        }
+        
+        public static string account_form_lastname_placeholder {
+            get {
+                return ResourceManager.GetString("account.form.lastname.placeholder", resourceCulture);
+            }
+        }
+        
+        public static string account_form_lastname_required {
+            get {
+                return ResourceManager.GetString("account.form.lastname.required", resourceCulture);
+            }
+        }
+        
+        public static string account_form_lastname_invalid {
+            get {
+                return ResourceManager.GetString("account.form.lastname.invalid", resourceCulture);
+            }
+        }
+        
+        public static string account_form_dob_placeholder {
+            get {
+                return ResourceManager.GetString("account.form.dob.placeholder", resourceCulture);
+            }
+        }
+        
+        public static string account_form_dob_required {
+            get {
+                return ResourceManager.GetString("account.form.dob.required", resourceCulture);
+            }
+        }
+        
+        public static string account_form_dob_invalid {
+            get {
+                return ResourceManager.GetString("account.form.dob.invalid", resourceCulture);
+            }
+        }
+        
+        public static string account_form_newsletter_placeholder {
+            get {
+                return ResourceManager.GetString("account.form.newsletter.placeholder", resourceCulture);
+            }
+        }
+        
+        public static string account_form_newsletter_required {
+            get {
+                return ResourceManager.GetString("account.form.newsletter.required", resourceCulture);
             }
         }
     }

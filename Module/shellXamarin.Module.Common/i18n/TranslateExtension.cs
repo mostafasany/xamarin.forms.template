@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Reflection;
 using System.Resources;
 using Plugin.Multilingual;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace shellXamarin.Module.Common.i18n
 {
     // You exclude the 'Extension' suffix when using in Xaml markup
     [ContentProperty(nameof(Text))]
-    internal class TranslateExtension : IMarkupExtension
+    public class TranslateExtension : IMarkupExtension
     {
         private readonly Lazy<ResourceManager> Resmgr;
         private readonly string resourceId;
@@ -18,7 +19,15 @@ namespace shellXamarin.Module.Common.i18n
         public TranslateExtension()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            resourceId = string.Format("{0}.Resources.AppResources", assembly.GetName().Name);
+            var platform = DeviceInfo.Platform;
+            if (platform == DevicePlatform.UWP)
+            {
+                resourceId = string.Format("{0}/Resources/AppResources", assembly.GetName().Name);
+            }
+            else
+            {
+                resourceId = string.Format("{0}.Resources.AppResources", assembly.GetName().Name);
+            }
             Resmgr = new Lazy<ResourceManager>(() => new ResourceManager(resourceId, assembly));
         }
 

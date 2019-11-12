@@ -5,7 +5,7 @@ using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
 using shellXamarin.Module.Account.BuinessServices;
-using shellXamarin.Module.Account.Resources;
+using shellXamarin.Module.Common.Resources;
 using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.FormBuilder.Models;
 using shellXamarin.Module.Common.Services;

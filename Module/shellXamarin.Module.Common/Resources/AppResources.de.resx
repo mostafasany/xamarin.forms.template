@@ -13,9 +13,171 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="dialog.ok" xml:space="preserve">
-        <value>okay</value>
-    </data>
+    <value>okay</value>
+    <comment>ok</comment>
+  </data>
     <data name="dialog.exception" xml:space="preserve">
-        <value>Entschuldigung für die Unannehmlichkeiten</value>
-    </data>
+    <value>Entschuldigung für die Unannehmlichkeiten</value>
+    <comment>Sorry for the inconvenience</comment>
+  </data>
+    <data name="startup.action.proceed" xml:space="preserve">
+    <value>Vorgehen</value>
+    <comment>Proceed</comment>
+  </data>
+    <data name="navigation.tab.home" xml:space="preserve">
+    <value>Zuhause</value>
+    <comment>Home</comment>
+  </data>
+    <data name="navigation.tab.settings" xml:space="preserve">
+    <value>die Einstellungen</value>
+    <comment>Settings</comment>
+  </data>
+    <data name="navigation.menu.logout" xml:space="preserve">
+    <value>Ausloggen</value>
+    <comment>Logout</comment>
+  </data>
+    <data name="home.title" xml:space="preserve">
+    <value>Zuhause</value>
+    <comment>Home</comment>
+  </data>
+    <data name="home.action.navigation.settings" xml:space="preserve">
+    <value>Einstellungsseite</value>
+    <comment>Settings Page</comment>
+  </data>
+    <data name="home.action.navigation.login" xml:space="preserve">
+    <value>Loginseite</value>
+    <comment>Login Page</comment>
+  </data>
+    <data name="settings.title" xml:space="preserve">
+    <value>die Einstellungen</value>
+    <comment>Settings</comment>
+  </data>
+    <data name="settings.action.logout" xml:space="preserve">
+    <value>Ausloggen</value>
+    <comment>Logout</comment>
+  </data>
+    <data name="settings.languages.header" xml:space="preserve">
+    <value>Sprachen</value>
+    <comment>Languages</comment>
+  </data>
+    <data name="settings.themes.header" xml:space="preserve">
+    <value>Themen</value>
+    <comment>Themes</comment>
+  </data>
+    <data name="account.login.title" xml:space="preserve">
+    <value>Einloggen</value>
+    <comment>Login</comment>
+  </data>
+    <data name="account.register.title" xml:space="preserve">
+    <value>Registrieren</value>
+    <comment>Register</comment>
+  </data>
+    <data name="account.edit.title" xml:space="preserve">
+    <value>Bearbeiten</value>
+    <comment>Edit</comment>
+  </data>
+    <data name="account.action.login" xml:space="preserve">
+    <value>Einloggen</value>
+    <comment>Login</comment>
+  </data>
+    <data name="account.action.update" xml:space="preserve">
+    <value>Aktualisieren</value>
+    <comment>Update</comment>
+  </data>
+    <data name="account.action.back" xml:space="preserve">
+    <value>Zurück</value>
+    <comment>Back</comment>
+  </data>
+    <data name="account.form.email.placeholder" xml:space="preserve">
+    <value>Email</value>
+    <comment>Email</comment>
+  </data>
+    <data name="account.form.cities.placeholder" xml:space="preserve">
+    <value>Städte</value>
+    <comment>Cities</comment>
+  </data>
+    <data name="account.form.gender.placeholder" xml:space="preserve">
+    <value>Geschlecht</value>
+    <comment>Gender</comment>
+  </data>
+    <data name="account.form.header.personal" xml:space="preserve">
+    <value>Persönliche Daten</value>
+    <comment>Personal Details</comment>
+  </data>
+    <data name="account.form.header.location" xml:space="preserve">
+    <value>Lage</value>
+    <comment>Location</comment>
+  </data>
+    <data name="account.form.email.required" xml:space="preserve">
+    <value>Email (erforderlich</value>
+    <comment>Email Required</comment>
+  </data>
+    <data name="account.form.email.invalid" xml:space="preserve">
+    <value>E-Mail ungültig</value>
+    <comment>Email invalid</comment>
+  </data>
+    <data name="account.form.password.placeholder" xml:space="preserve">
+    <value>Passwort</value>
+    <comment>Password</comment>
+  </data>
+    <data name="account.form.password.required" xml:space="preserve">
+    <value>Passwort erforderlich</value>
+    <comment>Password Required</comment>
+  </data>
+    <data name="account.form.invalid" xml:space="preserve">
+    <value>Email / Passwort ungültig</value>
+    <comment>Email/Password invalid</comment>
+  </data>
+    <data name="account.cancel" xml:space="preserve">
+    <value>Stornieren</value>
+    <comment>Cancel</comment>
+  </data>
+    <data name="account.ok" xml:space="preserve">
+    <value>okay</value>
+    <comment>ok</comment>
+  </data>
+    <data name="account.form.firstname.placeholder" xml:space="preserve">
+    <value>Vorname</value>
+    <comment>First name</comment>
+  </data>
+    <data name="account.form.firstname.required" xml:space="preserve">
+    <value>Vorname ist erforderlich</value>
+    <comment>First name is requried</comment>
+  </data>
+    <data name="account.form.firstname.invalid" xml:space="preserve">
+    <value>Vorname ist ungültig</value>
+    <comment>First name is invalid</comment>
+  </data>
+    <data name="account.form.lastname.placeholder" xml:space="preserve">
+    <value>Nachname</value>
+    <comment>Last name</comment>
+  </data>
+    <data name="account.form.lastname.required" xml:space="preserve">
+    <value>Nachname ist erforderlich</value>
+    <comment>Last name is requried</comment>
+  </data>
+    <data name="account.form.lastname.invalid" xml:space="preserve">
+    <value>Nachname ist ungültig</value>
+    <comment>Last name is invalid</comment>
+  </data>
+    <data name="account.form.dob.placeholder" xml:space="preserve">
+    <value>Geburtsdatum</value>
+    <comment>Date of Birth</comment>
+  </data>
+    <data name="account.form.dob.required" xml:space="preserve">
+    <value>Geburtsdatum ist erforderlich</value>
+    <comment>Date of Birth is requried</comment>
+  </data>
+    <data name="account.form.dob.invalid" xml:space="preserve">
+    <value>Geburtsdatum ist ungültig</value>
+    <comment>Date of Birth is invalid</comment>
+  </data>
+    <data name="account.form.newsletter.placeholder" xml:space="preserve">
+    <value>Newsletter</value>
+    <comment>News letter</comment>
+  </data>
+    <data name="account.form.newsletter.required" xml:space="preserve">
+    <value>Newsletter erforderlich</value>
+    <comment>News letter requried</comment>
+  </data>
 </root>
