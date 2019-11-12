@@ -7,8 +7,7 @@
     x:Class="shellXamarin.Module.Home.Views.HomeTemplates">
 
     <DataTemplate
-        x:Key="chooseRoleTemplate"
-        x:Name="RoleTemplate">
+        x:Key="chooseRoleTemplate">
         <ViewCell>
             <Grid
                 Margin="10,10">
