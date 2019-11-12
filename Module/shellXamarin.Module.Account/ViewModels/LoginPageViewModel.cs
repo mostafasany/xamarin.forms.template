@@ -76,6 +76,7 @@ namespace shellXamarin.Module.Account.ViewModels
                     Regex = new Regex(@"^.{6,12}$"),
                     MinChar = 6,
                     RequiredMessage = AppResources.account_form_password_required,
+                    InvalidMessage = AppResources.account_form_password_invalid,
                     ReturnType = ReturnType.Default,
                 });
 
