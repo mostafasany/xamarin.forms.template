@@ -62,5 +62,15 @@
     "badge": 1,
     "page": "SettingsPage",
     "children": []
+  },
+  {
+    "id": "2",
+    "modal": false,
+    "canNavigate": true,
+    "Title": "Home",
+    "icon": "home.svg",
+    "badge": 1,
+    "page": "ElLa3ebaHomePage",
+    "children": []
   }
 ]

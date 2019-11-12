@@ -1,5 +1,43 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.ElLa3eba.Views.ElLa3ebaHomePage">
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="shellXamarin.Module.ElLa3eba.Views.ElLa3ebaHomePage"
+    xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common"
+    xmlns:selectors="clr-namespace:shellXamarin.Module.ElLa3eba.Templates;assembly=shellXamarin.Module.ElLa3eba">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <styles:AppStyles></styles:AppStyles>
+                <selectors:HomeTemplates></selectors:HomeTemplates>
+            </ResourceDictionary.MergedDictionaries>
+            <selectors:HomeTemplateSelector
+                x:Key="homeTemplateSelector"
+                ChooseRoleTemplate="{StaticResource chooseRoleTemplate}"
+                FeedsTemplate="{StaticResource feedsTemplate}"
+                CommingGameTemplate="{StaticResource commingGameTemplate}"
+                TeamRankingTemplate="{StaticResource teamRankingTemplate}"
+                DefaultTemplate="{StaticResource defaultTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
+        <Grid
+            Style="{StaticResource RootLayoutStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="*"></RowDefinition>
+                <RowDefinition
+                    Height="Auto"></RowDefinition>
+                <RowDefinition
+                    Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ListView
+                SelectionMode="None"
+                Style="{StaticResource ListStyle}"
+                HasUnevenRows="True"
+                ItemsSource="{Binding HomeModel}"
+                ItemTemplate="{StaticResource homeTemplateSelector}" />
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

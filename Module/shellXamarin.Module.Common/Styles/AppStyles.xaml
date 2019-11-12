@@ -1,102 +1,225 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
-<ResourceDictionary MergedWith="theme:DarkTheme" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:theme="clr-namespace:shellXamarin.Module.Common.Themes;assembly=shellXamarin.Module.Common" x:Class="shellXamarin.Module.Common.Styles.AppStyles">
+<ResourceDictionary
+    MergedWith="theme:LightTheme"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:theme="clr-namespace:shellXamarin.Module.Common.Themes;assembly=shellXamarin.Module.Common"
+    x:Class="shellXamarin.Module.Common.Styles.AppStyles">
 
     <!-- Root Layout Styles -->
-    <Style x:Key="RootLayoutStyle" TargetType="Grid">
-        <Setter Property="Padding" Value="15,60,15,15" />
-        <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
+    <Style
+        x:Key="RootLayoutStyle"
+        TargetType="Grid">
+        <Setter
+            Property="Padding"
+            Value="15,60,15,15" />
+        <Setter
+            Property="BackgroundColor"
+            Value="{DynamicResource BackgroundColor}" />
     </Style>
 
     <!-- Seperator Styles -->
-    <Style x:Key="SeparatorStyle" TargetType="BoxView">
-        <Setter Property="HeightRequest" Value="1" />
-        <Setter Property="WidthRequest" Value="400" />
-        <Setter Property="BackgroundColor" Value="{DynamicResource SeparatorColor}" />
-        <Setter Property="HorizontalOptions" Value="Center" />
+    <Style
+        x:Key="SeparatorStyle"
+        TargetType="BoxView">
+        <Setter
+            Property="HeightRequest"
+            Value="1" />
+        <Setter
+            Property="WidthRequest"
+            Value="400" />
+        <Setter
+            Property="BackgroundColor"
+            Value="{DynamicResource SeparatorColor}" />
+        <Setter
+            Property="HorizontalOptions"
+            Value="Center" />
     </Style>
 
     <!-- ActivityIndicator Styles -->
-    <Style x:Key="ActivityIndicatorStyle" TargetType="ActivityIndicator">
-        <Setter Property="Color" Value="{DynamicResource SpinnerColor}" />
-        <Setter Property="WidthRequest" Value="80" />
-        <Setter Property="HeightRequest" Value="80" />
+    <Style
+        x:Key="ActivityIndicatorStyle"
+        TargetType="ActivityIndicator">
+        <Setter
+            Property="Color"
+            Value="{DynamicResource SpinnerColor}" />
+        <Setter
+            Property="WidthRequest"
+            Value="80" />
+        <Setter
+            Property="HeightRequest"
+            Value="80" />
     </Style>
 
 
     <!-- DatePicker Styles -->
-    <Style x:Key="DatePickerStyle" TargetType="DatePicker">
-        <Setter Property="TextColor" Value="Black" />
-        <Setter Property="HeightRequest" Value="50" />
-        <Setter Property="BackgroundColor" Value="White" />
+    <Style
+        x:Key="DatePickerStyle"
+        TargetType="DatePicker">
+        <Setter
+            Property="TextColor"
+            Value="Black" />
+        <Setter
+            Property="HeightRequest"
+            Value="50" />
+        <Setter
+            Property="BackgroundColor"
+            Value="White" />
     </Style>
 
     <!-- Picker Styles -->
-    <Style x:Key="PickerStyle" TargetType="Picker">
-        <Setter Property="TextColor" Value="Black" />
-        <Setter Property="HeightRequest" Value="50" />
-        <Setter Property="BackgroundColor" Value="White" />
+    <Style
+        x:Key="PickerStyle"
+        TargetType="Picker">
+        <Setter
+            Property="TextColor"
+            Value="Black" />
+        <Setter
+            Property="HeightRequest"
+            Value="50" />
+        <Setter
+            Property="BackgroundColor"
+            Value="White" />
     </Style>
 
 
     <!-- Entry Styles -->
-    <Style x:Key="FormEntryStyle" TargetType="Entry">
-        <Setter Property="PlaceholderColor" Value="Gray" />
-        <Setter Property="TextColor" Value="Black" />
-        <Setter Property="HeightRequest" Value="50" />
-        <Setter Property="BackgroundColor" Value="White" />
+    <Style
+        x:Key="FormEntryStyle"
+        TargetType="Entry">
+        <Setter
+            Property="PlaceholderColor"
+            Value="Gray" />
+        <Setter
+            Property="TextColor"
+            Value="Black" />
+        <Setter
+            Property="HeightRequest"
+            Value="50" />
+        <Setter
+            Property="BackgroundColor"
+            Value="White" />
     </Style>
 
 
     <!-- Label Styles -->
-    <Style x:Key="LabelStyle" TargetType="Label">
-        <Setter Property="TextColor" Value="{DynamicResource LabelTextColor}" />
-        <Setter Property="BackgroundColor" Value="{DynamicResource LabelBackgroundColor}" />
-        <Setter Property="FontSize" Value="{DynamicResource BaseFontSize}" />
+    <Style
+        x:Key="LabelStyle"
+        TargetType="Label">
+        <Setter
+            Property="TextColor"
+            Value="{DynamicResource LabelTextColor}" />
+        <Setter
+            Property="BackgroundColor"
+            Value="{DynamicResource LabelBackgroundColor}" />
+        <Setter
+            Property="FontSize"
+            Value="{DynamicResource BaseFontSize}" />
     </Style>
 
-    <Style x:Key="LabelHeaderStyle" TargetType="Label">
-        <Setter Property="TextColor" Value="{DynamicResource LabelTextColor}" />
-        <Setter Property="BackgroundColor" Value="{DynamicResource LabelBackgroundColor}" />
-        <Setter Property="FontSize" Value="{DynamicResource BaseHeaderFontSize}" />
+    <Style
+        x:Key="LabelHeaderStyle"
+        TargetType="Label">
+        <Setter
+            Property="TextColor"
+            Value="{DynamicResource LabelTextColor}" />
+        <Setter
+            Property="BackgroundColor"
+            Value="{DynamicResource LabelBackgroundColor}" />
+        <Setter
+            Property="FontSize"
+            Value="{DynamicResource BaseHeaderFontSize}" />
     </Style>
 
 
     <!-- List Styles -->
-    <Style x:Key="ListStyle" TargetType="ListView">
-        <Setter Property="BackgroundColor" Value="{DynamicResource ListBackgroundColor}" />
+    <Style
+        x:Key="ListStyle"
+        TargetType="ListView">
+        <Setter
+            Property="BackgroundColor"
+            Value="{DynamicResource ListBackgroundColor}" />
     </Style>
 
 
     <!-- BUTTONS Styles -->
-    <Style x:Key="BaseButtonStyle" TargetType="Button">
-        <Setter Property="VerticalOptions" Value="Center"></Setter>
-        <Setter Property="HeightRequest" Value="{StaticResource BaseButtonHeight}" />
-        <Setter Property="FontSize" Value="{DynamicResource BaseFontSize}" />
+    <Style
+        x:Key="BaseButtonStyle"
+        TargetType="Button">
+        <Setter
+            Property="VerticalOptions"
+            Value="Center"></Setter>
+        <Setter
+            Property="HeightRequest"
+            Value="{StaticResource BaseButtonHeight}" />
+        <Setter
+            Property="FontSize"
+            Value="{DynamicResource BaseFontSize}" />
     </Style>
-    <Style x:Key="RoundedButtonStyle" TargetType="Button">
-        <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
-        <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryButtonColor}" />
-        <Setter Property="BorderRadius" Value="{DynamicResource BaseButtonBorderRadius}" />
-        <Setter Property="BorderColor" Value="{DynamicResource SecondaryButtonColor}" />
-        <Setter Property="BorderWidth" Value="1" />
+    <Style
+        x:Key="RoundedButtonStyle"
+        TargetType="Button">
+        <Setter
+            Property="TextColor"
+            Value="{DynamicResource BaseTextColor}" />
+        <Setter
+            Property="BackgroundColor"
+            Value="{DynamicResource PrimaryButtonColor}" />
+        <Setter
+            Property="BorderRadius"
+            Value="{DynamicResource BaseButtonBorderRadius}" />
+        <Setter
+            Property="BorderColor"
+            Value="{DynamicResource SecondaryButtonColor}" />
+        <Setter
+            Property="BorderWidth"
+            Value="1" />
     </Style>
-    <Style x:Key="PrimaryButtonStyle" TargetType="Button">
-        <Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
-        <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryButtonColor}" />
-        <Setter Property="BorderColor" Value="{DynamicResource SecondaryButtonColor}" />
-        <Setter Property="BorderWidth" Value="1" />
+    <Style
+        x:Key="PrimaryButtonStyle"
+        TargetType="Button">
+        <Setter
+            Property="TextColor"
+            Value="{DynamicResource BaseTextColor}" />
+        <Setter
+            Property="BackgroundColor"
+            Value="{DynamicResource PrimaryButtonColor}" />
+        <Setter
+            Property="BorderColor"
+            Value="{DynamicResource SecondaryButtonColor}" />
+        <Setter
+            Property="BorderWidth"
+            Value="1" />
     </Style>
-    <Style x:Key="SecondaryButtonStyle" TargetType="Button">
-        <Setter Property="TextColor" Value="{DynamicResource PrimaryButtonColor}" />
-        <Setter Property="BackgroundColor" Value="{DynamicResource BaseTextColor}" />
-        <Setter Property="BorderColor" Value="{DynamicResource PrimaryButtonColor}" />
-        <Setter Property="BorderWidth" Value="1" />
+    <Style
+        x:Key="SecondaryButtonStyle"
+        TargetType="Button">
+        <Setter
+            Property="TextColor"
+            Value="{DynamicResource PrimaryButtonColor}" />
+        <Setter
+            Property="BackgroundColor"
+            Value="{DynamicResource BaseTextColor}" />
+        <Setter
+            Property="BorderColor"
+            Value="{DynamicResource PrimaryButtonColor}" />
+        <Setter
+            Property="BorderWidth"
+            Value="1" />
     </Style>
-    <Style x:Key="ImageButtonStyle" TargetType="ImageButton">
-        <Setter Property="VerticalOptions" Value="Center"></Setter>
-        <Setter Property="HeightRequest" Value="{StaticResource BaseButtonHeight}" />
-        <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryButtonColor}" />
+    <Style
+        x:Key="ImageButtonStyle"
+        TargetType="ImageButton">
+        <Setter
+            Property="VerticalOptions"
+            Value="Center"></Setter>
+        <Setter
+            Property="HeightRequest"
+            Value="{StaticResource BaseButtonHeight}" />
+        <Setter
+            Property="BackgroundColor"
+            Value="{DynamicResource PrimaryButtonColor}" />
     </Style>
 
 </ResourceDictionary>
