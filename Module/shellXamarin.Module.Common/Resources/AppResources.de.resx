@@ -124,6 +124,9 @@
     <value>Passwort erforderlich</value>
     <comment>Password Required</comment>
   </data>
+    <data name="account.form.password.invalid" xml:space="preserve">
+        <value>Passwort ungültig</value>
+    </data>
     <data name="account.form.invalid" xml:space="preserve">
     <value>Email / Passwort ungültig</value>
     <comment>Email/Password invalid</comment>

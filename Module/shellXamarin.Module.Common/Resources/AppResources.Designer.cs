@@ -215,6 +215,12 @@ namespace shellXamarin.Module.Common.Resources {
             }
         }
         
+        public static string account_form_password_invalid {
+            get {
+                return ResourceManager.GetString("account.form.password.invalid", resourceCulture);
+            }
+        }
+        
         public static string account_form_invalid {
             get {
                 return ResourceManager.GetString("account.form.invalid", resourceCulture);

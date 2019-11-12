@@ -124,6 +124,9 @@
     <value>كلمة المرور مطلوبة</value>
     <comment>Password Required</comment>
   </data>
+    <data name="account.form.password.invalid" xml:space="preserve">
+        <value>كلمة المرور غير صالحة</value>
+    </data>
     <data name="account.form.invalid" xml:space="preserve">
     <value>البريد الإلكتروني / كلمة المرور غير صالحة</value>
     <comment>Email/Password invalid</comment>
