@@ -11,5 +11,6 @@ namespace shellXamarin.Module.Home.Views
         {
             InitializeComponent();
         }
+
     }
 }

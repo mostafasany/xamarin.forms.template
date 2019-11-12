@@ -1,5 +1,4 @@
 ﻿using System;
-using FFImageLoading.Forms;
 using FFImageLoading.Svg.Forms;
 using Xamarin.Forms;
 
@@ -18,7 +17,6 @@ namespace shellXamarin.Module.Common.Controls
                     {
                         if (string.IsNullOrEmpty(svgImage))
                             return;
-                        CachedImage c = bindable as CachedImage;
 
                         var assembly = System.Reflection.Assembly.GetExecutingAssembly();
                         SvgImageSource source = Device.RuntimePlatform == Device.UWP
@@ -26,7 +24,6 @@ namespace shellXamarin.Module.Common.Controls
                             : SvgImageSource.FromResource(string.Format("{0}.Assets.{1}", assembly.GetName().Name, svgImage), assembly);
 
                         ((SVGImageControl)bindable).Source = source;
-
 
                     }
                     catch (Exception ex)

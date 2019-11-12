@@ -7,7 +7,8 @@
     x:Class="shellXamarin.Module.Home.Views.HomeTemplates">
 
     <DataTemplate
-        x:Key="chooseRoleTemplate">
+        x:Key="chooseRoleTemplate"
+        x:Name="RoleTemplate">
         <ViewCell>
             <Grid
                 Margin="10,10">
@@ -18,18 +19,20 @@
                         Width="*" />
                 </Grid.ColumnDefinitions>
                 <Frame
+                    x:Name="PlayerFrame"
                     Margin="0,10,0,10"
                     CornerRadius="10"
                     OutlineColor="Gray"
                     Padding="0"
                     Grid.Column="0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding BecomePlayerCommand}"
+                            NumberOfTapsRequired="1"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
                     <StackLayout
                         Margin="0,5,0,0">
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer
-                                Command="{Binding BecomePlayerCommand}"
-                                NumberOfTapsRequired="1"></TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
+
                         <controls:SVGImageControl
                             VerticalOptions="Center"
                             HorizontalOptions="Center"
@@ -44,18 +47,20 @@
                     </StackLayout>
                 </Frame>
                 <Frame
+                    x:Name="ManagerFrame"
                     Margin="0,10,0,10"
                     CornerRadius="10"
                     OutlineColor="Gray"
                     Padding="0"
                     Grid.Column="1">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding BecomeManagerCommand}"
+                            NumberOfTapsRequired="1"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
                     <StackLayout
                         Margin="0,5,0,0">
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer
-                                Command="{Binding BecomeManagerCommand}"
-                                NumberOfTapsRequired="1"></TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
+
                         <controls:SVGImageControl
                             VerticalOptions="Center"
                             HorizontalOptions="Center"
@@ -122,8 +127,9 @@
                 <Label
                     BackgroundColor="Black"
                     TextColor="White"
-                    VerticalOptions="End"
-                    HorizontalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
                     Text="{Binding nextGame.MatchInfo}"
                     Margin="0,0,0,20"></Label>
                 <Grid>
@@ -205,7 +211,7 @@
                         TextColor="White"
                         Grid.Column="1"
                         Text="Decline"
-                        Command="{Binding AcceptCommand}"
+                        Command="{Binding DeclineCommand}"
                         HorizontalOptions="FillAndExpand"></Button>
                 </Grid>
                 <StackLayout
@@ -229,62 +235,109 @@
                 CornerRadius="10"
                 OutlineColor="Gray"
                 Padding="0">
-                <ListView
-                    HorizontalOptions="FillAndExpand"
-                    ItemsSource="{Binding TeamsRanking}"
-                    Margin="10,10">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <ViewCell.View>
-                                    <Grid
-                                        HorizontalOptions="FillAndExpand">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition
-                                                Width="*"></ColumnDefinition>
-                                            <ColumnDefinition
-                                                Width="*"></ColumnDefinition>
-                                            <ColumnDefinition
-                                                Width="*"></ColumnDefinition>
-                                            <ColumnDefinition
-                                                Width="*"></ColumnDefinition>
-                                            <ColumnDefinition
-                                                Width="*"></ColumnDefinition>
-                                            <ColumnDefinition
-                                                Width="*"></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
-                                        <Label
-                                            Grid.Column="0"
-                                            HorizontalOptions="Center"
-                                            Text="{Binding Rank}"></Label>
-                                        <Label
-                                            Grid.Column="1"
-                                            HorizontalOptions="StartAndExpand"
-                                            Text="{Binding Name}"
-                                            HorizontalTextAlignment="Start"></Label>
-                                        <Label
-                                            Grid.Column="2"
-                                            HorizontalOptions="Center"
-                                            Text="{Binding NumberOfWin}"></Label>
-                                        <Label
-                                            Grid.Column="3"
-                                            HorizontalOptions="Center"
-                                            Text="{Binding NumberOfLose}"></Label>
-                                        <Label
-                                            Grid.Column="4"
-                                            HorizontalOptions="Center"
-                                            Text="{Binding NumberOfDrawn}"></Label>
-                                        <Label
-                                            Grid.Column="5"
-                                            HorizontalOptions="Center"
-                                            Text="{Binding ScoredIn}"></Label>
-                                    </Grid>
-                                </ViewCell.View>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
+                <StackLayout>
+                    <Grid
+                        HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                Width="*"></ColumnDefinition>
+                            <ColumnDefinition
+                                Width="*"></ColumnDefinition>
+                            <ColumnDefinition
+                                Width="*"></ColumnDefinition>
+                            <ColumnDefinition
+                                Width="*"></ColumnDefinition>
+                            <ColumnDefinition
+                                Width="*"></ColumnDefinition>
+                            <ColumnDefinition
+                                Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Column="0"
+                            HorizontalOptions="Center"
+                            Text="Rank"></Label>
+                        <Label
+                            Grid.Column="1"
+                            HorizontalOptions="StartAndExpand"
+                            Text=" Name"
+                            HorizontalTextAlignment="Start"></Label>
+                        <Label
+                            Grid.Column="2"
+                            HorizontalOptions="Center"
+                            Text="Win"></Label>
+                        <Label
+                            Grid.Column="3"
+                            HorizontalOptions="Center"
+                            Text="lose"></Label>
+                        <Label
+                            Grid.Column="4"
+                            HorizontalOptions="Center"
+                            Text="Drawn"></Label>
+                        <Label
+                            Grid.Column="5"
+                            HorizontalOptions="Center"
+                            Text="Goals"></Label>
 
-                </ListView>
+
+                    </Grid>
+                    <ListView
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding TeamsRanking}"
+                        Margin="10,10">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.View>
+                                        <Grid
+                                            HorizontalOptions="FillAndExpand">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition
+                                                    Width="*"></ColumnDefinition>
+                                                <ColumnDefinition
+                                                    Width="*"></ColumnDefinition>
+                                                <ColumnDefinition
+                                                    Width="*"></ColumnDefinition>
+                                                <ColumnDefinition
+                                                    Width="*"></ColumnDefinition>
+                                                <ColumnDefinition
+                                                    Width="*"></ColumnDefinition>
+                                                <ColumnDefinition
+                                                    Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                                Grid.Column="0"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding Rank}"></Label>
+                                            <Label
+                                                Grid.Column="1"
+                                                HorizontalOptions="StartAndExpand"
+                                                Text="{Binding Name}"
+                                                HorizontalTextAlignment="Start"></Label>
+                                            <Label
+                                                Grid.Column="2"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding NumberOfWin}"></Label>
+                                            <Label
+                                                Grid.Column="3"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding NumberOfLose}"></Label>
+                                            <Label
+                                                Grid.Column="4"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding NumberOfDrawn}"></Label>
+                                            <Label
+                                                Grid.Column="5"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding ScoredIn}"></Label>
+                                        </Grid>
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+
+                </StackLayout>
 
             </Frame>
         </ViewCell>

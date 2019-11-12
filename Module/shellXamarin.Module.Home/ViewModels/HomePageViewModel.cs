@@ -75,6 +75,21 @@ namespace shellXamarin.Module.Home.ViewModels
         private void BecomeManager()
         {
 
+
+        }
+
+        private void Accept()
+        {
+
+        }
+        private void Decline()
+        {
+
+        }
+
+        private void SetFormation()
+        {
+
         }
         #endregion
 
@@ -93,6 +108,9 @@ namespace shellXamarin.Module.Home.ViewModels
         #region Commands
         public DelegateCommand BecomePlayerCommand => new DelegateCommand(BecomePlayer);
         public DelegateCommand BecomeManagerCommand => new DelegateCommand(BecomeManager);
+        public DelegateCommand AcceptCommand => new DelegateCommand(Accept);
+        public DelegateCommand DeclineCommand => new DelegateCommand(Decline);
+        public DelegateCommand SetFormationCommand => new DelegateCommand(SetFormation);
 
 
         #endregion
