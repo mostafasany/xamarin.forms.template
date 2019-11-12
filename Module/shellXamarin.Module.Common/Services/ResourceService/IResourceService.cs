@@ -9,5 +9,7 @@ namespace shellXamarin.Module.Common.Services.ResourceService
         Stream GetResourceStream(Assembly assembly, string fileName);
 
         Task<string> GetResourceStringAsync(Assembly assembly, string fileName);
+
+        string GetResourceFullPath(Assembly assembly, string fileName);
     }
 }
