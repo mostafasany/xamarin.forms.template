@@ -1,8 +1,9 @@
-﻿using shellXamarin.Module.Account.ViewModels;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace shellXamarin.Module.Account.Views
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegisterPage : ContentPage
     {
         public RegisterPage()

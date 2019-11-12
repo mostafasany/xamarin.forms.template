@@ -4,7 +4,7 @@ using Prism.Ioc;
 using Prism.Modularity;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
-using shellXamarin.Module.ElLa3eba.Resources;
+using shellXamarin.Module.Common.Resources;
 using shellXamarin.Module.ElLa3eba.ViewModels;
 using shellXamarin.Module.ElLa3eba.Views;
 

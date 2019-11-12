@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Account.Views.LoginPage" xmlns:translate="clr-namespace:shellXamarin.Module.Account.i18n" Title="{translate:Translate account.login.title}" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common" xmlns:selectors="clr-namespace:shellXamarin.Module.Common.Views;assembly=shellXamarin.Module.Common">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             FlowDirection="{Binding FlowDirection}"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="shellXamarin.Module.Account.Views.LoginPage"
+               xmlns:translate="clr-namespace:shellXamarin.Module.Common.i18n;assembly=shellXamarin.Module.Common"
+              Title="{translate:Translate account.login.title}" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common" xmlns:selectors="clr-namespace:shellXamarin.Module.Common.Views;assembly=shellXamarin.Module.Common">
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

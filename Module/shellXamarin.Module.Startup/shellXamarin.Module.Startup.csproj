@@ -15,9 +15,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BuisnessServices\" />
-    <Folder Include="i18n\" />
-    <Folder Include="Models\" />
-    <Folder Include="Resources\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
     <Folder Include="DataServices\" />
@@ -30,33 +27,5 @@
     <ProjectReference Include="..\shellXamarin.Module.ECommerce\shellXamarin.Module.ECommerce.csproj" />
     <ProjectReference Include="..\shellXamarin.Module.Account\shellXamarin.Module.Account.csproj" />
     <ProjectReference Include="..\shellXamarin.Module.Settings\shellXamarin.Module.Settings.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Resources\AppResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\AppResources.ar.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppResources.ar.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\AppResources.de.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppResources.de.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Resources\AppResources.Designer.cs">
-      <DependentUpon>AppResources.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\AppResources.Designer.cs">
-      <DependentUpon>AppResources.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\AppResources.ar.Designer.cs">
-      <DependentUpon>AppResources.ar.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\AppResources.de.Designer.cs">
-      <DependentUpon>AppResources.de.resx</DependentUpon>
-    </Compile>
   </ItemGroup>
 </Project>
