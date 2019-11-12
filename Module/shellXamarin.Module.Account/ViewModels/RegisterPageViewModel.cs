@@ -6,7 +6,7 @@ using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
 using shellXamarin.Module.Account.BuinessServices;
-using shellXamarin.Module.Account.Resources;
+using shellXamarin.Module.Common.Resources;
 using shellXamarin.Module.Common.FormBuilder.Models;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
@@ -152,11 +152,18 @@ namespace shellXamarin.Module.Account.ViewModels
 
         private async void NavigationButton(NavigationItem<INavigationElementEntity> navigationItem)
         {
-            if (navigationItem != null)
+            try
             {
-                NavigationParameters parameters = new NavigationParameters();
-                parameters.Add("NavigationItem", navigationItem);
-                await NavigationService.NavigateAsync(navigationItem.NavigationContext.NavigationPage, parameters);
+                if (navigationItem != null)
+                {
+                    NavigationParameters parameters = new NavigationParameters();
+                    parameters.Add("NavigationItem", navigationItem);
+                    await NavigationService.NavigateAsync(navigationItem.NavigationContext.NavigationPage, parameters);
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionService.LogAndShowDialog(ex);
             }
         }
 
@@ -213,7 +220,6 @@ namespace shellXamarin.Module.Account.ViewModels
         public DelegateCommand RegisterCommand => new DelegateCommand(Register);
 
         #endregion
-
 
     }
 }

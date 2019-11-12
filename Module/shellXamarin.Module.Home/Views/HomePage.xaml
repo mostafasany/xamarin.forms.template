@@ -1,13 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
+
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     FlowDirection="{Binding FlowDirection}"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="shellXamarin.Module.Home.Views.HomePage"
-    xmlns:translate="clr-namespace:shellXamarin.Module.Home.i18n"
-    Title="{translate:Translate home.title}"
     xmlns:selectors="clr-namespace:shellXamarin.Module.Home.Views;assembly=shellXamarin.Module.Home"
+    xmlns:translate="clr-namespace:shellXamarin.Module.Common.i18n;assembly=shellXamarin.Module.Common"
+    Title="{translate:Translate home.title}"
     xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common">
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

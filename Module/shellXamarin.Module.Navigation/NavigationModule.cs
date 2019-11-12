@@ -2,7 +2,7 @@
 using System.Globalization;
 using Prism.Ioc;
 using Prism.Modularity;
-using shellXamarin.Module.Navigation.Resources;
+using shellXamarin.Module.Common.Resources;
 using shellXamarin.Module.Navigation.BuinessServices;
 using shellXamarin.Module.Navigation.DataServices;
 using shellXamarin.Module.Navigation.ViewModels;
@@ -37,6 +37,10 @@ namespace shellXamarin.Module.Navigation
         public static void AddModule(IModuleCatalog moduleCatalog, IModuleManager moduleManager, bool loadModule)
         {
             Type sampleModuleType = typeof(NavigationModule);
+            string moduleName = sampleModuleType.Name;
+            if (moduleCatalog.Exists(moduleName))
+                return;
+
             moduleCatalog.AddModule(
                 new ModuleInfo(sampleModuleType)
                 {
@@ -44,7 +48,7 @@ namespace shellXamarin.Module.Navigation
                 });
 
             if (loadModule)
-                moduleManager.LoadModule(nameof(NavigationModule));
+                moduleManager.LoadModule(moduleName);
         }
     }
 }

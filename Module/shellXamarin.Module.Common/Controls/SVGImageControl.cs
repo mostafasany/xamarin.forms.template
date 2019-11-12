@@ -19,9 +19,7 @@ namespace shellXamarin.Module.Common.Controls
                             return;
 
                         var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-                        SvgImageSource source = Device.RuntimePlatform == Device.UWP
-                            ? SvgImageSource.FromFile("Assets/" + svgImage)
-                            : SvgImageSource.FromResource(string.Format("{0}.Assets.{1}", assembly.GetName().Name, svgImage), assembly);
+                        SvgImageSource source = SvgImageSource.FromResource(string.Format("{0}.Assets.{1}", assembly.GetName().Name, svgImage), assembly);
 
                         ((SVGImageControl)bindable).Source = source;
 

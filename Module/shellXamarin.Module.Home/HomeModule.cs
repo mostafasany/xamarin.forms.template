@@ -5,7 +5,7 @@ using shellXamarin.Module.Home.ViewModels;
 using shellXamarin.Module.Home.BuinessServices;
 using shellXamarin.Module.Home.Views;
 using System.Globalization;
-using shellXamarin.Module.Home.Resources;
+using shellXamarin.Module.Common.Resources;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
 
@@ -33,6 +33,10 @@ namespace shellXamarin.Module.Home
         public static void AddModule(IModuleCatalog moduleCatalog, IModuleManager moduleManager, bool loadModule)
         {
             Type sampleModuleType = typeof(HomeModule);
+            string moduleName = sampleModuleType.Name;
+            if (moduleCatalog.Exists(moduleName))
+                return;
+
             moduleCatalog.AddModule(
                 new ModuleInfo(sampleModuleType)
                 {
@@ -40,7 +44,7 @@ namespace shellXamarin.Module.Home
                 });
 
             if (loadModule)
-                moduleManager.LoadModule(nameof(HomeModule));
+                moduleManager.LoadModule(moduleName);
         }
     }
 }

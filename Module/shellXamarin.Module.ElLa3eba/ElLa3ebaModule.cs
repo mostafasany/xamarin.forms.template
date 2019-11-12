@@ -4,7 +4,7 @@ using Prism.Ioc;
 using Prism.Modularity;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
-using shellXamarin.Module.ElLa3eba.Resources;
+using shellXamarin.Module.Common.Resources;
 using shellXamarin.Module.ElLa3eba.ViewModels;
 using shellXamarin.Module.ElLa3eba.Views;
 
@@ -40,6 +40,10 @@ namespace shellXamarin.Module.ElLa3eba
         public static void AddModule(IModuleCatalog moduleCatalog, IModuleManager moduleManager, bool loadModule)
         {
             Type sampleModuleType = typeof(ElLa3ebaModule);
+            string moduleName = sampleModuleType.Name;
+            if (moduleCatalog.Exists(moduleName))
+                return;
+
             moduleCatalog.AddModule(
                 new ModuleInfo(sampleModuleType)
                 {
@@ -47,7 +51,7 @@ namespace shellXamarin.Module.ElLa3eba
                 });
 
             if (loadModule)
-                moduleManager.LoadModule(nameof(ElLa3ebaModule));
+                moduleManager.LoadModule(moduleName);
         }
     }
 }

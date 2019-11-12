@@ -28,8 +28,8 @@ namespace shellXamarin.Module.Navigation.ViewModels
 
         #region Properties
 
-        List<MenuElement> menuItems;
-        public List<MenuElement> MenuItems
+        List<MenuElementGroup> menuItems;
+        public List<MenuElementGroup> MenuItems
         {
             get { return menuItems; }
             set { SetProperty(ref menuItems, value); }
@@ -79,22 +79,39 @@ namespace shellXamarin.Module.Navigation.ViewModels
             }
         }
 
-        private async void Navigate(MenuElement page)
+        private async void MenuItemNavigate(MenuElement page)
         {
-            if (page == null || !page.CanNavigate || string.IsNullOrEmpty(page.Title))
+            if (page == null)
                 return;
 
-            if (page.Modal)
-                NavigationService.NavigateAsync($"NavigationPage/{page.Page}", useModalNavigation: true);
+            Navigate(page.Page, page.Title, page.Modal, page.CanNavigate);
+        }
+
+
+        private async void MenuItemGroupNavigate(MenuElementGroup page)
+        {
+            if (page == null)
+                return;
+
+            Navigate(page.Page, page.Title, page.Modal, page.CanNavigate);
+        }
+
+        private async void Navigate(string page, string title, bool modal, bool canNavigate)
+        {
+            if (page == null || !canNavigate || string.IsNullOrEmpty(title))
+                return;
+
+            if (modal)
+                NavigationService.NavigateAsync($"NavigationPage/{page}", useModalNavigation: true);
             else
             {
-                if (page.Page == "HomePage")
+                if (page == "HomePage")
                 {
                     NavigateHome();
                 }
                 else
                 {
-                    NavigationService.NavigateAsync(new Uri($"NavigationPage/{page.Page}", UriKind.Relative));
+                    NavigationService.NavigateAsync(new Uri($"NavigationPage/{page}", UriKind.Relative));
                 }
             }
         }
@@ -121,7 +138,9 @@ namespace shellXamarin.Module.Navigation.ViewModels
 
         public DelegateCommand LogoutCommand => new DelegateCommand(Logout);
 
-        public DelegateCommand<MenuElement> OnNavigateCommand => new DelegateCommand<MenuElement>(Navigate);
+        public DelegateCommand<MenuElement> MenuItemNavigateCommand => new DelegateCommand<MenuElement>(MenuItemNavigate);
+
+        public DelegateCommand<MenuElementGroup> MenuItemGroupNavigateCommand => new DelegateCommand<MenuElementGroup>(MenuItemGroupNavigate);
 
         #endregion
     }

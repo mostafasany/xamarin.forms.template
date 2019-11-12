@@ -39,6 +39,11 @@ namespace shellXamarin.Module.Startup.ViewModels
 
         private async void Navigate()
         {
+            NavigationModule.AddModule(_moduleCatalog, _moduleManager, true);
+            HomeModule.AddModule(_moduleCatalog, _moduleManager, true);
+            AccountModule.AddModule(_moduleCatalog, _moduleManager, true);
+            SettingsModule.AddModule(_moduleCatalog, _moduleManager, true);
+            ElLa3ebaModule.AddModule(_moduleCatalog, _moduleManager, true);
             await NavigateHome();
         }
 
@@ -49,17 +54,10 @@ namespace shellXamarin.Module.Startup.ViewModels
         public async override void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
+
             bool canProceed = await _startupService.CanProceed();
             if (canProceed)
-            {
-                NavigationModule.AddModule(_moduleCatalog, _moduleManager, true);
-                HomeModule.AddModule(_moduleCatalog, _moduleManager, true);
-                AccountModule.AddModule(_moduleCatalog, _moduleManager, true);
-                SettingsModule.AddModule(_moduleCatalog, _moduleManager, true);
-                ElLa3ebaModule.AddModule(_moduleCatalog, _moduleManager, true);
-                await NavigateHome();
-            }
-
+                Navigate();
             else
                 IsBusy = false;
         }

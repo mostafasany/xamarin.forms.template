@@ -12,4 +12,175 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="dialog.ok" xml:space="preserve">
+    <value>حسنا</value>
+    <comment>ok</comment>
+  </data>
+    <data name="dialog.exception" xml:space="preserve">
+    <value>آسف للإزعاج</value>
+    <comment>Sorry for the inconvenience</comment>
+  </data>
+    <data name="startup.action.proceed" xml:space="preserve">
+    <value>تقدم</value>
+    <comment>Proceed</comment>
+  </data>
+    <data name="navigation.tab.home" xml:space="preserve">
+    <value>الصفحة الرئيسية</value>
+    <comment>Home</comment>
+  </data>
+    <data name="navigation.tab.settings" xml:space="preserve">
+    <value>الإعدادات</value>
+    <comment>Settings</comment>
+  </data>
+    <data name="navigation.menu.logout" xml:space="preserve">
+    <value>تسجيل خروج</value>
+    <comment>Logout</comment>
+  </data>
+    <data name="home.title" xml:space="preserve">
+    <value>الصفحة الرئيسية</value>
+    <comment>Home</comment>
+  </data>
+    <data name="home.action.navigation.settings" xml:space="preserve">
+    <value>صفحة الإعدادات</value>
+    <comment>Settings Page</comment>
+  </data>
+    <data name="home.action.navigation.login" xml:space="preserve">
+    <value>صفحة تسجيل الدخول</value>
+    <comment>Login Page</comment>
+  </data>
+    <data name="settings.title" xml:space="preserve">
+    <value>الإعدادات</value>
+    <comment>Settings</comment>
+  </data>
+    <data name="settings.action.logout" xml:space="preserve">
+    <value>تسجيل خروج</value>
+    <comment>Logout</comment>
+  </data>
+    <data name="settings.languages.header" xml:space="preserve">
+    <value>اللغات</value>
+    <comment>Languages</comment>
+  </data>
+    <data name="settings.themes.header" xml:space="preserve">
+    <value>المواضيع</value>
+    <comment>Themes</comment>
+  </data>
+    <data name="account.login.title" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+    <comment>Login</comment>
+  </data>
+    <data name="account.register.title" xml:space="preserve">
+    <value>تسجيل</value>
+    <comment>Register</comment>
+  </data>
+    <data name="account.edit.title" xml:space="preserve">
+    <value>تعديل</value>
+    <comment>Edit</comment>
+  </data>
+    <data name="account.action.login" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+    <comment>Login</comment>
+  </data>
+    <data name="account.action.update" xml:space="preserve">
+    <value>تحديث</value>
+    <comment>Update</comment>
+  </data>
+    <data name="account.action.back" xml:space="preserve">
+    <value>عودة</value>
+    <comment>Back</comment>
+  </data>
+    <data name="account.form.email.placeholder" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+    <comment>Email</comment>
+  </data>
+    <data name="account.form.cities.placeholder" xml:space="preserve">
+    <value>مدن</value>
+    <comment>Cities</comment>
+  </data>
+    <data name="account.form.gender.placeholder" xml:space="preserve">
+    <value>جنس</value>
+    <comment>Gender</comment>
+  </data>
+    <data name="account.form.header.personal" xml:space="preserve">
+    <value>تفاصيل شخصية</value>
+    <comment>Personal Details</comment>
+  </data>
+    <data name="account.form.header.location" xml:space="preserve">
+    <value>موقعك</value>
+    <comment>Location</comment>
+  </data>
+    <data name="account.form.email.required" xml:space="preserve">
+    <value>البريد الإلكتروني (مطلوب</value>
+    <comment>Email Required</comment>
+  </data>
+    <data name="account.form.email.invalid" xml:space="preserve">
+    <value>البريد الإلكتروني غير صالح</value>
+    <comment>Email invalid</comment>
+  </data>
+    <data name="account.form.password.placeholder" xml:space="preserve">
+    <value>كلمه السر</value>
+    <comment>Password</comment>
+  </data>
+    <data name="account.form.password.required" xml:space="preserve">
+    <value>كلمة المرور مطلوبة</value>
+    <comment>Password Required</comment>
+  </data>
+    <data name="account.form.password.invalid" xml:space="preserve">
+        <value>كلمة المرور غير صالحة</value>
+    </data>
+    <data name="account.form.invalid" xml:space="preserve">
+    <value>البريد الإلكتروني / كلمة المرور غير صالحة</value>
+    <comment>Email/Password invalid</comment>
+  </data>
+    <data name="account.cancel" xml:space="preserve">
+    <value>إلغاء</value>
+    <comment>Cancel</comment>
+  </data>
+    <data name="account.ok" xml:space="preserve">
+    <value>حسنا</value>
+    <comment>ok</comment>
+  </data>
+    <data name="account.form.firstname.placeholder" xml:space="preserve">
+    <value>الاسم الاول</value>
+    <comment>First name</comment>
+  </data>
+    <data name="account.form.firstname.required" xml:space="preserve">
+    <value>الاسم الأول مطلوب</value>
+    <comment>First name is requried</comment>
+  </data>
+    <data name="account.form.firstname.invalid" xml:space="preserve">
+    <value>الاسم الأول غير صالح</value>
+    <comment>First name is invalid</comment>
+  </data>
+    <data name="account.form.lastname.placeholder" xml:space="preserve">
+    <value>الكنية</value>
+    <comment>Last name</comment>
+  </data>
+    <data name="account.form.lastname.required" xml:space="preserve">
+    <value>اسم العائلة مطلوب</value>
+    <comment>Last name is requried</comment>
+  </data>
+    <data name="account.form.lastname.invalid" xml:space="preserve">
+    <value>اسم العائلة غير صالح</value>
+    <comment>Last name is invalid</comment>
+  </data>
+    <data name="account.form.dob.placeholder" xml:space="preserve">
+    <value>تاريخ الولادة</value>
+    <comment>Date of Birth</comment>
+  </data>
+    <data name="account.form.dob.required" xml:space="preserve">
+    <value>تاريخ الميلاد مطلوب</value>
+    <comment>Date of Birth is requried</comment>
+  </data>
+    <data name="account.form.dob.invalid" xml:space="preserve">
+    <value>تاريخ الميلاد غير صالح</value>
+    <comment>Date of Birth is invalid</comment>
+  </data>
+    <data name="account.form.newsletter.placeholder" xml:space="preserve">
+    <value>خطاب الأخبار</value>
+    <comment>News letter</comment>
+  </data>
+    <data name="account.form.newsletter.required" xml:space="preserve">
+    <value>رسالة الأخبار المطلوبة</value>
+    <comment>News letter requried</comment>
+  </data>
 </root>

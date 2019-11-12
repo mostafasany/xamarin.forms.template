@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
 <MasterDetailPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     FlowDirection="{Binding FlowDirection}"
@@ -6,10 +7,10 @@
     x:Class="shellXamarin.Module.Navigation.Views.MasterDetailsPage"
     IsPresented="true"
     MasterBehavior="Popover"
-    xmlns:translate="clr-namespace:shellXamarin.Module.Navigation.i18n"
+    xmlns:translate="clr-namespace:shellXamarin.Module.Common.i18n;assembly=shellXamarin.Module.Common"
     xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common"
-    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:controls="clr-namespace:shellXamarin.Module.Common.Controls;assembly=shellXamarin.Module.Common">
+
     <MasterDetailPage.Master>
         <ContentPage
             Title="Menu"
@@ -71,8 +72,9 @@
                                     <Grid
                                         BackgroundColor="White">
                                         <Grid.GestureRecognizers>
+
                                             <TapGestureRecognizer
-                                                Command="{Binding Path=BindingContext.OnNavigateCommand, Source={x:Reference Name=listView}}"
+                                                Command="{Binding Path=BindingContext.MenuItemGroupNavigateCommand, Source={x:Reference Name=listView}}"
                                                 CommandParameter="{Binding }" />
                                         </Grid.GestureRecognizers>
                                         <StackLayout
@@ -92,8 +94,9 @@
                                     <Grid
                                         BackgroundColor="White">
                                         <Grid.GestureRecognizers>
+
                                             <TapGestureRecognizer
-                                                Command="{Binding Path=BindingContext.OnNavigateCommand, Source={x:Reference Name=listView}}"
+                                                Command="{Binding Path=BindingContext.MenuItemNavigateCommand, Source={x:Reference Name=listView}}"
                                                 CommandParameter="{Binding }" />
                                         </Grid.GestureRecognizers>
                                         <StackLayout

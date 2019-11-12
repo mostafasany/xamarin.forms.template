@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace shellXamarin.Module.Account.Resources {
+namespace shellXamarin.Module.Common.Resources {
     using System;
     using System.Reflection;
     
@@ -16,7 +16,7 @@ namespace shellXamarin.Module.Account.Resources {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class AppResources {
+    public class AppResources {
         
         private static System.Resources.ResourceManager resourceMan;
         
@@ -27,10 +27,10 @@ namespace shellXamarin.Module.Account.Resources {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static System.Resources.ResourceManager ResourceManager {
+        public static System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.Equals(null, resourceMan)) {
-                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("shellXamarin.Module.Account.Resources.AppResources", typeof(AppResources).Assembly);
+                    System.Resources.ResourceManager temp = new System.Resources.ResourceManager("shellXamarin.Module.Common.Resources.AppResources", typeof(AppResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -38,7 +38,7 @@ namespace shellXamarin.Module.Account.Resources {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static System.Globalization.CultureInfo Culture {
+        public static System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -47,175 +47,259 @@ namespace shellXamarin.Module.Account.Resources {
             }
         }
         
-        internal static string account_login_title {
+        public static string dialog_ok {
+            get {
+                return ResourceManager.GetString("dialog.ok", resourceCulture);
+            }
+        }
+        
+        public static string dialog_exception {
+            get {
+                return ResourceManager.GetString("dialog.exception", resourceCulture);
+            }
+        }
+        
+        public static string startup_action_proceed {
+            get {
+                return ResourceManager.GetString("startup.action.proceed", resourceCulture);
+            }
+        }
+        
+        public static string navigation_tab_home {
+            get {
+                return ResourceManager.GetString("navigation.tab.home", resourceCulture);
+            }
+        }
+        
+        public static string navigation_tab_settings {
+            get {
+                return ResourceManager.GetString("navigation.tab.settings", resourceCulture);
+            }
+        }
+        
+        public static string navigation_menu_logout {
+            get {
+                return ResourceManager.GetString("navigation.menu.logout", resourceCulture);
+            }
+        }
+        
+        public static string home_title {
+            get {
+                return ResourceManager.GetString("home.title", resourceCulture);
+            }
+        }
+        
+        public static string home_action_navigation_settings {
+            get {
+                return ResourceManager.GetString("home.action.navigation.settings", resourceCulture);
+            }
+        }
+        
+        public static string home_action_navigation_login {
+            get {
+                return ResourceManager.GetString("home.action.navigation.login", resourceCulture);
+            }
+        }
+        
+        public static string settings_title {
+            get {
+                return ResourceManager.GetString("settings.title", resourceCulture);
+            }
+        }
+        
+        public static string settings_action_logout {
+            get {
+                return ResourceManager.GetString("settings.action.logout", resourceCulture);
+            }
+        }
+        
+        public static string settings_languages_header {
+            get {
+                return ResourceManager.GetString("settings.languages.header", resourceCulture);
+            }
+        }
+        
+        public static string settings_themes_header {
+            get {
+                return ResourceManager.GetString("settings.themes.header", resourceCulture);
+            }
+        }
+        
+        public static string account_login_title {
             get {
                 return ResourceManager.GetString("account.login.title", resourceCulture);
             }
         }
         
-        internal static string account_register_title {
+        public static string account_register_title {
             get {
                 return ResourceManager.GetString("account.register.title", resourceCulture);
             }
         }
         
-        internal static string account_edit_title {
+        public static string account_edit_title {
             get {
                 return ResourceManager.GetString("account.edit.title", resourceCulture);
             }
         }
         
-        internal static string account_action_login {
+        public static string account_action_login {
             get {
                 return ResourceManager.GetString("account.action.login", resourceCulture);
             }
         }
         
-        internal static string account_action_update {
+        public static string account_action_update {
             get {
                 return ResourceManager.GetString("account.action.update", resourceCulture);
             }
         }
         
-        internal static string account_action_back {
+        public static string account_action_back {
             get {
                 return ResourceManager.GetString("account.action.back", resourceCulture);
             }
         }
         
-        internal static string account_form_email_placeholder {
+        public static string account_form_email_placeholder {
             get {
                 return ResourceManager.GetString("account.form.email.placeholder", resourceCulture);
             }
         }
         
-        internal static string account_form_cities_placeholder {
+        public static string account_form_cities_placeholder {
             get {
                 return ResourceManager.GetString("account.form.cities.placeholder", resourceCulture);
             }
         }
         
-        internal static string account_form_gender_placeholder {
+        public static string account_form_gender_placeholder {
             get {
                 return ResourceManager.GetString("account.form.gender.placeholder", resourceCulture);
             }
         }
         
-        internal static string account_form_header_personal {
+        public static string account_form_header_personal {
             get {
                 return ResourceManager.GetString("account.form.header.personal", resourceCulture);
             }
         }
         
-        internal static string account_form_header_location {
+        public static string account_form_header_location {
             get {
                 return ResourceManager.GetString("account.form.header.location", resourceCulture);
             }
         }
         
-        internal static string account_form_email_required {
+        public static string account_form_email_required {
             get {
                 return ResourceManager.GetString("account.form.email.required", resourceCulture);
             }
         }
         
-        internal static string account_form_email_invalid {
+        public static string account_form_email_invalid {
             get {
                 return ResourceManager.GetString("account.form.email.invalid", resourceCulture);
             }
         }
         
-        internal static string account_form_password_placeholder {
+        public static string account_form_password_placeholder {
             get {
                 return ResourceManager.GetString("account.form.password.placeholder", resourceCulture);
             }
         }
         
-        internal static string account_form_password_required {
+        public static string account_form_password_required {
             get {
                 return ResourceManager.GetString("account.form.password.required", resourceCulture);
             }
         }
         
-        internal static string account_form_invalid {
+        public static string account_form_password_invalid {
+            get {
+                return ResourceManager.GetString("account.form.password.invalid", resourceCulture);
+            }
+        }
+        
+        public static string account_form_invalid {
             get {
                 return ResourceManager.GetString("account.form.invalid", resourceCulture);
             }
         }
         
-        internal static string account_cancel {
+        public static string account_cancel {
             get {
                 return ResourceManager.GetString("account.cancel", resourceCulture);
             }
         }
         
-        internal static string account_ok {
+        public static string account_ok {
             get {
                 return ResourceManager.GetString("account.ok", resourceCulture);
             }
         }
         
-        internal static string account_form_firstname_placeholder {
+        public static string account_form_firstname_placeholder {
             get {
                 return ResourceManager.GetString("account.form.firstname.placeholder", resourceCulture);
             }
         }
         
-        internal static string account_form_firstname_required {
+        public static string account_form_firstname_required {
             get {
                 return ResourceManager.GetString("account.form.firstname.required", resourceCulture);
             }
         }
         
-        internal static string account_form_firstname_invalid {
+        public static string account_form_firstname_invalid {
             get {
                 return ResourceManager.GetString("account.form.firstname.invalid", resourceCulture);
             }
         }
         
-        internal static string account_form_lastname_placeholder {
+        public static string account_form_lastname_placeholder {
             get {
                 return ResourceManager.GetString("account.form.lastname.placeholder", resourceCulture);
             }
         }
         
-        internal static string account_form_lastname_required {
+        public static string account_form_lastname_required {
             get {
                 return ResourceManager.GetString("account.form.lastname.required", resourceCulture);
             }
         }
         
-        internal static string account_form_lastname_invalid {
+        public static string account_form_lastname_invalid {
             get {
                 return ResourceManager.GetString("account.form.lastname.invalid", resourceCulture);
             }
         }
         
-        internal static string account_form_dob_placeholder {
+        public static string account_form_dob_placeholder {
             get {
                 return ResourceManager.GetString("account.form.dob.placeholder", resourceCulture);
             }
         }
         
-        internal static string account_form_dob_required {
+        public static string account_form_dob_required {
             get {
                 return ResourceManager.GetString("account.form.dob.required", resourceCulture);
             }
         }
         
-        internal static string account_form_dob_invalid {
+        public static string account_form_dob_invalid {
             get {
                 return ResourceManager.GetString("account.form.dob.invalid", resourceCulture);
             }
         }
         
-        internal static string account_form_newsletter_placeholder {
+        public static string account_form_newsletter_placeholder {
             get {
                 return ResourceManager.GetString("account.form.newsletter.placeholder", resourceCulture);
             }
         }
         
-        internal static string account_form_newsletter_required {
+        public static string account_form_newsletter_required {
             get {
                 return ResourceManager.GetString("account.form.newsletter.required", resourceCulture);
             }
