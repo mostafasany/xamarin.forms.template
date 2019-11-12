@@ -11,18 +11,7 @@ namespace shellXamarin.Module.Common.Services.ResourceService
         {
             try
             {
-                string resourcePath = "";
-                var platform = DeviceInfo.Platform;
-                if (platform == DevicePlatform.UWP)
-                {
-                    resourcePath = string.Format("{0}/{1}", assembly.GetName().Name, fileName);
-                }
-                else
-                {
-                    resourcePath = string.Format("{0}.{1}", assembly.GetName().Name, fileName);
-                }
-
-                return resourcePath;
+                return string.Format("{0}.{1}", assembly.GetName().Name, fileName);
             }
             catch (System.Exception ex)
             {
