@@ -5,7 +5,7 @@ using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
 using shellXamarin.Module.Account.BuinessServices;
-using shellXamarin.Module.Account.Resources;
+using shellXamarin.Module.Common.Resources;
 using shellXamarin.Module.Common.Events;
 using shellXamarin.Module.Common.FormBuilder.Models;
 using shellXamarin.Module.Common.Services;
@@ -76,6 +76,7 @@ namespace shellXamarin.Module.Account.ViewModels
                     Regex = new Regex(@"^.{6,12}$"),
                     MinChar = 6,
                     RequiredMessage = AppResources.account_form_password_required,
+                    InvalidMessage = AppResources.account_form_password_invalid,
                     ReturnType = ReturnType.Default,
                 });
 

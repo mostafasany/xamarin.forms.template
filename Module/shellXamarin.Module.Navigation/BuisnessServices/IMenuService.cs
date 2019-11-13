@@ -6,6 +6,6 @@ namespace shellXamarin.Module.Navigation.BuinessServices
 {
     public interface IMenuService
     {
-        Task<List<MenuElement>> GetMenuItemsAsync(bool isLogin=true);
+        Task<List<MenuElementGroup>> GetMenuItemsAsync(bool isLogin=true);
     }
 }

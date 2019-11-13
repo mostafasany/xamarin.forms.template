@@ -7,7 +7,7 @@ using shellXamarin.Module.Settings.Views;
 using shellXamarin.Module.Settings.DataServices;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Models;
-using shellXamarin.Module.Settings.Resources;
+using shellXamarin.Module.Common.Resources;
 using System.Globalization;
 
 namespace shellXamarin.Module.Settings

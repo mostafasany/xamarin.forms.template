@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Home.Views.HomePage" xmlns:translate="clr-namespace:shellXamarin.Module.Home.i18n" Title="{translate:Translate home.title}" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="shellXamarin.Module.Home.Views.HomePage"
+             xmlns:translate="clr-namespace:shellXamarin.Module.Common.i18n;assembly=shellXamarin.Module.Common"
+             Title="{translate:Translate home.title}"
+             xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common">
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -15,6 +20,28 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <ActivityIndicator Grid.Row="0" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
+            <CollectionView x:Name="listView" FlowDirection="LeftToRight" ItemsSource="{Binding Modules}" IsGrouped="True" SelectionMode="None" >
+                <CollectionView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <Grid BackgroundColor="White">
+                            <StackLayout Margin="10,5" Orientation="Horizontal">
+                                <Label Text="{Binding Name}" VerticalOptions="Center" />
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.GroupHeaderTemplate>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=BindingContext.ModuleNavigationCommand, Source={x:Reference Name=listView}}" CommandParameter="{Binding }" />
+                            </Grid.GestureRecognizers>
+                            <Label Style="{StaticResource LabelStyle}" Text="{Binding Name}" ></Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

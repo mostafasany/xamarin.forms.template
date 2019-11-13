@@ -13,11 +13,8 @@
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Models\" />
-    <Folder Include="Models\" />
-    <Folder Include="Resources\" />
     <Folder Include="BuisnessServices\" />
     <Folder Include="DataServices\" />
-    <Folder Include="i18n\" />
     <Folder Include="DataServices\Dto\" />
   </ItemGroup>
   <ItemGroup>
@@ -28,30 +25,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\shellXamarin.Module.Common\shellXamarin.Module.Common.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Resources\AppResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Resources\AppResources.ar.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppResources.ar.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Resources\AppResources.de.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppResources.de.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\AppResources.Designer.cs">
-      <DependentUpon>AppResources.resx</DependentUpon>
-    </Compile>
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\AppResources.ar.Designer.cs">
-      <DependentUpon>AppResources.ar.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\AppResources.de.Designer.cs">
-      <DependentUpon>AppResources.de.resx</DependentUpon>
-    </Compile>
   </ItemGroup>
 </Project>

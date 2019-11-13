@@ -2,7 +2,7 @@
 using System.Globalization;
 using Prism.Ioc;
 using Prism.Modularity;
-using shellXamarin.Module.Navigation.Resources;
+using shellXamarin.Module.Common.Resources;
 using shellXamarin.Module.Navigation.BuinessServices;
 using shellXamarin.Module.Navigation.DataServices;
 using shellXamarin.Module.Navigation.ViewModels;

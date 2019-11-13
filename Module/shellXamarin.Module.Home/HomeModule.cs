@@ -5,7 +5,7 @@ using shellXamarin.Module.Home.ViewModels;
 using shellXamarin.Module.Home.BuinessServices;
 using shellXamarin.Module.Home.Views;
 using System.Globalization;
-using shellXamarin.Module.Home.Resources;
+using shellXamarin.Module.Common.Resources;
 using shellXamarin.Module.Common.Models;
 using shellXamarin.Module.Common.Services;
 

@@ -15,14 +15,12 @@
     <Folder Include="Services\LanguageService\" />
     <Folder Include="Services\PrefrencesService\" />
     <Folder Include="i18n\" />
-    <Folder Include="Resources\" />
     <Folder Include="Events\" />
     <Folder Include="Themes\" />
     <Folder Include="Styles\" />
     <Folder Include="FormBuilder\" />
     <Folder Include="FormBuilder\Models\" />
     <Folder Include="Controls\" />
-    <Folder Include="Assets\" />
     <Folder Include="Services\EventBusService\" />
     <Folder Include="Views\" />
     <Folder Include="Services\SharedService\" />
@@ -78,22 +76,22 @@
     <EmbeddedResource Include="Assets\Mocks\players.json" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Resources\AppResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Resources\AppResources.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\AppResources.de.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.de.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\AppResources.ar.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.ar.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Resources\AppResources.Designer.cs">
-      <DependentUpon>AppResources.resx</DependentUpon>
+    <Compile Update="Resources\AppResources.en.Designer.cs">
+      <DependentUpon>AppResources.en.resx</DependentUpon>
     </Compile>
     <Compile Update="Resources\AppResources.de.Designer.cs">
       <DependentUpon>AppResources.de.resx</DependentUpon>

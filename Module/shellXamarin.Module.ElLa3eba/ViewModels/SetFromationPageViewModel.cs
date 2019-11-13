@@ -116,8 +116,6 @@ namespace shellXamarin.Module.ElLa3eba.ViewModels
         public DelegateCommand OpenMapsCommand => new DelegateCommand(OpenMaps);
         public DelegateCommand SetNextMatchFormationCommand => new DelegateCommand(SetNextMatchFormation);
 
-      
-
         #endregion
     }
 }

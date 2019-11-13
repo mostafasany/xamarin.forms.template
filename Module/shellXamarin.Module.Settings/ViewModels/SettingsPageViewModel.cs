@@ -63,7 +63,7 @@ namespace shellXamarin.Module.Settings.ViewModels
             set
             {
                 SetProperty(ref usedTheme, value);
-                if(usedTheme!=null)
+                if (usedTheme != null)
                 {
                     LocalService.ChangeTheme(usedTheme);
                 }
@@ -76,32 +76,55 @@ namespace shellXamarin.Module.Settings.ViewModels
 
         private async Task LoadLanguages()
         {
-            var langs = await _settingsService.GetLanguagesAsync();
-            if (langs != null && langs.Any())
+            try
             {
-                Languages = langs;
-                UsedLanguage = languages.FirstOrDefault(lang => lang.Id == LocalService?.UsedLanague?.Id);
-                Languages.Remove(usedLanguage);
+                var langs = await _settingsService.GetLanguagesAsync();
+                if (langs != null && langs.Any() && LocalService?.UsedLanague?.Id != UsedLanguage?.Id)
+                {
+                    Languages = langs;
+                    UsedLanguage = languages.FirstOrDefault(lang => lang.Id == LocalService?.UsedLanague?.Id);
+                    if (UsedLanguage != null)
+                        Languages.Remove(usedLanguage);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                ExceptionService.LogAndShowDialog(ex);
             }
         }
 
 
         private async Task LoadThemes()
         {
-            //Themes = new List<string>();
-            //Themes.Add("Dark");
-            //Themes.Add("Light");
-            //UsedTheme = Themes.FirstOrDefault();
+            try
+            {
+                Themes = new List<string>();
+                Themes.Add("Dark");
+                Themes.Add("Light");
+                UsedTheme = Themes.FirstOrDefault();
+            }
+            catch (System.Exception ex)
+            {
+                ExceptionService.LogAndShowDialog(ex);
+            }
+
         }
 
 
         private async void LanguageChanged(Language language)
         {
-            if (language != null)
+            try
             {
-                LocalService.SetDefaultLanguage(language);
+                if (language != null)
+                {
+                    LocalService.SetDefaultLanguage(language);
 
-                await NavigateHome();
+                    await NavigateHome();
+                }
+            }
+            catch (System.Exception ex)
+            {
+                ExceptionService.LogAndShowDialog(ex);
             }
         }
 
@@ -113,7 +136,7 @@ namespace shellXamarin.Module.Settings.ViewModels
         {
             await LoadLanguages();
 
-            await LoadThemes();
+            //await LoadThemes();
 
             await base.Load();
         }

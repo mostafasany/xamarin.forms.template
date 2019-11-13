@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="{Binding FlowDirection}" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.Account.Views.EditProfilePage" xmlns:translate="clr-namespace:shellXamarin.Module.Account.i18n" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common" xmlns:selectors="clr-namespace:shellXamarin.Module.Common.Views;assembly=shellXamarin.Module.Common"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             FlowDirection="{Binding FlowDirection}"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="shellXamarin.Module.Account.Views.EditProfilePage"
+               xmlns:translate="clr-namespace:shellXamarin.Module.Common.i18n;assembly=shellXamarin.Module.Common"
+             xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common" xmlns:selectors="clr-namespace:shellXamarin.Module.Common.Views;assembly=shellXamarin.Module.Common"
              Title="{translate:Translate account.edit.title}">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -17,7 +22,7 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <ListView SelectionMode="None" SeparatorVisibility="None" Style="{StaticResource ListStyle}" ItemsSource="{Binding Form.Items}" RowHeight="50" ItemTemplate="{StaticResource genericFormTemplateSelector}" />
+            <CollectionView SelectionMode="None"  Style="{StaticResource ListStyle}" ItemsSource="{Binding Form.Items}" ItemTemplate="{StaticResource genericFormTemplateSelector}" />
             <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
             <Button Grid.Row="2" Text="{translate:Translate account.action.update}" Command="{Binding EditCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
         </Grid>
