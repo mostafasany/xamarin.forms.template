@@ -64,10 +64,10 @@
     "children": []
   },
   {
-    "id": "2",
+    "id": "7",
     "modal": false,
     "canNavigate": true,
-    "Title": "Home",
+    "Title": "El La3eba Home",
     "icon": "home.svg",
     "badge": 1,
     "page": "ElLa3ebaHomePage",

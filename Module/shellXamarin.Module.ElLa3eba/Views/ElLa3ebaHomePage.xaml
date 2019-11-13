@@ -4,7 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="shellXamarin.Module.ElLa3eba.Views.ElLa3ebaHomePage"
     xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common"
-    xmlns:selectors="clr-namespace:shellXamarin.Module.ElLa3eba.Templates;assembly=shellXamarin.Module.ElLa3eba">
+    xmlns:selectors="clr-namespace:shellXamarin.Module.ElLa3eba.Templates;assembly=shellXamarin.Module.ElLa3eba"
+    xmlns:translate="clr-namespace:shellXamarin.Module.Common.i18n;assembly=shellXamarin.Module.Common"
+    Title="{translate:Translate home.title}">
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
