@@ -22,7 +22,7 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <CollectionView SelectionMode="None" Style="{StaticResource ListStyle}" ItemsSource="{Binding Form.Items}" ItemTemplate="{StaticResource genericFormTemplateSelector}" />
-            <ActivityIndicator Grid.Row="1" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
+            <ActivityIndicator Grid.Row="1" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
             <Button Grid.Row="2" Text="{translate:Translate account.register.title}" Command="{Binding RegisterCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
         </Grid>
     </ContentPage.Content>

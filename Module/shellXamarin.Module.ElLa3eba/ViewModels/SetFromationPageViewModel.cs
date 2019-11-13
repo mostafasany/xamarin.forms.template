@@ -56,17 +56,16 @@ namespace shellXamarin.Module.ElLa3eba.ViewModels
             {
                 Players = await _playerService.GetPlayersAsync();
                 var groupedPlayers = players.GroupBy(player => player.Position).ToList();
-                PlayersByPosition = new List<PlayersByPosition>();
+                playersByPosition = new List<PlayersByPosition>();
                 foreach (var group in groupedPlayers)
                 {
-                    PlayersByPosition.Add(new PlayersByPosition(group.Key, group));
+                    playersByPosition.Add(new PlayersByPosition(group.Key, group));
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }
-
         }
 
         private void PlayerCheckedChanged(Player obj)

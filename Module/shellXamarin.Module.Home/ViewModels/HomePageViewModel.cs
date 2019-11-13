@@ -73,8 +73,7 @@ namespace shellXamarin.Module.Home.ViewModels
 
         private void PageNavigation(AppPage page)
         {
-            NavigationService.NavigateAsync(page.Page);
-            // NavigationService.NavigateAsync($"/NavigationPage/{page}");
+            NavigationService.NavigateAsync($"{page.Page}");
         }
 
         #endregion

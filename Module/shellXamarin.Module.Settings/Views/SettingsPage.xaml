@@ -60,7 +60,7 @@
                     <Label Style="{StaticResource LabelHeaderStyle}" Text="{translate:Translate settings.themes.header}" Margin="0,0,10,0"></Label>
                     <Picker Style="{StaticResource PickerStyle}" ItemsSource="{Binding Themes}" SelectedItem="{Binding UsedTheme,Mode=TwoWay}"></Picker>
                 </StackLayout>-->
-                <ActivityIndicator Grid.Row="2" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
+                <ActivityIndicator Grid.Row="2" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
             </Grid>
             <Button Grid.Row="1" Text="{translate:Translate settings.action.logout}" Command="{Binding LogoutCommand}" Style="{StaticResource RoundedButtonStyle}"></Button>
         </Grid>

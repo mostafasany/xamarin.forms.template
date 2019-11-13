@@ -94,13 +94,13 @@
                                 <Label Style="{StaticResource LabelStyle}" Text="{Binding Age,StringFormat='{0} years'}"></Label>
                             </StackLayout>
                             <CheckBox Grid.Column="2" Color="{Binding AvailableForNextMatch,Converter={StaticResource enabledToColorConverter}}" IsEnabled="{Binding AvailableForNextMatch}">
-                               
+
                             </CheckBox>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            <ActivityIndicator Grid.Row="4" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
+            <ActivityIndicator Grid.Row="4" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
             <Button Grid.Row="5" Style="{StaticResource PrimaryButtonStyle}" Text="Set next match formation" Command="{Binding SetNextMatchFormationCommand}"></Button>
         </Grid>
     </ContentPage.Content>
