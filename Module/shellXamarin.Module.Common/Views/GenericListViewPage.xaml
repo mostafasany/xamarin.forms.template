@@ -13,8 +13,8 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <Grid Style="{StaticResource RootLayoutStyle}">
-            <ListView x:Name="listView" Style="{StaticResource ListStyle}" HeaderTemplate="{Binding NavigationItem.Placeholder}" HasUnevenRows="True" SeparatorVisibility="None" HeightRequest="10" ItemsSource="{Binding NavigationItem.Items,Mode=TwoWay}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}">
-                <ListView.ItemTemplate>
+            <CollectionView x:Name="listView" Style="{StaticResource ListStyle}" HeaderTemplate="{Binding NavigationItem.Placeholder}" HeightRequest="10" ItemsSource="{Binding NavigationItem.Items,Mode=TwoWay}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}">
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell Height="40">
                             <Grid>
@@ -25,8 +25,8 @@
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

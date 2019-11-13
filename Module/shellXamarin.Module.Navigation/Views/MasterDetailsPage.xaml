@@ -6,7 +6,7 @@
                    xmlns:translate="clr-namespace:shellXamarin.Module.Common.i18n;assembly=shellXamarin.Module.Common" xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common"
                   xmlns:controls="clr-namespace:shellXamarin.Module.Common.Controls;assembly=shellXamarin.Module.Common">
     <MasterDetailPage.Master>
-        <ContentPage Title="Menu" IconImageSource="hamburguer_icon.png">
+        <ContentPage Title="{translate:Translate navigation.tab.home}" IconImageSource="hamburguer_icon.png">
             <ContentPage.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.MergedDictionaries>

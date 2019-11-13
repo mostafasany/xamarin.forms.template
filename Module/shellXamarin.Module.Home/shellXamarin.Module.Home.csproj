@@ -8,6 +8,7 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
     <Folder Include="BuisnessServices\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\shellXamarin.Module.Common\shellXamarin.Module.Common.csproj" />
