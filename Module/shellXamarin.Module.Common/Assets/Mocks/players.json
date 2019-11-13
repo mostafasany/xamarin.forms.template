@@ -1,0 +1,90 @@
+﻿[
+  {
+    "id": "1",
+    "position": "GoalKeeper",
+    "name": "Alisson Becker",
+    "age": 24,
+    "picture": "https://d3j2s6hdd6a7rg.cloudfront.net/v2/uploads/media/misc/0001/92/thumb_91643_misc_general_500.jpeg",
+    "availableForNextMatch": true
+  },
+  {
+    "id": "2",
+    "position": "GoalKeeper",
+    "name": "Adrian",
+    "age": 22,
+    "picture": "https://d3j2s6hdd6a7rg.cloudfront.net/v2/uploads/media/misc/0001/92/thumb_91641_misc_general_500.jpeg",
+    "availableForNextMatch": false
+  },
+  {
+    "id": "3",
+    "position": "Defender",
+    "name": "Virgil van Dijk",
+    "age": 21,
+    "picture": "https://d3j2s6hdd6a7rg.cloudfront.net/v2/uploads/media/misc/0001/92/thumb_91665_misc_general_500.jpeg",
+    "availableForNextMatch": true
+  },
+  {
+    "id": "4",
+    "position": "Defender",
+    "name": "Dejan Lovren",
+    "age": 23,
+    "picture": "https://d3j2s6hdd6a7rg.cloudfront.net/v2/uploads/media/misc/0001/92/thumb_91646_misc_general_500.jpeg",
+    "availableForNextMatch": true
+  },
+  {
+    "id": "5",
+    "position": "Defender",
+    "name": "Arnold",
+    "age": 22,
+    "picture": "https://d3j2s6hdd6a7rg.cloudfront.net/v2/uploads/media/misc/0001/92/thumb_91664_misc_general_500.jpeg",
+    "availableForNextMatch": true
+  },
+  {
+    "id": "6",
+    "position": "Midfielder",
+    "name": "Fabinho",
+    "age": 24,
+    "picture": "https://d3j2s6hdd6a7rg.cloudfront.net/v2/uploads/media/misc/0001/92/thumb_91648_misc_general_500.jpeg",
+    "availableForNextMatch": true
+  },
+  {
+    "id": "7",
+    "position": "Midfielder",
+    "name": "James Milner",
+    "age": 28,
+    "picture": "https://d3j2s6hdd6a7rg.cloudfront.net/v2/uploads/media/misc/0001/92/thumb_91651_misc_general_500.jpeg",
+    "availableForNextMatch": true
+  },
+  {
+    "id": "8",
+    "position": "Midfielder",
+    "name": "Hendersonn",
+    "age": 21,
+    "picture": "https://d3j2s6hdd6a7rg.cloudfront.net/v2/uploads/media/misc/0001/92/thumb_91654_misc_general_500.jpeg",
+    "availableForNextMatch": true
+  },
+  {
+    "id": "9",
+    "position": "Forwards",
+    "name": "Firminho",
+    "age": 22,
+    "picture": "https://d3j2s6hdd6a7rg.cloudfront.net/v2/uploads/media/misc/0001/92/thumb_91659_misc_general_500.jpeg",
+    "availableForNextMatch": true
+  },
+  {
+    "id": "10",
+    "position": "Forwards",
+    "name": "Sadio Mane",
+    "age": 26,
+    "picture": "https://d3j2s6hdd6a7rg.cloudfront.net/v2/uploads/media/misc/0001/92/thumb_91660_misc_general_500.jpeg",
+    "availableForNextMatch": true
+  },
+  {
+    "id": "11",
+    "position": "Forwards",
+    "name": "Mohmaed Salah",
+    "age": 25,
+    "picture": "https://d3j2s6hdd6a7rg.cloudfront.net/v2/uploads/media/misc/0001/92/thumb_91656_misc_general_500.jpeg",
+    "availableForNextMatch": true
+  }
+]
