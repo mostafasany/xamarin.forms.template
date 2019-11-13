@@ -74,7 +74,6 @@
                 <CollectionView.GroupHeaderTemplate>
                     <DataTemplate>
                         <Grid BackgroundColor="White">
-
                             <StackLayout Margin="10,5" Orientation="Horizontal">
                                 <Label Text="{Binding Position}" VerticalOptions="Center" />
                             </StackLayout>
