@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Globalization;
 using Prism.Ioc;
 using Prism.Modularity;
+using shellXamarin.Module.Common.Models;
+using shellXamarin.Module.Common.Resources;
 using shellXamarin.Module.Common.Services;
 using shellXamarin.Module.Common.Services.DatabaseService;
 using shellXamarin.Module.Common.Services.EventBusService;
@@ -18,6 +21,7 @@ namespace shellXamarin.Module.Common
         {
             var localService = containerProvider.Resolve<ILanguageService>();
             localService.SetDefaultLanguage();
+            localService.LanguageChanged += LanguageChanged;
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
@@ -30,6 +34,11 @@ namespace shellXamarin.Module.Common
             containerRegistry.RegisterSingleton<ISharedService, SharedService>();
             containerRegistry.RegisterSingleton<IDatabaseService, DatabaseService>();
             containerRegistry.RegisterSingleton<IResourceService, ResourceService>();
+        }
+
+        private void LanguageChanged(Language language)
+        {
+            AppResources.Culture = new CultureInfo(language.Id);
         }
 
         public static void AddModule(IModuleCatalog moduleCatalog, IModuleManager moduleManager, bool loadModule)

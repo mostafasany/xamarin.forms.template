@@ -26,7 +26,7 @@ namespace shellXamarin.Module.Tests.Account
         public async void GivenCanProceedHomePageShouldBePresented()
         {
             //Arrange
-            A.CallTo(() => startupService.CanProceed()).Returns(Task.FromResult(true));
+            A.CallTo(() => startupService.CanProceedAsync()).Returns(Task.FromResult(true));
             startupViewModel = new StartupViewModel(startupService, navigationService, eventBusService,
                 exceptionService, languageService, moduleCatalog, moduleManager);
 
@@ -41,7 +41,7 @@ namespace shellXamarin.Module.Tests.Account
         public async void GivenCantProceedHomePageShouldNotBePresented()
         {
             //Arrange
-            A.CallTo(() => startupService.CanProceed()).Returns(Task.FromResult(false));
+            A.CallTo(() => startupService.CanProceedAsync()).Returns(Task.FromResult(false));
             startupViewModel = new StartupViewModel(startupService, navigationService, eventBusService,
                 exceptionService, languageService, moduleCatalog, moduleManager);
 

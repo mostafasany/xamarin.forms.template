@@ -55,7 +55,7 @@ namespace shellXamarin.Module.Startup.ViewModels
         {
             base.OnNavigatedTo(parameters);
 
-            bool canProceed = await _startupService.CanProceed();
+            bool canProceed = await _startupService.CanProceedAsync();
             if (canProceed)
                 Navigate();
             else

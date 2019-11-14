@@ -19,8 +19,8 @@
     <!-- ActivityIndicator Styles -->
     <Style x:Key="ActivityIndicatorStyle" TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{DynamicResource SpinnerColor}" />
-        <Setter Property="WidthRequest" Value="80" />
-        <Setter Property="HeightRequest" Value="80" />
+        <Setter Property="WidthRequest" Value="50" />
+        <Setter Property="HeightRequest" Value="50" />
     </Style>
 
 
