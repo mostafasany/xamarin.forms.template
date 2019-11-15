@@ -78,6 +78,10 @@
     <EmbeddedResource Include="Assets\Manager.svg" />
     <EmbeddedResource Include="Assets\Manchester_City_FC.svg" />
     <EmbeddedResource Include="Assets\Player.svg" />
+    <EmbeddedResource Include="Assets\number.svg" />
+    <EmbeddedResource Include="Assets\number-2.svg" />
+    <EmbeddedResource Include="Assets\number-3.svg" />
+    <EmbeddedResource Include="Assets\number-4.svg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Resources\AppResources.en.resx">
@@ -153,6 +157,10 @@
     <None Remove="Assets\Manager.svg" />
     <None Remove="Assets\Manchester_City_FC.svg" />
     <None Remove="Assets\Player.svg" />
+    <None Remove="Assets\number.svg" />
+    <None Remove="Assets\number-2.svg" />
+    <None Remove="Assets\number-3.svg" />
+    <None Remove="Assets\number-4.svg" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Assets\exit.svg">

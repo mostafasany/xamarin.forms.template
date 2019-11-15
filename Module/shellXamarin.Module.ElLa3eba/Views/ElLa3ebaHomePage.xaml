@@ -19,6 +19,7 @@
                 FeedsTemplate="{StaticResource feedsTemplate}"
                 CommingGameTemplate="{StaticResource commingGameTemplate}"
                 TeamRankingTemplate="{StaticResource teamRankingTemplate}"
+                StepsTemplate="{StaticResource StepsTemplate}"
                 DefaultTemplate="{StaticResource defaultTemplate}" />
         </ResourceDictionary>
     </ContentPage.Resources>

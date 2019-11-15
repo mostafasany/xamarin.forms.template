@@ -30,9 +30,15 @@ namespace shellXamarin.Module.ElLa3eba.ViewModels
             teamRanks.Add(new TeamRankModel { Rank = 2, Name = "Al Zamalek", ScoredIn = 22, NumberOfDrawn = 2, NumberOfWin = 2, NumberOfLose = 1 });
             teamRanks.Add(new TeamRankModel { Rank = 3, Name = "Pyramids", ScoredIn = 22, NumberOfDrawn = 1, NumberOfWin = 2, NumberOfLose = 2 });
 
+            List<StepsModel> stepsList = new List<StepsModel>();
+            stepsList.Add(new StepsModel { Finished = true, Name = "First Step", Image = "number.svg" });
+            stepsList.Add(new StepsModel { Finished = true, Name = "Second Step", Image = "number-2.svg" });
+            stepsList.Add(new StepsModel { Finished = true, Name = "Third Step", Image = "number-3.svg" });
+            stepsList.Add(new StepsModel { Finished = true, Name = "Fourth Step", Image = "number-4.svg" });
+
             HomeModel = new ObservableCollection<HomeModel>();
             HomeModel.Add(new HomeModel { Type = TypeEnum.Role });
-
+            HomeModel.Add(new HomeModel { Type = TypeEnum.Steps, Steps = stepsList });
             HomeModel.Add(new HomeModel { Type = TypeEnum.CommingGame, nextGame = nextGame, Accepted = false, WaitingResponse = true });
             HomeModel.Add(new HomeModel { Type = TypeEnum.CommingGame, nextGame = nextGame, Accepted = true, WaitingResponse = false });
             HomeModel.Add(new HomeModel { Type = TypeEnum.Ranking, TeamsRanking = teamRanks });

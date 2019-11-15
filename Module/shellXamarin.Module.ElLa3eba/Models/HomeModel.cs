@@ -9,7 +9,8 @@ namespace shellXamarin.Module.ElLa3eba.Models
         Ranking,
         Role,
         Feeds,
-        CommingGame
+        CommingGame,
+        Steps
     }
     public class HomeModel
     {
@@ -19,5 +20,7 @@ namespace shellXamarin.Module.ElLa3eba.Models
         public bool WaitingResponse { get; set; }
         public TypeEnum Type { get; set; }
         public NextGameModel nextGame { get; set; }
+        public List<StepsModel> Steps { get; set; }
+
     }
 }

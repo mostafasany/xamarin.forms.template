@@ -10,8 +10,9 @@ namespace shellXamarin.Module.ElLa3eba.Templates
         public DataTemplate ChooseRoleTemplate { get; set; }
         public DataTemplate FeedsTemplate { get; set; }
         public DataTemplate CommingGameTemplate { get; set; }
+        public DataTemplate StepsTemplate { get; set; }
         public DataTemplate DefaultTemplate { get; set; }
-        //public DataTemplate CheckTemplate { get; set; }
+
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
             if (item is HomeModel && (item as HomeModel).Type == TypeEnum.Role)
@@ -29,6 +30,10 @@ namespace shellXamarin.Module.ElLa3eba.Templates
             else if (item is HomeModel && (item as HomeModel).Type == TypeEnum.Ranking)
             {
                 return TeamRankingTemplate;
+            }
+            else if (item is HomeModel && (item as HomeModel).Type == TypeEnum.Steps)
+            {
+                return StepsTemplate;
             }
             return DefaultTemplate;
         }
