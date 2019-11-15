@@ -448,6 +448,8 @@ Global
 		{534ED438-A540-4809-8326-1C03105CD63D}.Release|x86.ActiveCfg = Release|x86
 		{534ED438-A540-4809-8326-1C03105CD63D}.Release|x86.Build.0 = Release|x86
 		{534ED438-A540-4809-8326-1C03105CD63D}.Release|x86.Deploy.0 = Release|x86
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

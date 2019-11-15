@@ -74,11 +74,6 @@
     <EmbeddedResource Include="Assets\Mocks\en\menu.json" />
     <EmbeddedResource Include="Assets\Mocks\en\profile.json" />
 
-    <EmbeddedResource Include="Assets\Ahly.svg" />
-    <EmbeddedResource Include="Assets\Liverpool_FC.svg" />
-    <EmbeddedResource Include="Assets\Manager.svg" />
-    <EmbeddedResource Include="Assets\Manchester_City_FC.svg" />
-    <EmbeddedResource Include="Assets\Player.svg" />
     <EmbeddedResource Include="Assets\number.svg" />
     <EmbeddedResource Include="Assets\number-2.svg" />
     <EmbeddedResource Include="Assets\number-3.svg" />
@@ -156,7 +151,6 @@
     <None Remove="Assets\Mocks\en\languages.json" />
     <None Remove="Assets\Mocks\en\menu.json" />
     <None Remove="Assets\Mocks\en\profile.json" />
-    <None Remove="Assets\Ahly.svg" />
     <None Remove="Assets\Liverpool_FC.svg" />
     <None Remove="Assets\Manager.svg" />
     <None Remove="Assets\Manchester_City_FC.svg" />

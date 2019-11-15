@@ -1,7 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace shellXamarin.Module.ElLa3eba.Models
 {
-    public class TeamRankModel
+    public class TeamRanksModel : HomeModel
+    {
+        public List<TeamRank> TeamsRanking { get; set; }
+
+    }
+    public class TeamRank
     {
         public string Name { get; set; }
         public int Rank { get; set; }
@@ -11,3 +18,4 @@ namespace shellXamarin.Module.ElLa3eba.Models
         public int NumberOfDrawn { get; set; }
     }
 }
+
