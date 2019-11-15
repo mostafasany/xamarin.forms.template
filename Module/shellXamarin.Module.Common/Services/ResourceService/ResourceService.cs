@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
 
 namespace shellXamarin.Module.Common.Services.ResourceService
 {

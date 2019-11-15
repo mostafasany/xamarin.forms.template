@@ -13,20 +13,18 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <Grid Style="{StaticResource RootLayoutStyle}">
-            <ListView x:Name="listView" Style="{StaticResource ListStyle}" HeaderTemplate="{Binding NavigationItem.Placeholder}" HasUnevenRows="True" SeparatorVisibility="None" HeightRequest="10" ItemsSource="{Binding NavigationItem.Items,Mode=TwoWay}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}">
-                <ListView.ItemTemplate>
+            <CollectionView x:Name="listView" Style="{StaticResource ListStyle}" HeaderTemplate="{Binding NavigationItem.Placeholder}" HeightRequest="10" ItemsSource="{Binding NavigationItem.Items,Mode=TwoWay}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}">
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell Height="40">
-                            <Grid>
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.SelectionChangedCommand, Source={x:Reference Name=listView}}" CommandParameter="{Binding }" />
-                                </Grid.GestureRecognizers>
-                                <Label Style="{StaticResource LabelStyle}" VerticalOptions="Center" Text="{Binding Title}"></Label>
-                            </Grid>
-                        </ViewCell>
+                        <Grid HeightRequest="40">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=BindingContext.SelectionChangedCommand, Source={x:Reference Name=listView}}" CommandParameter="{Binding }" />
+                            </Grid.GestureRecognizers>
+                            <Label Style="{StaticResource LabelStyle}" VerticalOptions="Center" Text="{Binding Title}"></Label>
+                        </Grid>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

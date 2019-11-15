@@ -4,7 +4,7 @@
 
     <x:Double x:Key="BaseFontSize">14</x:Double>
     <x:Double x:Key="BaseHeaderFontSize">22</x:Double>
-    <x:Double x:Key="BaseButtonHeight">44</x:Double>
+    <x:Double x:Key="BaseButtonHeight">40</x:Double>
     <x:Double x:Key="BaseButtonBorderRadius">22</x:Double>
 
     <!-- GENERAL COLORS -->

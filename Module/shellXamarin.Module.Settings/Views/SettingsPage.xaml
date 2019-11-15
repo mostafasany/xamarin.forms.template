@@ -34,33 +34,33 @@
                         <controls:SVGImageControl Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" Source="{ Binding UsedLanguage.Flag }" />
                     </Grid>
                     <BoxView Style="{StaticResource SeparatorStyle}" Margin="0,10"></BoxView>
-                    <ListView x:Name="listView" SelectionMode="Single" HeightRequest="150" Style="{StaticResource ListStyle}" SeparatorVisibility="None" HasUnevenRows="True" ItemsSource="{Binding Languages}">
-                        <ListView.ItemTemplate>
+                    <CollectionView x:Name="listView" SelectionMode="Single" HeightRequest="150" Style="{StaticResource ListStyle}" ItemsSource="{Binding Languages}">
+                        <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell>
-                                    <Grid Grid.Row="0" HeightRequest="50">
-                                        <Grid.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.LanguageChangedCommand, Source={x:Reference Name=listView}}" CommandParameter="{Binding }" />
-                                        </Grid.GestureRecognizers>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                            <ColumnDefinition Width="*"></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
-                                        <Label  Grid.Column="0" Text="{Binding Name}" Style="{StaticResource LabelStyle}" VerticalOptions="Center"></Label>
-                                        <controls:SVGImageControl Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" Source="{ Binding Flag }" />
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
 
-                    </ListView>
+                                <Grid Grid.Row="0" HeightRequest="50">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.LanguageChangedCommand, Source={x:Reference Name=listView}}" CommandParameter="{Binding }" />
+                                    </Grid.GestureRecognizers>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label  Grid.Column="0" Text="{Binding Name}" Style="{StaticResource LabelStyle}" VerticalOptions="Center"></Label>
+                                    <controls:SVGImageControl Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" WidthRequest="30" HeightRequest="30" Source="{ Binding Flag }" />
+                                </Grid>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
                 </StackLayout>
 
                 <!--<StackLayout Grid.Row="1" Orientation="Vertical">
                     <Label Style="{StaticResource LabelHeaderStyle}" Text="{translate:Translate settings.themes.header}" Margin="0,0,10,0"></Label>
                     <Picker Style="{StaticResource PickerStyle}" ItemsSource="{Binding Themes}" SelectedItem="{Binding UsedTheme,Mode=TwoWay}"></Picker>
                 </StackLayout>-->
-                <ActivityIndicator Grid.Row="2" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
+                <ActivityIndicator Grid.Row="2" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
             </Grid>
             <Button Grid.Row="1" Text="{translate:Translate settings.action.logout}" Command="{Binding LogoutCommand}" Style="{StaticResource RoundedButtonStyle}"></Button>
         </Grid>

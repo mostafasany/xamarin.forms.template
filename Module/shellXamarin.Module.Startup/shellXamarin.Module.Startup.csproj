@@ -9,9 +9,8 @@
     <Compile Remove="ViewModels\BaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.947036" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.991211" />
     <PackageReference Include="Prism.Forms" Version="7.2.0.1367" />
-    <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BuisnessServices\" />
