@@ -154,7 +154,7 @@
       <Name>shellXamarin</Name>
     </ProjectReference>
     <ProjectReference Include="..\Module\shellXamarin.Module.Common\shellXamarin.Module.Common.csproj">
-      <Project>{4C414662-42BF-4C5D-B8D8-2294FADA5F23}</Project>
+      <Project>{2E94B62C-F066-449D-A5A3-A554E87739FB}</Project>
       <Name>shellXamarin.Module.Common</Name>
     </ProjectReference>
   </ItemGroup>
