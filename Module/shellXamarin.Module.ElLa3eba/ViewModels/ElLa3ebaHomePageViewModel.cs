@@ -20,11 +20,11 @@ namespace shellXamarin.Module.ElLa3eba.ViewModels
             NavigationService = _navigationService;
 
             List<NewsFeed> feeds = new List<NewsFeed>();
-            feeds.Add(new NewsFeed { Title = "Ahly won zmalek in the super cup 3-2", Image = "number.svg" });
-            feeds.Add(new NewsFeed { Title = "Ahly won zmalek 6-1", Image = "number.svg" });
-            feeds.Add(new NewsFeed { Title = "Ahly won zmalek 6-1", Image = "number.svg" });
-            NextGameModel nextGame = new NextGameModel { Type = TypeEnum.CommingGame, MatchInfo = "England Premier Leaue,Match Week 12", FirstTeam = "Liverpool", SecondTeam = "Manchester City", Date = "10/11/2019", Time = "21:00", FirstTeamImage = "Liverpool_FC.svg", SecondTeamImage = "number.svg", Accepted = true, WaitingResponse = false };
-            NextGameModel nextGameFormation = new NextGameModel { Type = TypeEnum.CommingGame, MatchInfo = "England Premier Leaue,Match Week 12", FirstTeam = "Liverpool", SecondTeam = "Manchester City", Date = "10/11/2019", Time = "21:00", FirstTeamImage = "Liverpool_FC.svg", SecondTeamImage = "number.svg", Accepted = false, WaitingResponse = true};
+            feeds.Add(new NewsFeed { Title = "Ahly won zmalek in the super cup 3-2", Image = "Ahly.svg" });
+            feeds.Add(new NewsFeed { Title = "Ahly won zmalek 6-1", Image = "Ahly.svg" });
+            feeds.Add(new NewsFeed { Title = "Ahly won zmalek 6-1", Image = "Ahly.svg" });
+            NextGameModel nextGame = new NextGameModel { Type = TypeEnum.CommingGame, MatchInfo = "England Premier Leaue,Match Week 12", FirstTeam = "Liverpool", SecondTeam = "Manchester City", Date = "10/11/2019", Time = "21:00", FirstTeamImage = "Liverpool_FC.svg", SecondTeamImage = "Manchester_City_FC.svg", Accepted = true, WaitingResponse = false };
+            NextGameModel nextGameFormation = new NextGameModel { Type = TypeEnum.CommingGame, MatchInfo = "England Premier Leaue,Match Week 12", FirstTeam = "Liverpool", SecondTeam = "Manchester City", Date = "10/11/2019", Time = "21:00", FirstTeamImage = "Liverpool_FC.svg", SecondTeamImage = "Manchester_City_FC.svg", Accepted = false, WaitingResponse = true};
             List<TeamRank> teamRanks = new List<TeamRank>();
             teamRanks.Add(new TeamRank { Rank = 1, Name = "Al Ahly", ScoredIn = 22, NumberOfDrawn = 0, NumberOfWin = 5, NumberOfLose = 0 });
             teamRanks.Add(new TeamRank { Rank = 2, Name = "Al Zamalek", ScoredIn = 22, NumberOfDrawn = 2, NumberOfWin = 2, NumberOfLose = 1 });

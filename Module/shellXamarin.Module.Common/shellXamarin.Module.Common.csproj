@@ -81,6 +81,11 @@
 
     <EmbeddedResource Include="Assets\Mocks\players.json" />
 
+    <EmbeddedResource Include="Assets\Liverpool_FC.svg" />
+    <EmbeddedResource Include="Assets\Manager.svg" />
+    <EmbeddedResource Include="Assets\Manchester_City_FC.svg" />
+    <EmbeddedResource Include="Assets\Player.svg" />
+    <EmbeddedResource Include="Assets\Ahly.svg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Resources\AppResources.en.resx">
@@ -151,16 +156,17 @@
     <None Remove="Assets\Mocks\en\languages.json" />
     <None Remove="Assets\Mocks\en\menu.json" />
     <None Remove="Assets\Mocks\en\profile.json" />
-    <None Remove="Assets\Liverpool_FC.svg" />
-    <None Remove="Assets\Manager.svg" />
-    <None Remove="Assets\Manchester_City_FC.svg" />
-    <None Remove="Assets\Player.svg" />
     <None Remove="Assets\number.svg" />
     <None Remove="Assets\number-2.svg" />
     <None Remove="Assets\number-3.svg" />
     <None Remove="Assets\number-4.svg" />
 
     <None Remove="Assets\Mocks\cities.json" />
+    <None Remove="Assets\Liverpool_FC.svg" />
+    <None Remove="Assets\Manager.svg" />
+    <None Remove="Assets\Manchester_City_FC.svg" />
+    <None Remove="Assets\Player.svg" />
+    <None Remove="Assets\Ahly.svg" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Assets\exit.svg">

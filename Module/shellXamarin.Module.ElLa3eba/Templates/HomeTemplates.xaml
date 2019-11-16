@@ -244,7 +244,7 @@
                             <ColumnDefinition
                                 Width="*"></ColumnDefinition>
                             <ColumnDefinition
-                                Width="*"></ColumnDefinition>
+                                Width="Auto"></ColumnDefinition>
                             <ColumnDefinition
                                 Width="*"></ColumnDefinition>
                             <ColumnDefinition
@@ -262,6 +262,8 @@
                             Grid.Column="1"
                             HorizontalOptions="StartAndExpand"
                             Text=" Name"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1"
                             HorizontalTextAlignment="Start"></Label>
                         <Label
                             Grid.Column="2"
