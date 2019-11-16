@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ResourceDictionary
     MergedWith="styles:AppStyles"
+    xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:controls="clr-namespace:shellXamarin.Module.Common.Controls;assembly=shellXamarin.Module.Common"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
