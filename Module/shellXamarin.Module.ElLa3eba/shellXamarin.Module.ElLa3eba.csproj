@@ -17,6 +17,7 @@
     <Folder Include="DataServices\" />
     <Folder Include="DataServices\Dto\" />
     <Folder Include="Templates\" />
+    <Folder Include="Converter\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.991211" />

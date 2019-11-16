@@ -4,7 +4,10 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:controls="clr-namespace:shellXamarin.Module.Common.Controls;assembly=shellXamarin.Module.Common"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:shellXamarin.Module.ElLa3eba.Converter;assembly=shellXamarin.Module.ElLa3eba"
     x:Class="shellXamarin.Module.ElLa3eba.Templates.HomeTemplates">
+
+    <converter:StepsColorConverter x:Key="stepsToColorConverter"></converter:StepsColorConverter>
 
     <DataTemplate
         x:Key="chooseRoleTemplate">
@@ -129,7 +132,7 @@
                     HorizontalTextAlignment="Center"
                     VerticalOptions="FillAndExpand"
                     HorizontalOptions="FillAndExpand"
-                    Text="{Binding nextGame.MatchInfo}"
+                    Text="{Binding MatchInfo}"
                     Margin="0,0,0,20"></Label>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -149,9 +152,9 @@
                             HorizontalOptions="Center"
                             WidthRequest="80"
                             HeightRequest="80"
-                            LocalResourcePath="{Binding nextGame.FirstTeamImage}" />
+                            LocalResourcePath="{Binding FirstTeamImage}" />
                         <Label
-                            Text="{Binding nextGame.FirstTeam}"
+                            Text="{Binding FirstTeam}"
                             HorizontalOptions="FillAndExpand"
                             HorizontalTextAlignment="Center"
                             TextColor="Black"></Label>
@@ -160,13 +163,13 @@
                         Grid.Column="1">
 
                         <Label
-                            Text="{Binding nextGame.Date}"
+                            Text="{Binding Date}"
                             HorizontalOptions="Center"
                             VerticalOptions="End"
                             TextColor="Black"></Label>
 
                         <Label
-                            Text="{Binding nextGame.Time}"
+                            Text="{Binding Time}"
                             HorizontalOptions="Center"
                             VerticalOptions="End"
                             TextColor="Black"></Label>
@@ -180,9 +183,9 @@
                             HorizontalOptions="Center"
                             WidthRequest="80"
                             HeightRequest="80"
-                            LocalResourcePath="{Binding nextGame.SecondTeamImage}" />
+                            LocalResourcePath="{Binding SecondTeamImage}" />
                         <Label
-                            Text="{Binding nextGame.SecondTeam}"
+                            Text="{Binding SecondTeam}"
                             HorizontalOptions="FillAndExpand"
                             HorizontalTextAlignment="Center"
                             TextColor="Black"></Label>
@@ -231,7 +234,7 @@
         <ViewCell>
             <Frame
                 Margin="0,10,0,10"
-                CornerRadius="10"
+                
                 OutlineColor="Gray"
                 Padding="0">
                 <StackLayout>
@@ -241,7 +244,7 @@
                             <ColumnDefinition
                                 Width="*"></ColumnDefinition>
                             <ColumnDefinition
-                                Width="*"></ColumnDefinition>
+                                Width="2*"></ColumnDefinition>
                             <ColumnDefinition
                                 Width="*"></ColumnDefinition>
                             <ColumnDefinition
@@ -257,9 +260,9 @@
                             Text="Rank"></Label>
                         <Label
                             Grid.Column="1"
-                            HorizontalOptions="StartAndExpand"
-                            Text=" Name"
-                            HorizontalTextAlignment="Start"></Label>
+                            HorizontalOptions="Center"
+                            Text="Name"
+                            HorizontalTextAlignment="Center"></Label>
                         <Label
                             Grid.Column="2"
                             HorizontalOptions="Center"
@@ -282,7 +285,8 @@
                     <ListView
                         HorizontalOptions="FillAndExpand"
                         ItemsSource="{Binding TeamsRanking}"
-                        Margin="10,10">
+                        Margin="10,10"
+                        HeightRequest="150">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -293,7 +297,7 @@
                                                 <ColumnDefinition
                                                     Width="*"></ColumnDefinition>
                                                 <ColumnDefinition
-                                                    Width="*"></ColumnDefinition>
+                                                    Width="2*"></ColumnDefinition>
                                                 <ColumnDefinition
                                                     Width="*"></ColumnDefinition>
                                                 <ColumnDefinition
@@ -309,9 +313,9 @@
                                                 Text="{Binding Rank}"></Label>
                                             <Label
                                                 Grid.Column="1"
-                                                HorizontalOptions="StartAndExpand"
+                                                HorizontalOptions="Center"
                                                 Text="{Binding Name}"
-                                                HorizontalTextAlignment="Start"></Label>
+                                                HorizontalTextAlignment="Center"></Label>
                                             <Label
                                                 Grid.Column="2"
                                                 HorizontalOptions="Center"
@@ -351,7 +355,7 @@
                 Orientation="Horizontal">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <Frame
+                        <Frame BackgroundColor="{Binding Finished,Converter={StaticResource stepsToColorConverter}}"
                             Margin="0,10,0,10"
                             CornerRadius="10"
                             Padding="0"
