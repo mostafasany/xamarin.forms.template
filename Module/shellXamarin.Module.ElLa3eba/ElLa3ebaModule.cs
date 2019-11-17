@@ -24,6 +24,8 @@ namespace shellXamarin.Module.ElLa3eba
         {
             containerRegistry.Register<IPlayerDataService, PlayerDataService>();
             containerRegistry.Register<IPlayerService, PlayerService>();
+            containerRegistry.Register<ITeamDataService, TeamDataService>();
+            containerRegistry.Register<ITeamService, TeamService>();
             containerRegistry.RegisterForNavigation<BecomeManagerPage, BecomeManagerPageViewModel>();
             containerRegistry.RegisterForNavigation<BecomePlayerPage, BecomePlayerPageViewModel>();
             containerRegistry.RegisterForNavigation<ElLa3ebaHomePage, ElLa3ebaHomePageViewModel>();

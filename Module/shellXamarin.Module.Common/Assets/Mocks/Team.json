@@ -1,0 +1,69 @@
+﻿[
+    {
+        "id": "1",
+        "position": "GK",
+        "name": "Liverpool",
+        "picture": "Liverpool_FC.svg"
+
+    },
+    {
+        "id": "2",
+        "position": "CB",
+        "name": "Liverpool",
+        "picture": "Liverpool_FC.svg"
+    },
+    {
+        "id": "3",
+        "position": "ST",
+        "name": "Liverpool",
+        "picture": "Liverpool_FC.svg"
+    },
+    {
+        "id": "4",
+        "position": "CF",
+        "name": "Liverpool",
+        "picture": "Liverpool_FC.svg"
+    },
+    {
+        "id": "5",
+        "position": "GK",
+        "name": "Manchester City",
+        "picture": "Manchester_City_FC.svg"
+    },
+    {
+        "id": "6",
+        "position": "CB",
+        "name": "Manchester City",
+        "picture": "Manchester_City_FC.svg"
+    },
+    {
+        "id": "7",
+        "position": "ST",
+        "name": "Manchester City",
+        "picture": "Manchester_City_FC.svg"
+    },
+    {
+        "id": "8",
+        "position": "GK",
+        "name": "AL Ahly",
+        "picture": "Ahly.svg"
+    },
+    {
+        "id": "9",
+        "position": "CB",
+        "name": "AL Ahly",
+        "picture": "Ahly.svg"
+    },
+    {
+        "id": "10",
+        "position": "ST",
+        "name": "AL Ahly",
+        "picture": "Ahly.svg"
+    },
+    {
+        "id": "11",
+        "position": "CDM",
+        "name": "AL Ahly",
+        "picture": "Ahly.svg"
+    }
+]
