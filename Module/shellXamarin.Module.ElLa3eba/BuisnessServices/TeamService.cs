@@ -26,7 +26,8 @@ namespace shellXamarin.Module.ElLa3eba.BuinessServices
                     {
                         Picture = team.Picture,
                         Name = team.Name,
-                        Position = team.Position
+                        Position = team.Position,
+                        League = team.League
                     });
                 }
                 return teams;

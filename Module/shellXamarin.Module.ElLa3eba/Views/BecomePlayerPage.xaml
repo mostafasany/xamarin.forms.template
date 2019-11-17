@@ -138,6 +138,7 @@
                                         Width="40"></ColumnDefinition>
                                     <ColumnDefinition
                                         Width="*"></ColumnDefinition>
+
                                     <ColumnDefinition
                                         Width="Auto"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
@@ -148,26 +149,42 @@
                                     HeightRequest="40"
                                     VerticalOptions="Fill"
                                     LocalResourcePath="{Binding Picture}" />
-
-                                <Label
+                                <StackLayout
                                     Grid.Column="1"
-                                    TextColor="White"
-                                    VerticalOptions="Center"
-                                    HorizontalTextAlignment="Center"
-                                    Padding="5,10"
-                                    Text="{Binding Name}"></Label>
-
-
-                                <Label
+                                    VerticalOptions="Center">
+                                    <Label
+                                        TextColor="White"
+                                        VerticalOptions="End"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Name}"></Label>
+                                    <Label
+                                        TextColor="White"
+                                        VerticalOptions="Center"
+                                        HorizontalTextAlignment="Center"
+                                        FontSize="13"
+                                        Padding="5,10"
+                                        Text="{Binding League}"></Label>
+                                </StackLayout>
+                                <StackLayout
                                     Grid.Column="2"
-                                    TextColor="White"
-                                    Margin="5,5,10,0"
-                                    VerticalOptions="Center"
-                                    HorizontalOptions="Start"
-                                    HorizontalTextAlignment="Start"
-                                    Text="{Binding Position}"></Label>
+                                    VerticalOptions="Center">
+                                    <Label
+                                        TextColor="White"
+                                        Margin="5,5,10,0"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                        HorizontalTextAlignment="Start"
+                                        Text="{Binding Position}"></Label>
 
-
+                                    <Button
+                                        Margin="0,0,0,0"
+                                        Text="Request"
+                                        BackgroundColor="#1F2024"
+                                        WidthRequest="100"
+                                        VerticalOptions="End"
+                                        HorizontalOptions="End"
+                                        TextColor="WhiteSmoke"></Button>
+                                </StackLayout>
                             </Grid>
                         </Frame>
                     </DataTemplate>
