@@ -8,7 +8,7 @@
              xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common" 
              Title="account.Location.SetLocation">
 
-    <!--   <ContentPage.Resources>
+       <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <styles:AppStyles></styles:AppStyles>
@@ -35,5 +35,5 @@
             <ActivityIndicator Grid.Row="1" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
             <Button Grid.Row="2" Text="{translate:Translate account.register.title}" Command="{Binding SubmitCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
         </Grid>
-    </ContentPage.Content>-->
+    </ContentPage.Content>
 </ContentPage>
