@@ -1,6 +1,6 @@
 ﻿namespace shellXamarin.Module.ElLa3eba.DataServices.Dto
 {
-    public class CityDto
+    public class StateDto
     {
         public string Id { get; set; }
 

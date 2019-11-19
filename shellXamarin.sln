@@ -6,25 +6,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shellXamarin.Android", "she
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shellXamarin.iOS", "shellXamarin.iOS\shellXamarin.iOS.csproj", "{1A47BE15-AC59-41B8-89F3-35C0B0DAB12D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shellXamarin", "shellXamarin\shellXamarin.csproj", "{42D99B98-7E17-429D-AD52-C91503647293}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shellXamarin", "shellXamarin\shellXamarin.csproj", "{42D99B98-7E17-429D-AD52-C91503647293}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Module", "Module", "{19C7EAC8-3408-45E5-88B5-AAEA1CE72019}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shellXamarin.Module.Home", "Module\shellXamarin.Module.Home\shellXamarin.Module.Home.csproj", "{5F2A599E-E2E0-45F0-803B-F82FD8A60538}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shellXamarin.Module.Home", "Module\shellXamarin.Module.Home\shellXamarin.Module.Home.csproj", "{5F2A599E-E2E0-45F0-803B-F82FD8A60538}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shellXamarin.Module.Startup", "Module\shellXamarin.Module.Startup\shellXamarin.Module.Startup.csproj", "{9C848A1E-E8A4-404E-946D-CFEA218A34BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shellXamarin.Module.Startup", "Module\shellXamarin.Module.Startup\shellXamarin.Module.Startup.csproj", "{9C848A1E-E8A4-404E-946D-CFEA218A34BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shellXamarin.Module.Settings", "Module\shellXamarin.Module.Settings\shellXamarin.Module.Settings.csproj", "{CF1921AA-9683-4780-95B9-CCAB079FB6F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shellXamarin.Module.Settings", "Module\shellXamarin.Module.Settings\shellXamarin.Module.Settings.csproj", "{CF1921AA-9683-4780-95B9-CCAB079FB6F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shellXamarin.Module.Account", "Module\shellXamarin.Module.Account\shellXamarin.Module.Account.csproj", "{8F3F776D-1846-4C2D-BEFD-BDDE14BD0175}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shellXamarin.Module.Account", "Module\shellXamarin.Module.Account\shellXamarin.Module.Account.csproj", "{8F3F776D-1846-4C2D-BEFD-BDDE14BD0175}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shellXamarin.Module.Navigation", "Module\shellXamarin.Module.Navigation\shellXamarin.Module.Navigation.csproj", "{87E68C74-9360-41FA-82B2-3F2C1D9FEA57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shellXamarin.Module.Navigation", "Module\shellXamarin.Module.Navigation\shellXamarin.Module.Navigation.csproj", "{87E68C74-9360-41FA-82B2-3F2C1D9FEA57}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Module.Tests", "Module.Tests", "{88332679-2EC6-4FD3-B577-A58A76D48281}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shellXamarin.Module.ElLa3eba", "Module\shellXamarin.Module.ElLa3eba\shellXamarin.Module.ElLa3eba.csproj", "{77E6EDAA-7B39-4DBB-A8F6-B0603C6304EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shellXamarin.Module.ElLa3eba", "Module\shellXamarin.Module.ElLa3eba\shellXamarin.Module.ElLa3eba.csproj", "{77E6EDAA-7B39-4DBB-A8F6-B0603C6304EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shellXamarin.Module.ECommerce", "Module\shellXamarin.Module.ECommerce\shellXamarin.Module.ECommerce.csproj", "{992EB3C7-3DD1-4F7E-9F88-0C3EB14C7EDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shellXamarin.Module.ECommerce", "Module\shellXamarin.Module.ECommerce\shellXamarin.Module.ECommerce.csproj", "{992EB3C7-3DD1-4F7E-9F88-0C3EB14C7EDB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shellXamarin.Module.Tests.Account", "Module.Tests\shellXamarin.Module.Tests.Account\shellXamarin.Module.Tests.Account.csproj", "{3C9629AF-7513-45E6-8E5D-212403A711A8}"
 EndProject
@@ -34,7 +34,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shellXamarin.Module.Tests.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shellXamarin.Windows", "shellXamarin.Windows\shellXamarin.Windows.csproj", "{534ED438-A540-4809-8326-1C03105CD63D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shellXamarin.Module.Common", "Module\shellXamarin.Module.Common\shellXamarin.Module.Common.csproj", "{2E94B62C-F066-449D-A5A3-A554E87739FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shellXamarin.Module.Common", "Module\shellXamarin.Module.Common\shellXamarin.Module.Common.csproj", "{2E94B62C-F066-449D-A5A3-A554E87739FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +56,7 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{0331BF2F-30CF-4F28-8070-129F95C52C93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0331BF2F-30CF-4F28-8070-129F95C52C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0331BF2F-30CF-4F28-8070-129F95C52C93}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{0331BF2F-30CF-4F28-8070-129F95C52C93}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{0331BF2F-30CF-4F28-8070-129F95C52C93}.Debug|ARM.Build.0 = Debug|Any CPU
 		{0331BF2F-30CF-4F28-8070-129F95C52C93}.Debug|ARM.Deploy.0 = Debug|Any CPU
@@ -450,6 +451,32 @@ Global
 		{534ED438-A540-4809-8326-1C03105CD63D}.Release|x86.Deploy.0 = Release|x86
 		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Debug|ARM.Build.0 = Debug|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Debug|x64.Build.0 = Debug|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Debug|x86.Build.0 = Debug|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Release|ARM.ActiveCfg = Release|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Release|ARM.Build.0 = Release|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Release|ARM64.Build.0 = Release|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Release|iPhone.Build.0 = Release|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Release|x64.ActiveCfg = Release|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Release|x64.Build.0 = Release|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Release|x86.ActiveCfg = Release|Any CPU
+		{2E94B62C-F066-449D-A5A3-A554E87739FB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -67,6 +67,11 @@
         <Setter Property="BackgroundColor" Value="{DynamicResource ListBackgroundColor}" />
     </Style>
 
+    <!-- List Styles -->
+    <Style x:Key="CollectionViewStyle" TargetType="CollectionView">
+        <Setter Property="BackgroundColor" Value="{DynamicResource ListBackgroundColor}" />
+    </Style>
+
 
     <!-- BUTTONS Styles -->
     <Style x:Key="BaseButtonStyle" TargetType="Button">

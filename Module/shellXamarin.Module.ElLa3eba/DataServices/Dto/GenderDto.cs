@@ -1,4 +1,4 @@
-﻿namespace shellXamarin.Module.Account.DataServices.Dto
+﻿namespace shellXamarin.Module.ElLa3eba.DataServices.Dto
 {
     public class GenderDto
     {
