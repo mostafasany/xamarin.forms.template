@@ -6,16 +6,10 @@
 
   <ItemGroup>
     <Compile Remove="Class1.cs" />
-    <Compile Remove="DataServices\Dto\CityDto.cs" />
-    <Compile Remove="DataServices\Dto\GenderDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
-    <Folder Include="Models\" />
-    <Folder Include="BuisnessServices\" />
-    <Folder Include="DataServices\" />
-    <Folder Include="DataServices\Dto\" />
     <Folder Include="Templates\" />
     <Folder Include="Converter\" />
   </ItemGroup>

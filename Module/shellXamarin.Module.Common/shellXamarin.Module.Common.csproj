@@ -27,7 +27,6 @@
     <Folder Include="Services\DatabaseService\" />
     <Folder Include="Assets\Database\" />
     <Folder Include="Database\" />
-    <Folder Include="Assets\Mocks\" />
     <Folder Include="Services\ResourceService\" />
     <Folder Include="Behaviors\" />
     <Folder Include="Converters\" />
@@ -48,6 +47,12 @@
     <EmbeddedResource Include="Assets\addresses.svg" />
     <EmbeddedResource Include="Assets\heart.svg" />
     <EmbeddedResource Include="Assets\home.svg" />
+    <EmbeddedResource Include="Assets\Mocks\ar\states.json" />
+    <EmbeddedResource Include="Assets\Mocks\ar\countries.json" />
+    <EmbeddedResource Include="Assets\Mocks\de\states.json" />
+    <EmbeddedResource Include="Assets\Mocks\de\countries.json" />
+    <EmbeddedResource Include="Assets\Mocks\en\countries.json" />
+    <EmbeddedResource Include="Assets\Mocks\en\states.json" />
     <EmbeddedResource Include="Assets\profile.svg" />
     <EmbeddedResource Include="Assets\login.svg" />
     <EmbeddedResource Include="Assets\myaccount.svg" />
@@ -123,6 +128,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Assets\Mocks\ar\countries.json" />
+    <None Remove="Assets\Mocks\ar\states.json" />
+    <None Remove="Assets\Mocks\de\countries.json" />
+    <None Remove="Assets\Mocks\de\states.json" />
+    <None Remove="Assets\Mocks\en\countries.json" />
+    <None Remove="Assets\Mocks\en\states.json" />
     <None Remove="Themes\AppMainTheme.xaml" />
     <None Remove="Assets\andreas_Bureau_de_change.svg" />
     <None Remove="Assets\exit.svg" />
