@@ -34,7 +34,7 @@
                     VerticalOptions="FillAndExpand"
                     TextColor="Black"
                     BackgroundColor="WhiteSmoke"
-                    Command="{Binding BecomePlayerCommand}"></Button>
+                    Command="{Binding FilterPlayerCommand}"></Button>
                 <BoxView
                     WidthRequest="2"
                     Margin="0,5,0,0"
@@ -48,7 +48,7 @@
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="FillAndExpand"
                     TextColor="Black"
-                    Command="{Binding BecomePlayerCommand}"></Button>
+                    Command="{Binding FilterTeamCommand}"></Button>
             </Grid>
             <BoxView
                 HeightRequest="2"

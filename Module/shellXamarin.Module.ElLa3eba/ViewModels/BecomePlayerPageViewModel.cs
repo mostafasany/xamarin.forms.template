@@ -17,13 +17,13 @@ namespace shellXamarin.Module.ElLa3eba.ViewModels
 {
     public class BecomePlayerPageViewModel : BaseViewModel
     {
-        private readonly TeamService TeamService;
+        private readonly TeamService _TeamService;
         public BecomePlayerPageViewModel(INavigationService _navigationService, IEventBusService eventBusService,
-            ILanguageService languageService, IExceptionService exceptionService, TeamService _TeamService)
+            ILanguageService languageService, IExceptionService exceptionService, TeamService teamService)
             : base(languageService, eventBusService, exceptionService)
         {
             NavigationService = _navigationService;
-            TeamService = _TeamService;
+            _TeamService = teamService;
 
             _ = LoadTeams();
         }
@@ -44,7 +44,7 @@ namespace shellXamarin.Module.ElLa3eba.ViewModels
         {
             try
             {
-                Teams = await TeamService.GetTeamsAsync();
+                Teams = await _TeamService.GetTeamsAsync();
 
             }
             catch (Exception ex)
@@ -75,8 +75,8 @@ namespace shellXamarin.Module.ElLa3eba.ViewModels
         #endregion
 
         #region Commands
-        public DelegateCommand BecomePlayerCommand => new DelegateCommand(filterByPosition);
-        public DelegateCommand BecomeManagerCommand => new DelegateCommand(filterByTeam);
+        public DelegateCommand FilterPlayerCommand => new DelegateCommand(filterByPosition);
+        public DelegateCommand FilterTeamCommand => new DelegateCommand(filterByTeam);
         public DelegateCommand OnIntialize => new DelegateCommand(initialize);
         #endregion
     }

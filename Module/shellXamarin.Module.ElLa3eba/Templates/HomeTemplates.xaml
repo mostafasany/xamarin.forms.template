@@ -22,6 +22,7 @@
                     <ColumnDefinition
                         Width="*" />
                 </Grid.ColumnDefinitions>
+
                 <Frame
                     x:Name="PlayerFrame"
                     Margin="0,10,0,10"
@@ -29,11 +30,10 @@
                     OutlineColor="Gray"
                     Padding="0"
                     Grid.Column="0">
-                    <Frame.GestureRecognizers>
+                    <!--<Frame.GestureRecognizers>
                         <TapGestureRecognizer
-                            Tapped="OnPlayerTapGestureRecognizerTapped"
-                            NumberOfTapsRequired="1"></TapGestureRecognizer>
-                    </Frame.GestureRecognizers>
+                            Command="{Binding Path=Parent.Parent.Parent.BindingContext.BecomePlayerCommand ,Source={x:Reference PlayerFrame}}"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>-->
                     <StackLayout
                         Margin="0,5,0,0">
 
@@ -47,7 +47,8 @@
                             Text="Become A player"
                             HorizontalOptions="Center"
                             TextColor="Black"
-                            Command="{Binding BecomePlayerCommand}"></Button>
+                            Command="{Binding Source={x:Reference PlayerFrame},Path=Parent.Parent.Parent.BindingContext.BecomePlayerCommand}"
+                            BindingContext="{Binding BecomePlayerPageViewModel}"></Button>
                     </StackLayout>
                 </Frame>
                 <Frame
@@ -59,7 +60,7 @@
                     Grid.Column="1">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer
-                            Tapped="OnManagerTapGestureRecognizerTapped"
+                            Command="{Binding Parent.Parent.Parent.BindingContext.BecomeManagerCommand }"
                             NumberOfTapsRequired="1"></TapGestureRecognizer>
                     </Frame.GestureRecognizers>
                     <StackLayout
@@ -74,7 +75,7 @@
                         <Button
                             Text="Become A Manager"
                             TextColor="Black"
-                            Command="{Binding BecomeManagerCommand}"
+                            Command="{Binding Parent.Parent.Parent.BindingContext.BecomeManagerCommand }"
                             HorizontalOptions="Center"></Button>
 
                     </StackLayout>
