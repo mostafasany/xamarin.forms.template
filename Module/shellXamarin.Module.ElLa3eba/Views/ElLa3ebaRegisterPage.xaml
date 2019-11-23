@@ -1,5 +1,37 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.ElLa3eba.Views.ElLa3ebaRegisterPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             FlowDirection="{Binding FlowDirection}"
+             x:Class="shellXamarin.Module.ElLa3eba.Views.ElLa3ebaRegisterPage"
+             xmlns:selectors="clr-namespace:shellXamarin.Module.Common.Views;assembly=shellXamarin.Module.Common"
+             xmlns:translate="clr-namespace:shellXamarin.Module.Common.i18n;assembly=shellXamarin.Module.Common"
+             xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common" 
+             Title="{translate:Translate account.register.title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <styles:AppStyles></styles:AppStyles>
+                <styles:AppTemplates></styles:AppTemplates>
+            </ResourceDictionary.MergedDictionaries>
+            <selectors:GenericFormTemplateSelector x:Key="genericFormTemplateSelector" ButtonTemplate="{StaticResource buttonTemplate}"
+                                                   SectionHeaderTemplate="{StaticResource sectionHeaderTemplate}"
+                                                   EntryTemplate="{StaticResource entryTemplate}" 
+                                                   DatePickerTemplate="{StaticResource datePickerTemplate}" 
+                                                   PickerTemplate="{StaticResource pickerTemplate}" 
+                                                   NavigationTemplate="{StaticResource navigationTemplate}" 
+                                                   CheckTemplate="{StaticResource checkTemplate}" 
+                                                   DefaultTemplate="{StaticResource defaultTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
+        <Grid Style="{StaticResource RootLayoutStyle}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <CollectionView SelectionMode="None" Style="{StaticResource ListStyle}" ItemsSource="{Binding Form.Items}" ItemTemplate="{StaticResource genericFormTemplateSelector}" />
+            <ActivityIndicator Grid.Row="1" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" Style="{StaticResource ActivityIndicatorStyle}" />
+            <Button Grid.Row="2" Text="{translate:Translate account.register.title}" Command="{Binding RegisterCommand}" Style="{StaticResource PrimaryButtonStyle}"></Button>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

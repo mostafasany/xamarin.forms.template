@@ -1,186 +1,294 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="dialog.ok" xml:space="preserve">
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="dialog.ok" xml:space="preserve">
     <value>حسنا</value>
     <comment>ok</comment>
   </data>
-    <data name="dialog.exception" xml:space="preserve">
+  <data name="dialog.exception" xml:space="preserve">
     <value>آسف للإزعاج</value>
     <comment>Sorry for the inconvenience</comment>
   </data>
-    <data name="startup.action.proceed" xml:space="preserve">
+  <data name="startup.action.proceed" xml:space="preserve">
     <value>تقدم</value>
     <comment>Proceed</comment>
   </data>
-    <data name="navigation.tab.home" xml:space="preserve">
+  <data name="navigation.tab.home" xml:space="preserve">
     <value>الصفحة الرئيسية</value>
     <comment>Home</comment>
   </data>
-    <data name="navigation.tab.settings" xml:space="preserve">
+  <data name="navigation.tab.settings" xml:space="preserve">
     <value>الإعدادات</value>
     <comment>Settings</comment>
   </data>
-    <data name="navigation.menu.logout" xml:space="preserve">
+  <data name="navigation.menu.logout" xml:space="preserve">
     <value>تسجيل خروج</value>
     <comment>Logout</comment>
   </data>
-    <data name="home.title" xml:space="preserve">
+  <data name="home.title" xml:space="preserve">
     <value>الصفحة الرئيسية</value>
     <comment>Home</comment>
   </data>
-    <data name="home.action.navigation.settings" xml:space="preserve">
+  <data name="home.action.navigation.settings" xml:space="preserve">
     <value>صفحة الإعدادات</value>
     <comment>Settings Page</comment>
   </data>
-    <data name="home.action.navigation.login" xml:space="preserve">
+  <data name="home.action.navigation.login" xml:space="preserve">
     <value>صفحة تسجيل الدخول</value>
     <comment>Login Page</comment>
   </data>
-    <data name="settings.title" xml:space="preserve">
+  <data name="settings.title" xml:space="preserve">
     <value>الإعدادات</value>
     <comment>Settings</comment>
   </data>
-    <data name="settings.action.logout" xml:space="preserve">
+  <data name="settings.action.logout" xml:space="preserve">
     <value>تسجيل خروج</value>
     <comment>Logout</comment>
   </data>
-    <data name="settings.languages.header" xml:space="preserve">
+  <data name="settings.languages.header" xml:space="preserve">
     <value>اللغات</value>
     <comment>Languages</comment>
   </data>
-    <data name="settings.themes.header" xml:space="preserve">
+  <data name="settings.themes.header" xml:space="preserve">
     <value>المواضيع</value>
     <comment>Themes</comment>
   </data>
-    <data name="account.login.title" xml:space="preserve">
+  <data name="account.login.title" xml:space="preserve">
     <value>تسجيل الدخول</value>
     <comment>Login</comment>
   </data>
-    <data name="account.register.title" xml:space="preserve">
+  <data name="account.register.title" xml:space="preserve">
     <value>تسجيل</value>
     <comment>Register</comment>
   </data>
-    <data name="account.edit.title" xml:space="preserve">
+  <data name="account.edit.title" xml:space="preserve">
     <value>تعديل</value>
     <comment>Edit</comment>
   </data>
-    <data name="account.action.login" xml:space="preserve">
+  <data name="account.action.login" xml:space="preserve">
     <value>تسجيل الدخول</value>
     <comment>Login</comment>
   </data>
-    <data name="account.action.update" xml:space="preserve">
+  <data name="account.action.update" xml:space="preserve">
     <value>تحديث</value>
     <comment>Update</comment>
   </data>
-    <data name="account.action.back" xml:space="preserve">
+  <data name="account.action.back" xml:space="preserve">
     <value>عودة</value>
     <comment>Back</comment>
   </data>
-    <data name="account.form.email.placeholder" xml:space="preserve">
+  <data name="account.form.email.placeholder" xml:space="preserve">
     <value>البريد الإلكتروني</value>
     <comment>Email</comment>
   </data>
-    <data name="account.form.cities.placeholder" xml:space="preserve">
+  <data name="account.form.cities.placeholder" xml:space="preserve">
     <value>مدن</value>
     <comment>Cities</comment>
   </data>
-    <data name="account.form.gender.placeholder" xml:space="preserve">
+  <data name="account.form.gender.placeholder" xml:space="preserve">
     <value>جنس</value>
     <comment>Gender</comment>
   </data>
-    <data name="account.form.header.personal" xml:space="preserve">
+  <data name="account.form.header.personal" xml:space="preserve">
     <value>تفاصيل شخصية</value>
     <comment>Personal Details</comment>
   </data>
-    <data name="account.form.header.location" xml:space="preserve">
+  <data name="account.form.header.location" xml:space="preserve">
     <value>موقعك</value>
     <comment>Location</comment>
   </data>
-    <data name="account.form.email.required" xml:space="preserve">
+  <data name="account.form.email.required" xml:space="preserve">
     <value>البريد الإلكتروني (مطلوب</value>
     <comment>Email Required</comment>
   </data>
-    <data name="account.form.email.invalid" xml:space="preserve">
+  <data name="account.form.email.invalid" xml:space="preserve">
     <value>البريد الإلكتروني غير صالح</value>
     <comment>Email invalid</comment>
   </data>
-    <data name="account.form.password.placeholder" xml:space="preserve">
+  <data name="account.form.password.placeholder" xml:space="preserve">
     <value>كلمه السر</value>
     <comment>Password</comment>
   </data>
-    <data name="account.form.password.required" xml:space="preserve">
+  <data name="account.form.password.required" xml:space="preserve">
     <value>كلمة المرور مطلوبة</value>
     <comment>Password Required</comment>
   </data>
-    <data name="account.form.password.invalid" xml:space="preserve">
-        <value>كلمة المرور غير صالحة</value>
-    </data>
-    <data name="account.form.invalid" xml:space="preserve">
+  <data name="account.form.password.invalid" xml:space="preserve">
+    <value>كلمة المرور غير صالحة</value>
+  </data>
+  <data name="account.form.invalid" xml:space="preserve">
     <value>البريد الإلكتروني / كلمة المرور غير صالحة</value>
     <comment>Email/Password invalid</comment>
   </data>
-    <data name="account.cancel" xml:space="preserve">
+  <data name="account.cancel" xml:space="preserve">
     <value>إلغاء</value>
     <comment>Cancel</comment>
   </data>
-    <data name="account.ok" xml:space="preserve">
+  <data name="account.ok" xml:space="preserve">
     <value>حسنا</value>
     <comment>ok</comment>
   </data>
-    <data name="account.form.firstname.placeholder" xml:space="preserve">
+  <data name="account.form.firstname.placeholder" xml:space="preserve">
     <value>الاسم الاول</value>
     <comment>First name</comment>
   </data>
-    <data name="account.form.firstname.required" xml:space="preserve">
+  <data name="account.form.firstname.required" xml:space="preserve">
     <value>الاسم الأول مطلوب</value>
     <comment>First name is requried</comment>
   </data>
-    <data name="account.form.firstname.invalid" xml:space="preserve">
+  <data name="account.form.firstname.invalid" xml:space="preserve">
     <value>الاسم الأول غير صالح</value>
     <comment>First name is invalid</comment>
   </data>
-    <data name="account.form.lastname.placeholder" xml:space="preserve">
+  <data name="account.form.lastname.placeholder" xml:space="preserve">
     <value>الكنية</value>
     <comment>Last name</comment>
   </data>
-    <data name="account.form.lastname.required" xml:space="preserve">
+  <data name="account.form.lastname.required" xml:space="preserve">
     <value>اسم العائلة مطلوب</value>
     <comment>Last name is requried</comment>
   </data>
-    <data name="account.form.lastname.invalid" xml:space="preserve">
+  <data name="account.form.lastname.invalid" xml:space="preserve">
     <value>اسم العائلة غير صالح</value>
     <comment>Last name is invalid</comment>
   </data>
-    <data name="account.form.dob.placeholder" xml:space="preserve">
+  <data name="account.form.dob.placeholder" xml:space="preserve">
     <value>تاريخ الولادة</value>
     <comment>Date of Birth</comment>
   </data>
-    <data name="account.form.dob.required" xml:space="preserve">
+  <data name="account.form.dob.required" xml:space="preserve">
     <value>تاريخ الميلاد مطلوب</value>
     <comment>Date of Birth is requried</comment>
   </data>
-    <data name="account.form.dob.invalid" xml:space="preserve">
+  <data name="account.form.dob.invalid" xml:space="preserve">
     <value>تاريخ الميلاد غير صالح</value>
     <comment>Date of Birth is invalid</comment>
   </data>
-    <data name="account.form.newsletter.placeholder" xml:space="preserve">
+  <data name="account.form.newsletter.placeholder" xml:space="preserve">
     <value>خطاب الأخبار</value>
     <comment>News letter</comment>
   </data>
-    <data name="account.form.newsletter.required" xml:space="preserve">
+  <data name="account.form.newsletter.required" xml:space="preserve">
     <value>رسالة الأخبار المطلوبة</value>
     <comment>News letter requried</comment>
+  </data>
+  <data name="account.Location.SetLocation" xml:space="preserve">
+    <value>Where would you like to Manage / Play ?</value>
   </data>
 </root>

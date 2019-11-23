@@ -304,5 +304,11 @@ namespace shellXamarin.Module.Common.Resources {
                 return ResourceManager.GetString("account.form.newsletter.required", resourceCulture);
             }
         }
+        
+        public static string account_Location_SetLocation {
+            get {
+                return ResourceManager.GetString("account.Location.SetLocation", resourceCulture);
+            }
+        }
     }
 }

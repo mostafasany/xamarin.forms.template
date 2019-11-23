@@ -9,6 +9,7 @@ using shellXamarin.Module.ElLa3eba.DataServices;
 using shellXamarin.Module.Common.Resources;
 using shellXamarin.Module.ElLa3eba.ViewModels;
 using shellXamarin.Module.ElLa3eba.Views;
+using shellXamarin.Module.ElLa3eba.BuisnessServices;
 
 namespace shellXamarin.Module.ElLa3eba
 {
@@ -24,8 +25,16 @@ namespace shellXamarin.Module.ElLa3eba
         {
             containerRegistry.Register<IPlayerDataService, PlayerDataService>();
             containerRegistry.Register<IPlayerService, PlayerService>();
+
             containerRegistry.Register<ITeamDataService, TeamDataService>();
             containerRegistry.Register<ITeamService, TeamService>();
+
+            containerRegistry.Register<IAccountDataService, AccountDataService>();
+            containerRegistry.Register<IAccountService, AccountService>();
+            containerRegistry.Register<ILocationDataService, LocationDataService>();
+            containerRegistry.Register<ILocationService, LocationService>();
+
+
             containerRegistry.RegisterForNavigation<BecomeManagerPage, BecomeManagerPageViewModel>();
             containerRegistry.RegisterForNavigation<BecomePlayerPage, BecomePlayerPageViewModel>();
             containerRegistry.RegisterForNavigation<ElLa3ebaHomePage, ElLa3ebaHomePageViewModel>();

@@ -6,7 +6,8 @@
     xmlns:controls="clr-namespace:shellXamarin.Module.Common.Controls;assembly=shellXamarin.Module.Common"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:converter="clr-namespace:shellXamarin.Module.ElLa3eba.Converter;assembly=shellXamarin.Module.ElLa3eba"
-    x:Class="shellXamarin.Module.ElLa3eba.Templates.HomeTemplates">
+    x:Class="shellXamarin.Module.ElLa3eba.Templates.HomeTemplates"
+    xmlns:prism="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms">
 
     <converter:StepsColorConverter
         x:Key="stepsToColorConverter"></converter:StepsColorConverter>
@@ -30,10 +31,10 @@
                     OutlineColor="Gray"
                     Padding="0"
                     Grid.Column="0">
-                    <!--<Frame.GestureRecognizers>
+                    <Frame.GestureRecognizers>
                         <TapGestureRecognizer
-                            Command="{Binding Path=Parent.Parent.Parent.BindingContext.BecomePlayerCommand ,Source={x:Reference PlayerFrame}}"></TapGestureRecognizer>
-                    </Frame.GestureRecognizers>-->
+                            Command="{prism:NavigateTo '../BecomePlayerPage'}"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
                     <StackLayout
                         Margin="0,5,0,0">
 
@@ -47,8 +48,7 @@
                             Text="Become A player"
                             HorizontalOptions="Center"
                             TextColor="Black"
-                            Command="{Binding Source={x:Reference PlayerFrame},Path=Parent.Parent.Parent.BindingContext.BecomePlayerCommand}"
-                            BindingContext="{Binding BecomePlayerPageViewModel}"></Button>
+                            Command="{prism:NavigateTo '../BecomePlayerPage'}"></Button>
                     </StackLayout>
                 </Frame>
                 <Frame
@@ -60,8 +60,7 @@
                     Grid.Column="1">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer
-                            Command="{Binding Parent.Parent.Parent.BindingContext.BecomeManagerCommand }"
-                            NumberOfTapsRequired="1"></TapGestureRecognizer>
+                            Command="{prism:NavigateTo '../BecomeManagerPage'}"></TapGestureRecognizer>
                     </Frame.GestureRecognizers>
                     <StackLayout
                         Margin="0,5,0,0">
@@ -75,7 +74,7 @@
                         <Button
                             Text="Become A Manager"
                             TextColor="Black"
-                            Command="{Binding Parent.Parent.Parent.BindingContext.BecomeManagerCommand }"
+                            Command="{prism:NavigateTo '../BecomeManagerPage'}"
                             HorizontalOptions="Center"></Button>
 
                     </StackLayout>

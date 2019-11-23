@@ -63,6 +63,7 @@ namespace shellXamarin.Module.Home.ViewModels
             {
                   new AppPage("Home","ElLa3ebaHomePage"),
                   new AppPage("New Account","ElLa3ebaRegisterPage"),
+                  new AppPage("Set Location","LocationSelectionPage"),
                   new AppPage("Create Team","CreateTeamPage"),
                   new AppPage("Set Fromation","SetFromationPage"),
                   new AppPage("Become Manager","BecomeManagerPage"),
