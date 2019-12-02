@@ -5,6 +5,7 @@
     xmlns:controls="clr-namespace:shellXamarin.Module.Common.Controls;assembly=shellXamarin.Module.Common"
     xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common"
     x:Class="shellXamarin.Module.ElLa3eba.Views.BecomeManagerPage"
+    FlowDirection="{Binding FlowDirection}"
     Title="Become Manager">
     <ContentPage.Resources>
         <ResourceDictionary>

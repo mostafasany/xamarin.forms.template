@@ -17,15 +17,15 @@ namespace shellXamarin.Module.ElLa3eba.ViewModels
 {
     public class BecomePlayerPageViewModel : BaseViewModel
     {
-        private readonly TeamService _TeamService;
+        private readonly ITeamService _TeamService;
         public BecomePlayerPageViewModel(INavigationService _navigationService, IEventBusService eventBusService,
-            ILanguageService languageService, IExceptionService exceptionService, TeamService teamService)
+            ILanguageService languageService, IExceptionService exceptionService, ITeamService teamService)
             : base(languageService, eventBusService, exceptionService)
         {
             NavigationService = _navigationService;
             _TeamService = teamService;
 
-            _ = LoadTeams();
+            LoadTeams();
         }
 
         #region Properties
@@ -60,7 +60,7 @@ namespace shellXamarin.Module.ElLa3eba.ViewModels
 
         private void filterByTeam()
         {
-
+            NavigationService.NavigateAsync("PositionSelectionPage");
         }
         private async void initialize()
         {

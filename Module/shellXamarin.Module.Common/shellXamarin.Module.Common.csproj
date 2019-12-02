@@ -87,6 +87,10 @@
     <EmbeddedResource Include="Assets\Player.svg" />
     <EmbeddedResource Include="Assets\Ahly.svg" />
     <EmbeddedResource Include="Assets\Mocks\Team.json" />
+    <EmbeddedResource Include="Assets\tshirt.svg" />
+    <EmbeddedResource Include="Assets\soccer-player.svg" />
+    <EmbeddedResource Include="Assets\Defence.svg" />
+    <EmbeddedResource Include="Assets\goalkeeper.svg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="Resources\AppResources.en.resx">
@@ -169,6 +173,10 @@
     <None Remove="Assets\Player.svg" />
     <None Remove="Assets\Ahly.svg" />
     <None Remove="Assets\Mocks\players %28copy%29.json" />
+    <None Remove="Assets\tshirt.svg" />
+    <None Remove="Assets\soccer-player.svg" />
+    <None Remove="Assets\Defence.svg" />
+    <None Remove="Assets\goalkeeper.svg" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Assets\exit.svg">
