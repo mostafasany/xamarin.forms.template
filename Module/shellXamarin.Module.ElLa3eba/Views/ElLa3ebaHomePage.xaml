@@ -35,6 +35,7 @@
                     Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <ListView
+                x:Name="listView"
                 SelectionMode="None"
                 Style="{StaticResource ListStyle}"
                 HasUnevenRows="True"

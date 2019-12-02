@@ -24,14 +24,14 @@ namespace shellXamarin.Module.ElLa3eba.ViewModels
             feeds.Add(new NewsFeed { Title = "Ahly won zmalek 6-1", Image = "Ahly.svg" });
             feeds.Add(new NewsFeed { Title = "Ahly won zmalek 6-1", Image = "Ahly.svg" });
             NextGameModel nextGame = new NextGameModel { Type = TypeEnum.CommingGame, MatchInfo = "England Premier Leaue,Match Week 12", FirstTeam = "Liverpool", SecondTeam = "Manchester City", Date = "10/11/2019", Time = "21:00", FirstTeamImage = "Liverpool_FC.svg", SecondTeamImage = "Manchester_City_FC.svg", Accepted = true, WaitingResponse = false };
-            NextGameModel nextGameFormation = new NextGameModel { Type = TypeEnum.CommingGame, MatchInfo = "England Premier Leaue,Match Week 12", FirstTeam = "Liverpool", SecondTeam = "Manchester City", Date = "10/11/2019", Time = "21:00", FirstTeamImage = "Liverpool_FC.svg", SecondTeamImage = "Manchester_City_FC.svg", Accepted = false, WaitingResponse = true};
+            NextGameModel nextGameFormation = new NextGameModel { Type = TypeEnum.CommingGame, MatchInfo = "England Premier Leaue,Match Week 12", FirstTeam = "Liverpool", SecondTeam = "Manchester City", Date = "10/11/2019", Time = "21:00", FirstTeamImage = "Liverpool_FC.svg", SecondTeamImage = "Manchester_City_FC.svg", Accepted = false, WaitingResponse = true };
             List<TeamRank> teamRanks = new List<TeamRank>();
             teamRanks.Add(new TeamRank { Rank = 1, Name = "Al Ahly", ScoredIn = 22, NumberOfDrawn = 0, NumberOfWin = 5, NumberOfLose = 0 });
             teamRanks.Add(new TeamRank { Rank = 2, Name = "Al Zamalek", ScoredIn = 22, NumberOfDrawn = 2, NumberOfWin = 2, NumberOfLose = 1 });
             teamRanks.Add(new TeamRank { Rank = 3, Name = "Pyramids", ScoredIn = 22, NumberOfDrawn = 1, NumberOfWin = 2, NumberOfLose = 2 });
 
             List<Step> stepsList = new List<Step>();
-            stepsList.Add(new Step { Finished = true, Name = "First Step", Image = "number.svg"  });
+            stepsList.Add(new Step { Finished = true, Name = "First Step", Image = "number.svg" });
             stepsList.Add(new Step { Finished = true, Name = "Second Step", Image = "number-2.svg" });
             stepsList.Add(new Step { Finished = true, Name = "Third Step", Image = "number-3.svg" });
             stepsList.Add(new Step { Finished = false, Name = "Fourth Step", Image = "number-4.svg" });
@@ -59,13 +59,13 @@ namespace shellXamarin.Module.ElLa3eba.ViewModels
 
         private void BecomePlayer()
         {
+            NavigationService.NavigateAsync("BecomePlayerPage");
 
         }
 
         private void BecomeManager()
         {
-
-
+            NavigationService.NavigateAsync("BecomeManagerPage");
         }
 
         private void Accept()

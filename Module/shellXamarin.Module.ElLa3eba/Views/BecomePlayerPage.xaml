@@ -1,5 +1,205 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.ElLa3eba.Views.BecomePlayerPage">
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:shellXamarin.Module.Common.Controls;assembly=shellXamarin.Module.Common"
+    xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common"
+    x:Class="shellXamarin.Module.ElLa3eba.Views.BecomePlayerPage"
+    xmlns:prism="clr-namespace:Prism.Navigation.Xaml;assembly=Prism.Forms"
+    Title="Become Player">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <styles:AppStyles></styles:AppStyles>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
+        <StackLayout
+            Orientation="Vertical"
+            BackgroundColor="#1F2024">
+            <Grid
+                VerticalOptions="Start"
+                Margin="10,10"
+                BackgroundColor="WhiteSmoke">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="*" />
+                    <ColumnDefinition
+                        Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Text="Filter By Position"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    TextColor="Black"
+                    BackgroundColor="WhiteSmoke"
+                    Command="{Binding FilterPlayerCommand}"></Button>
+                <BoxView
+                    WidthRequest="2"
+                    Margin="0,5,0,0"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="End"
+                    BackgroundColor="White" />
+                <Button
+                    BackgroundColor="WhiteSmoke"
+                    Grid.Column="1"
+                    Text="Filter By Team or league"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    TextColor="Black"
+                    Command="{Binding FilterTeamCommand}"></Button>
+            </Grid>
+            <BoxView
+                HeightRequest="2"
+                Margin="0,5,0,0"
+                BackgroundColor="Black" />
+
+            <Label
+                TextColor="White"
+                VerticalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Padding="5,10"
+                Text="Recomendation"></Label>
+            <Grid
+                Margin="10,10"
+                BackgroundColor="#1F2024">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="*"></ColumnDefinition>
+                    <ColumnDefinition
+                        Width="*"></ColumnDefinition>
+                    <ColumnDefinition
+                        Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <controls:SVGImageControl
+                    Grid.Column="0"
+                    Margin="5,0,5,0"
+                    HorizontalOptions="Fill"
+                    HeightRequest="40"
+                    VerticalOptions="Fill"
+                    LocalResourcePath="{Binding Picture}" />
+
+                <Label
+                    Grid.Column="0"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Padding="5,10"
+                    Text="Team Logo"></Label>
+                <BoxView
+                    Grid.Column="0"
+                    WidthRequest="2"
+                    Margin="0,5,0,0"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="End"
+                    BackgroundColor="Black" />
+                <Label
+                    Grid.Column="1"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Padding="5,10"
+                    Text="Team Name"></Label>
+                <BoxView
+                    Grid.Column="1"
+                    WidthRequest="2"
+                    Margin="0,5,0,0"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="End"
+                    BackgroundColor="Black" />
+
+                <Label
+                    Grid.Column="2"
+                    TextColor="White"
+                    Margin="5,10"
+                    HeightRequest="40"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="Position">
+                    <Label.GestureRecognizers>
+
+                    </Label.GestureRecognizers>
+                </Label>
+
+
+
+            </Grid>
+            <CollectionView
+                Grid.Row="3"
+                Style="{StaticResource ListStyle}"
+                ItemsSource="{Binding Teams}"
+                BackgroundColor="#1F2024">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            BackgroundColor="#21272E"
+                            Margin="10,20,10,10">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{prism:NavigateTo '../PositionSelectionPage'}"></TapGestureRecognizer>
+                            </Frame.GestureRecognizers>
+                            <Grid
+                                Margin="10,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition
+                                        Width="40"></ColumnDefinition>
+                                    <ColumnDefinition
+                                        Width="*"></ColumnDefinition>
+
+                                    <ColumnDefinition
+                                        Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <controls:SVGImageControl
+                                    Grid.Column="0"
+                                    Margin="5,0,5,0"
+                                    HorizontalOptions="Fill"
+                                    HeightRequest="40"
+                                    VerticalOptions="Fill"
+                                    LocalResourcePath="{Binding Picture}" />
+                                <StackLayout
+                                    Grid.Column="1"
+                                    VerticalOptions="Center">
+                                    <Label
+                                        TextColor="White"
+                                        VerticalOptions="End"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Name}"></Label>
+                                    <Label
+                                        TextColor="White"
+                                        VerticalOptions="Center"
+                                        HorizontalTextAlignment="Center"
+                                        FontSize="13"
+                                        Padding="5,10"
+                                        Text="{Binding League}"></Label>
+                                </StackLayout>
+                                <StackLayout
+                                    Grid.Column="2"
+                                    VerticalOptions="Center">
+                                    <Label
+                                        TextColor="White"
+                                        Margin="5,5,10,0"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                        HorizontalTextAlignment="Start"
+                                        Text="{Binding Position}"></Label>
+
+                                    <Button
+                                        Margin="0,0,0,0"
+                                        Text="Request"
+                                        BackgroundColor="#1F2024"
+                                        WidthRequest="100"
+                                        VerticalOptions="End"
+                                        HorizontalOptions="End"
+                                        TextColor="WhiteSmoke"></Button>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

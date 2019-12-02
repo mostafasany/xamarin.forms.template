@@ -1,5 +1,109 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="shellXamarin.Module.ElLa3eba.Views.PositionSelectionPage">
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:shellXamarin.Module.Common.Controls;assembly=shellXamarin.Module.Common"
+    FlowDirection="{Binding FlowDirection}"
+    xmlns:styles="clr-namespace:shellXamarin.Module.Common.Styles;assembly=shellXamarin.Module.Common"
+    Title="Position"
+    x:Class="shellXamarin.Module.ElLa3eba.Views.PositionSelectionPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <styles:AppStyles></styles:AppStyles>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
+        <CollectionView
+            Style="{StaticResource ListStyle}"
+            ItemsSource="{Binding Positions}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame
+                        BackgroundColor="#21272E"
+                        Margin="10,20,10,10">
+
+                        <Grid
+                            Margin="10,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+                                    Width="40"></ColumnDefinition>
+                                <ColumnDefinition
+                                    Width="*"></ColumnDefinition>
+
+                                <ColumnDefinition
+                                    Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <controls:SVGImageControl
+                                Grid.Column="0"
+                                Margin="5,0,5,0"
+                                HorizontalOptions="Fill"
+                                HeightRequest="40"
+                                VerticalOptions="Fill"
+                                LocalResourcePath="{Binding Picture}" />
+                            <StackLayout
+                                Grid.Column="1"
+                                VerticalOptions="Center">
+                                <Label
+                                    TextColor="White"
+                                    VerticalOptions="End"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding PositionNName}"></Label>
+
+                            </StackLayout>
+                            <StackLayout
+                                Grid.Column="2"
+                                VerticalOptions="Center">
+
+                                <CheckBox
+                                    Grid.Column="2"
+                                    Color="WhiteSmoke"
+                                    IsChecked="{Binding Checked}">
+                                </CheckBox>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                    <!--<Frame
+                        BackgroundColor="#21272E"
+                        Margin="10,20,10,10">
+
+                        <Grid
+                            Margin="10,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+                                    Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition
+                                    Width="*"></ColumnDefinition>
+
+                                <ColumnDefinition
+                                    Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout
+                                Grid.Column="0"
+                                VerticalOptions="Center">
+                                <Label
+                                    TextColor="White"
+                                    VerticalOptions="End"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding PositionNName}"></Label>
+
+                            </StackLayout>
+                            <StackLayout
+                                Grid.Column="2"
+                                VerticalOptions="Center">
+
+
+                                <CheckBox
+                                    Grid.Column="2"
+                                    IsChecked="{Binding Checked}">
+                                </CheckBox>
+                            </StackLayout>
+                        </Grid>
+                    </Frame>-->
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </ContentPage.Content>
 </ContentPage>
