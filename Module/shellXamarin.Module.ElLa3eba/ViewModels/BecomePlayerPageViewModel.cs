@@ -60,7 +60,6 @@ namespace shellXamarin.Module.ElLa3eba.ViewModels
 
         private void filterByTeam()
         {
-            NavigationService.NavigateAsync("PositionSelectionPage");
         }
         private async void initialize()
         {
